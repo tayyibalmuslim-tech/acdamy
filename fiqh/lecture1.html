@@ -3,15 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>المحاضرة 1 | الفقه — أخصر المختصرات</title>
+<title>شرح محاضرة الفقه — مقدمات أصول الفقه وكتاب الطهارة</title>
 <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
-<!--
-  LECTURE_STATUS: EMPTY
-  هذا الملف محاضرة فارغة بانتظار التعبئة.
-  عند إضافة محتوى حقيقي، غيّر التعليق أعلاه إلى LECTURE_STATUS: FILLED
-  حتى تتعرف عليه صفحة الفئة (index.html) كمحاضرة مكتملة ويزيد العداد تلقائيًا.
--->
-<meta name="lecture-status" content="empty">
 <style>
   :root {
     --gold: #C5A55A;
@@ -27,101 +20,1983 @@
     --border-soft: #E5D5BF;
     --text-main: #2C1E10;
     --text-secondary: #6B5744;
+    --quran-bg: #FFFDF5;
+    --hadith-bg: #F5F9F7;
     --shadow-soft: 0 2px 20px rgba(58, 42, 26, 0.08);
     --shadow-card: 0 4px 24px rgba(58, 42, 26, 0.1);
   }
+
   * { margin: 0; padding: 0; box-sizing: border-box; }
+
   body {
     font-family: 'Cairo', sans-serif;
     background: var(--ivory);
     color: var(--text-main);
-    line-height: 1.9;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
+    line-height: 2;
+    font-size: 17px;
   }
+
+  /* ===== HEADER ===== */
   .header {
     background: linear-gradient(160deg, var(--brown-deep) 0%, var(--brown-mid) 60%, var(--brown-warm) 100%);
     color: var(--ivory);
-    padding: 40px 24px;
+    padding: 60px 24px 50px;
     text-align: center;
+    position: relative;
+    overflow: hidden;
   }
-  .breadcrumb {
-    font-size: 13px;
+
+  .header::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23C5A55A' fill-opacity='0.06'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    opacity: 1;
+  }
+
+  .header-content { position: relative; z-index: 1; max-width: 800px; margin: 0 auto; }
+
+  .bismillah {
+    font-family: 'Amiri', serif;
+    font-size: 28px;
     color: var(--gold-light);
-    margin-bottom: 14px;
-    opacity: 0.85;
+    margin-bottom: 20px;
+    opacity: 0.9;
   }
-  .breadcrumb a { color: var(--gold-light); text-decoration: none; }
-  .breadcrumb a:hover { text-decoration: underline; }
+
   .header h1 {
     font-family: 'Amiri', serif;
-    font-size: clamp(24px, 5vw, 34px);
+    font-size: clamp(28px, 5vw, 42px);
+    font-weight: 700;
+    line-height: 1.5;
+    margin-bottom: 12px;
   }
-  main {
-    flex: 1;
+
+  .header .subtitle {
+    font-size: 17px;
+    color: var(--gold-light);
+    font-weight: 300;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.8;
+  }
+
+  .gold-divider {
+    width: 80px;
+    height: 2px;
+    background: var(--gold);
+    margin: 20px auto;
+    border-radius: 1px;
+  }
+
+  /* ===== NAVIGATION ===== */
+  .toc {
+    background: white;
+    max-width: 900px;
+    margin: -30px auto 40px;
+    border-radius: 16px;
+    padding: 32px 36px;
+    box-shadow: var(--shadow-card);
+    position: relative;
+    z-index: 2;
+    border: 1px solid var(--border-soft);
+  }
+
+  .toc-title {
+    font-family: 'Amiri', serif;
+    font-size: 22px;
+    color: var(--green-islamic);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .toc-title::before {
+    content: '📑';
+    font-size: 20px;
+  }
+
+  .toc-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 8px;
+  }
+
+  .toc-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 14px;
+    border-radius: 10px;
+    text-decoration: none;
+    color: var(--text-main);
+    transition: all 0.2s;
+    font-size: 15px;
+  }
+
+  .toc-item:hover {
+    background: var(--green-light);
+    color: var(--green-islamic);
+  }
+
+  .toc-num {
+    width: 28px;
+    height: 28px;
+    background: var(--green-light);
+    color: var(--green-islamic);
+    border-radius: 8px;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 60px 24px;
+    font-size: 13px;
+    font-weight: 700;
+    flex-shrink: 0;
   }
-  .empty-card {
-    max-width: 520px;
-    text-align: center;
+
+  /* ===== MAIN CONTENT ===== */
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 24px 80px;
+  }
+
+  .section {
     background: white;
-    border: 1px dashed var(--border-soft);
+    border-radius: 16px;
+    padding: 36px 40px;
+    margin-bottom: 28px;
+    box-shadow: var(--shadow-soft);
+    border: 1px solid var(--border-soft);
+  }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 2px solid var(--gold-light);
+  }
+
+  .section-icon {
+    width: 48px;
+    height: 48px;
+    background: linear-gradient(135deg, var(--green-islamic), var(--green-accent));
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    flex-shrink: 0;
+  }
+
+  .section h2 {
+    font-family: 'Amiri', serif;
+    font-size: 24px;
+    color: var(--brown-deep);
+    line-height: 1.6;
+  }
+
+  .section h3 {
+    font-family: 'Amiri', serif;
+    font-size: 20px;
+    color: var(--green-islamic);
+    margin: 28px 0 12px;
+    padding-right: 14px;
+    border-right: 3px solid var(--gold);
+  }
+
+  .section p {
+    margin-bottom: 14px;
+    line-height: 2.1;
+    color: var(--text-main);
+  }
+
+  /* ===== SPECIAL BLOCKS ===== */
+  .quran-verse {
+    background: var(--quran-bg);
+    border: 1px solid var(--gold-light);
+    border-right: 4px solid var(--gold);
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin: 16px 0;
+    font-family: 'Amiri', serif;
+    font-size: 20px;
+    line-height: 2.2;
+    color: var(--brown-deep);
+    text-align: center;
+  }
+
+  .quran-verse .ref {
+    display: block;
+    font-family: 'Cairo', sans-serif;
+    font-size: 13px;
+    color: var(--text-secondary);
+    margin-top: 8px;
+    font-weight: 600;
+  }
+
+  .hadith {
+    background: var(--hadith-bg);
+    border: 1px solid #C5E0D5;
+    border-right: 4px solid var(--green-islamic);
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin: 16px 0;
+    font-family: 'Amiri', serif;
+    font-size: 19px;
+    line-height: 2.2;
+    color: var(--brown-deep);
+  }
+
+  .hadith .ref {
+    display: block;
+    font-family: 'Cairo', sans-serif;
+    font-size: 13px;
+    color: var(--text-secondary);
+    margin-top: 8px;
+    font-weight: 600;
+  }
+
+  .definition-box {
+    background: linear-gradient(135deg, #FDF8EE, #FFF5E0);
+    border: 1px solid var(--gold-light);
+    border-radius: 14px;
+    padding: 24px 28px;
+    margin: 18px 0;
+    position: relative;
+  }
+
+  .definition-box::before {
+    content: 'تعريف';
+    position: absolute;
+    top: -12px;
+    right: 20px;
+    background: var(--gold);
+    color: white;
+    padding: 2px 16px;
     border-radius: 20px;
-    padding: 50px 36px;
+    font-size: 13px;
+    font-weight: 700;
+  }
+
+  .definition-box .term {
+    font-family: 'Amiri', serif;
+    font-size: 20px;
+    color: var(--brown-deep);
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+
+  .key-point {
+    background: var(--green-light);
+    border: 1px solid #B8DFC9;
+    border-radius: 12px;
+    padding: 18px 22px;
+    margin: 16px 0;
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+  }
+
+  .key-point::before {
+    content: '💡';
+    font-size: 20px;
+    flex-shrink: 0;
+    margin-top: 4px;
+  }
+
+  .warning-box {
+    background: #FFF5F0;
+    border: 1px solid #F0D0C0;
+    border-right: 4px solid #D97757;
+    border-radius: 12px;
+    padding: 18px 22px;
+    margin: 16px 0;
+  }
+
+  .warning-box .label {
+    color: #B8532F;
+    font-weight: 700;
+    font-size: 15px;
+    margin-bottom: 4px;
+  }
+
+  /* ===== COMPARISON TABLE ===== */
+  .comparison-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin: 20px 0;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--border-soft);
+    font-size: 15px;
+  }
+
+  .comparison-table th {
+    background: var(--brown-deep);
+    color: var(--ivory);
+    padding: 14px 18px;
+    font-weight: 600;
+    font-size: 15px;
+    text-align: right;
+  }
+
+  .comparison-table td {
+    padding: 14px 18px;
+    border-bottom: 1px solid var(--border-soft);
+    line-height: 1.8;
+    vertical-align: top;
+  }
+
+  .comparison-table tr:nth-child(even) td { background: #FDFAF5; }
+  .comparison-table tr:last-child td { border-bottom: none; }
+
+  /* ===== DIAGRAM CARDS ===== */
+  .diagram-flow {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+    margin: 24px 0;
+  }
+
+  .flow-card {
+    background: white;
+    border: 2px solid var(--gold-light);
+    border-radius: 14px;
+    padding: 18px 22px;
+    text-align: center;
+    min-width: 140px;
+    flex: 1;
+    max-width: 200px;
+    transition: transform 0.2s;
+  }
+
+  .flow-card:hover { transform: translateY(-3px); }
+
+  .flow-card .num {
+    width: 32px;
+    height: 32px;
+    background: var(--green-islamic);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 14px;
+    margin: 0 auto 8px;
+  }
+
+  .flow-card .label {
+    font-weight: 700;
+    font-size: 16px;
+    color: var(--brown-deep);
+    margin-bottom: 4px;
+  }
+
+  .flow-card .desc {
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+
+  /* ===== RULING CARDS ===== */
+  .rulings-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 12px;
+    margin: 20px 0;
+  }
+
+  .ruling-card {
+    background: white;
+    border-radius: 12px;
+    padding: 20px 16px;
+    text-align: center;
+    border: 2px solid var(--border-soft);
+    transition: all 0.2s;
+  }
+
+  .ruling-card:hover {
+    border-color: var(--green-islamic);
     box-shadow: var(--shadow-soft);
   }
-  .empty-icon { font-size: 48px; margin-bottom: 18px; opacity: 0.6; }
-  .empty-card h2 {
+
+  .ruling-card .emoji { font-size: 28px; margin-bottom: 8px; }
+
+  .ruling-card .name {
     font-family: 'Amiri', serif;
+    font-size: 18px;
+    font-weight: 700;
     color: var(--brown-deep);
+    margin-bottom: 4px;
+  }
+
+  .ruling-card .detail {
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+
+  /* ===== WATER SECTION ===== */
+  .water-card {
+    border-radius: 14px;
+    padding: 24px 28px;
+    margin: 16px 0;
+    border-width: 2px;
+    border-style: solid;
+  }
+
+  .water-card.tahur {
+    background: linear-gradient(135deg, #E8F5EE, #F0FFF5);
+    border-color: #8ECFAC;
+  }
+
+  .water-card.tahir {
+    background: linear-gradient(135deg, #FFF8EC, #FFFDF5);
+    border-color: var(--gold-light);
+  }
+
+  .water-card.najs {
+    background: linear-gradient(135deg, #FFF0F0, #FFF5F5);
+    border-color: #E8B0B0;
+  }
+
+  .water-card .water-title {
+    font-family: 'Amiri', serif;
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .water-card.tahur .water-title { color: var(--green-islamic); }
+  .water-card.tahir .water-title { color: #A07820; }
+  .water-card.najs .water-title { color: #A03030; }
+
+  /* ===== FOOTER ===== */
+  .footer {
+    text-align: center;
+    padding: 40px 24px;
+    background: var(--brown-deep);
+    color: var(--gold-light);
+    font-size: 15px;
+    line-height: 2;
+  }
+
+  .footer .dua {
+    font-family: 'Amiri', serif;
     font-size: 22px;
     margin-bottom: 12px;
+    color: var(--gold);
   }
-  .empty-card p {
-    color: var(--text-secondary);
+
+  /* ===== RESPONSIVE ===== */
+  /* ===== QUIZ STYLES ===== */
+  .quiz-launch-wrapper {
+    text-align: center;
+    padding: 40px 24px;
+  }
+
+  .quiz-launch-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: linear-gradient(135deg, var(--green-islamic), #247A58);
+    color: white;
+    border: none;
+    padding: 18px 44px;
+    border-radius: 16px;
+    font-family: 'Cairo', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 6px 24px rgba(27, 107, 74, 0.35);
+  }
+
+  .quiz-launch-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 32px rgba(27, 107, 74, 0.45);
+  }
+
+  .quiz-launch-btn:active { transform: translateY(0); }
+
+  .quiz-launch-btn .btn-icon { font-size: 26px; }
+
+  .quiz-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(42, 30, 16, 0.6);
+    backdrop-filter: blur(6px);
+    z-index: 1000;
+    overflow-y: auto;
+    padding: 20px;
+  }
+
+  .quiz-overlay.active { display: flex; justify-content: center; align-items: flex-start; }
+
+  .quiz-container {
+    background: var(--ivory);
+    border-radius: 20px;
+    max-width: 860px;
+    width: 100%;
+    margin: 20px auto;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    overflow: hidden;
+  }
+
+  .quiz-header {
+    background: linear-gradient(135deg, var(--brown-deep), var(--brown-mid));
+    color: var(--ivory);
+    padding: 28px 32px;
+    text-align: center;
+  }
+
+  .quiz-header h2 {
+    font-family: 'Amiri', serif;
+    font-size: 26px;
+    margin-bottom: 6px;
+  }
+
+  .quiz-header .quiz-meta {
+    font-size: 14px;
+    color: var(--gold-light);
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .quiz-progress-bar {
+    height: 5px;
+    background: rgba(255,255,255,0.15);
+    position: relative;
+  }
+
+  .quiz-progress-fill {
+    height: 100%;
+    background: var(--gold);
+    transition: width 0.4s ease;
+    border-radius: 0 3px 3px 0;
+  }
+
+  .quiz-body { padding: 28px 32px; }
+
+  .q-card {
+    background: white;
+    border-radius: 14px;
+    padding: 24px 28px;
+    margin-bottom: 24px;
+    border: 1px solid var(--border-soft);
+    box-shadow: var(--shadow-soft);
+    transition: border-color 0.3s;
+  }
+
+  .q-card.correct-highlight { border-color: #2ECC71; background: #F0FFF5; }
+  .q-card.wrong-highlight { border-color: #E74C3C; background: #FFF5F5; }
+
+  .q-number {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    font-weight: 700;
+    color: white;
+    padding: 4px 14px;
+    border-radius: 20px;
+    margin-bottom: 12px;
+  }
+
+  .q-number.mcq { background: var(--green-islamic); }
+  .q-number.tf { background: #2980B9; }
+  .q-number.essay { background: var(--brown-warm); }
+
+  .q-text {
+    font-family: 'Amiri', serif;
+    font-size: 19px;
+    line-height: 2;
+    color: var(--brown-deep);
+    margin-bottom: 16px;
+  }
+
+  .q-difficulty {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 2px 10px;
+    border-radius: 10px;
+    margin-right: 8px;
+    vertical-align: middle;
+  }
+
+  .q-difficulty.medium { background: #FFF3CD; color: #856404; }
+  .q-difficulty.hard { background: #FFE0CC; color: #A84300; }
+  .q-difficulty.very-hard { background: #F8D7DA; color: #842029; }
+
+  .q-options { display: flex; flex-direction: column; gap: 8px; }
+
+  .q-option {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 18px;
+    border: 2px solid var(--border-soft);
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 16px;
+    line-height: 1.8;
+    background: white;
+  }
+
+  .q-option:hover { border-color: var(--green-accent); background: var(--green-light); }
+
+  .q-option.selected {
+    border-color: var(--green-islamic);
+    background: var(--green-light);
+    font-weight: 600;
+  }
+
+  .q-option.correct-answer {
+    border-color: #2ECC71 !important;
+    background: #E8F8F0 !important;
+  }
+
+  .q-option.wrong-answer {
+    border-color: #E74C3C !important;
+    background: #FDEDEC !important;
+  }
+
+  .q-option .option-letter {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--green-light);
+    color: var(--green-islamic);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 14px;
+    flex-shrink: 0;
+    transition: all 0.2s;
+  }
+
+  .q-option.selected .option-letter {
+    background: var(--green-islamic);
+    color: white;
+  }
+
+  .q-option.correct-answer .option-letter { background: #2ECC71; color: white; }
+  .q-option.wrong-answer .option-letter { background: #E74C3C; color: white; }
+
+  .q-option .option-icon {
+    margin-right: auto;
+    font-size: 18px;
+    display: none;
+  }
+
+  .q-option.correct-answer .option-icon,
+  .q-option.wrong-answer .option-icon { display: block; }
+
+  .q-tf-options {
+    display: flex;
+    gap: 12px;
+  }
+
+  .q-tf-btn {
+    flex: 1;
+    padding: 14px;
+    border: 2px solid var(--border-soft);
+    border-radius: 12px;
+    background: white;
+    cursor: pointer;
+    font-family: 'Cairo', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    transition: all 0.2s;
+    text-align: center;
+  }
+
+  .q-tf-btn:hover { border-color: var(--green-accent); }
+  .q-tf-btn.selected { border-color: var(--green-islamic); background: var(--green-light); color: var(--green-islamic); }
+  .q-tf-btn.correct-answer { border-color: #2ECC71 !important; background: #E8F8F0 !important; color: #1B7A40 !important; }
+  .q-tf-btn.wrong-answer { border-color: #E74C3C !important; background: #FDEDEC !important; color: #A93226 !important; }
+
+  .q-essay-area {
+    width: 100%;
+    min-height: 120px;
+    border: 2px solid var(--border-soft);
+    border-radius: 12px;
+    padding: 16px;
+    font-family: 'Cairo', sans-serif;
+    font-size: 16px;
+    line-height: 2;
+    resize: vertical;
+    transition: border-color 0.3s;
+    direction: rtl;
+    background: white;
+  }
+
+  .q-essay-area:focus { outline: none; border-color: var(--green-islamic); }
+
+  .q-correct-box {
+    display: none;
+    margin-top: 14px;
+    padding: 14px 18px;
+    border-radius: 10px;
     font-size: 15px;
     line-height: 1.9;
   }
-  .back-link {
-    display: inline-block;
-    margin-top: 24px;
-    padding: 10px 26px;
-    background: var(--green-light);
-    color: var(--green-islamic);
-    text-decoration: none;
-    border-radius: 20px;
-    font-weight: 700;
-    font-size: 14px;
+
+  .q-correct-box.show { display: block; }
+  .q-correct-box.right { background: #E8F8F0; border: 1px solid #B8E6CC; color: #1B6B4A; }
+  .q-correct-box.wrong { background: #FDEDEC; border: 1px solid #F5C6CB; color: #842029; }
+  .q-correct-box.model { background: #EBF5FB; border: 1px solid #AED6F1; color: #1A5276; }
+
+  .quiz-actions {
+    padding: 20px 32px 32px;
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
   }
-  footer {
+
+  .quiz-btn {
+    padding: 14px 36px;
+    border: none;
+    border-radius: 12px;
+    font-family: 'Cairo', sans-serif;
+    font-size: 17px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .quiz-btn.primary {
+    background: var(--green-islamic);
+    color: white;
+    box-shadow: 0 4px 16px rgba(27,107,74,0.3);
+  }
+
+  .quiz-btn.primary:hover { background: #24825A; transform: translateY(-2px); }
+
+  .quiz-btn.secondary {
+    background: white;
+    color: var(--brown-deep);
+    border: 2px solid var(--border-soft);
+  }
+
+  .quiz-btn.secondary:hover { border-color: var(--brown-mid); }
+
+  .quiz-btn:disabled { opacity: 0.5; cursor: not-allowed; transform: none !important; }
+
+  .quiz-score-card {
     text-align: center;
-    padding: 24px;
-    color: var(--text-secondary);
-    font-size: 13px;
+    padding: 32px;
+    background: white;
+    border-radius: 16px;
+    margin: 20px 32px;
+    border: 2px solid var(--gold-light);
+  }
+
+  .score-circle {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 16px;
+    font-weight: 700;
+    border: 5px solid;
+  }
+
+  .score-circle.excellent { border-color: #2ECC71; background: #E8F8F0; color: #1B6B4A; }
+  .score-circle.good { border-color: var(--gold); background: #FFF8EC; color: #8B6914; }
+  .score-circle.needs-work { border-color: #E74C3C; background: #FFF5F5; color: #A93226; }
+
+  .score-circle .score-num { font-size: 36px; line-height: 1.2; }
+  .score-circle .score-label { font-size: 13px; opacity: 0.7; }
+
+  .score-msg {
+    font-family: 'Amiri', serif;
+    font-size: 22px;
+    color: var(--brown-deep);
+    margin-bottom: 8px;
+  }
+
+  .score-detail { font-size: 15px; color: var(--text-secondary); }
+
+  @media (max-width: 640px) {
+    .section { padding: 24px 20px; }
+    .toc { padding: 24px 20px; margin: -20px 16px 30px; }
+    .toc-grid { grid-template-columns: 1fr; }
+    .rulings-grid { grid-template-columns: repeat(2, 1fr); }
+    .diagram-flow { flex-direction: column; align-items: center; }
+    .flow-card { max-width: 100%; }
+    .comparison-table { font-size: 14px; }
+    .comparison-table th, .comparison-table td { padding: 10px 12px; }
+    .quiz-body { padding: 20px 16px; }
+    .quiz-actions { padding: 16px; }
+    .q-card { padding: 18px 16px; }
+    .q-tf-options { flex-direction: column; }
+    .quiz-header { padding: 20px 16px; }
+    .quiz-score-card { margin: 16px; padding: 24px 16px; }
   }
 </style>
 </head>
 <body>
 
+<!-- ===== HEADER ===== -->
 <header class="header">
-  <div class="breadcrumb"><a href="../index.html">الأكاديمية الشرعية</a> ← <a href="index.html">الفقه — أخصر المختصرات</a> ← المحاضرة 1</div>
-  <h1>المحاضرة 1</h1>
+  <div class="header-content">
+    <a href="index.html" style="display:inline-flex;align-items:center;gap:6px;color:var(--gold-light);text-decoration:none;font-size:14px;margin-bottom:16px;opacity:0.85;">→ محاضرات الفقه</a>
+    <div class="bismillah">بسم الله الرحمن الرحيم</div>
+    <h1>مقدمات أصول الفقه وكتاب الطهارة</h1>
+    <div class="gold-divider"></div>
+    <p class="subtitle">شرح تفصيلي لمحاضرة الفقه من كتاب «أخصر الاختصارات» على مذهب الحنابلة — مع بيان الراجح من أقوال أهل العلم</p>
+  </div>
 </header>
 
-<main>
-  <div class="empty-card">
-    <div class="empty-icon">📝</div>
-    <h2>هذه المحاضرة لم تُملأ بعد</h2>
-    <p>سيتم إضافة الشرح المفصّل وبطاقات المراجعة لهذه المحاضرة قريبًا بإذن الله.</p>
-    <a class="back-link" href="index.html">← الرجوع لقائمة المحاضرات</a>
+<!-- ===== QUIZ BANNER (TOP) ===== -->
+<div style="max-width:900px; margin: -30px auto 16px; padding: 0 24px; position:relative; z-index:3;">
+  <div style="
+    background: linear-gradient(135deg, var(--green-islamic) 0%, #247A58 50%, #1B6B4A 100%);
+    border-radius: 16px;
+    padding: 24px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+    box-shadow: 0 8px 32px rgba(27, 107, 74, 0.35);
+    position: relative;
+    overflow: hidden;
+  ">
+    <div style="position:absolute; top:0; left:0; right:0; bottom:0; background: url('data:image/svg+xml,%3Csvg width=\'40\' height=\'40\' viewBox=\'0 0 40 40\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'0.05\'%3E%3Cpath d=\'M20 0L40 20L20 40L0 20z\'/%3E%3C/g%3E%3C/svg%3E'); pointer-events:none;"></div>
+    <div style="position:relative; z-index:1; color:white;">
+      <div style="font-family:'Amiri',serif; font-size:22px; font-weight:700; margin-bottom:4px;">📝 اختبر نفسك في هذه المحاضرة</div>
+      <div style="font-size:14px; opacity:0.85;">١٧ سؤال — اختيار، صح وخطأ، ومقالي — مستوى متوسط إلى صعب جدًّا</div>
+    </div>
+    <button onclick="startQuiz()" style="
+      position: relative;
+      z-index: 1;
+      background: white;
+      color: var(--green-islamic);
+      border: none;
+      padding: 14px 36px;
+      border-radius: 12px;
+      font-family: 'Cairo', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+      white-space: nowrap;
+    " onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 20px rgba(0,0,0,0.2)'"
+      onmouseout="this.style.transform=''; this.style.boxShadow='0 4px 16px rgba(0,0,0,0.15)'"
+    >ابدأ الاختبار ←</button>
   </div>
+</div>
+
+<!-- ===== TABLE OF CONTENTS ===== -->
+<nav class="toc" style="margin-top: 16px;">
+  <div class="toc-title">فهرس المحاضرة</div>
+  <div class="toc-grid">
+    <a href="#fiqh-def" class="toc-item"><span class="toc-num">١</span> تعريف الفقه ومعناه</a>
+    <a href="#usul" class="toc-item"><span class="toc-num">٢</span> أصول الفقه</a>
+    <a href="#adillah" class="toc-item"><span class="toc-num">٣</span> أدلة الفقه الأربعة</a>
+    <a href="#ijma" class="toc-item"><span class="toc-num">٤</span> الإجماع وأنواعه</a>
+    <a href="#qiyas" class="toc-item"><span class="toc-num">٥</span> القياس وأقسامه</a>
+    <a href="#ahkam" class="toc-item"><span class="toc-num">٦</span> الأحكام التكليفية</a>
+    <a href="#wadiyyah" class="toc-item"><span class="toc-num">٧</span> الأحكام الوضعية</a>
+    <a href="#azimah" class="toc-item"><span class="toc-num">٨</span> العزيمة والرخصة</a>
+    <a href="#taharah" class="toc-item"><span class="toc-num">٩</span> كتاب الطهارة</a>
+    <a href="#miyah" class="toc-item"><span class="toc-num">١٠</span> أقسام المياه الثلاثة</a>
+  </div>
+</nav>
+
+<!-- ===== MAIN CONTENT ===== -->
+<main class="container">
+
+  <!-- ==================== القسم الأول: تعريف الفقه ==================== -->
+  <section class="section" id="fiqh-def">
+    <div class="section-header">
+      <div class="section-icon">📖</div>
+      <h2>تعريف الفقه ومعناه</h2>
+    </div>
+
+    <h3>الفقه في اللغة</h3>
+    <p>الفقه في اللغة يعني <strong>الفهم</strong>، فيقال: «فَقِهَ الشيءَ» أي فَهِمه، وقيل: هو الفهم السريع والعميق الذي يتجاوز مجرد الإدراك السطحي إلى استيعاب المعنى وإدراك مراد المتكلم.</p>
+
+    <h3>الفقه في الاصطلاح</h3>
+    <p>للفقه في اصطلاح الفقهاء معنيان:</p>
+
+    <div class="definition-box">
+      <div class="term">المعنى الأول — صفة للفقيه:</div>
+      <p>يُقال «فلان فقيه» أي هو عالم بهذا العلم، فهي صفة تُطلق على الشخص المتمكن من الفقه.</p>
+    </div>
+
+    <div class="definition-box">
+      <div class="term">المعنى الثاني — العلم ذاته:</div>
+      <p>باعتبار المعلوم، أي الأحكام الشرعية نفسها من طهارة وصلاة وصيام وزكاة وحج وبيع ونكاح وغيرها من أبواب الفقه.</p>
+    </div>
+
+    <h3>تعريف الفقه عند الأصوليين</h3>
+    <div class="definition-box">
+      <div class="term">الفقه اصطلاحًا:</div>
+      <p><strong>العلم بالأحكام الشرعية العملية المكتسب من أدلتها التفصيلية.</strong></p>
+    </div>
+
+    <p>وتفصيل هذا التعريف:</p>
+
+    <table class="comparison-table">
+      <tr>
+        <th>المصطلح</th>
+        <th>المعنى</th>
+      </tr>
+      <tr>
+        <td><strong>العلم</strong></td>
+        <td>المعرفة والإدراك</td>
+      </tr>
+      <tr>
+        <td><strong>بالأحكام الشرعية</strong></td>
+        <td>يُخرج الأحكام غير الشرعية كالأحكام العقلية (١+١=٢) والأحكام العادية (الورق يحترق بالنار)</td>
+      </tr>
+      <tr>
+        <td><strong>العملية</strong></td>
+        <td>أعمال الجوارح (ما نفعله بأيدينا وأرجلنا)، ويُخرج الأحكام الاعتقادية التي تدخل في علم العقيدة كالإيمان بالله وملائكته</td>
+      </tr>
+      <tr>
+        <td><strong>المكتسب</strong></td>
+        <td>هذا العلم يُكتسب بالتعلم والاجتهاد وليس فطريًّا</td>
+      </tr>
+      <tr>
+        <td><strong>من أدلتها التفصيلية</strong></td>
+        <td>الأدلة الأربعة المتفق عليها: القرآن والسنة والإجماع والقياس</td>
+      </tr>
+    </table>
+
+    <div class="key-point">
+      <p>النية تدخل في الفقه رغم أنها عمل قلبي، لأنها نية لعمل يُؤدَّى بالجوارح، وليست من الأعمال القلبية الاعتقادية كالإيمان بالله ورسله.</p>
+    </div>
+  </section>
+
+  <!-- ==================== القسم الثاني: أصول الفقه ==================== -->
+  <section class="section" id="usul">
+    <div class="section-header">
+      <div class="section-icon">🏛️</div>
+      <h2>أصول الفقه</h2>
+    </div>
+
+    <p>أصول الفقه هو العلم الذي يُبنى عليه الفقه، فالفقيه لا يستطيع استنباط الأحكام الفقهية إلا بعد معرفة القواعد الأصولية.</p>
+
+    <div class="definition-box">
+      <div class="term">تعريف أصول الفقه:</div>
+      <p><strong>معرفة دلائل الفقه إجمالًا، وكيفية الاستفادة منها، وحال المستفيد.</strong></p>
+    </div>
+
+    <h3>مثال توضيحي</h3>
+    <p>الفقيه يقول: «الصلاة واجبة» — هذا حكم فقهي. لكن كيف وصل إلى هذا الحكم؟</p>
+    <p>وجد أمرًا بالصلاة في قوله تعالى: ﴿وَأَقِيمُوا الصَّلَاةَ﴾، ثم رجع إلى القاعدة الأصولية التي تقول: <strong>«الأمر يفيد الوجوب»</strong>، ولم يجد قرينة تصرف هذا الأمر عن الوجوب إلى الاستحباب، فقال: الصلاة واجبة.</p>
+
+    <div class="key-point">
+      <p><strong>القاعدة الأصولية:</strong> الأمر يفيد الوجوب ← <strong>الحكم الفقهي:</strong> الصلاة واجبة. فلا يكون الحكم الفقهي إلا بعد الاستفادة من القواعد الأصولية.</p>
+    </div>
+
+    <p>أما <strong>«حال المستفيد»</strong> فيُقصد به المجتهد — وهو من يملك الأهلية لاستنباط الأحكام من الأدلة — ويبحث الأصوليون في صفاته وشروطه ودرجاته (مجتهد مطلق، مجتهد في المذهب...).</p>
+
+    <div class="warning-box">
+      <div class="label">⚠️ ملاحظة مهمة</div>
+      <p>أول من صنّف في علم أصول الفقه هو <strong>الإمام الشافعي</strong> رحمه الله في كتابه العظيم <strong>«الرسالة»</strong>.</p>
+    </div>
+  </section>
+
+  <!-- ==================== القسم الثالث: أدلة الفقه الأربعة ==================== -->
+  <section class="section" id="adillah">
+    <div class="section-header">
+      <div class="section-icon">📜</div>
+      <h2>أدلة الفقه التفصيلية</h2>
+    </div>
+
+    <p>اتفق أهل العلم على أربعة أدلة رئيسية يُستنبط منها الفقه:</p>
+
+    <div class="diagram-flow">
+      <div class="flow-card">
+        <div class="num">١</div>
+        <div class="label">القرآن</div>
+        <div class="desc">كلام الله المنزّل على نبيه ﷺ</div>
+      </div>
+      <div class="flow-card">
+        <div class="num">٢</div>
+        <div class="label">السُّنة</div>
+        <div class="desc">ما ورد عن النبي ﷺ قولًا وفعلًا وتقريرًا</div>
+      </div>
+      <div class="flow-card">
+        <div class="num">٣</div>
+        <div class="label">الإجماع</div>
+        <div class="desc">اتفاق المجتهدين في عصر واحد على حكم</div>
+      </div>
+      <div class="flow-card">
+        <div class="num">٤</div>
+        <div class="label">القياس</div>
+        <div class="desc">إلحاق فرع بأصل لاشتراكهما في العلة</div>
+      </div>
+    </div>
+
+    <h3>القرآن والسنة — الأصل في الأدلة</h3>
+    <p>القرآن والسنة هما الأصل الذي ترجع إليه جميع الأدلة، فالإجماع لا بد له من مستند من قرآن أو سنة، والقياس يقيس على حكم ثابت بالقرآن أو السنة أو الإجماع.</p>
+
+    <div class="quran-verse">
+      ﴿وَأَنزَلْنَا إِلَيْكَ الذِّكْرَ لِتُبَيِّنَ لِلنَّاسِ مَا نُزِّلَ إِلَيْهِمْ﴾
+      <span class="ref">سورة النحل: ٤٤</span>
+    </div>
+
+    <p>فالسنة مبيّنة للقرآن ومفصّلة لأحكامه. بدون السنة لا نعرف عدد ركعات الصلاة، ولا مواقيتها، ولا تفاصيل أحكام الزكاة (زكاة عروض التجارة، الأموال، الزروع، المواشي) ولا تفاصيل مناسك الحج.</p>
+
+    <div class="warning-box">
+      <div class="label">⚠️ تنبيه</div>
+      <p>من قال «القرآن فقط بلا سنة» فقد ضلّ ضلالًا بعيدًا، فالإسلام يُستقى من القرآن <strong>والسنة</strong> معًا، وهما متلازمان لا ينفصلان.</p>
+    </div>
+
+    <h3>أدلة مختلف فيها</h3>
+    <p>بجانب الأدلة الأربعة المتفق عليها، هناك أدلة أخرى اختلف فيها العلماء مثل: الاستحسان، وقول الصحابي، والمصالح المرسلة، والاستصحاب، وسد الذرائع، والعرف، وشرع من قبلنا. وهذه كلها مبحوثة في كتب أصول الفقه بالتفصيل.</p>
+  </section>
+
+  <!-- ==================== القسم الرابع: الإجماع ==================== -->
+  <section class="section" id="ijma">
+    <div class="section-header">
+      <div class="section-icon">🤝</div>
+      <h2>الإجماع وأنواعه</h2>
+    </div>
+
+    <div class="definition-box">
+      <div class="term">الإجماع:</div>
+      <p>اتفاق <strong>جميع المجتهدين</strong> من أمة النبي ﷺ في <strong>عصر واحد</strong> على حكم من الأحكام الشرعية.</p>
+    </div>
+
+    <p>استدلّ الإمام الشافعي رحمه الله على حجية الإجماع بقوله تعالى:</p>
+
+    <div class="quran-verse">
+      ﴿وَمَن يُشَاقِقِ الرَّسُولَ مِن بَعْدِ مَا تَبَيَّنَ لَهُ الْهُدَىٰ وَيَتَّبِعْ غَيْرَ سَبِيلِ الْمُؤْمِنِينَ نُوَلِّهِ مَا تَوَلَّىٰ وَنُصْلِهِ جَهَنَّمَ وَسَاءَتْ مَصِيرًا﴾
+      <span class="ref">سورة النساء: ١١٥</span>
+    </div>
+
+    <p>فإذا أجمع المؤمنون على قول، فلا يجوز لأحد أن يتبع سبيلًا آخر غير سبيلهم.</p>
+
+    <h3>أنواع الإجماع</h3>
+    <table class="comparison-table">
+      <tr>
+        <th>النوع</th>
+        <th>الوصف</th>
+        <th>الحكم</th>
+      </tr>
+      <tr>
+        <td><strong>الإجماع القولي (الصريح)</strong></td>
+        <td>أن يُنقل عن جميع العلماء في عصر من العصور قولهم بقول واحد صراحة</td>
+        <td>حجة قطعية لا يجوز مخالفتها بحال</td>
+      </tr>
+      <tr>
+        <td><strong>الإجماع السكوتي (العملي)</strong></td>
+        <td>أن يعمل العلماء بعمل ولا يُنقل خلاف، لكن لا يُتأكد أن كل العلماء قالوا بهذا القول</td>
+        <td>أقل درجة من الإجماع القولي</td>
+      </tr>
+    </table>
+
+    <div class="key-point">
+      <p><strong>اتفاق أربعة مذاهب ليس إجماعًا</strong> — قول الجمهور (الأكثرية) ليس إجماعًا بالمعنى الاصطلاحي. الإجماع يتطلب اتفاق <strong>جميع</strong> المجتهدين بلا استثناء في عصر واحد.</p>
+    </div>
+
+    <h3>الإجماع بعد الخلاف</h3>
+    <p>إذا وقع خلاف في مسألة ثم مات المخالف ثم اجتمعت الأمة بعده على قول واحد، فهذا يُعدّ إجماعًا، لأنه لم يبقَ أحد حيّ يخالف هذا القول.</p>
+
+    <div class="warning-box">
+      <div class="label">⚠️ خطورة مخالفة الإجماع</div>
+      <p>من خالف الإجماع القطعي — خاصة فيما هو معلوم من الدين بالضرورة كوجوب الصلاة — يُبيَّن له الدليل بيانًا لا يلتبس بمثله، فإن أصرّ على قوله فقد خرج من الملة عند أهل العلم.</p>
+    </div>
+  </section>
+
+  <!-- ==================== القسم الخامس: القياس ==================== -->
+  <section class="section" id="qiyas">
+    <div class="section-header">
+      <div class="section-icon">⚖️</div>
+      <h2>القياس وأقسامه</h2>
+    </div>
+
+    <p>القياس هو إلحاق حكم مسألة لم يرد فيها نص بحكم مسألة ورد فيها نص، وذلك لاشتراكهما في علّة الحكم.</p>
+
+    <h3>مثال توضيحي — الأدب مع الوالدين</h3>
+    <div class="quran-verse">
+      ﴿فَلَا تَقُل لَّهُمَا أُفٍّ وَلَا تَنْهَرْهُمَا وَقُل لَّهُمَا قَوْلًا كَرِيمًا﴾
+      <span class="ref">سورة الإسراء: ٢٣</span>
+    </div>
+
+    <p>قول «أفّ» للوالدين حرام بالنص القرآني. فماذا عمّن شتم والديه أو ضربهما؟ لم يرد نص مباشر في ذلك، لكن يُقاس على النص الموجود.</p>
+
+    <h3>أقسام القياس</h3>
+    <table class="comparison-table">
+      <tr>
+        <th>النوع</th>
+        <th>الوصف</th>
+        <th>المثال</th>
+      </tr>
+      <tr>
+        <td><strong>القياس الأَولوي</strong></td>
+        <td>الفرع أولى بالحكم من الأصل</td>
+        <td>إذا حُرّم قول «أفّ» وهو أقل الأذى، فالضرب والشتم أولى بالتحريم</td>
+      </tr>
+      <tr>
+        <td><strong>القياس المساوي</strong></td>
+        <td>الفرع مساوٍ للأصل في العلة</td>
+        <td>كلمة تساوي «أفّ» في مقدار الأذى فتأخذ نفس الحكم</td>
+      </tr>
+      <tr>
+        <td><strong>القياس الأدنى</strong></td>
+        <td>الفرع أدنى من الأصل في العلة</td>
+        <td>كلمة أقل أذًى من «أفّ» — يُقاس عليها لكنه أدنى درجة</td>
+      </tr>
+    </table>
+
+    <h3>مثال آخر — تحريم الخمر والقياس عليه</h3>
+    <p>الخمر (عصير العنب المتخمّر) حُرِّم بالنص لعلّة <strong>الإسكار</strong>. فإذا وُجد أي مشروب آخر يُسكر كالنبيذ (المنقوع المتخمّر) فيحرم <strong>بالقياس</strong> على الخمر لاشتراكهما في نفس العلة وهي الإسكار.</p>
+
+    <div class="key-point">
+      <p>حديث النبي ﷺ: «ما أسكر كثيرُه فقليلُه حرام» — هذا نص مستقل، وليس قياسًا. أما القياس فيكون عندما نُلحق مشروبًا جديدًا لم يرد فيه نص بالخمر لاشتراكهما في علة الإسكار.</p>
+    </div>
+  </section>
+
+  <!-- ==================== القسم السادس: الأحكام التكليفية ==================== -->
+  <section class="section" id="ahkam">
+    <div class="section-header">
+      <div class="section-icon">📋</div>
+      <h2>الأحكام التكليفية الخمسة</h2>
+    </div>
+
+    <div class="definition-box">
+      <div class="term">الحكم الشرعي:</div>
+      <p><strong>خطاب الله المتعلق بأفعال المكلَّفين على جهة الاقتضاء أو التخيير أو الوضع.</strong></p>
+    </div>
+
+    <p>المكلّف هو <strong>البالغ العاقل</strong>، رجلًا كان أو امرأة. والأحكام التكليفية هي ما يتعلق بأفعال المكلف ذاته:</p>
+
+    <div class="rulings-grid">
+      <div class="ruling-card">
+        <div class="emoji">✅</div>
+        <div class="name">الواجب</div>
+        <div class="detail">طلب فعل جازم — يُثاب فاعله ويُعاقب تاركه</div>
+      </div>
+      <div class="ruling-card">
+        <div class="emoji">⭐</div>
+        <div class="name">المستحب</div>
+        <div class="detail">طلب فعل غير جازم — يُثاب فاعله ولا يُعاقب تاركه</div>
+      </div>
+      <div class="ruling-card">
+        <div class="emoji">🚫</div>
+        <div class="name">المحرّم</div>
+        <div class="detail">طلب ترك جازم — يُثاب تاركه ويُعاقب فاعله</div>
+      </div>
+      <div class="ruling-card">
+        <div class="emoji">⚠️</div>
+        <div class="name">المكروه</div>
+        <div class="detail">طلب ترك غير جازم — يُثاب تاركه ولا يُعاقب فاعله</div>
+      </div>
+      <div class="ruling-card">
+        <div class="emoji">⚪</div>
+        <div class="name">المباح</div>
+        <div class="detail">تخيير — لا ثواب ولا عقاب في فعله أو تركه</div>
+      </div>
+    </div>
+
+    <h3>فهم الاقتضاء والتخيير</h3>
+    <table class="comparison-table">
+      <tr>
+        <th>الجهة</th>
+        <th>النوع</th>
+        <th>الحكم الناتج</th>
+      </tr>
+      <tr>
+        <td rowspan="2"><strong>طلب الفعل (الاقتضاء)</strong></td>
+        <td>جازم</td>
+        <td>الواجب</td>
+      </tr>
+      <tr>
+        <td>غير جازم</td>
+        <td>المستحب (= السُّنة = المندوب)</td>
+      </tr>
+      <tr>
+        <td rowspan="2"><strong>طلب الترك (الاقتضاء)</strong></td>
+        <td>جازم</td>
+        <td>المحرّم</td>
+      </tr>
+      <tr>
+        <td>غير جازم</td>
+        <td>المكروه</td>
+      </tr>
+      <tr>
+        <td><strong>التخيير</strong></td>
+        <td>لا طلب فعل ولا ترك</td>
+        <td>المباح</td>
+      </tr>
+    </table>
+
+    <h3>المباح قد يتغير حكمه</h3>
+    <p>المباح مباح في أصله، لكن قد يتحوّل حكمه بحسب القصد أو الزيادة. مثال: الأكل مباح، لكن إن أكل حتى آذى نفسه أصبح مكروهًا، وإن أكل حتى هلك أصبح حرامًا. وكذلك لو فعل فعلًا مباحًا بنيّة إيذاء شخص آخر تحوّل إلى الحرمة.</p>
+
+    <div class="key-point">
+      <p><strong>ملاحظة:</strong> الفقهاء في الغالب يستخدمون لفظ «المستحب» ولفظ «السنة» بمعنى واحد ولا يفرّقون بينهما، وإن كان بعض الأصوليين فرّق بينهما (السنة: ما واظب عليه النبي ﷺ — المستحب: ما لم يواظب عليه).</p>
+    </div>
+  </section>
+
+  <!-- ==================== القسم السابع: الأحكام الوضعية ==================== -->
+  <section class="section" id="wadiyyah">
+    <div class="section-header">
+      <div class="section-icon">🔗</div>
+      <h2>الأحكام الوضعية السبعة</h2>
+    </div>
+
+    <p>الأحكام الوضعية هي ما وضعه الله سبحانه وتعالى من علامات وضوابط تتعلق بالأحكام التكليفية. وهي سبعة:</p>
+
+    <!-- السبب -->
+    <h3>١. السبب</h3>
+    <div class="definition-box">
+      <div class="term">السبب:</div>
+      <p><strong>ما يلزم من وجوده الوجود، ومن عدمه العدم.</strong></p>
+    </div>
+    <p>هذا أسهل الأحكام الوضعية فهمًا:</p>
+    <p>• السبب موجود ← الحكم موجود (زالت الشمس عن كبد السماء ← وجبت صلاة الظهر)</p>
+    <p>• السبب غير موجود ← الحكم غير موجود (لم تزل الشمس ← لم تجب صلاة الظهر)</p>
+    <p>مثال آخر: رؤية هلال رمضان (السبب) ← وجوب الصيام. لم يُرَ الهلال ← لا صيام.</p>
+
+    <!-- الشرط -->
+    <h3>٢. الشرط</h3>
+    <div class="definition-box">
+      <div class="term">الشرط:</div>
+      <p><strong>ما يلزم من عدمه العدم، ولا يلزم من وجوده وجود ولا عدم.</strong></p>
+    </div>
+    <p>الشرط أصعب قليلًا في الفهم:</p>
+    <p>• عدم الشرط ← الفعل باطل حتمًا (لو لم تتوضأ ← الصلاة باطلة قطعًا)</p>
+    <p>• وجود الشرط ← لا يلزم صحة الفعل ولا بطلانه (لو توضأت ← قد تكون صلاتك صحيحة وقد تكون باطلة لسبب آخر كعدم الركوع أو الكلام في الصلاة)</p>
+
+    <!-- المانع -->
+    <h3>٣. المانع</h3>
+    <div class="definition-box">
+      <div class="term">المانع (عكس الشرط):</div>
+      <p><strong>ما يلزم من وجوده العدم، ولا يلزم من عدمه وجود ولا عدم.</strong></p>
+    </div>
+    <p>• وجود المانع ← الفعل باطل حتمًا (الحيض موجود ← الصلاة باطلة)</p>
+    <p>• عدم المانع ← لا علاقة بالصحة أو البطلان (المرأة ليست حائضًا ← قد تكون صلاتها صحيحة أو باطلة لأسباب أخرى)</p>
+
+    <h3>جدول مقارنة الأحكام الوضعية الثلاثة الرئيسية</h3>
+    <table class="comparison-table">
+      <tr>
+        <th>الحكم</th>
+        <th>عند الوجود</th>
+        <th>عند العدم</th>
+        <th>المثال</th>
+      </tr>
+      <tr>
+        <td><strong>السبب</strong></td>
+        <td>يلزم الوجود ✅</td>
+        <td>يلزم العدم ❌</td>
+        <td>زوال الشمس ← وجوب الظهر</td>
+      </tr>
+      <tr>
+        <td><strong>الشرط</strong></td>
+        <td>لا يلزم شيء ⚪</td>
+        <td>يلزم العدم ❌</td>
+        <td>الوضوء شرط للصلاة</td>
+      </tr>
+      <tr>
+        <td><strong>المانع</strong></td>
+        <td>يلزم العدم ❌</td>
+        <td>لا يلزم شيء ⚪</td>
+        <td>الحيض مانع من صحة الصلاة</td>
+      </tr>
+    </table>
+
+    <!-- الصحة والبطلان -->
+    <h3>٤. الصحيح</h3>
+    <p>في العبادات: <strong>ما يسقط به الطلب</strong> — أديت الصلاة صحيحة بشروطها وأركانها فلا تُطالب بأدائها مرة أخرى.</p>
+    <p>في المعاملات: <strong>ما ينبني عليه أثره</strong> — عقد البيع صحيح فتنتقل ملكية المبيع للمشتري وملكية الثمن للبائع.</p>
+
+    <h3>٥. الفاسد (الباطل)</h3>
+    <p>عند الجمهور الفاسد = الباطل (خلافًا للحنفية الذين فرّقوا بينهما).</p>
+    <p>في العبادات: <strong>ما لا يسقط به الطلب</strong> — صلّى بلا وضوء فلا تُقبل صلاته ويجب عليه إعادتها.</p>
+    <p>في المعاملات: <strong>ما لا ينبني عليه أثره</strong> — عقد بيع فيه شرط ربوي فلا تنتقل الملكية ولا ينبني عليه أثر.</p>
+  </section>
+
+  <!-- ==================== القسم الثامن: العزيمة والرخصة ==================== -->
+  <section class="section" id="azimah">
+    <div class="section-header">
+      <div class="section-icon">🔑</div>
+      <h2>العزيمة والرخصة</h2>
+    </div>
+
+    <h3>٦. العزيمة</h3>
+    <div class="definition-box">
+      <div class="term">العزيمة:</div>
+      <p><strong>حكم ثابت بدليل شرعي خالٍ عن معارض راجح.</strong> أي حكم عام لا يتغير ولا يوجد ما يعارضه.</p>
+    </div>
+    <p>مثال: وجوب الصلاة عزيمة لا تتغير أبدًا — طالما الإنسان مكلّف فالصلاة واجبة عليه. وإن كانت هناك رخصة في القصر للمسافر، فالصلاة ذاتها لا تسقط.</p>
+
+    <h3>٧. الرخصة</h3>
+    <div class="definition-box">
+      <div class="term">الرخصة:</div>
+      <p><strong>ما ثبت على خلاف دليل شرعي لمعارض راجح.</strong> أي حكم يُنتقل إليه من العزيمة في حالات معينة لوجود دليل يرجّح التخفيف.</p>
+    </div>
+    <p>مثال: الصيام واجب (عزيمة) في جميع الأحوال، لكن في حالتي <strong>السفر والمرض</strong> يأتي دليل آخر يرجّح على العموم فيُبيح الفطر — وهذا هو الرخصة.</p>
+
+    <table class="comparison-table">
+      <tr>
+        <th>العزيمة</th>
+        <th>الرخصة</th>
+      </tr>
+      <tr>
+        <td>حكم ثابت لا يتغير</td>
+        <td>حكم مؤقت في حالات معينة</td>
+      </tr>
+      <tr>
+        <td>خالٍ من معارض</td>
+        <td>ثبت لوجود معارض راجح</td>
+      </tr>
+      <tr>
+        <td>مثال: وجوب الصيام عمومًا</td>
+        <td>مثال: جواز الفطر في السفر والمرض</td>
+      </tr>
+    </table>
+
+    <div class="key-point">
+      <p>المقيم الصحيح يجب عليه الصيام مهما كانت الظروف (حر شديد، عمل شاق...) — هذه عزيمة. الرخصة فقط في السفر والمرض بدليل شرعي خاص.</p>
+    </div>
+  </section>
+
+  <!-- ==================== القسم التاسع: كتاب الطهارة ==================== -->
+  <section class="section" id="taharah">
+    <div class="section-header">
+      <div class="section-icon">💧</div>
+      <h2>كتاب الطهارة</h2>
+    </div>
+
+    <h3>لماذا يبدأ الفقهاء بالطهارة؟</h3>
+    <p>لأن أول واجب على المسلم بعد الشهادتين هو <strong>الصلاة</strong>، والصلاة لا تصح إلا <strong>بالطهارة</strong> — فالطهارة شرط في صحة الصلاة. ولذلك تجد جميع كتب الفقه تبدأ بباب الطهارة.</p>
+
+    <h3>أقسام الفقه الستة</h3>
+    <div class="rulings-grid">
+      <div class="ruling-card">
+        <div class="emoji">🕌</div>
+        <div class="name">العبادات</div>
+        <div class="detail">الطهارة، الصلاة، الصيام، الزكاة، الحج</div>
+      </div>
+      <div class="ruling-card">
+        <div class="emoji">💰</div>
+        <div class="name">المعاملات المالية</div>
+        <div class="detail">البيع، الرهن، الإجارة، الشركة</div>
+      </div>
+      <div class="ruling-card">
+        <div class="emoji">👨‍👩‍👧</div>
+        <div class="name">الأحوال الشخصية</div>
+        <div class="detail">الزواج، الطلاق، الميراث</div>
+      </div>
+      <div class="ruling-card">
+        <div class="emoji">🏛️</div>
+        <div class="name">السياسة الشرعية</div>
+        <div class="detail">حكم الحاكم، القضاء</div>
+      </div>
+      <div class="ruling-card">
+        <div class="emoji">🌍</div>
+        <div class="name">المعاملات الدولية</div>
+        <div class="detail">العلاقات بين الدول، المعاهدات</div>
+      </div>
+      <div class="ruling-card">
+        <div class="emoji">⚖️</div>
+        <div class="name">الجنايات</div>
+        <div class="detail">الجناية على النفس وما دونها، الديات</div>
+      </div>
+    </div>
+
+    <h3>تعريف الطهارة</h3>
+    <div class="definition-box">
+      <div class="term">الطهارة لغةً:</div>
+      <p>النظافة والنزاهة عن الأقذار.</p>
+    </div>
+    <div class="definition-box">
+      <div class="term">الطهارة اصطلاحًا:</div>
+      <p><strong>ارتفاع الحَدَث وما في معناه، وزوال الخَبَث.</strong></p>
+    </div>
+
+    <h3>شرح مفردات التعريف</h3>
+    <table class="comparison-table">
+      <tr>
+        <th>المصطلح</th>
+        <th>المعنى</th>
+        <th>كيف يُزال</th>
+      </tr>
+      <tr>
+        <td><strong>الحَدَث</strong></td>
+        <td>وصف قائم بالبدن (غير مرئي) يمنع من صحة الصلاة ونحوها</td>
+        <td>الوضوء أو الغُسل أو التيمم</td>
+      </tr>
+      <tr>
+        <td><strong>ما في معناه</strong></td>
+        <td>عند الحنابلة: غسل اليدين عند القيام من نوم الليل قبل إدخالهما في الإناء (والراجح أنه مستحب لا واجب)</td>
+        <td>غسل اليدين ثلاثًا</td>
+      </tr>
+      <tr>
+        <td><strong>الخَبَث (النجاسة)</strong></td>
+        <td>عين مستقذرة شرعًا على الثوب أو البدن أو المكان</td>
+        <td>غسله بالماء حتى تزول عينه</td>
+      </tr>
+    </table>
+  </section>
+
+  <!-- ==================== القسم العاشر: أقسام المياه ==================== -->
+  <section class="section" id="miyah">
+    <div class="section-header">
+      <div class="section-icon">🌊</div>
+      <h2>أقسام المياه الثلاثة</h2>
+    </div>
+
+    <p>تنقسم المياه إلى ثلاثة أقسام رئيسية:</p>
+
+    <!-- الماء الطهور -->
+    <div class="water-card tahur">
+      <div class="water-title">💎 القسم الأول: الماء الطَّهور</div>
+      <p><strong>طاهر في نفسه مُطهِّر لغيره</strong> — يجوز الوضوء والغُسل به، ويُزيل النجاسة.</p>
+      <p>هو الماء الباقي على أصل خلقته التي خلقه الله تعالى عليها، ولم يتغير تغيرًا كثيرًا بشيء طاهر.</p>
+      <h4 style="color: var(--green-islamic); margin: 14px 0 8px; font-family: 'Amiri', serif;">أنواع الماء الطهور السبعة:</h4>
+      <p>ماء المطر — ماء النهر — ماء البحر — ماء البئر — ماء العين — ماء الثلج (بعد ذوبانه) — ماء البَرَد (بعد ذوبانه)</p>
+
+      <div class="hadith" style="margin-top: 14px;">
+        سُئل النبي ﷺ عن ماء البحر فقال: «هو الطَّهور ماؤه، الحِلّ ميتته»
+        <span class="ref">رواه أبو داود والترمذي والنسائي وابن ماجه</span>
+      </div>
+
+      <h4 style="color: var(--green-islamic); margin: 14px 0 8px; font-family: 'Amiri', serif;">الماء المستعمل في رفع الحدث:</h4>
+      <p>هل يجوز التوضؤ بالماء الذي سبق استخدامه في الوضوء؟ فيه قولان:</p>
+      <p>• <strong>المختار:</strong> يُكره استعماله إن وُجد غيره، ويجوز إن لم يوجد غيره (المكروه تزول كراهته للحاجة).</p>
+
+      <h4 style="color: var(--green-islamic); margin: 14px 0 8px; font-family: 'Amiri', serif;">الماء المحرَّم الاستعمال:</h4>
+      <p>• ماء آبار ثمود (ما عدا بئر الناقة) — نهى عنها النبي ﷺ خصوصًا.</p>
+      <p>• الماء المغصوب (المسروق) — يحرم استعماله، لكن لو توضأ به: عند الحنابلة لا يصح الوضوء، وعند الراجح (قول الشافعية وغيرهم) يصح الوضوء مع الإثم (الجهة منفكّة).</p>
+    </div>
+
+    <!-- الماء الطاهر -->
+    <div class="water-card tahir">
+      <div class="water-title">🟡 القسم الثاني: الماء الطاهر</div>
+      <p><strong>طاهر في نفسه غير مُطهِّر لغيره</strong> — لا يرفع الحدث ولا يُزيل الخبث، لكن يجوز شربه واستعماله.</p>
+      <p>هو الماء الذي تغيّر لونه أو طعمه أو ريحه بشيء طاهر <strong>تغيّرًا كثيرًا</strong> حتى خرج عن مسمّى الماء المطلق.</p>
+      <p>مثال: ماء الترمس — ماء الفول — الشاي — العصائر. لو قلت لشخص «هات لي ماء» وأعطاك ماء ترمس لرفضته لأنها ليست ماء مطلقًا!</p>
+    </div>
+
+    <!-- الماء النجس -->
+    <div class="water-card najs">
+      <div class="water-title">🔴 القسم الثالث: الماء النجس</div>
+      <p><strong>يحرم استعماله مطلقًا</strong> — لا يجوز الوضوء به ولا شربه ولا استخدامه في أي شيء.</p>
+      <p>هو الماء الذي تغيّر بالنجاسة <strong>أيّ تغيُّر</strong> (ولو يسيرًا) في اللون أو الطعم أو الرائحة.</p>
+      <p><strong>الاستثناء الوحيد:</strong> من كانت به غُصّة (طعام عالق في حلقه يوشك أن يهلك) ولم يجد غير ماء نجس — يجوز له الشرب بقدر الضرورة فقط ثم يتوقف ويُمضمض فاه.</p>
+    </div>
+
+    <h3>التغيرات التي لا تسلب الطهورية</h3>
+    <p>هناك تغيرات تحدث للماء لكنها لا تُخرجه عن كونه طهورًا:</p>
+    <table class="comparison-table">
+      <tr>
+        <th>نوع التغير</th>
+        <th>المثال</th>
+        <th>الحكم</th>
+      </tr>
+      <tr>
+        <td>التغير بالمجاورة</td>
+        <td>ماء بجوار بخور فتغيرت رائحته وطعمه</td>
+        <td>طهور ✅</td>
+      </tr>
+      <tr>
+        <td>التغير بمخالط غير ذائب</td>
+        <td>قطعة كافور في الماء غيّرت رائحته لكنها لم تذب فيه</td>
+        <td>طهور ✅</td>
+      </tr>
+      <tr>
+        <td>التغير اليسير بطاهر</td>
+        <td>ورقة شاي وُضعت لحظة فتلوّن الماء قليلًا</td>
+        <td>طهور ✅</td>
+      </tr>
+      <tr>
+        <td>التغير بطول المكث (الماء الآجن)</td>
+        <td>ماء ركد مدة طويلة فتغيّر طعمه</td>
+        <td>طهور ✅</td>
+      </tr>
+      <tr>
+        <td>التغير بما يشقّ صونه عنه</td>
+        <td>أوراق الشجر وورد النيل في مياه البحيرة</td>
+        <td>طهور ✅</td>
+      </tr>
+      <tr>
+        <td>التغير بالمَقَرّ والمَمَرّ</td>
+        <td>ماسورة صدئة أثّرت في لون الماء</td>
+        <td>طهور ✅</td>
+      </tr>
+    </table>
+
+    <h3>مسألة القُلّتين المشهورة</h3>
+    <p>إذا وقعت نجاسة في ماء <strong>ولم يتغير</strong> الماء — هل يجوز استعماله؟</p>
+
+    <table class="comparison-table">
+      <tr>
+        <th>المذهب</th>
+        <th>القول</th>
+      </tr>
+      <tr>
+        <td><strong>مذهب الحنابلة (المشهور) والشافعية</strong></td>
+        <td>إذا بلغ الماء قُلّتين (≈ ١٦٠ لتر) ولم يتغير فهو طاهر. وإن كان أقل من قُلّتين فينجس حتى لو لم يتغير.</td>
+      </tr>
+      <tr>
+        <td><strong>الراجح (المالكية وآخرون)</strong></td>
+        <td>العبرة بالتغير لا بالكمية — إذا لم يتغير الماء بالنجاسة فهو طاهر مطلقًا مهما كانت كميته.</td>
+      </tr>
+    </table>
+
+    <div class="key-point">
+      <p><strong>القاعدة المختارة:</strong> لا عبرة بالقُلّتين — الماء لا يكون نجسًا إلا إذا تغيّر بالنجاسة (لونًا أو طعمًا أو رائحة). لم يتغير؟ فهو طاهر طهور بغض النظر عن حجمه.</p>
+    </div>
+
+    <h3>الماء الجاري والراكد</h3>
+    <table class="comparison-table">
+      <tr>
+        <th>النوع</th>
+        <th>الحكم</th>
+        <th>السبب</th>
+      </tr>
+      <tr>
+        <td><strong>الماء الجاري</strong> (بحر، نهر)</td>
+        <td>لا يتنجس أبدًا مهما وقع فيه من نجاسة</td>
+        <td>لأنه يتجدد باستمرار ويحمل النجاسة بعيدًا</td>
+      </tr>
+      <tr>
+        <td><strong>الماء الراكد</strong></td>
+        <td>يتنجس إذا تغيّر بالنجاسة</td>
+        <td>لأن النجاسة تستقر فيه ولا تزول بنفسها</td>
+      </tr>
+    </table>
+
+    <div class="hadith">
+      قال النبي ﷺ: «لا يَبُولَنَّ أحدُكم في الماء الدائم (الراكد) ثم يغتسل فيه»
+      <span class="ref">متفق عليه</span>
+    </div>
+
+    <div class="key-point">
+      <p><strong>قاعدة عامة:</strong> الأصل في الأشياء الطهارة — فإذا لم تتيقن نجاسة الماء فهو طاهر. لا ينبغي الوسوسة في هذا الباب.</p>
+    </div>
+  </section>
+
+  <!-- ==================== ملخص شامل ==================== -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-icon">📝</div>
+      <h2>خلاصة المحاضرة</h2>
+    </div>
+
+    <p>هذه المحاضرة تضمّنت قسمين رئيسيين:</p>
+
+    <h3>أولًا: مقدمات أصولية ممهّدة لفهم الفقه</h3>
+    <p>تعريف الفقه وأصول الفقه — الأدلة الأربعة المتفق عليها (القرآن، السنة، الإجماع، القياس) — الأحكام التكليفية الخمسة (الواجب، المستحب، المحرم، المكروه، المباح) — الأحكام الوضعية السبعة (السبب، الشرط، المانع، الصحيح، الفاسد، العزيمة، الرخصة).</p>
+
+    <h3>ثانيًا: بداية كتاب الطهارة</h3>
+    <p>تعريف الطهارة وأهميتها — أقسام المياه الثلاثة (الطهور، الطاهر، النجس) — التغيرات المؤثرة وغير المؤثرة في الماء — مسألة القلتين والراجح فيها — حكم الماء الجاري والراكد — الماء المحرم الاستعمال.</p>
+
+    <div class="key-point">
+      <p>الشرح على مذهب الحنابلة من كتاب «أخصر الاختصارات»، مع بيان المختار من أقوال أهل العلم عند مخالفة المذهب لقول أرجح دليلًا أو أنسب لحال المكلفين.</p>
+    </div>
+  </section>
+
 </main>
 
-<footer>الأكاديمية الشرعية — طلب العلم عبادة</footer>
+<!-- ===== QUIZ LAUNCH ===== -->
+<div class="quiz-launch-wrapper">
+  <button class="quiz-launch-btn" onclick="startQuiz()">
+    <span class="btn-icon">📝</span>
+    ابدأ الاختبار
+  </button>
+  <p style="margin-top: 12px; color: var(--text-secondary); font-size: 14px;">اختبار شامل — مستوى متوسط إلى صعب جدًّا</p>
+</div>
+
+<!-- ===== QUIZ OVERLAY ===== -->
+<div class="quiz-overlay" id="quizOverlay">
+  <div class="quiz-container" id="quizContainer"></div>
+</div>
+
+<script>
+const quizData = [
+  // ====== اختيار من متعدد ======
+  {
+    type: 'mcq',
+    difficulty: 'medium',
+    text: 'ما معنى الفقه في اللغة؟',
+    options: ['العلم بالأحكام الشرعية', 'الفهم', 'الاستنباط من الأدلة', 'معرفة الحلال والحرام'],
+    correct: 1,
+    explanation: 'الفقه في اللغة يعني الفهم، فيُقال: «فَقِهَ الشيءَ» أي فَهِمَه.'
+  },
+  {
+    type: 'mcq',
+    difficulty: 'hard',
+    text: 'في تعريف الفقه عند الأصوليين: «العلم بالأحكام الشرعية العملية المكتسب من أدلتها التفصيلية»، ما الذي يُخرجه قيد «العملية»؟',
+    options: ['الأحكام العقلية كالرياضيات', 'أحكام العقيدة كالإيمان بالله والملائكة', 'الأحكام العادية كاحتراق الورق بالنار', 'أحكام المعاملات المالية'],
+    correct: 1,
+    explanation: 'قيد «العملية» يُخرج الأحكام الاعتقادية (القلبية) كالإيمان بالله ورسله وملائكته، فهذه من علم العقيدة لا الفقه.'
+  },
+  {
+    type: 'mcq',
+    difficulty: 'medium',
+    text: 'مَن أول مَن صنّف في علم أصول الفقه؟',
+    options: ['الإمام أحمد بن حنبل', 'الإمام أبو حنيفة', 'الإمام الشافعي', 'الإمام مالك'],
+    correct: 2,
+    explanation: 'أول من صنّف في علم أصول الفقه هو الإمام الشافعي رحمه الله في كتابه العظيم «الرسالة».'
+  },
+  {
+    type: 'mcq',
+    difficulty: 'very-hard',
+    text: 'الشرط في الأحكام الوضعية: «يلزم من عدمه العدم ولا يلزم من وجوده وجود ولا عدم». أيّ المسائل التالية يُمثّل تطبيقًا صحيحًا لهذه القاعدة؟',
+    options: [
+      'زوال الشمس عن كبد السماء ووجوب صلاة الظهر',
+      'وجود الحيض وبطلان الصلاة',
+      'وجود الوضوء لا يستلزم صحة الصلاة ولا بطلانها، لكن عدمه يستلزم بطلانها',
+      'رؤية الهلال ووجوب صيام رمضان'
+    ],
+    correct: 2,
+    explanation: 'الوضوء شرط للصلاة: عدم الوضوء = بطلان الصلاة حتمًا (يلزم من عدمه العدم). لكن وجود الوضوء لا يعني بالضرورة صحة الصلاة فقد تبطل لأسباب أخرى (لا يلزم من وجوده وجود ولا عدم). أما الخيارات الأخرى فهي أمثلة على السبب والمانع.'
+  },
+  {
+    type: 'mcq',
+    difficulty: 'hard',
+    text: 'ما الفرق بين الإجماع القولي والإجماع السكوتي؟',
+    options: [
+      'لا فرق بينهما، كلاهما حجة قطعية',
+      'القولي: يُنقل عن جميع العلماء قولهم صراحة — السكوتي: عملوا بالعمل ولم يُنقل خلاف لكن لا يُتأكد أن الجميع قالوا به',
+      'القولي: اتفاق أربعة مذاهب — السكوتي: اتفاق ثلاثة مذاهب',
+      'القولي: في العقيدة فقط — السكوتي: في الفقه فقط'
+    ],
+    correct: 1,
+    explanation: 'الإجماع القولي (الصريح) يُنقل فيه عن جميع العلماء قولهم بقول واحد صراحة وهو حجة قطعية. أما السكوتي (العملي) فيعمل العلماء بعمل دون أن يُنقل خلاف لكن لا نتأكد أن كل عالم قال بهذا القول، وهو أقل درجة.'
+  },
+  {
+    type: 'mcq',
+    difficulty: 'very-hard',
+    text: 'على المذهب المختار (الراجح): إذا وقعت نجاسة في ماء راكد قليل (أقل من قُلّتين) ولم يتغير الماء بها — فما حكم هذا الماء؟',
+    options: [
+      'نجس لا يجوز استعماله لأنه أقل من قُلّتين',
+      'طاهر غير مُطهِّر، يُشرب ولا يُتوضأ به',
+      'طهور يجوز التوضؤ به والتطهر؛ لأن العبرة بالتغير لا بالكمية',
+      'مكروه استعماله مطلقًا'
+    ],
+    correct: 2,
+    explanation: 'الراجح (قول المالكية واختيار كثير من أهل العلم) أن العبرة بالتغيُّر لا بالقُلّتين، فما لم يتغير الماء بالنجاسة فهو طهور مهما كانت كميته.'
+  },
+  {
+    type: 'mcq',
+    difficulty: 'hard',
+    text: 'ماء توضأ به شخص ثم جمعه — ما حكم استخدامه مرة أخرى للوضوء على المختار؟',
+    options: [
+      'لا يجوز مطلقًا وهو ماء نجس',
+      'يجوز بلا كراهة',
+      'يُكره إن وُجد غيره ويجوز إن لم يوجد غيره',
+      'يجوز فقط لإزالة النجاسة دون رفع الحدث'
+    ],
+    correct: 2,
+    explanation: 'المختار أن الماء المستعمل في رفع الحدث يُكره استعماله إن وُجد غيره، فإن لم يوجد غيره زالت الكراهة وجاز استخدامه (المكروه تزول كراهته عند الحاجة).'
+  },
+  {
+    type: 'mcq',
+    difficulty: 'medium',
+    text: 'ما هي الأدلة الأربعة المتفق عليها عند أهل العلم؟',
+    options: [
+      'القرآن — السنة — الإجماع — الاستحسان',
+      'القرآن — السنة — قول الصحابي — القياس',
+      'القرآن — السنة — الإجماع — القياس',
+      'القرآن — السنة — المصالح المرسلة — القياس'
+    ],
+    correct: 2,
+    explanation: 'الأدلة المتفق عليها أربعة: القرآن، السنة، الإجماع، والقياس. أما الاستحسان وقول الصحابي والمصالح المرسلة فمختلف فيها.'
+  },
+
+  // ====== صح وخطأ ======
+  {
+    type: 'tf',
+    difficulty: 'medium',
+    text: 'اتفاق أربعة مذاهب فقهية على حكم يُعدّ إجماعًا بالمعنى الاصطلاحي.',
+    correct: false,
+    explanation: 'خطأ. الإجماع اصطلاحًا هو اتفاق جميع المجتهدين في عصر واحد، وليس اتفاق أربعة مذاهب فقط. قول الجمهور (الأكثرية) ليس إجماعًا.'
+  },
+  {
+    type: 'tf',
+    difficulty: 'hard',
+    text: 'المانع في الأحكام الوضعية عكس الشرط: يلزم من وجوده العدم، ولا يلزم من عدمه وجود ولا عدم.',
+    correct: true,
+    explanation: 'صحيح. المانع: وجوده يُبطل الفعل (كالحيض يُبطل الصلاة)، لكن عدمه لا يعني بالضرورة صحة الفعل أو بطلانه — فعدم الحيض لا علاقة له بصحة الصلاة في حد ذاته.'
+  },
+  {
+    type: 'tf',
+    difficulty: 'very-hard',
+    text: 'إذا توضأ شخص بماء مغصوب، فعلى قول الحنابلة وضوؤه صحيح مع الإثم، وعلى قول الشافعية وضوؤه باطل.',
+    correct: false,
+    explanation: 'خطأ — العكس تمامًا! على مذهب الحنابلة الوضوء غير صحيح (لا يرفع الحدث). أما على قول الشافعية وغيرهم (وهو المختار): الوضوء صحيح مع الإثم لأن «الجهة منفكّة» — حرمة الغصب لا تمنع صحة الطهارة.'
+  },
+  {
+    type: 'tf',
+    difficulty: 'medium',
+    text: 'الماء الجاري كماء البحر والنهر لا يتنجس أبدًا مهما وقع فيه من نجاسة.',
+    correct: true,
+    explanation: 'صحيح. الماء الجاري يتجدد باستمرار ويحمل النجاسة بعيدًا فلا يتنجس. وقد نهى النبي ﷺ عن البول في الماء الراكد (لا الجاري).'
+  },
+  {
+    type: 'tf',
+    difficulty: 'hard',
+    text: 'النية تخرج عن الفقه لأنها عمل قلبي والفقه يتعلق بأعمال الجوارح فقط.',
+    correct: false,
+    explanation: 'خطأ. النية تدخل في الفقه رغم كونها عملًا قلبيًّا، لأنها نية لعمل يُؤدَّى بالجوارح. الذي يخرج عن الفقه هو الأعمال القلبية الاعتقادية كالإيمان بالله والرسل والملائكة فتلك من علم العقيدة.'
+  },
+  {
+    type: 'tf',
+    difficulty: 'very-hard',
+    text: 'الرخصة تعني إسقاط الحكم الأصلي نهائيًّا في حالات معينة — فالمسافر تسقط عنه الصلاة بالرخصة.',
+    correct: false,
+    explanation: 'خطأ مزدوج! الرخصة لا تُسقط الحكم نهائيًّا بل تُخفّفه في حالات معينة. والصلاة لا تسقط عن المسافر أبدًا — الرخصة في السفر هي قصر الصلاة الرباعية لا إسقاطها. الصلاة عزيمة ثابتة لا تتغير.'
+  },
+
+  // ====== مقالي ======
+  {
+    type: 'essay',
+    difficulty: 'hard',
+    text: 'اشرح الفرق بين السبب والشرط والمانع في الأحكام الوضعية مع ذكر مثال لكل منها.',
+    modelAnswer: 'السبب: ما يلزم من وجوده الوجود ومن عدمه العدم. مثاله: زوال الشمس عن كبد السماء سبب لوجوب صلاة الظهر — إذا زالت وجبت، وإذا لم تزل لم تجب.\n\nالشرط: ما يلزم من عدمه العدم ولا يلزم من وجوده وجود ولا عدم. مثاله: الوضوء شرط لصحة الصلاة — بدون وضوء الصلاة باطلة حتمًا، لكن وجود الوضوء لا يعني بالضرورة صحة الصلاة فقد تبطل لأسباب أخرى.\n\nالمانع: ما يلزم من وجوده العدم ولا يلزم من عدمه وجود ولا عدم (عكس الشرط). مثاله: الحيض مانع من صحة الصلاة — وجوده يُبطل الصلاة، لكن عدمه لا يعني بالضرورة صحة الصلاة.'
+  },
+  {
+    type: 'essay',
+    difficulty: 'very-hard',
+    text: 'لماذا لا يمكن الاستغناء بالقرآن وحده عن السنة النبوية في استنباط الأحكام الشرعية؟ دعّم إجابتك بأمثلة.',
+    modelAnswer: 'لأن القرآن جاء بالأحكام العامة والأصول الكلية، والسنة جاءت مبيّنة ومفصّلة لهذه الأحكام. قال تعالى: ﴿وَأَنزَلْنَا إِلَيْكَ الذِّكْرَ لِتُبَيِّنَ لِلنَّاسِ مَا نُزِّلَ إِلَيْهِمْ﴾.\n\nأمثلة:\n• الصلاة: القرآن أمر بإقامتها لكن لم يُبيّن عدد الركعات ولا المواقيت ولا كيفية الأداء — كل ذلك جاء في السنة.\n• الزكاة: القرآن أمر بإيتاء الزكاة لكن لم يُحدّد أنصبتها ولا مقاديرها — تفاصيل زكاة الأموال والزروع والمواشي وعروض التجارة كلها من السنة.\n• الحج: القرآن أمر به لكن تفاصيل المناسك في السنة.\n\nفمن قال بالقرآن فقط دون السنة فقد أسقط معظم تفاصيل الدين.'
+  },
+  {
+    type: 'essay',
+    difficulty: 'hard',
+    text: 'ما الفرق بين العزيمة والرخصة؟ واذكر مثالًا يجتمع فيه الحكمان في عبادة واحدة.',
+    modelAnswer: 'العزيمة: حكم ثابت بدليل شرعي خالٍ عن معارض راجح — وهو الحكم الأصلي العام الذي لا يتغير.\n\nالرخصة: ما ثبت على خلاف دليل شرعي لمعارض راجح — وهو تخفيف في حالات معينة بدليل يرجّح على العموم.\n\nمثال يجتمع فيه الحكمان:\nالصيام: وجوب الصيام عمومًا عزيمة ثابتة لا تتغير. لكن في حالتي السفر والمرض يأتي دليل آخر يرجّح على العموم فيُبيح الفطر — وهذه رخصة. فالمقيم الصحيح يجب عليه الصيام (عزيمة)، والمسافر أو المريض يُباح له الفطر (رخصة).'
+  },
+];
+
+function startQuiz() {
+  const overlay = document.getElementById('quizOverlay');
+  const container = document.getElementById('quizContainer');
+  document.body.style.overflow = 'hidden';
+  overlay.classList.add('active');
+
+  const totalMCQ = quizData.filter(q => q.type === 'mcq').length;
+  const totalTF = quizData.filter(q => q.type === 'tf').length;
+  const totalEssay = quizData.filter(q => q.type === 'essay').length;
+
+  let html = `
+    <div class="quiz-header">
+      <h2>📝 اختبار شامل في المحاضرة</h2>
+      <div class="quiz-meta">
+        <span>🔘 اختيار: ${totalMCQ}</span>
+        <span>✅ صح وخطأ: ${totalTF}</span>
+        <span>📄 مقالي: ${totalEssay}</span>
+      </div>
+    </div>
+    <div class="quiz-progress-bar"><div class="quiz-progress-fill" id="progressFill" style="width:0%"></div></div>
+    <div class="quiz-body">
+  `;
+
+  const letters = ['أ', 'ب', 'ج', 'د'];
+  const diffLabels = { medium: 'متوسط', hard: 'صعب', 'very-hard': 'صعب جدًّا' };
+
+  quizData.forEach((q, i) => {
+    const typeLabel = q.type === 'mcq' ? 'اختيار' : q.type === 'tf' ? 'صح وخطأ' : 'مقالي';
+    const typeClass = q.type === 'mcq' ? 'mcq' : q.type === 'tf' ? 'tf' : 'essay';
+
+    html += `<div class="q-card" id="qCard${i}">`;
+    html += `<span class="q-number ${typeClass}">${typeLabel} — سؤال ${i + 1}</span>`;
+    html += `<span class="q-difficulty ${q.difficulty}">${diffLabels[q.difficulty]}</span>`;
+    html += `<div class="q-text">${q.text}</div>`;
+
+    if (q.type === 'mcq') {
+      html += `<div class="q-options">`;
+      q.options.forEach((opt, j) => {
+        html += `
+          <div class="q-option" data-q="${i}" data-opt="${j}" onclick="selectMCQ(this, ${i}, ${j})">
+            <span class="option-letter">${letters[j]}</span>
+            <span>${opt}</span>
+            <span class="option-icon"></span>
+          </div>`;
+      });
+      html += `</div>`;
+    } else if (q.type === 'tf') {
+      html += `
+        <div class="q-tf-options">
+          <button class="q-tf-btn" data-q="${i}" data-val="true" onclick="selectTF(this, ${i}, true)">✅ صح</button>
+          <button class="q-tf-btn" data-q="${i}" data-val="false" onclick="selectTF(this, ${i}, false)">❌ خطأ</button>
+        </div>`;
+    } else {
+      html += `<textarea class="q-essay-area" id="essay${i}" placeholder="اكتب إجابتك هنا..." oninput="markAnswered(${i})"></textarea>`;
+    }
+
+    html += `<div class="q-correct-box" id="explain${i}"></div>`;
+    html += `</div>`;
+  });
+
+  html += `</div>`;
+  html += `
+    <div class="quiz-actions">
+      <button class="quiz-btn primary" id="submitBtn" onclick="submitQuiz()">📊 إنهاء الاختبار</button>
+      <button class="quiz-btn secondary" onclick="closeQuiz()">✕ إغلاق</button>
+    </div>
+    <div id="scoreArea"></div>
+  `;
+
+  container.innerHTML = html;
+  overlay.scrollTop = 0;
+  updateProgress();
+}
+
+const userAnswers = {};
+
+function selectMCQ(el, qIdx, optIdx) {
+  if (document.getElementById('submitBtn').disabled) return;
+  document.querySelectorAll(`.q-option[data-q="${qIdx}"]`).forEach(o => o.classList.remove('selected'));
+  el.classList.add('selected');
+  userAnswers[qIdx] = optIdx;
+  updateProgress();
+}
+
+function selectTF(el, qIdx, val) {
+  if (document.getElementById('submitBtn').disabled) return;
+  document.querySelectorAll(`.q-tf-btn[data-q="${qIdx}"]`).forEach(b => b.classList.remove('selected'));
+  el.classList.add('selected');
+  userAnswers[qIdx] = val;
+  updateProgress();
+}
+
+function markAnswered(qIdx) {
+  const area = document.getElementById(`essay${qIdx}`);
+  if (area.value.trim().length > 0) {
+    userAnswers[qIdx] = area.value.trim();
+  } else {
+    delete userAnswers[qIdx];
+  }
+  updateProgress();
+}
+
+function updateProgress() {
+  const answered = Object.keys(userAnswers).length;
+  const total = quizData.length;
+  const pct = (answered / total) * 100;
+  const fill = document.getElementById('progressFill');
+  if (fill) fill.style.width = pct + '%';
+}
+
+function submitQuiz() {
+  const btn = document.getElementById('submitBtn');
+  btn.disabled = true;
+  btn.textContent = '✅ تم التصحيح';
+
+  let correctCount = 0;
+  let gradedTotal = 0;
+
+  quizData.forEach((q, i) => {
+    const card = document.getElementById(`qCard${i}`);
+    const explainBox = document.getElementById(`explain${i}`);
+
+    if (q.type === 'mcq') {
+      gradedTotal++;
+      const userAns = userAnswers[i];
+      const isCorrect = userAns === q.correct;
+      if (isCorrect) correctCount++;
+
+      document.querySelectorAll(`.q-option[data-q="${i}"]`).forEach((o, j) => {
+        o.style.cursor = 'default';
+        if (j === q.correct) {
+          o.classList.add('correct-answer');
+          o.querySelector('.option-icon').textContent = '✅';
+        }
+        if (userAns === j && j !== q.correct) {
+          o.classList.add('wrong-answer');
+          o.querySelector('.option-icon').textContent = '❌';
+        }
+      });
+
+      card.classList.add(isCorrect ? 'correct-highlight' : 'wrong-highlight');
+      explainBox.className = `q-correct-box show ${isCorrect ? 'right' : 'wrong'}`;
+      explainBox.innerHTML = `<strong>${isCorrect ? '✅ إجابة صحيحة!' : '❌ إجابة خاطئة'}</strong><br>${q.explanation}`;
+
+    } else if (q.type === 'tf') {
+      gradedTotal++;
+      const userAns = userAnswers[i];
+      const isCorrect = userAns === q.correct;
+      if (isCorrect) correctCount++;
+
+      document.querySelectorAll(`.q-tf-btn[data-q="${i}"]`).forEach(b => {
+        b.style.cursor = 'default';
+        const btnVal = b.dataset.val === 'true';
+        if (btnVal === q.correct) b.classList.add('correct-answer');
+        if (userAns === btnVal && btnVal !== q.correct) b.classList.add('wrong-answer');
+      });
+
+      card.classList.add(isCorrect ? 'correct-highlight' : 'wrong-highlight');
+      explainBox.className = `q-correct-box show ${isCorrect ? 'right' : 'wrong'}`;
+      explainBox.innerHTML = `<strong>${isCorrect ? '✅ إجابة صحيحة!' : '❌ إجابة خاطئة'}</strong><br>${q.explanation}`;
+
+    } else {
+      const area = document.getElementById(`essay${i}`);
+      if (area) area.disabled = true;
+      explainBox.className = 'q-correct-box show model';
+      explainBox.innerHTML = `<strong>📖 الإجابة النموذجية:</strong><br><div style="white-space: pre-wrap; margin-top: 8px;">${q.modelAnswer}</div>`;
+    }
+  });
+
+  // Score card
+  const pct = Math.round((correctCount / gradedTotal) * 100);
+  let grade, gradeClass, msg;
+  if (pct >= 80) { grade = 'ممتاز'; gradeClass = 'excellent'; msg = 'ما شاء الله، بارك الله فيك! مستوى متميّز'; }
+  else if (pct >= 50) { grade = 'جيد'; gradeClass = 'good'; msg = 'أداء جيّد، واصل المراجعة وستتحسّن إن شاء الله'; }
+  else { grade = 'يحتاج مراجعة'; gradeClass = 'needs-work'; msg = 'لا بأس، راجع المحاضرة وأعد المحاولة — فالعلم بالتعلّم'; }
+
+  document.getElementById('scoreArea').innerHTML = `
+    <div class="quiz-score-card">
+      <div class="score-circle ${gradeClass}">
+        <span class="score-num">${pct}%</span>
+        <span class="score-label">${correctCount}/${gradedTotal}</span>
+      </div>
+      <div class="score-msg">${grade}</div>
+      <div class="score-detail">${msg}</div>
+      <p style="margin-top: 12px; font-size: 13px; color: var(--text-secondary);">الأسئلة المقالية (${quizData.filter(q=>q.type==='essay').length}) تُراجع ذاتيًّا بمقارنة إجابتك بالإجابة النموذجية</p>
+    </div>
+  `;
+
+  document.getElementById('scoreArea').scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
+
+function closeQuiz() {
+  const overlay = document.getElementById('quizOverlay');
+  overlay.classList.remove('active');
+  document.body.style.overflow = '';
+  // Reset
+  Object.keys(userAnswers).forEach(k => delete userAnswers[k]);
+}
+</script>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="dua">سبحانك اللهم وبحمدك، أشهد أن لا إله إلا أنت، أستغفرك وأتوب إليك</div>
+  <p>اللهم علّمنا ما ينفعنا وانفعنا بما علّمتنا وزدنا علمًا</p>
+  <p style="margin-top: 12px; opacity: 0.7; font-size: 13px;">تفريغ وشرح محاضرة الفقه — مقدمات أصول الفقه وكتاب الطهارة</p>
+</footer>
 
 </body>
 </html>
