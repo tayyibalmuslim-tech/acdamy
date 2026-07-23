@@ -3,125 +3,530 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>المحاضرة 2 | الفقه — أخصر المختصرات</title>
-<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
-<!--
-  LECTURE_STATUS: EMPTY
-  هذا الملف محاضرة فارغة بانتظار التعبئة.
-  عند إضافة محتوى حقيقي، غيّر التعليق أعلاه إلى LECTURE_STATUS: FILLED
-  حتى تتعرف عليه صفحة الفئة (index.html) كمحاضرة مكتملة ويزيد العداد تلقائيًا.
--->
-<meta name="lecture-status" content="empty">
+<title>باب الآنية والاستنجاء | فقه الطهارة</title>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --gold: #C5A55A;
-    --gold-light: #E8D5A3;
-    --ivory: #FAF7F0;
-    --brown-deep: #3A2A1A;
-    --brown-mid: #5C4033;
-    --brown-warm: #7A5C40;
-    --green-islamic: #1B6B4A;
-    --green-light: #E8F5EE;
-    --green-accent: #2D8B6A;
-    --cream: #FFF8EC;
-    --border-soft: #E5D5BF;
-    --text-main: #2C1E10;
-    --text-secondary: #6B5744;
-    --shadow-soft: 0 2px 20px rgba(58, 42, 26, 0.08);
-    --shadow-card: 0 4px 24px rgba(58, 42, 26, 0.1);
+  :root{
+    --brown-dark:#3b2a1a; --brown:#6b4a2f; --gold:#c9973a; --gold-light:#e8c777;
+    --teal-dark:#173f4a; --teal:#2c6b7a; --cream:#faf6ee; --cream-2:#f0ece0;
+    --ink:#2b241a; --danger:#8c3b2e;
   }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body {
-    font-family: 'Cairo', sans-serif;
-    background: var(--ivory);
-    color: var(--text-main);
-    line-height: 1.9;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-  }
-  .header {
-    background: linear-gradient(160deg, var(--brown-deep) 0%, var(--brown-mid) 60%, var(--brown-warm) 100%);
-    color: var(--ivory);
-    padding: 40px 24px;
-    text-align: center;
-  }
-  .breadcrumb {
-    font-size: 13px;
-    color: var(--gold-light);
-    margin-bottom: 14px;
-    opacity: 0.85;
-  }
-  .breadcrumb a { color: var(--gold-light); text-decoration: none; }
-  .breadcrumb a:hover { text-decoration: underline; }
-  .header h1 {
-    font-family: 'Amiri', serif;
-    font-size: clamp(24px, 5vw, 34px);
-  }
-  main {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 60px 24px;
-  }
-  .empty-card {
-    max-width: 520px;
-    text-align: center;
-    background: white;
-    border: 1px dashed var(--border-soft);
-    border-radius: 20px;
-    padding: 50px 36px;
-    box-shadow: var(--shadow-soft);
-  }
-  .empty-icon { font-size: 48px; margin-bottom: 18px; opacity: 0.6; }
-  .empty-card h2 {
-    font-family: 'Amiri', serif;
-    color: var(--brown-deep);
-    font-size: 22px;
-    margin-bottom: 12px;
-  }
-  .empty-card p {
-    color: var(--text-secondary);
-    font-size: 15px;
-    line-height: 1.9;
-  }
-  .back-link {
-    display: inline-block;
-    margin-top: 24px;
-    padding: 10px 26px;
-    background: var(--green-light);
-    color: var(--green-islamic);
-    text-decoration: none;
-    border-radius: 20px;
-    font-weight: 700;
-    font-size: 14px;
-  }
-  footer {
-    text-align: center;
-    padding: 24px;
-    color: var(--text-secondary);
-    font-size: 13px;
-  }
+  *{box-sizing:border-box;}
+  body{margin:0;font-family:'Cairo',sans-serif;background:var(--cream);color:var(--ink);line-height:1.9;}
+  h1,h2,h3,.arabic-emph{font-family:'Amiri',serif;}
+
+  header{background:linear-gradient(135deg,var(--teal-dark),var(--brown-dark));color:var(--cream);padding:50px 20px 70px;text-align:center;position:relative;overflow:hidden;}
+  header::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 15% 20%, rgba(201,151,58,0.15) 0%, transparent 40%),radial-gradient(circle at 85% 80%, rgba(201,151,58,0.15) 0%, transparent 40%);}
+  header .ornament{font-size:2rem;color:var(--gold);margin-bottom:10px;position:relative;}
+  header h1{font-size:2.5rem;margin:10px 0;position:relative;text-shadow:0 2px 10px rgba(0,0,0,0.3);}
+  header p.subtitle{font-size:1.1rem;color:var(--gold-light);max-width:700px;margin:15px auto 0;position:relative;}
+  .lecture-badge{display:inline-block;background:rgba(255,255,255,0.12);border:1px solid var(--gold);padding:6px 20px;border-radius:30px;font-size:0.9rem;margin-top:20px;position:relative;}
+  .top-anki-btn{margin-top:25px;position:relative;}
+
+  .anki-btn{background:linear-gradient(135deg,var(--gold),#a9772a);color:#2b1c0e;border:none;padding:14px 32px;border-radius:12px;font-family:'Cairo',sans-serif;font-weight:700;font-size:1rem;cursor:pointer;box-shadow:0 6px 18px rgba(0,0,0,0.25);transition:transform .2s, box-shadow .2s;}
+  .anki-btn:hover{transform:translateY(-3px);box-shadow:0 10px 22px rgba(0,0,0,0.3);}
+
+  .toc-wrap{max-width:900px;margin:-40px auto 40px;position:relative;z-index:2;padding:0 20px;}
+  .toc{background:#fff;border-radius:16px;padding:30px;box-shadow:0 10px 30px rgba(23,63,74,0.15);border-top:5px solid var(--gold);}
+  .toc h2{margin-top:0;color:var(--teal-dark);font-size:1.4rem;border-bottom:2px dashed var(--gold);padding-bottom:12px;}
+  .toc ol{columns:2;column-gap:30px;padding-inline-start:20px;}
+  .toc li{margin-bottom:10px;}
+  .toc a{color:var(--brown);text-decoration:none;font-weight:600;}
+  .toc a:hover{color:var(--teal);text-decoration:underline;}
+
+  main{max-width:900px;margin:0 auto;padding:0 20px 60px;}
+  section{margin-bottom:50px;scroll-margin-top:20px;}
+  section > h2{color:var(--teal-dark);font-size:1.6rem;display:flex;align-items:center;gap:12px;border-right:5px solid var(--gold);padding-right:15px;margin-bottom:25px;}
+  h3.sub-heading{color:var(--brown);font-size:1.2rem;margin-top:30px;margin-bottom:12px;}
+  p{margin:0 0 16px;}
+
+  .definition-box{background:var(--cream-2);border-right:4px solid var(--teal);border-radius:10px;padding:18px 22px;margin:20px 0;}
+  .definition-box .label{font-weight:800;color:var(--teal-dark);display:block;margin-bottom:8px;font-size:0.95rem;}
+
+  .evidence-block{background:#fff;border:1px solid var(--gold-light);border-right:5px solid var(--gold);border-radius:10px;padding:18px 22px;margin:20px 0;}
+  .evidence-block .label{font-weight:800;color:var(--brown);display:block;margin-bottom:8px;font-size:0.9rem;}
+  .evidence-block .arabic-emph{font-size:1.15rem;color:var(--teal-dark);display:block;margin-bottom:6px;}
+  .evidence-block .source{font-size:0.85rem;color:#8a7a5c;margin-top:8px;}
+
+  .key-point{background:linear-gradient(135deg,#fff,#fdf9ef);border:2px solid var(--gold-light);border-radius:10px;padding:16px 20px;margin:16px 0;display:flex;gap:12px;align-items:flex-start;}
+  .key-point .star{color:var(--gold);font-size:1.3rem;flex-shrink:0;}
+
+  .warning-box{background:#fdf1ee;border:2px solid #e0a996;border-right:5px solid var(--danger);border-radius:10px;padding:16px 22px;margin:20px 0;}
+  .warning-box .label{font-weight:800;color:var(--danger);display:block;margin-bottom:8px;}
+
+  table.comparison-table{width:100%;border-collapse:collapse;margin:20px 0;background:#fff;box-shadow:0 4px 12px rgba(0,0,0,0.06);border-radius:10px;overflow:hidden;}
+  table.comparison-table th{background:var(--teal-dark);color:#fff;padding:12px;text-align:right;}
+  table.comparison-table td{padding:12px;border-bottom:1px solid #eee;}
+  table.comparison-table tr:nth-child(even) td{background:var(--cream-2);}
+
+  .flow-list{display:flex;flex-direction:column;gap:14px;margin:20px 0;}
+  .flow-card{display:flex;gap:16px;align-items:flex-start;background:#fff;border-radius:10px;padding:16px 20px;box-shadow:0 3px 10px rgba(0,0,0,0.06);border-right:4px solid var(--teal);}
+  .flow-card .num{background:var(--teal-dark);color:#fff;width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;flex-shrink:0;}
+
+  .action-card{background:linear-gradient(135deg,#eaf3f3,#fff);border:2px solid var(--teal);border-radius:10px;padding:16px 22px;margin:16px 0;}
+  .action-card .label{font-weight:800;color:var(--teal-dark);display:block;margin-bottom:6px;}
+
+  ul.styled-list{padding-inline-start:22px;}
+  ul.styled-list li{margin-bottom:8px;}
+
+  .divider{text-align:center;color:var(--gold);font-size:1.4rem;margin:35px 0;letter-spacing:15px;}
+
+  .bottom-anki{text-align:center;background:linear-gradient(135deg,var(--teal-dark),var(--brown-dark));border-radius:16px;padding:35px 20px;color:#fff;margin:40px 0;}
+  .bottom-anki h3{color:var(--gold-light);margin-top:0;}
+  .bottom-anki p{color:#e8e0cf;font-size:0.95rem;}
+
+  footer{background:var(--brown-dark);color:var(--cream);text-align:center;padding:40px 20px;}
+  footer .dua{font-family:'Amiri',serif;font-size:1.3rem;color:var(--gold-light);max-width:600px;margin:0 auto 10px;}
+  footer .small{color:#c9b998;font-size:0.85rem;}
+
+  @media (max-width:600px){.toc ol{columns:1;}header h1{font-size:1.7rem;}}
 </style>
 </head>
 <body>
 
-<header class="header">
-  <div class="breadcrumb"><a href="../index.html">الأكاديمية الشرعية</a> ← <a href="index.html">الفقه — أخصر المختصرات</a> ← المحاضرة 2</div>
-  <h1>المحاضرة 2</h1>
+<header>
+  <div class="ornament">۞ ۩ ۞</div>
+  <h1>باب الآنية والاستنجاء</h1>
+  <p class="subtitle">أحكام تفصيلية في فقه الطهارة: من أحكام آنية الذهب والفضة، إلى جلود الميتة، وآداب قضاء الحاجة والاستنجاء</p>
+  <div class="lecture-badge">مقرر الفقه — كتاب الطهارة</div>
+  <div class="top-anki-btn">
+    <button class="anki-btn" onclick="downloadAnkiDeck()">🗂️ حمّل بطاقات أنكي</button>
+  </div>
 </header>
 
-<main>
-  <div class="empty-card">
-    <div class="empty-icon">📝</div>
-    <h2>هذه المحاضرة لم تُملأ بعد</h2>
-    <p>سيتم إضافة الشرح المفصّل وبطاقات المراجعة لهذه المحاضرة قريبًا بإذن الله.</p>
-    <a class="back-link" href="index.html">← الرجوع لقائمة المحاضرات</a>
+<div class="toc-wrap">
+  <div class="toc">
+    <h2>📖 محتويات المحاضرة</h2>
+    <ol>
+      <li><a href="#sec1">مراجعة: الأحكام التكليفية الخمسة</a></li>
+      <li><a href="#sec2">أحكام الآنية عمومًا</a></li>
+      <li><a href="#sec3">آنية الذهب والفضة</a></li>
+      <li><a href="#sec4">حكم التطبيب (الإصلاح) بالذهب والفضة</a></li>
+      <li><a href="#sec5">آنية وثياب غير المسلمين</a></li>
+      <li><a href="#sec6">أحكام الميتة وأجزائها</a></li>
+      <li><a href="#sec7">جلود الميتة والدباغة</a></li>
+      <li><a href="#sec8">ما فُصل من الحي</a></li>
+      <li><a href="#sec9">تعريف الاستنجاء وحكمه</a></li>
+      <li><a href="#sec10">ما يُستثنى من وجوب الاستنجاء</a></li>
+      <li><a href="#sec11">آداب قضاء الحاجة</a></li>
+      <li><a href="#sec12">مكروهات ومحرمات قضاء الحاجة</a></li>
+      <li><a href="#sec13">شروط ومراتب الاستجمار</a></li>
+    </ol>
   </div>
+</div>
+
+<main>
+
+<section id="sec1">
+  <h2><span class="icon">📐</span> مراجعة: الأحكام التكليفية الخمسة</h2>
+
+  <p>قبل الدخول في تفاصيل باب الآنية، من الضروري مراجعة الأحكام التكليفية الخمسة التي بُنيت عليها كل الأحكام الفقهية التالية.</p>
+
+  <table class="comparison-table">
+    <tr><th>الحكم</th><th>التعريف</th></tr>
+    <tr><td><strong>الواجب</strong></td><td>من يفعله يُثاب، ومن يتركه يُعاقب.</td></tr>
+    <tr><td><strong>المستحب</strong></td><td>فاعله يُثاب، وتاركه لا يُعاقب.</td></tr>
+    <tr><td><strong>المكروه</strong></td><td>تاركه قصدًا يُثاب، وفاعله لا يُعاقب.</td></tr>
+    <tr><td><strong>المحرم</strong></td><td>تاركه قصدًا يُثاب، وفاعله مأزور (عليه وزر).</td></tr>
+    <tr><td><strong>المباح</strong></td><td>لا إثم ولا عقاب على فعله.</td></tr>
+  </table>
+
+  <div class="key-point">
+    <span class="star">💡</span>
+    <div>هذه المصطلحات (مع السبب والشرط والمانع والرخصة والعزيمة) تفصيلها في مادة أصول الفقه، لكن معرفتها هنا مهمة لفهم الأحكام الفقهية التي ستُذكر بها في هذا الباب وما يليه.</div>
+  </div>
+</section>
+
+<section id="sec2">
+  <h2><span class="icon">🏺</span> أحكام الآنية عمومًا</h2>
+
+  <div class="definition-box">
+    <span class="label">📌 تعريف الإناء</span>
+    الإناء في اللغة هو الوعاء الذي يوضع فيه أي شيء (ماء، طعام، إلخ)، لكن المقصود هنا كل إناء يُستخدم في الطعام والشراب.
+  </div>
+
+  <div class="action-card">
+    <span class="label">✅ القاعدة العامة</span>
+    يُباح للإنسان اتخاذ واستعمال أي إناء طاهر، مهما كانت المادة المصنوع منها ثمينة، ما عدا الذهب والفضة. ويشمل الإباحة: التملك، البيع، الصناعة، الإهداء، والاستخدام في الأكل والشرب أو أي غرض آخر.
+  </div>
+
+  <div class="warning-box">
+    <span class="label">⚠️ الاستثناء الوحيد</span>
+    آنية الذهب والفضة فقط هي المحرّمة، سواء في الاستخدام أو حتى في مجرد الاحتفاظ بها في البيت كزينة.
+  </div>
+</section>
+
+<section id="sec3">
+  <h2><span class="icon">🥇</span> آنية الذهب والفضة</h2>
+
+  <div class="evidence-block">
+    <span class="label">📜 الدليل</span>
+    <span class="arabic-emph">"الحرير حلال لإناث هذه الأمة، حرام على ذكورها، وكذلك الذهب والفضة"</span>
+    <div class="source">حديث نبوي</div>
+    <p style="margin-top:10px;">أما آنية الذهب والفضة فحرام مطلقًا على الجميع (رجالًا ونساء)، بخلاف اللبس الذي يُفرّق فيه بين الذكور والإناث.</p>
+  </div>
+
+  <table class="comparison-table">
+    <tr><th>الحالة</th><th>الحكم</th></tr>
+    <tr><td>لبس الذهب للنساء</td><td>جائز</td></tr>
+    <tr><td>لبس الذهب للرجال</td><td>حرام</td></tr>
+    <tr><td>لبس الفضة للرجال والنساء (كخاتم)</td><td>جائز</td></tr>
+    <tr><td>الأكل والشرب في آنية الذهب أو الفضة (للجنسين)</td><td>حرام مطلقًا</td></tr>
+    <tr><td>الاحتفاظ بآنية ذهب أو فضة (ولو للزينة فقط)</td><td>حرام مطلقًا</td></tr>
+  </table>
+
+  <h3 class="sub-heading">مسألة: هل يُقاس على الذهب والفضة معادن أغلى منها (كالماس)؟</h3>
+
+  <div class="action-card">
+    <span class="label">✅ القول المختار</span>
+    لا، يجوز استخدام آنية الماس أو أي معدن آخر (حتى لو أغلى من الذهب والفضة)، لأن العلماء رأوا أن القياس هنا "قياس مع الفارق"، فلا يصح.
+  </div>
+
+  <div class="definition-box">
+    <span class="label">📌 العلة في تحريم آنية الذهب والفضة</span>
+    كسر قلوب الفقراء؛ لأن الفقير يعرف قيمة الذهب والفضة تحديدًا (لأنهما أصل الأموال والنقود)، بينما لا يفقه غالبًا قيمة معادن أخرى مثل الماس أو التيتانيوم حتى لو كانت أغلى فعليًا، فلا يشعر بنفس الجرح النفسي.
+  </div>
+</section>
+
+<section id="sec4">
+  <h2><span class="icon">🔧</span> حكم التطبيب (الإصلاح) بالذهب والفضة</h2>
+
+  <div class="definition-box">
+    <span class="label">📌 معنى "المضبب"</span>
+    الإناء الذي أُصلح بلحام من الذهب أو الفضة، مثل إناء مكسور تم إصلاحه بسلسلة معدنية رفيعة (لحام).
+  </div>
+
+  <table class="comparison-table">
+    <tr><th>الحالة</th><th>الحكم</th></tr>
+    <tr><td>الإصلاح (التضبيب) بالذهب</td><td>لا يجوز مطلقًا</td></tr>
+    <tr><td>الإصلاح بالفضة الكثيرة</td><td>لا يجوز</td></tr>
+    <tr><td>الإصلاح بالفضة اليسيرة (القليلة) عند الحاجة</td><td>يجوز، بشرط عدم وجود بديل آخر يقوم مقامها</td></tr>
+  </table>
+
+  <div class="key-point">
+    <span class="star">💡</span>
+    <div>الشرط الأساسي في الإصلاح بالفضة اليسيرة أن يكون <strong>للحاجة</strong> فقط (كإصلاح كسر لا بديل له)، وليس للزينة، وأن يكون المقدار قليلًا جدًا (نقطة أو خيط رفيع فقط).</div>
+  </div>
+
+  <div class="warning-box">
+    <span class="label">⚠️ تنبيه: مباشرة الشرب من موضع الإصلاح</span>
+    إن شرب الإنسان من الجزء المُصلَح بالفضة مباشرة (وليس من باقي الإناء)، فهذا جائز لكنه مكروه.
+  </div>
+</section>
+
+<section id="sec5">
+  <h2><span class="icon">🌍</span> آنية وثياب غير المسلمين</h2>
+
+  <div class="definition-box">
+    <span class="label">📌 القاعدة الأساسية في الطهارة</span>
+    الأصل في الأشياء الطهارة، والنجاسة طارئة تحتاج إلى يقين، لا مجرد شك. الشك في النجاسة أو الطهارة يصب دائمًا في صالح الطهارة.
+  </div>
+
+  <table class="comparison-table">
+    <tr><th>الحالة</th><th>الحكم</th></tr>
+    <tr><td>آنية غير المسلمين (حتى غير أهل الكتاب كالمجوس والبوذيين)</td><td>يجوز استخدامها ما لم تتيقن نجاستها</td></tr>
+    <tr><td>ملابس مستعملة (سكند هاند) قادمة من الخارج</td><td>يجوز لبسها دون غسل، حتى الملابس الداخلية، ما لم تُعلم نجاستها</td></tr>
+  </table>
+
+  <div class="evidence-block">
+    <span class="label">📜 دليل عملي من السيرة</span>
+    <span class="arabic-emph">ورد عن الصحابة أنهم في الفتوحات كانوا عندما يفتحون البلد ويجدون الطعام موضوعًا في أوانٍ، يأكلون منه مباشرة دون أن يغسلوا الآنية أولًا.</span>
+    <div class="source">من آثار الصحابة</div>
+  </div>
+
+  <div class="warning-box">
+    <span class="label">⚠️ حالة خاصة: الشك القوي في النجاسة</span>
+    إن كان المطبخ معروفًا بأنه يستخدم الخمر في الطبخ، فهنا يدخل الأمر في باب "الورع" لا الحرمة القطعية؛ فإن تيقّنت وجود الخمر في الطعام لا يجوز الأكل، وإن كان مجرد احتمال قوي فالأولى الورع والامتناع، أما إن كان الاحتمال بعيدًا جدًا فالأصل الطهارة.
+  </div>
+</section>
+
+<section id="sec6">
+  <h2><span class="icon">☠️</span> أحكام الميتة وأجزائها</h2>
+
+  <div class="definition-box">
+    <span class="label">📌 تعريف الميتة</span>
+    الحيوان الذي لم يُذكَّ (يُذبح) ذكاة شرعية، سواء كان مما يؤكل لحمه أو لا. فإن كان الحيوان لا يؤكل أصلًا (كالحمار الأهلي)، فهو ميتة سواء ذُبح أو لا. وإن كان مما يؤكل (كالبقر والغنم) ولم يُذبح، فمتى مات يصبح ميتة.
+  </div>
+</section>
+
+<section id="sec7">
+  <h2><span class="icon">🧴</span> جلود الميتة والدباغة</h2>
+
+  <div class="action-card">
+    <span class="label">✅ القول المختار (المذهب الشافعي)</span>
+    جلود الميتة تطهر بالدباغة، ويجوز استخدامها في اليابس والرطب على حد سواء، بشرط أن يكون الحيوان طاهرًا أثناء حياته.
+  </div>
+
+  <table class="comparison-table">
+    <tr><th>الحيوان</th><th>حكم جلده بعد الدباغة</th></tr>
+    <tr><td>جميع الحيوانات (طاهرة أثناء الحياة)</td><td>يطهر الجلد بالدباغة ويجوز استخدامه</td></tr>
+    <tr><td>الكلب والخنزير</td><td>نجسان أثناء الحياة، فلا يطهر جلدهما بالدباغة</td></tr>
+    <tr><td>ما تولّد من كلب أو خنزير أو منهما</td><td>يأخذ نفس الحكم (نجس ولا يطهر بالدباغة)</td></tr>
+  </table>
+
+  <div class="definition-box">
+    <span class="label">📌 ما هي الدباغة؟</span>
+    عملية معالجة الجلد بمواد قارضة (كالملح) تمتص الرطوبة منه، ثم يُغسل وينشف، قبل تصنيعه إلى شنطة أو حذاء أو غيره.
+  </div>
+
+  <h3 class="sub-heading">مسألة: هل الكحول نجس؟</h3>
+
+  <table class="comparison-table">
+    <tr><th>نوع الكحول</th><th>الحكم</th></tr>
+    <tr><td>الكحول الإيثيلي وما تولد منه (كالدينيتشر)</td><td>نجس، لأنه مُسكر</td></tr>
+    <tr><td>باقي الكحوليات (الإيزوبروبيل، الميثانول، إلخ)</td><td>طاهرة</td></tr>
+  </table>
+
+  <div class="key-point">
+    <span class="star">💡</span>
+    <div><strong>مثال عملي:</strong> كثير من شركات الأدوية والعطور تستخدم الكحول الإيزوبروبيلي، وهو طاهر. يمكن معرفة نوع الكحول المستخدم من قراءة المكوّنات المكتوبة على المنتج.</div>
+  </div>
+</section>
+
+<section id="sec8">
+  <h2><span class="icon">✂️</span> ما فُصل من الحي</h2>
+
+  <div class="definition-box">
+    <span class="label">📌 القاعدة العامة</span>
+    "ما أُبين من حي فهو كميتته" — أي أن أي جزء يُقطع من حيوان وهو حي يأخذ نفس حكم هذا الحيوان لو مات دون ذبح شرعي.
+  </div>
+
+  <table class="comparison-table">
+    <tr><th>الاستثناء</th><th>الحكم</th></tr>
+    <tr><td>الشعر والصوف والريش والظفر (المقصوص، وليس المنتوف)</td><td>طاهر دائمًا، لأنه لا تحله الحياة أصلًا</td></tr>
+    <tr><td>القرن</td><td>يأخذ حكم العظم (أي كباقي الأجزاء، وليس كالشعر)</td></tr>
+    <tr><td>السمك والجراد</td><td>يجوز أكل ما قُطع منهما وهما حيّان، لأن ميتتهما أصلًا طاهرة</td></tr>
+    <tr><td>ما يُقطع من الإنسان (كيد السارق المقطوعة حدًّا)</td><td>نَجِسة، استثناءً من القاعدة العامة</td></tr>
+  </table>
+
+  <div class="key-point">
+    <span class="star">💡</span>
+    <div><strong>مثال تطبيقي:</strong> إذا رُبطت رجل بقرة أو جاموسة أثناء الذبح وتقطّعت رجلها قبل الذبح الفعلي، فهذا الجزء المقطوع يُعامل معاملة "الميتة" ولا يجوز أكله، حتى لو ذُبحت البقرة بعد ذلك ذبحًا شرعيًا صحيحًا؛ لأن الجزء انفصل عنها وهي حية.</div>
+  </div>
+</section>
+
+<div class="divider">۞</div>
+
+<section id="sec9">
+  <h2><span class="icon">💧</span> تعريف الاستنجاء وحكمه</h2>
+
+  <div class="definition-box">
+    <span class="label">📌 تعريف الاستنجاء</span>
+    من "النجو" أي القطع، وشرعًا: إزالة الخارج من السبيلين (البول والبراز) وأثره. قد يكون بالماء، وقد يكون بالأحجار (ويسمى حينها "الاستجمار").
+  </div>
+
+  <div class="action-card">
+    <span class="label">✅ حكم الاستنجاء</span>
+    واجب في كل ما يخرج من السبيلين، سواء كان الخارج معتادًا (كالبول والبراز) أو غير معتاد (كالدم أو الدود). ولا يجب فورًا، بل يجب عند إرادة الصلاة.
+  </div>
+
+  <h3 class="sub-heading">ما يُستثنى من وجوب الاستنجاء</h3>
+
+  <table class="comparison-table">
+    <tr><th>الخارج</th><th>سبب عدم وجوب الاستنجاء</th></tr>
+    <tr><td>الريح</td><td>لا يلوث المحل</td></tr>
+    <tr><td>الطاهر (كالمني)</td><td>طاهر على المختار، وإن وجب غسل المحل والاغتسال منه لسبب آخر (وجوب الغسل)</td></tr>
+    <tr><td>الخارج الجاف الذي لا يلوث المحل (كحصاة أو براز جاف تمامًا)</td><td>لم يترك أثرًا نجسًا في المحل</td></tr>
+  </table>
+</section>
+
+<section id="sec10">
+  <h2><span class="icon">🩸</span> ما يُستثنى من وجوب الاستنجاء (تفصيل إضافي)</h2>
+
+  <div class="key-point">
+    <span class="star">💡</span>
+    <div>الإفرازات الطبيعية للنساء (غير الاستحاضة) لا يجب منها استنجاء ولا تنقض الوضوء، وتبقى طاهرة، حتى لو كانت متكررة يوميًا.</div>
+  </div>
+
+  <div class="warning-box">
+    <span class="label">⚠️ تحذير من الوسوسة</span>
+    القاعدة الذهبية: الأصل الطهارة إلا أن تتيقن النجاسة يقينًا تامًا. من يبالغ في الشك والتحقق المستمر (كمن يستخدم أصابعه لفحص الدبر بعد الاستنجاء) قد يصاب بأضرار جسدية (كالبواسير) فضلًا عن إتعاب نفسه بلا داعٍ شرعي.
+  </div>
+</section>
+
+<section id="sec11">
+  <h2><span class="icon">🚪</span> آداب قضاء الحاجة</h2>
+
+  <div class="flow-list">
+    <div class="flow-card">
+      <div class="num">1</div>
+      <div><strong>قبل الدخول:</strong> يقول "بسم الله، اللهم إني أعوذ بك من الخبث والخبائث" (ذكور وإناث الشياطين).</div>
+    </div>
+    <div class="flow-card">
+      <div class="num">2</div>
+      <div><strong>الدخول:</strong> بالرجل اليسرى، عكس دخول المسجد (الذي يكون باليمنى).</div>
+    </div>
+    <div class="flow-card">
+      <div class="num">3</div>
+      <div><strong>الخروج:</strong> باليمنى، ويقول "غفرانك"، ويجوز أيضًا قول "الحمد لله الذي أذهب عني الأذى وعافاني" في فضائل الأعمال.</div>
+    </div>
+    <div class="flow-card">
+      <div class="num">4</div>
+      <div><strong>الستر:</strong> يُسنّ الابتعاد عن أعين الناس، وعدم كشف العورة قبل الحاجة إليه.</div>
+    </div>
+    <div class="flow-card">
+      <div class="num">5</div>
+      <div><strong>اختيار المكان:</strong> يُسنّ اختيار مكان رخو (لينًا) حتى لا يرتد البول على الشخص.</div>
+    </div>
+  </div>
+</section>
+
+<section id="sec12">
+  <h2><span class="icon">🚫</span> مكروهات ومحرمات قضاء الحاجة</h2>
+
+  <table class="comparison-table">
+    <tr><th>الفعل</th><th>الحكم</th><th>السبب</th></tr>
+    <tr><td>حمل شيء عليه اسم الله دون حاجة</td><td>مكروه</td><td>احترام اسم الله من الأماكن القذرة</td></tr>
+    <tr><td>الكلام أثناء قضاء الحاجة دون حاجة</td><td>مكروه</td><td>عدم اللياقة، إلا لحاجة كالتحذير من خطر</td></tr>
+    <tr><td>رفع الثوب قبل الاقتراب من الأرض دون حاجة</td><td>مكروه</td><td>كشف العورة بلا داعٍ</td></tr>
+    <tr><td>البول في الشقوق</td><td>مكروه</td><td>قد تكون مأوى للحيات والعقارب فتؤذي الشخص</td></tr>
+    <tr><td>البول في الماء الراكد</td><td>قريب من الحرمة</td><td>يُفسد الماء الراكد القليل</td></tr>
+    <tr><td>مسّ الفرج أو الاستنجاء باليد اليمنى دون حاجة</td><td>مكروه</td><td>خصوصية اليد اليمنى للأمور النظيفة</td></tr>
+  </table>
+
+  <div class="key-point">
+    <span class="star">💡</span>
+    <div>القول المختار في "استقبال الشمس أو القمر" أثناء قضاء الحاجة: <strong>غير مكروه</strong>، لأن الحديث الوارد فيه ضعيف.</div>
+  </div>
+
+  <h3 class="sub-heading">المحرمات (أشد من المكروه)</h3>
+
+  <table class="comparison-table">
+    <tr><th>الفعل</th><th>الحكم</th></tr>
+    <tr><td>استقبال أو استدبار القبلة في الفضاء (خارج البنيان)</td><td>لا يجوز، ويكفي انحراف بسيط لتجنب الحرمة</td></tr>
+    <tr><td>استقبال أو استدبار القبلة داخل البنيان (البيوت والحمامات)</td><td>جائز، لا حرج فيه</td></tr>
+    <tr><td>المكث فوق قدر الحاجة (كشف العورة بلا داعٍ لفترة طويلة)</td><td>محرّم عند الحنابلة لما فيه من كشف العورة بلا حاجة وفتح لباب الوسواس</td></tr>
+    <tr><td>قضاء الحاجة في طرق الناس أو أماكن ظلهم أو بين قبور المسلمين</td><td>لا يجوز لما فيه من أذية الناس أو عدم احترام الموتى</td></tr>
+    <tr><td>قراءة القرآن أثناء قضاء الحاجة</td><td>حرام (بخلاف الذكر بالقلب فهو جائز)</td></tr>
+  </table>
+</section>
+
+<section id="sec13">
+  <h2><span class="icon">🪨</span> شروط ومراتب الاستجمار</h2>
+
+  <table class="comparison-table">
+    <tr><th>المرتبة</th><th>الوصف</th></tr>
+    <tr><td><strong>الأعلى</strong></td><td>الجمع بين الاستجمار (بالحجر أو المناديل) ثم الاستنجاء بالماء.</td></tr>
+    <tr><td><strong>الأدنى</strong></td><td>الاقتصار على الاستجمار فقط (بغير الماء).</td></tr>
+  </table>
+
+  <h3 class="sub-heading">شروط ما يُستجمر به</h3>
+
+  <div class="flow-list">
+    <div class="flow-card"><div class="num">1</div><div><strong>طاهرًا:</strong> لا يجوز الاستجمار بشيء نجس.</div></div>
+    <div class="flow-card"><div class="num">2</div><div><strong>مباحًا:</strong> على القول المختار، لو استُخدم شيء مسروق أثِم صاحبه، لكن الاستجمار نفسه يبقى صحيحًا.</div></div>
+    <div class="flow-card"><div class="num">3</div><div><strong>يابسًا:</strong> لا يجوز بمواد مبللة، لأنها تنشر النجاسة بدل تنظيفها.</div></div>
+    <div class="flow-card"><div class="num">4</div><div><strong>مُنقّيًا (خشنًا):</strong> لا يجوز باستخدام أشياء ملساء (كالزجاج) لأنها لا تشيل النجاسة.</div></div>
+  </div>
+
+  <div class="warning-box">
+    <span class="label">⚠️ يحرم الاستجمار بـ</span>
+    <ul class="styled-list">
+      <li>روث الحيوانات (لأنه نجس أصلًا)</li>
+      <li>العظم (لوروده في الحديث أنه "زاد إخواننا من الجن")</li>
+      <li>ما له حرمة (ككتب العلم)</li>
+      <li>ما هو متصل بحيوان حي</li>
+    </ul>
+  </div>
+
+  <h3 class="sub-heading">شرط عدم تعدي موضع الحاجة</h3>
+
+  <div class="key-point">
+    <span class="star">💡</span>
+    <div>إن تعدى الخارج (كالبراز في حالة الإسهال) موضع العادة الطبيعي إلى مناطق أخرى (كالجانبين)، لا يجوز حينها الاستجمار وحده، بل يجب استخدام الماء.</div>
+  </div>
+
+  <table class="comparison-table">
+    <tr><th>القاعدة</th><th>التفصيل</th></tr>
+    <tr><td>عدد المسحات الأدنى</td><td>ثلاث مسحات على الأقل، ولو بمنديل واحد كبير (كل جزء منه يُستخدم مرة واحدة فقط)</td></tr>
+    <tr><td>الوقوف عند العدد</td><td>يُستحب الوقوف عند عدد وتر (3، 5، 7...)</td></tr>
+    <tr><td>ضابط الاكتفاء بالاستجمار</td><td>ألا يبقى إلا أثر لا يزيله إلا الماء (مجرد لون بسيط لا يضر)</td></tr>
+  </table>
+
+  <div class="action-card">
+    <span class="label">✅ ملحوظة لمن يعاني من سلس البول</span>
+    من عنده مشكلة انقطاع البول بشكل متكرر، يُستحب له بعد الاستنجاء أن يتتبع بيده اليسرى من حلقة الدبر إلى أصل الذكر برفق (ويسمى "السلت")، للمساعدة في إخراج ما تبقى من البول. أما الشخص الطبيعي فلا يُشرع له هذا الفعل.
+  </div>
+</section>
+
+<div class="bottom-anki">
+  <h3>🗂️ راجع المحاضرة بطريقة تفاعلية</h3>
+  <p>حمّل بطاقات الأنكي المستخرجة من هذه المحاضرة وراجعها في أي وقت</p>
+  <button class="anki-btn" onclick="downloadAnkiDeck()">🗂️ حمّل بطاقات أنكي</button>
+</div>
+
 </main>
 
-<footer>الأكاديمية الشرعية — طلب العلم عبادة</footer>
+<footer>
+  <p class="dua">اللهم فقّهنا في الدين وعلّمنا ما ينفعنا، واجعل طهارتنا سببًا لصلاح قلوبنا وأبداننا</p>
+  <p class="small">مقرر الفقه — كتاب الطهارة — تلخيص تعليمي</p>
+</footer>
+
+<script>
+const ankiCards = [
+["ما تعريف الواجب في الأحكام التكليفية؟","من يفعله يُثاب ومن يتركه يُعاقب."],
+["ما تعريف المستحب في الأحكام التكليفية؟","فاعله يُثاب وتاركه لا يُعاقب."],
+["ما تعريف المكروه في الأحكام التكليفية؟","تاركه قصدًا يُثاب وفاعله لا يُعاقب."],
+["ما تعريف المحرم في الأحكام التكليفية؟","تاركه قصدًا يُثاب وفاعله مأزور (عليه وزر)."],
+["ما تعريف المباح في الأحكام التكليفية؟","لا إثم ولا عقاب على فعله."],
+["ما القاعدة العامة في استخدام الآنية؟","يباح استخدام أي إناء طاهر مهما كانت مادته، ما عدا الذهب والفضة."],
+["ما حكم آنية الذهب والفضة؟","حرام مطلقًا على الرجال والنساء، في الاستخدام أو حتى مجرد الاحتفاظ بها."],
+["ما حكم لبس الذهب للنساء مقارنة بالرجال؟","جائز للنساء، حرام على الرجال (بخلاف الآنية فهي حرام على الجميع)."],
+["ما حكم لبس خاتم من الفضة للرجال؟","جائز."],
+["هل يجوز صنع آنية من الماس قياسًا على تحريم الذهب والفضة؟","لا يجوز التحريم بالقياس، لأنه قياس مع الفارق؛ فآنية الماس جائزة."],
+["ما العلة في تحريم آنية الذهب والفضة تحديدًا؟","كسر قلوب الفقراء، لأنهم يعرفون قيمة الذهب والفضة تحديدًا دون غيرهما من المعادن."],
+["ما حكم إصلاح إناء مكسور بلحام من الذهب؟","لا يجوز مطلقًا."],
+["ما حكم إصلاح إناء مكسور بلحام من الفضة اليسيرة؟","يجوز عند الحاجة وعدم وجود بديل آخر."],
+["ما حكم الشرب من موضع الإصلاح بالفضة مباشرة؟","جائز لكنه مكروه."],
+["ما القاعدة الأساسية في الطهارة والنجاسة؟","الأصل في الأشياء الطهارة، والنجاسة طارئة تحتاج يقينًا لا مجرد شك."],
+["ما حكم استخدام آنية غير المسلمين؟","يجوز ما لم تُعلم نجاستها، حتى لو كانوا من غير أهل الكتاب."],
+["ما حكم لبس ملابس مستعملة (سكند هاند) دون غسل؟","يجوز، حتى الملابس الداخلية، ما لم تُعلم نجاستها."],
+["ماذا فعل الصحابة في الفتوحات عند إيجاد طعام في آنية الأعداء؟","أكلوا منه مباشرة دون غسل الآنية."],
+["ما تعريف الميتة شرعًا؟","الحيوان الذي لم يُذكَّ ذكاة شرعية، سواء كان مما يؤكل أو لا."],
+["هل تطهر جلود الميتة بالدباغة؟","نعم على القول المختار، ما عدا الكلب والخنزير وما تولد منهما."],
+["ما حكم جلد الكلب أو الخنزير بعد الدباغة؟","لا يطهر، لأنهما نجسان أثناء الحياة."],
+["ما نوع الكحول النجس فقط؟","الكحول الإيثيلي وما تولد منه (كالدينيتشر)، لأنه مسكر."],
+["ما حكم باقي أنواع الكحول (كالإيزوبروبيلي)؟","طاهرة."],
+["ما القاعدة العامة فيما يُقطع من حيوان حي؟","ما أُبين من حي فهو كميتته."],
+["ما حكم الشعر والصوف المقصوص من الحيوان؟","طاهر دائمًا لأنه لا تحله الحياة."],
+["ما حكم القرن المقطوع من حيوان؟","يأخذ حكم العظم، وليس حكم الشعر."],
+["ما الاستثناء في السمك والجراد بخصوص ما يُقطع منهما؟","يجوز أكل ما قُطع منهما وهما حيّان، لأن ميتتهما طاهرة أصلًا."],
+["ما تعريف الاستنجاء شرعًا؟","إزالة الخارج من السبيلين وأثره."],
+["ما حكم الاستنجاء؟","واجب في كل ما يخرج من السبيلين، معتادًا كان أو غير معتاد."],
+["متى يجب الاستنجاء زمنيًا؟","عند إرادة الصلاة، وليس فورًا."],
+["ما الذي يُستثنى من وجوب الاستنجاء؟","الريح، والخارج الطاهر (كالمني)، والخارج الجاف الذي لا يلوث المحل."],
+["ما حكم الإفرازات الطبيعية للمرأة (غير الاستحاضة)؟","لا يجب منها استنجاء ولا تنقض الوضوء، وهي طاهرة."],
+["بأي رجل يُسنّ الدخول إلى الحمام؟","اليسرى، عكس دخول المسجد."],
+["ماذا يُقال عند الخروج من الحمام؟","غفرانك."],
+["ما حكم استقبال أو استدبار القبلة في الفضاء عند قضاء الحاجة؟","لا يجوز، ويكفي انحراف بسيط لتجنب الحرمة."],
+["ما حكم استقبال أو استدبار القبلة داخل البنيان؟","جائز، لا حرج فيه."],
+["ما حكم قراءة القرآن أثناء قضاء الحاجة؟","حرام، بخلاف الذكر بالقلب فهو جائز."],
+["اذكر شرطين من شروط ما يُستجمر به.","أن يكون طاهرًا، وأن يكون يابسًا (غير مبلل)."],
+["لماذا يحرم الاستجمار بالعظم؟","لوروده في الحديث أنه زاد إخواننا من الجن."],
+["كم العدد الأدنى للمسحات في الاستجمار؟","ثلاث مسحات على الأقل."],
+["عند أي عدد يُستحب الوقوف في الاستجمار إن زاد عن الثلاث؟","عند عدد وتر (5، 7...)."],
+["ما ضابط الاكتفاء بالاستجمار؟","ألا يبقى إلا أثر لا يزيله إلا الماء."],
+["ما حكم تعدي الخارج (كالإسهال) لموضع العادة الطبيعي؟","لا يكفي الاستجمار حينها، بل يجب استخدام الماء."],
+["ما هو 'السلت' ولمن يُستحب؟","تتبع مسار البول من الدبر إلى أصل الذكر برفق، ويُستحب فقط لمن عنده سلس بول متكرر."]
+];
+
+function downloadAnkiDeck() {
+  let content = ankiCards.map(([q, a]) => {
+    const clean = s => s.replace(/\t/g, ' ').replace(/\r?\n/g, '<br>');
+    return `${clean(q)}\t${clean(a)}`;
+  }).join('\n');
+  const BOM = '\uFEFF';
+  const blob = new Blob([BOM + content], { type: 'text/plain;charset=utf-8' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'بطاقات_أنكي_باب_الآنية_والاستنجاء.txt';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+</script>
 
 </body>
 </html>
