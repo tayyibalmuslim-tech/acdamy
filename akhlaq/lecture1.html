@@ -3,15 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>المحاضرة 1 | الأخلاق</title>
+<title>شرح محاضرة الأخلاق — حسن الخلق وتهذيب النفس</title>
 <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
-<!--
-  LECTURE_STATUS: EMPTY
-  هذا الملف محاضرة فارغة بانتظار التعبئة.
-  عند إضافة محتوى حقيقي، غيّر التعليق أعلاه إلى LECTURE_STATUS: FILLED
-  حتى تتعرف عليه صفحة الفئة (index.html) كمحاضرة مكتملة ويزيد العداد تلقائيًا.
--->
-<meta name="lecture-status" content="empty">
 <style>
   :root {
     --gold: #C5A55A;
@@ -27,101 +20,2079 @@
     --border-soft: #E5D5BF;
     --text-main: #2C1E10;
     --text-secondary: #6B5744;
+    --quran-bg: #FFFDF5;
+    --hadith-bg: #F5F9F7;
     --shadow-soft: 0 2px 20px rgba(58, 42, 26, 0.08);
     --shadow-card: 0 4px 24px rgba(58, 42, 26, 0.1);
   }
+
   * { margin: 0; padding: 0; box-sizing: border-box; }
+
   body {
     font-family: 'Cairo', sans-serif;
     background: var(--ivory);
     color: var(--text-main);
-    line-height: 1.9;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
+    line-height: 2;
+    font-size: 17px;
   }
+
+  /* ===== HEADER ===== */
   .header {
     background: linear-gradient(160deg, var(--brown-deep) 0%, var(--brown-mid) 60%, var(--brown-warm) 100%);
     color: var(--ivory);
-    padding: 40px 24px;
+    padding: 60px 24px 50px;
     text-align: center;
+    position: relative;
+    overflow: hidden;
   }
-  .breadcrumb {
-    font-size: 13px;
+
+  .header::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23C5A55A' fill-opacity='0.06'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    opacity: 1;
+  }
+
+  .header-content { position: relative; z-index: 1; max-width: 800px; margin: 0 auto; }
+
+  .bismillah {
+    font-family: 'Amiri', serif;
+    font-size: 28px;
     color: var(--gold-light);
-    margin-bottom: 14px;
-    opacity: 0.85;
+    margin-bottom: 20px;
+    opacity: 0.9;
   }
-  .breadcrumb a { color: var(--gold-light); text-decoration: none; }
-  .breadcrumb a:hover { text-decoration: underline; }
+
   .header h1 {
     font-family: 'Amiri', serif;
-    font-size: clamp(24px, 5vw, 34px);
+    font-size: clamp(28px, 5vw, 42px);
+    font-weight: 700;
+    line-height: 1.5;
+    margin-bottom: 12px;
   }
-  main {
-    flex: 1;
+
+  .header .subtitle {
+    font-size: 17px;
+    color: var(--gold-light);
+    font-weight: 300;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.8;
+  }
+
+  .gold-divider {
+    width: 80px;
+    height: 2px;
+    background: var(--gold);
+    margin: 20px auto;
+    border-radius: 1px;
+  }
+
+  /* ===== NAVIGATION ===== */
+  .toc {
+    background: white;
+    max-width: 900px;
+    margin: -30px auto 40px;
+    border-radius: 16px;
+    padding: 32px 36px;
+    box-shadow: var(--shadow-card);
+    position: relative;
+    z-index: 2;
+    border: 1px solid var(--border-soft);
+  }
+
+  .toc-title {
+    font-family: 'Amiri', serif;
+    font-size: 22px;
+    color: var(--green-islamic);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .toc-title::before {
+    content: '📑';
+    font-size: 20px;
+  }
+
+  .toc-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 8px;
+  }
+
+  .toc-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 14px;
+    border-radius: 10px;
+    text-decoration: none;
+    color: var(--text-main);
+    transition: all 0.2s;
+    font-size: 15px;
+  }
+
+  .toc-item:hover {
+    background: var(--green-light);
+    color: var(--green-islamic);
+  }
+
+  .toc-num {
+    width: 28px;
+    height: 28px;
+    background: var(--green-light);
+    color: var(--green-islamic);
+    border-radius: 8px;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 60px 24px;
+    font-size: 13px;
+    font-weight: 700;
+    flex-shrink: 0;
   }
-  .empty-card {
-    max-width: 520px;
-    text-align: center;
+
+  /* ===== MAIN CONTENT ===== */
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 24px 80px;
+  }
+
+  .section {
     background: white;
-    border: 1px dashed var(--border-soft);
+    border-radius: 16px;
+    padding: 36px 40px;
+    margin-bottom: 28px;
+    box-shadow: var(--shadow-soft);
+    border: 1px solid var(--border-soft);
+  }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 2px solid var(--gold-light);
+  }
+
+  .section-icon {
+    width: 48px;
+    height: 48px;
+    background: linear-gradient(135deg, var(--green-islamic), var(--green-accent));
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    flex-shrink: 0;
+  }
+
+  .section h2 {
+    font-family: 'Amiri', serif;
+    font-size: 24px;
+    color: var(--brown-deep);
+    line-height: 1.6;
+  }
+
+  .section h3 {
+    font-family: 'Amiri', serif;
+    font-size: 20px;
+    color: var(--green-islamic);
+    margin: 28px 0 12px;
+    padding-right: 14px;
+    border-right: 3px solid var(--gold);
+  }
+
+  .section p {
+    margin-bottom: 14px;
+    line-height: 2.1;
+    color: var(--text-main);
+  }
+
+  /* ===== SPECIAL BLOCKS ===== */
+  .quran-verse {
+    background: var(--quran-bg);
+    border: 1px solid var(--gold-light);
+    border-right: 4px solid var(--gold);
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin: 16px 0;
+    font-family: 'Amiri', serif;
+    font-size: 20px;
+    line-height: 2.2;
+    color: var(--brown-deep);
+    text-align: center;
+  }
+
+  .quran-verse .ref {
+    display: block;
+    font-family: 'Cairo', sans-serif;
+    font-size: 13px;
+    color: var(--text-secondary);
+    margin-top: 8px;
+    font-weight: 600;
+  }
+
+  .hadith {
+    background: var(--hadith-bg);
+    border: 1px solid #C5E0D5;
+    border-right: 4px solid var(--green-islamic);
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin: 16px 0;
+    font-family: 'Amiri', serif;
+    font-size: 19px;
+    line-height: 2.2;
+    color: var(--brown-deep);
+  }
+
+  .hadith .ref {
+    display: block;
+    font-family: 'Cairo', sans-serif;
+    font-size: 13px;
+    color: var(--text-secondary);
+    margin-top: 8px;
+    font-weight: 600;
+  }
+
+  .definition-box {
+    background: linear-gradient(135deg, #FDF8EE, #FFF5E0);
+    border: 1px solid var(--gold-light);
+    border-radius: 14px;
+    padding: 24px 28px;
+    margin: 18px 0;
+    position: relative;
+  }
+
+  .definition-box::before {
+    content: 'تعريف';
+    position: absolute;
+    top: -12px;
+    right: 20px;
+    background: var(--gold);
+    color: white;
+    padding: 2px 16px;
     border-radius: 20px;
-    padding: 50px 36px;
+    font-size: 13px;
+    font-weight: 700;
+  }
+
+  .definition-box .term {
+    font-family: 'Amiri', serif;
+    font-size: 20px;
+    color: var(--brown-deep);
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+
+  .key-point {
+    background: var(--green-light);
+    border: 1px solid #B8DFC9;
+    border-radius: 12px;
+    padding: 18px 22px;
+    margin: 16px 0;
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+  }
+
+  .key-point::before {
+    content: '💡';
+    font-size: 20px;
+    flex-shrink: 0;
+    margin-top: 4px;
+  }
+
+  .warning-box {
+    background: #FFF5F0;
+    border: 1px solid #F0D0C0;
+    border-right: 4px solid #D97757;
+    border-radius: 12px;
+    padding: 18px 22px;
+    margin: 16px 0;
+  }
+
+  .warning-box .label {
+    color: #B8532F;
+    font-weight: 700;
+    font-size: 15px;
+    margin-bottom: 4px;
+  }
+
+  /* ===== COMPARISON TABLE ===== */
+  .comparison-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin: 20px 0;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--border-soft);
+    font-size: 15px;
+  }
+
+  .comparison-table th {
+    background: var(--brown-deep);
+    color: var(--ivory);
+    padding: 14px 18px;
+    font-weight: 600;
+    font-size: 15px;
+    text-align: right;
+  }
+
+  .comparison-table td {
+    padding: 14px 18px;
+    border-bottom: 1px solid var(--border-soft);
+    line-height: 1.8;
+    vertical-align: top;
+  }
+
+  .comparison-table tr:nth-child(even) td { background: #FDFAF5; }
+  .comparison-table tr:last-child td { border-bottom: none; }
+
+  /* ===== DIAGRAM CARDS ===== */
+  .diagram-flow {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+    margin: 24px 0;
+  }
+
+  .flow-card {
+    background: white;
+    border: 2px solid var(--gold-light);
+    border-radius: 14px;
+    padding: 18px 22px;
+    text-align: center;
+    min-width: 140px;
+    flex: 1;
+    max-width: 200px;
+    transition: transform 0.2s;
+  }
+
+  .flow-card:hover { transform: translateY(-3px); }
+
+  .flow-card .num {
+    width: 32px;
+    height: 32px;
+    background: var(--green-islamic);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 14px;
+    margin: 0 auto 8px;
+  }
+
+  .flow-card .label {
+    font-weight: 700;
+    font-size: 16px;
+    color: var(--brown-deep);
+    margin-bottom: 4px;
+  }
+
+  .flow-card .desc {
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+
+  /* ===== RULING CARDS ===== */
+  .rulings-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 12px;
+    margin: 20px 0;
+  }
+
+  .ruling-card {
+    background: white;
+    border-radius: 12px;
+    padding: 20px 16px;
+    text-align: center;
+    border: 2px solid var(--border-soft);
+    transition: all 0.2s;
+  }
+
+  .ruling-card:hover {
+    border-color: var(--green-islamic);
     box-shadow: var(--shadow-soft);
   }
-  .empty-icon { font-size: 48px; margin-bottom: 18px; opacity: 0.6; }
-  .empty-card h2 {
+
+  .ruling-card .emoji { font-size: 28px; margin-bottom: 8px; }
+
+  .ruling-card .name {
     font-family: 'Amiri', serif;
+    font-size: 18px;
+    font-weight: 700;
     color: var(--brown-deep);
+    margin-bottom: 4px;
+  }
+
+  .ruling-card .detail {
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+
+  /* ===== WATER SECTION ===== */
+  .water-card {
+    border-radius: 14px;
+    padding: 24px 28px;
+    margin: 16px 0;
+    border-width: 2px;
+    border-style: solid;
+  }
+
+  .water-card.tahur {
+    background: linear-gradient(135deg, #E8F5EE, #F0FFF5);
+    border-color: #8ECFAC;
+  }
+
+  .water-card.tahir {
+    background: linear-gradient(135deg, #FFF8EC, #FFFDF5);
+    border-color: var(--gold-light);
+  }
+
+  .water-card.najs {
+    background: linear-gradient(135deg, #FFF0F0, #FFF5F5);
+    border-color: #E8B0B0;
+  }
+
+  .water-card .water-title {
+    font-family: 'Amiri', serif;
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .water-card.tahur .water-title { color: var(--green-islamic); }
+  .water-card.tahir .water-title { color: #A07820; }
+  .water-card.najs .water-title { color: #A03030; }
+
+  /* ===== FOOTER ===== */
+  .footer {
+    text-align: center;
+    padding: 40px 24px;
+    background: var(--brown-deep);
+    color: var(--gold-light);
+    font-size: 15px;
+    line-height: 2;
+  }
+
+  .footer .dua {
+    font-family: 'Amiri', serif;
     font-size: 22px;
     margin-bottom: 12px;
+    color: var(--gold);
   }
-  .empty-card p {
-    color: var(--text-secondary);
+
+  /* ===== RESPONSIVE ===== */
+  /* ===== QUIZ STYLES ===== */
+  .quiz-launch-wrapper {
+    text-align: center;
+    padding: 40px 24px;
+  }
+
+  .quiz-launch-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: linear-gradient(135deg, var(--green-islamic), #247A58);
+    color: white;
+    border: none;
+    padding: 18px 44px;
+    border-radius: 16px;
+    font-family: 'Cairo', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 6px 24px rgba(27, 107, 74, 0.35);
+  }
+
+  .quiz-launch-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 32px rgba(27, 107, 74, 0.45);
+  }
+
+  .quiz-launch-btn:active { transform: translateY(0); }
+
+  .quiz-launch-btn .btn-icon { font-size: 26px; }
+
+  .quiz-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(42, 30, 16, 0.6);
+    backdrop-filter: blur(6px);
+    z-index: 1000;
+    overflow-y: auto;
+    padding: 20px;
+  }
+
+  .quiz-overlay.active { display: flex; justify-content: center; align-items: flex-start; }
+
+  .quiz-container {
+    background: var(--ivory);
+    border-radius: 20px;
+    max-width: 860px;
+    width: 100%;
+    margin: 20px auto;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    overflow: hidden;
+  }
+
+  .quiz-header {
+    background: linear-gradient(135deg, var(--brown-deep), var(--brown-mid));
+    color: var(--ivory);
+    padding: 28px 32px;
+    text-align: center;
+  }
+
+  .quiz-header h2 {
+    font-family: 'Amiri', serif;
+    font-size: 26px;
+    margin-bottom: 6px;
+  }
+
+  .quiz-header .quiz-meta {
+    font-size: 14px;
+    color: var(--gold-light);
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .quiz-progress-bar {
+    height: 5px;
+    background: rgba(255,255,255,0.15);
+    position: relative;
+  }
+
+  .quiz-progress-fill {
+    height: 100%;
+    background: var(--gold);
+    transition: width 0.4s ease;
+    border-radius: 0 3px 3px 0;
+  }
+
+  .quiz-body { padding: 28px 32px; }
+
+  .q-card {
+    background: white;
+    border-radius: 14px;
+    padding: 24px 28px;
+    margin-bottom: 24px;
+    border: 1px solid var(--border-soft);
+    box-shadow: var(--shadow-soft);
+    transition: border-color 0.3s;
+  }
+
+  .q-card.correct-highlight { border-color: #2ECC71; background: #F0FFF5; }
+  .q-card.wrong-highlight { border-color: #E74C3C; background: #FFF5F5; }
+
+  .q-number {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    font-weight: 700;
+    color: white;
+    padding: 4px 14px;
+    border-radius: 20px;
+    margin-bottom: 12px;
+  }
+
+  .q-number.mcq { background: var(--green-islamic); }
+  .q-number.tf { background: #2980B9; }
+  .q-number.essay { background: var(--brown-warm); }
+
+  .q-text {
+    font-family: 'Amiri', serif;
+    font-size: 19px;
+    line-height: 2;
+    color: var(--brown-deep);
+    margin-bottom: 16px;
+  }
+
+  .q-difficulty {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 2px 10px;
+    border-radius: 10px;
+    margin-right: 8px;
+    vertical-align: middle;
+  }
+
+  .q-difficulty.medium { background: #FFF3CD; color: #856404; }
+  .q-difficulty.hard { background: #FFE0CC; color: #A84300; }
+  .q-difficulty.very-hard { background: #F8D7DA; color: #842029; }
+
+  .q-options { display: flex; flex-direction: column; gap: 8px; }
+
+  .q-option {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 18px;
+    border: 2px solid var(--border-soft);
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 16px;
+    line-height: 1.8;
+    background: white;
+  }
+
+  .q-option:hover { border-color: var(--green-accent); background: var(--green-light); }
+
+  .q-option.selected {
+    border-color: var(--green-islamic);
+    background: var(--green-light);
+    font-weight: 600;
+  }
+
+  .q-option.correct-answer {
+    border-color: #2ECC71 !important;
+    background: #E8F8F0 !important;
+  }
+
+  .q-option.wrong-answer {
+    border-color: #E74C3C !important;
+    background: #FDEDEC !important;
+  }
+
+  .q-option .option-letter {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--green-light);
+    color: var(--green-islamic);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 14px;
+    flex-shrink: 0;
+    transition: all 0.2s;
+  }
+
+  .q-option.selected .option-letter {
+    background: var(--green-islamic);
+    color: white;
+  }
+
+  .q-option.correct-answer .option-letter { background: #2ECC71; color: white; }
+  .q-option.wrong-answer .option-letter { background: #E74C3C; color: white; }
+
+  .q-option .option-icon {
+    margin-right: auto;
+    font-size: 18px;
+    display: none;
+  }
+
+  .q-option.correct-answer .option-icon,
+  .q-option.wrong-answer .option-icon { display: block; }
+
+  .q-tf-options {
+    display: flex;
+    gap: 12px;
+  }
+
+  .q-tf-btn {
+    flex: 1;
+    padding: 14px;
+    border: 2px solid var(--border-soft);
+    border-radius: 12px;
+    background: white;
+    cursor: pointer;
+    font-family: 'Cairo', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    transition: all 0.2s;
+    text-align: center;
+  }
+
+  .q-tf-btn:hover { border-color: var(--green-accent); }
+  .q-tf-btn.selected { border-color: var(--green-islamic); background: var(--green-light); color: var(--green-islamic); }
+  .q-tf-btn.correct-answer { border-color: #2ECC71 !important; background: #E8F8F0 !important; color: #1B7A40 !important; }
+  .q-tf-btn.wrong-answer { border-color: #E74C3C !important; background: #FDEDEC !important; color: #A93226 !important; }
+
+  .q-essay-area {
+    width: 100%;
+    min-height: 120px;
+    border: 2px solid var(--border-soft);
+    border-radius: 12px;
+    padding: 16px;
+    font-family: 'Cairo', sans-serif;
+    font-size: 16px;
+    line-height: 2;
+    resize: vertical;
+    transition: border-color 0.3s;
+    direction: rtl;
+    background: white;
+  }
+
+  .q-essay-area:focus { outline: none; border-color: var(--green-islamic); }
+
+  .q-correct-box {
+    display: none;
+    margin-top: 14px;
+    padding: 14px 18px;
+    border-radius: 10px;
     font-size: 15px;
     line-height: 1.9;
   }
-  .back-link {
-    display: inline-block;
-    margin-top: 24px;
-    padding: 10px 26px;
-    background: var(--green-light);
-    color: var(--green-islamic);
-    text-decoration: none;
-    border-radius: 20px;
-    font-weight: 700;
-    font-size: 14px;
+
+  .q-correct-box.show { display: block; }
+  .q-correct-box.right { background: #E8F8F0; border: 1px solid #B8E6CC; color: #1B6B4A; }
+  .q-correct-box.wrong { background: #FDEDEC; border: 1px solid #F5C6CB; color: #842029; }
+  .q-correct-box.model { background: #EBF5FB; border: 1px solid #AED6F1; color: #1A5276; }
+
+  .quiz-actions {
+    padding: 20px 32px 32px;
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
   }
-  footer {
+
+  .quiz-btn {
+    padding: 14px 36px;
+    border: none;
+    border-radius: 12px;
+    font-family: 'Cairo', sans-serif;
+    font-size: 17px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .quiz-btn.primary {
+    background: var(--green-islamic);
+    color: white;
+    box-shadow: 0 4px 16px rgba(27,107,74,0.3);
+  }
+
+  .quiz-btn.primary:hover { background: #24825A; transform: translateY(-2px); }
+
+  .quiz-btn.secondary {
+    background: white;
+    color: var(--brown-deep);
+    border: 2px solid var(--border-soft);
+  }
+
+  .quiz-btn.secondary:hover { border-color: var(--brown-mid); }
+
+  .quiz-btn:disabled { opacity: 0.5; cursor: not-allowed; transform: none !important; }
+
+  .quiz-score-card {
     text-align: center;
-    padding: 24px;
-    color: var(--text-secondary);
-    font-size: 13px;
+    padding: 32px;
+    background: white;
+    border-radius: 16px;
+    margin: 20px 32px;
+    border: 2px solid var(--gold-light);
+  }
+
+  .score-circle {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 16px;
+    font-weight: 700;
+    border: 5px solid;
+  }
+
+  .score-circle.excellent { border-color: #2ECC71; background: #E8F8F0; color: #1B6B4A; }
+  .score-circle.good { border-color: var(--gold); background: #FFF8EC; color: #8B6914; }
+  .score-circle.needs-work { border-color: #E74C3C; background: #FFF5F5; color: #A93226; }
+
+  .score-circle .score-num { font-size: 36px; line-height: 1.2; }
+  .score-circle .score-label { font-size: 13px; opacity: 0.7; }
+
+  .score-msg {
+    font-family: 'Amiri', serif;
+    font-size: 22px;
+    color: var(--brown-deep);
+    margin-bottom: 8px;
+  }
+
+  .score-detail { font-size: 15px; color: var(--text-secondary); }
+
+  @media (max-width: 640px) {
+    .section { padding: 24px 20px; }
+    .toc { padding: 24px 20px; margin: -20px 16px 30px; }
+    .toc-grid { grid-template-columns: 1fr; }
+    .rulings-grid { grid-template-columns: repeat(2, 1fr); }
+    .diagram-flow { flex-direction: column; align-items: center; }
+    .flow-card { max-width: 100%; }
+    .comparison-table { font-size: 14px; }
+    .comparison-table th, .comparison-table td { padding: 10px 12px; }
+    .quiz-body { padding: 20px 16px; }
+    .quiz-actions { padding: 16px; }
+    .q-card { padding: 18px 16px; }
+    .q-tf-options { flex-direction: column; }
+    .quiz-header { padding: 20px 16px; }
+    .quiz-score-card { margin: 16px; padding: 24px 16px; }
   }
 </style>
 </head>
 <body>
-
+<!-- ===== HEADER ===== -->
 <header class="header">
-  <div class="breadcrumb"><a href="../index.html">الأكاديمية الشرعية</a> ← <a href="index.html">الأخلاق</a> ← المحاضرة 1</div>
-  <h1>المحاضرة 1</h1>
+  <div class="header-content">
+    <div class="bismillah">بسم الله الرحمن الرحيم</div>
+    <h1>حسن الخلق وتهذيب النفس</h1>
+    <div class="gold-divider"></div>
+    <p class="subtitle">شرح تفصيلي لمحاضرة في الأخلاق: تعريف الخلق، أدلة فضل حسن الخلق من القرآن والسنة، وأسس ووسائل تهذيب النفس واكتساب الأخلاق الحسنة</p>
+  </div>
 </header>
 
-<main>
-  <div class="empty-card">
-    <div class="empty-icon">📝</div>
-    <h2>هذه المحاضرة لم تُملأ بعد</h2>
-    <p>سيتم إضافة الشرح المفصّل وبطاقات المراجعة لهذه المحاضرة قريبًا بإذن الله.</p>
-    <a class="back-link" href="index.html">← الرجوع لقائمة المحاضرات</a>
+<!-- ===== QUIZ BANNER (TOP) ===== -->
+<div style="max-width:900px; margin: -30px auto 16px; padding: 0 24px; position:relative; z-index:3;">
+  <div style="
+    background: linear-gradient(135deg, var(--green-islamic) 0%, #247A58 50%, #1B6B4A 100%);
+    border-radius: 16px;
+    padding: 24px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+    box-shadow: 0 8px 32px rgba(27, 107, 74, 0.35);
+    position: relative;
+    overflow: hidden;
+  ">
+    <div style="position:absolute; top:0; left:0; right:0; bottom:0; background: url('data:image/svg+xml,%3Csvg width=\'40\' height=\'40\' viewBox=\'0 0 40 40\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'0.05\'%3E%3Cpath d=\'M20 0L40 20L20 40L0 20z\'/%3E%3C/g%3E%3C/svg%3E'); pointer-events:none;"></div>
+    <div style="position:relative; z-index:1; color:white;">
+      <div style="font-family:'Amiri',serif; font-size:22px; font-weight:700; margin-bottom:4px;">📝 اختبر نفسك في هذه المحاضرة</div>
+      <div style="font-size:14px; opacity:0.85;">٢٠ سؤال — اختيار، صح وخطأ، ومقالي — مستوى متوسط إلى صعب جدًّا</div>
+    </div>
+    <div style="position:relative; z-index:1; display:flex; gap:10px; flex-wrap:wrap;">
+      <button onclick="startQuiz()" style="
+        background: white;
+        color: var(--green-islamic);
+        border: none;
+        padding: 14px 32px;
+        border-radius: 12px;
+        font-family: 'Cairo', sans-serif;
+        font-size: 17px;
+        font-weight: 700;
+        cursor: pointer;
+        box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+      ">ابدأ الاختبار ←</button>
+      <button onclick="downloadAnkiDeck()" style="
+        background: var(--gold);
+        color: var(--brown-deep);
+        border: none;
+        padding: 14px 28px;
+        border-radius: 12px;
+        font-family: 'Cairo', sans-serif;
+        font-size: 17px;
+        font-weight: 700;
+        cursor: pointer;
+        box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+      ">🗂️ حمّل بطاقات أنكي</button>
+    </div>
   </div>
-</main>
+</div>
 
-<footer>الأكاديمية الشرعية — طلب العلم عبادة</footer>
+<!-- ===== TOC ===== -->
+<nav class="toc">
+  <div class="toc-title">فهرس المحاضرة</div>
+  <div class="toc-grid">
+    <a href="#sec1" class="toc-item"><span class="toc-num">١</span> لماذا ندرس الأخلاق؟</a>
+    <a href="#sec2" class="toc-item"><span class="toc-num">٢</span> تعريف الخلق</a>
+    <a href="#sec3" class="toc-item"><span class="toc-num">٣</span> مداخل الشيطان وصفات العبد</a>
+    <a href="#sec4" class="toc-item"><span class="toc-num">٤</span> الخلق قابل للتغيير</a>
+    <a href="#sec5" class="toc-item"><span class="toc-num">٥</span> أسس تهذيب الأخلاق من القرآن والسنة</a>
+    <a href="#sec6" class="toc-item"><span class="toc-num">٦</span> منزلة حسن الخلق وأثره على الأعمال</a>
+    <a href="#sec7" class="toc-item"><span class="toc-num">٧</span> الإعراض عن الجاهلين وضوابطه</a>
+    <a href="#sec8" class="toc-item"><span class="toc-num">٨</span> طريق اكتساب حسن الخلق (رياضة النفس)</a>
+    <a href="#sec9" class="toc-item"><span class="toc-num">٩</span> طرق معرفة عيوب النفس (أربعة أبواب)</a>
+    <a href="#sec10" class="toc-item"><span class="toc-num">١٠</span> علامات حسن الخلق التفصيلية</a>
+  </div>
+</nav>
+
+<div class="container">
+
+<!-- ===== SECTION 1 ===== -->
+<section class="section" id="sec1">
+  <div class="section-header">
+    <div class="section-icon">🌱</div>
+    <h2>لماذا ندرس الأخلاق؟</h2>
+  </div>
+
+  <p>افتتح الشيخ المحاضرة ببيان الحافز الذي يدفع طالب العلم لدراسة الأخلاق، مستدلًّا بجملة من الأحاديث النبوية التي تُظهر عِظَم منزلة حسن الخلق في الدين، وأن الاهتمام بهذا الباب ليس أمرًا ثانويًّا بل هو من أعظم أبواب القرب من الله ومن رسوله صلى الله عليه وسلم.</p>
+
+  <h3>الأدلة التي ساقها الشيخ في فضل حسن الخلق</h3>
+
+  <div class="hadith">
+    أنا زعيمٌ ببيتٍ في ربَض الجنة لمن ترك المِراء وإن كان محقًّا، وببيتٍ في وسط الجنة لمن ترك الكذب وإن كان مازحًا، وببيتٍ في أعلى الجنة لمن حسَّن خُلُقَه
+    <span class="ref">رواه أبو داود، وحسّنه الألباني</span>
+  </div>
+
+  <div class="key-point">
+    الشاهد من الحديث: النبي صلى الله عليه وسلم يضمن ويكفل بنفسه بيتًا في «أعلى الجنة» — وهي أعلى منزلة — لمجرد حسن الخلق. هذا يدل على أن حسن الخلق من أعلى الأعمال منزلة عند الله، حتى إنه قُرن هنا بترك المراء وترك الكذب، وهما من أخلاق الألسنة.
+  </div>
+
+  <div class="hadith">
+    إنَّ من أحبِّكم إليَّ وأقربِكم مني مجلسًا يوم القيامة أحاسنكم أخلاقًا، وإنَّ أبغضكم إليَّ وأبعدكم مني مجلسًا يوم القيامة الثرثارون والمتشدِّقون والمتفيهقون. قالوا: يا رسول الله، قد علمنا الثرثارين والمتشدِّقين، فما المتفيهقون؟ قال: المتكبِّرون
+    <span class="ref">رواه الترمذي</span>
+  </div>
+
+  <div class="definition-box">
+    <div class="term">الثرثار</div>
+    كثير الكلام تكلُّفًا وتشدُّقًا من غير حاجة.
+  </div>
+  <div class="definition-box">
+    <div class="term">المتشدِّق</div>
+    الذي يتفاصح في كلامه ويلوي لسانه به تفاخرًا وتعاظمًا على الناس.
+  </div>
+  <div class="definition-box">
+    <div class="term">المتفيهق</div>
+    المتكبِّر، كما فسّره النبي صلى الله عليه وسلم بنفسه في الحديث؛ وأصل الفهق: الامتلاء والتوسع، فكأن المتفيهق يملأ فمه بالكلام تعاظمًا وتطاولًا على الناس.
+  </div>
+
+  <div class="hadith">
+    المؤمن الذي يخالط الناس ويصبر على أذاهم خير من الذي لا يخالط الناس ولا يصبر على أذاهم
+    <span class="ref">رواه الترمذي وابن ماجه</span>
+  </div>
+
+  <div class="hadith">
+    إن المؤمن ليدرك بحُسن خلقه درجة الصائم القائم
+    <span class="ref">رواه أبو داود</span>
+  </div>
+
+  <div class="hadith">
+    إنما بُعِثتُ لأتمِّم مكارم الأخلاق
+    <span class="ref">رواه أحمد، وفي رواية: «صالح الأخلاق»</span>
+  </div>
+
+  <p>ولما سُئلت أمُّ المؤمنين عائشة رضي الله عنها عن خُلُق النبي صلى الله عليه وسلم، أجابت بجواب جامع:</p>
+
+  <div class="hadith">
+    كان خُلُقه القرآن
+    <span class="ref">رواه مسلم</span>
+  </div>
+
+  <div class="key-point">
+    معنى «كان خُلُقه القرآن»: أن النبي صلى الله عليه وسلم كان يمتثل أوامر القرآن ويجتنب نواهيه، وكانت أخلاقه كلها مطابقة لما دعا إليه القرآن من الفضائل. وفي هذا إشارة لطالب العلم إلى أن الأخلاق الحسنة ليست شيئًا منفصلًا عن الوحي، بل هي ثمرة تطبيقه.
+  </div>
+
+  <h3>أحاديث أخرى ذكرها الشيخ في الترغيب والترهيب</h3>
+  <ul style="margin-right: 20px; line-height: 2.1;">
+    <li><strong>في الترغيب:</strong> «أكثر ما يُدخل الناس الجنة تقوى الله وحسن الخلق» (رواه الترمذي)، و«أثقل شيء في الميزان حسن الخلق» (رواه أبو داود والترمذي).</li>
+    <li><strong>في الترهيب:</strong> ضرب النبي صلى الله عليه وسلم المثل بامرأة تصوم النهار وتقوم الليل وتتصدق، لكنها تؤذي جيرانها بلسانها، فأخبر أنها من أهل النار، على النقيض من امرأة أخرى قليلة العبادة لكنها لا تؤذي أحدًا، وهي من أهل الجنة (رواه أحمد والحاكم).</li>
+    <li><strong>حديث المفلس:</strong> سؤال النبي صلى الله عليه وسلم لأصحابه «أتدرون من المفلس؟» ثم بيانه أن المفلس الحقيقي من يأتي يوم القيامة بحسنات كثيرة، لكنه شتم هذا وقذف هذا وأكل مال هذا وسفك دم هذا وضرب هذا، فيُقتصّ من حسناته حتى تفنى، ثم يُطرح عليه من سيئاتهم فيُطرح في النار (رواه مسلم).</li>
+    <li>«إن العبد ليتكلم بالكلمة لا يُلقي لها بالًا يهوي بها في النار سبعين خريفًا» — تحذير من خطورة الكلمة السيئة على الأخلاق واللسان.</li>
+  </ul>
+
+  <div class="key-point">
+    أشار الشيخ إلى أن هذه الملازم مجموعة من عدة كتب، ونصح بالرجوع لكتب متخصصة في الأخلاق لمن أراد التوسع، منها: «مختصر منهاج القاصدين»، و«منهاج المسلم» لأبي بكر الجزائري (باب الأخلاق تحديدًا)، و«شرح الأربعين النووية»، و«البحر الرائق»، و«تزكية النفوس»، وكتاب «أعمال القلوب» للشيخ محمد صالح المنجد.
+  </div>
+</section>
+
+<!-- ===== SECTION 2 ===== -->
+<section class="section" id="sec2">
+  <div class="section-header">
+    <div class="section-icon">📖</div>
+    <h2>تعريف الخُلُق</h2>
+  </div>
+
+  <div class="definition-box">
+    <div class="term">الخُلُق</div>
+    هيئة راسخة في النفس، تصدر عنها الأفعال الإرادية الاختيارية، من حسنةٍ وسيئةٍ، وجميلةٍ وقبيحةٍ، من غير حاجة إلى فكر ولا رويّة.
+  </div>
+
+  <p>هذا التعريف — الذي هو مأخوذ من كلام الإمام الغزالي وأهل العلم في هذا الباب — يحتاج إلى تفكيك لكل كلمة فيه حتى يتضح المعنى تمامًا:</p>
+
+  <div class="rulings-grid">
+    <div class="ruling-card">
+      <div class="emoji">🏛️</div>
+      <div class="name">هيئة راسخة</div>
+      <div class="detail">صفة ثابتة مستقرة في النفس، وليست حالة عارضة تزول بزوال سببها</div>
+    </div>
+    <div class="ruling-card">
+      <div class="emoji">🔄</div>
+      <div class="name">تصدر عنها الأفعال</div>
+      <div class="detail">هذه الهيئة هي المصدر الذي تنبع منه تصرفات الإنسان</div>
+    </div>
+    <div class="ruling-card">
+      <div class="emoji">🎯</div>
+      <div class="name">إرادية اختيارية</div>
+      <div class="detail">أفعال يقوم بها الإنسان باختياره، لا أفعال قسرية جبرية</div>
+    </div>
+    <div class="ruling-card">
+      <div class="emoji">⚡</div>
+      <div class="name">دون تكلّف</div>
+      <div class="detail">تصدر بسهولة ويسر من غير تفكير أو مجاهدة، لأنها أصبحت طبعًا</div>
+    </div>
+  </div>
+
+  <h3>توضيح المعنى بالتمثيل: صورة النفس</h3>
+  <p>ضرب الشيخ مثالًا لتقريب المعنى: للإنسان صورة ظاهرة يراها في المرآة، تدل على شكله الخارجي، فإذا رأيت شخصًا ضخم البِنية عريض المنكبين حكمتَ عليه بالقوة من مجرد شكله، وإذا رأيت آخر عليه سِمَت الصلاح حكمتَ عليه بالتديُّن من هيئته الظاهرة.</p>
+
+  <p>كذلك النفس، لها صورة باطنة، وهذه الصورة الباطنة هي التي تُسمّى «الخُلُق». وهذه الصورة تتكوّن من مجموع صفات الإنسان ومعتقداته وعاداته، وهي التي تُنتج أفعاله؛ فحين يُخيَّر الإنسان بين فعلين، فإن اختياره يكون بناءً على صورة نفسه لا بناءً على تفكير مستأنف في كل مرة.</p>
+
+  <div class="key-point">
+    خلاصة الفكرة: الأفعال الظاهرة ثمرة، والخُلُق هو الشجرة أو الجذر الذي أنتج هذه الثمرة. فمن أراد تغيير أفعاله تغييرًا حقيقيًّا ودائمًا، فعليه أن يُعالج الجذر — أي صورة نفسه وهيئتها الباطنة — لا أن يكتفي بمحاولة ضبط الأفعال الظاهرة وحدها بشكل مؤقت.
+  </div>
+
+  <h3>سؤال مهم أثاره الشيخ: هل الخُلُق عمل القلب أم عمل الجوارح؟</h3>
+  <p>من خلال التعريف السابق يتضح الجواب: الخُلُق أصله عمل قلبي — أي هيئة باطنة في النفس والقلب — وأما الأفعال الظاهرة على الجوارح (كالكرم، والصبر، والحلم) فهي ثمرة هذا العمل القلبي وأثره، وليست هي الخُلُق نفسه. ولذلك فإن إصلاح الأخلاق في حقيقته إصلاح للقلب أولًا، ثم يتبع ذلك إصلاح الجوارح.</p>
+</section>
+
+<!-- ===== SECTION 3 ===== -->
+<section class="section" id="sec3">
+  <div class="section-header">
+    <div class="section-icon">🚪</div>
+    <h2>مداخل الشيطان هي صفات العبد</h2>
+  </div>
+
+  <p>من أهم الفوائد التي نبّه عليها الشيخ في هذا الدرس، وهي فائدة قد تخفى على كثير من طلبة العلم: أن كثيرًا من الناس يتصوّرون أن «مداخل الشيطان» هي أفعال أو حِيَل يقوم بها الشيطان من خارج الإنسان ليدخل عليه بها. والحقيقة خلاف ذلك.</p>
+
+  <div class="warning-box">
+    <div class="label">⚠️ تصحيح مفهوم شائع</div>
+    مداخل الشيطان ليست شيئًا منفصلًا عن الإنسان يأتيه من الخارج، بل هي بعينها صفات العبد نفسه وعيوبه الخُلُقية. فصاحب الجُبن يدخل عليه الشيطان من باب الجبن، وصاحب البخل يدخل عليه من باب البخل، وصاحب الكسل يدخل عليه من باب الكسل، وهكذا كل صفة ذميمة في العبد هي باب مفتوح يدخل منه الشيطان.
+  </div>
+
+  <p>ومن هنا تظهر أهمية هذا الباب: فالشيطان لا يبحث عن مداخل عند شخص آخر ليُدخلها عليك، وإنما يستغل ما هو موجود فيك بالفعل من صفات. وهذا يعني أن معركة مقاومة الشيطان في جانب كبير منها هي معركة إصلاح النفس وتهذيب الأخلاق، لا مجرد الاستعاذة اللفظية دون عمل.</p>
+
+  <div class="key-point">
+    الأثر العملي لهذه الفائدة: كلما كانت صورة النفس وأخلاقها أقرب إلى ما يحبه الله ويرضاه، ضاقت مداخل الشيطان على العبد، لأن القلب حينئذ يصبح «حصنًا حصينًا» — كما عبّر الشيخ — والنفس تصبح نفسًا مطمئنة تصعب فتنتها. أما إذا ساءت الأخلاق، اتسعت المداخل وسهُل على الشيطان أن ينفُذ.
+  </div>
+</section>
+
+<!-- ===== SECTION 4 ===== -->
+<section class="section" id="sec4">
+  <div class="section-header">
+    <div class="section-icon">🔁</div>
+    <h2>الأخلاق قابلة للتغيير — نعمة من الله</h2>
+  </div>
+
+  <p>من رحمة الله عز وجل بعباده أن جعل الأخلاق «قابلة للتأثر بالتربية»، فليست الأخلاق صفة جامدة لا تتغير أبدًا، بل هي محل تربية وتهذيب، سواء كانت هذه التربية حسنة فتُحسِّن الخُلُق، أو سيئة فتُفسده.</p>
+
+  <h3>الحالان اللذان تكون عليهما النفس</h3>
+
+  <div class="comparison-table" style="overflow-x:auto;">
+    <table class="comparison-table">
+      <thead>
+        <tr>
+          <th>الحال الأولى: النفس المُهذَّبة</th>
+          <th>الحال الثانية: النفس المُهمَلة</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>هيئة تُؤثِر الفضيلة والحق، وتحب المعروف، وترغب في الخير، وتكره القبيح</td>
+          <td>هيئة أُهملت فلم تُهذَّب التهذيب اللائق، ولم تُنمَّ فيها عناصر الخير</td>
+        </tr>
+        <tr>
+          <td>تصدر عنها الأفعال الجميلة بسهولة ودون تكلّف — تُسمّى «خُلُقًا حسنًا»</td>
+          <td>رُبِّيت تربية سيئة حتى صار القبيح محبوبًا لديها والجميل مكروهًا عندها</td>
+        </tr>
+        <tr>
+          <td>أمثلتها: الحِلم، الأناة، الصبر، التحمّل، الكرم، الشجاعة، العدل، الإحسان</td>
+          <td>تصدر عنها الرذائل والنقائص من الأقوال والأفعال دون تكلّف — تُسمّى «سوء الخُلُق»</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="key-point">
+    مثال واقعي ذكره الشيخ لبيان مدى انتكاس النفس عند الإهمال: حين أخرج قوم لوط لوطًا عليه السلام وأهله من قريتهم، قالوا عنهم: «إنهم أناس يتطهّرون» (استنكارًا وسخرية!). فتأمّل كيف انقلبت الموازين عندهم حتى صار الطُّهر عيبًا يُستنكَر عندهم، وهذا غاية انتكاس الفطرة نتيجة إهمال النفس وسوء التربية.
+  </div>
+
+  <div class="warning-box">
+    <div class="label">⚠️ نموذج من الواقع</div>
+    ضرب الشيخ مثالًا معاصرًا: رجل استدان مالًا من آخر، فلما طُولب بردّه وهو قادر على الوفاء، قال: «ضميري مش مطاوعني أرجّعه» — مع أن المال أصلًا ليس ملكًا له، وإنما هو حق لصاحبه. هذا نموذج لفساد الخُلُق حين يصل بصاحبه إلى الاقتناع بأن الباطل حق.
+  </div>
+</section>
+
+<!-- ===== SECTION 5 ===== -->
+<section class="section" id="sec5">
+  <div class="section-header">
+    <div class="section-icon">📜</div>
+    <h2>أسس تهذيب الأخلاق في القرآن والسنة</h2>
+  </div>
+
+  <h3>من القرآن الكريم</h3>
+
+  <div class="quran-verse">
+    قَدْ أَفْلَحَ مَن زَكَّاهَا ۝ وَقَدْ خَابَ مَن دَسَّاهَا
+    <span class="ref">سورة الشمس: ٩-١٠</span>
+  </div>
+  <p>رتّب الله عز وجل الفلاح والنجاح في الدنيا والآخرة على تزكية النفس، ورتّب الخيبة والخسران على إهمالها وتدسيتها بالمعاصي والرذائل.</p>
+
+  <div class="quran-verse">
+    وَإِنَّكَ لَعَلَىٰ خُلُقٍ عَظِيمٍ
+    <span class="ref">سورة القلم: ٤</span>
+  </div>
+  <p>أثنى الله عز وجل على نبيه صلى الله عليه وسلم بحسن الخُلُق ثناءً عظيمًا، وهو صلى الله عليه وسلم القدوة والأسوة الكاملة في مكارم الأخلاق لكل مسلم.</p>
+
+  <div class="quran-verse">
+    خُذِ الْعَفْوَ وَأْمُرْ بِالْعُرْفِ وَأَعْرِضْ عَنِ الْجَاهِلِينَ
+    <span class="ref">سورة الأعراف: ١٩٩</span>
+  </div>
+
+  <div class="definition-box">
+    <div class="term">خُذ العفو</div>
+    ليس معناه أن يعفو الإنسان عمن أساء إليه فحسب، بل معناه الأشمل: أن يأخذ من أموال الناس وأوقاتهم وطاقتهم ما تسمح به أنفسهم بيُسر، دون أن يُثقل عليهم أو يستقصي في حقوقه عليهم.
+  </div>
+
+  <p>ومن هذا الأصل استُنبطت قاعدة الإنفاق: «ابدأ بنفسك ثم بمن تعول، ثم أدناك أدناك» — فالواجب أن يُنفق الإنسان على نفسه وأهله أولًا بما يكفيهم، دون إسراف يتذرّع به بحجة «الكفاية»، ثم يتصدّق بالفائض على الفقراء وفيما ينفع المسلمين.</p>
+
+  <div class="definition-box">
+    <div class="term">وأْمُر بالعُرف</div>
+    ما تعارف عليه الناس من الفضائل ومحاسن الأمور، وما أقرّه الشرع من ذلك.
+  </div>
+
+  <div class="definition-box">
+    <div class="term">أَعرِض عن الجاهلين</div>
+    نبّه الشيخ إلى أن «الجهل» هنا لا يُقصد به عدم العلم، وإنما المقصود به الإساءة في القول أو الفعل، وإلحاق الأذى بالآخرين. والدليل على هذا المعنى قول الشاعر الجاهلي: «ونجهل فوق جهل الجاهلينا» — أي نتجاوزهم في السَّفَه والإساءة، لا في الجهل بالمعلومات.
+  </div>
+
+  <div class="quran-verse">
+    وَإِذَا خَاطَبَهُمُ الْجَاهِلُونَ قَالُوا سَلَامًا
+    <span class="ref">سورة الفرقان: ٦٣</span>
+  </div>
+
+  <div class="key-point">
+    قال الشيخ: قولهم «سلامًا» يعني «قولًا يُسلِّمون به» — أي يختارون من الأقوال والأفعال ما يُسلِّمهم من إثمين معًا: السلامة من الأذى الواقع عليهم، والسلامة من الإثم الذي قد يقعون فيه لو ردّوا بالمثل. فالعفو هنا مكسب مزدوج، حتى لو ظنّ الجاهلون أن هذا ضعف من صاحبه.
+  </div>
+
+  <div class="hadith">
+    ما زاد الله عبدًا بعفوٍ إلا عزًّا
+    <span class="ref">رواه مسلم</span>
+  </div>
+
+  <div class="quran-verse">
+    وَسَارِعُوا إِلَىٰ مَغْفِرَةٍ مِّن رَّبِّكُمْ وَجَنَّةٍ عَرْضُهَا السَّمَاوَاتُ وَالْأَرْضُ أُعِدَّتْ لِلْمُتَّقِينَ ۝ الَّذِينَ يُنفِقُونَ فِي السَّرَّاءِ وَالضَّرَّاءِ وَالْكَاظِمِينَ الْغَيْظَ وَالْعَافِينَ عَنِ النَّاسِ وَاللَّهُ يُحِبُّ الْمُحْسِنِينَ
+    <span class="ref">سورة آل عمران: ١٣٣-١٣٤</span>
+  </div>
+
+  <div class="definition-box">
+    <div class="term">فائدة بلاغية: الالتفات</div>
+    نبّه الشيخ إلى لطيفة بلاغية في هاتين الآيتين: خاطب الله المتقين مباشرة بقوله «وسارعوا»، ثم انتقل للحديث عنهم بضمير الغائب «أُعِدَّت للمتقين». وهذا الأسلوب يُسمّى «الالتفات»، وفائدته تنشيط الذهن؛ إذ يتساءل السامع: «مَن هم هؤلاء المتقون؟» فتأتي الإجابة مباشرة: «الذين ينفقون في السرّاء والضرّاء...» فيتحقق بذلك مزيد تثبيت وتشويق للمعنى.
+  </div>
+
+  <h3>من السنة النبوية</h3>
+
+  <div class="hadith">
+    ما مِن شيءٍ في الميزان أثقل من حُسن الخُلُق
+    <span class="ref">رواه أبو داود والترمذي</span>
+  </div>
+
+  <div class="hadith">
+    البِرُّ حُسنُ الخُلُق، والإثمُ ما حاكَ في صدرِك وكرِهتَ أن يطَّلِعَ عليه الناس
+    <span class="ref">رواه مسلم</span>
+  </div>
+
+  <div class="key-point">
+    نبّه الشيخ إلى قيد مهم في معنى «ما حاك في صدرك»: هذه العلامة معتبرة في حق مَن كانت فطرتُه سليمة وقلبُه على شيء من الصلاح، فحينئذ يحكّ الحرام في صدره فعلًا. أما مَن انتكستْ فطرتُه، أو تراكم عليه الجهل، أو فقد التمييز بين الطيب والخبيث، فإن هذه العلامة لا تكون معتبرة في حقه، لأن أصل المشكلة عنده أعمق من ذلك.
+  </div>
+
+  <div class="hadith">
+    أكملُ المؤمنين إيمانًا أحسنُهم خُلُقًا
+    <span class="ref">رواه أبو داود والترمذي</span>
+  </div>
+
+  <div class="hadith">
+    إن العبد ليبلغ بحُسن خُلُقه عظيمَ درجات الآخرة وشرف المنازل، وإنه لَضعيف العبادة
+    <span class="ref">رواه الطبراني</span>
+  </div>
+
+  <div class="key-point">
+    وضّح الشيخ أن هذا الحديث ليس دعوة للتهاون بالعبادة، بل المقصود بيان أن حُسن الخُلُق عمل عظيم شاقّ في نفسه، يحتاج صاحبه إلى صبر ومجاهدة وضبط للنفس عند إساءة الآخرين، فقد يبلغ صاحب الخُلُق الحسن — رغم قلة نوافله — درجة عظيمة، لِمَا يبذله من مجاهدة مستمرة في ضبط لسانه ونفسه.
+  </div>
+
+  <div class="warning-box">
+    <div class="label">⚠️ تنبيه دقيق: الكافر لا يُوصف بحسن الخلق شرعًا</div>
+    من اللطائف التي نبّه عليها الشيخ: أن الكافر — وإن كان يتعامل بطريقة حسنة ظاهرًا مع الناس — لا يُسمّى «حسن الخلق» في الميزان الشرعي؛ لأنه لم يقصد بهذه المعاملة وجه الله، بل هو في الحقيقة قد أساء أعظم إساءة إلى خالقه جل وعلا، إذ أشرك به ونسب له الولد، مع أن الله هو المنعم عليه بكل شيء. فقد يُثاب على معاملته الحسنة في الدنيا بثناء الناس عليه، لكن لا نصيب له من ذلك في الآخرة.
+  </div>
+</section>
+
+<!-- ===== SECTION 6 ===== -->
+<section class="section" id="sec6">
+  <div class="section-header">
+    <div class="section-icon">⚖️</div>
+    <h2>منزلة حسن الخلق وأثره على الأعمال الصالحة</h2>
+  </div>
+
+  <p>نبّه الشيخ على خطأ شائع قد يقع فيه بعض المتعبدين: تصوُّر أن الصيام والقيام وكثرة الأعمال الصالحة تكفي وحدها، ولو كان صاحبها سيئ الخُلُق. والحق أن هذا التصور خاطئ من وجهين:</p>
+
+  <div class="rulings-grid">
+    <div class="ruling-card">
+      <div class="emoji">1️⃣</div>
+      <div class="name">الأصل: الأجر ثابت</div>
+      <div class="detail">الأعمال الصالحة كالصيام والقيام لن تذهب سُدى في ذاتها، فهي من أفضل أعمال البر وأحبها إلى الله</div>
+    </div>
+    <div class="ruling-card">
+      <div class="emoji">2️⃣</div>
+      <div class="name">لكنها عُرضة للخطر</div>
+      <div class="detail">سوء الخُلُق قد يكون سببًا في ذهاب حسنات هذه الأعمال إلى غيرك، أو في إحباطها بالكلية (كالرياء أو العُجب)</div>
+    </div>
+  </div>
+
+  <div class="warning-box">
+    <div class="label">⚠️ خطورة سوء الخُلُق على مصير صاحبه</div>
+    استشهد الشيخ بحديث «إن العبد ليتكلم بالكلمة... يهوي بها في النار سبعين خريفًا» ليبيّن أن سوء الخُلُق قد يكون سببًا في دخول النار ابتداءً، لا مجرد إحباط لأعمال البر فقط. فبدل أن يتآزر أجر العبادات مع حسنات أخرى، يأتي الخُلُق السيء ليأكل هذا الرصيد كله والعياذ بالله.
+  </div>
+
+  <div class="key-point">
+    الخلاصة العملية: حسن الخُلُق ليس فرعًا هامشيًّا في الدين، بل هو الحارس الذي يحمي رصيد الأعمال الصالحة من الضياع، ويرفع صاحبه في الآخرة درجات، حتى إن صاحب الخُلُق الحسن قد يبلغ بخُلُقه ما لا يبلغه غيره بكثرة النوافل وحدها.
+  </div>
+</section>
+
+<!-- ===== SECTION 7 ===== -->
+<section class="section" id="sec7">
+  <div class="section-header">
+    <div class="section-icon">🛑</div>
+    <h2>الإعراض عن الجاهلين: هل يتعارض مع الأمر بالمعروف والنهي عن المنكر؟</h2>
+  </div>
+
+  <p>أثار أحد الحاضرين سؤالًا مهمًّا: أليس الإعراض عن الجاهلين متعارضًا مع واجب الأمر بالمعروف والنهي عن المنكر؟ وأجاب الشيخ بتفريق دقيق بين حالتين:</p>
+
+  <div class="comparison-table" style="overflow-x:auto;">
+    <table class="comparison-table">
+      <thead>
+        <tr>
+          <th>الحالة</th>
+          <th>الحكم</th>
+          <th>التوضيح</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>جاهلٌ وقع في إساءة قولية أو فعلية تجاهك شخصيًّا (شتم، أذى، تعدٍّ)</td>
+          <td>الإعراض وعدم الرد بالمثل</td>
+          <td>هذا هو معنى «وأعرض عن الجاهلين» في الآية — أي لا تردّ الإساءة بإساءة مثلها</td>
+        </tr>
+        <tr>
+          <td>شخص جاهلٌ بحكم شرعي (لا يعرف الأمر والنهي) ويحتاج للدعوة والتعليم</td>
+          <td>لا إعراض، بل دعوة وتعليم</td>
+          <td>هذا داخل في عموم الأمر بالمعروف والنهي عن المنكر، وليس هو المقصود بالآية</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="key-point">
+    القاعدة إذن: الإعراض المأمور به في الآية خاص بردّ الإساءة الشخصية الموجَّهة إليك، لا بترك واجب الدعوة والتعليم والإنكار على من وقع في المخالفات الشرعية. فحين يهاجمك شخص أذيً بقول أو فعل، فالمطلوب أن تُعرِض ولا تشتبك معه بالمِثل، أما إذا رأيتَ منكرًا شرعيًّا فالواجب إنكاره بالحكمة والموعظة الحسنة.
+  </div>
+
+  <div class="quran-verse">
+    فَبِمَا رَحْمَةٍ مِّنَ اللَّهِ لِنتَ لَهُمْ ۖ وَلَوْ كُنتَ فَظًّا غَلِيظَ الْقَلْبِ لَانفَضُّوا مِنْ حَوْلِكَ
+    <span class="ref">سورة آل عمران: ١٥٩</span>
+  </div>
+
+  <h3>مسألة جانبية: التوبة مع بقاء بعض ضعف الخُلُق</h3>
+  <p>سؤال آخر أثاره الحضور: هل يُتصوّر أن يكون المسلم حسن الظاهر لكنه سيئ الخُلُق في بعض جوانبه، حتى مع التوبة من الذنوب؟ أجاب الشيخ بجوابين متكاملين:</p>
+
+  <div class="flow-card" style="max-width:100%; text-align:right; margin-bottom:12px;">
+    <div class="label">الإيمان شُعَب متفاوتة</div>
+    <div class="desc">الإيمان بضع وسبعون شعبة، فقد يكون العبد متقدمًا في بعض الشعب، ومجاهِدًا لم يبلغ الكمال بعدُ في شعبة أخرى، وهذا لا ينفي عنه أصل الإيمان، وقد يدخل في قوله تعالى: «خلطوا عملًا صالحًا وآخر سيئًا عسى الله أن يتوب عليهم» (التوبة: ١٠٢)</div>
+  </div>
+  <div class="flow-card" style="max-width:100%; text-align:right;">
+    <div class="label">الأخذ بأسباب عدم العودة للذنب</div>
+    <div class="desc">على العبد بعد التوبة أن يأخذ بالأسباب التي تمنعه من الوقوع في نفس الخطأ مجددًا: البيئة الصالحة، صحبة الصالحين، طلب العلم، مجاهدة النفس، محاسبتها، كثرة ارتياد المساجد، ومراقبة الله عز وجل</div>
+  </div>
+</section>
+
+<!-- ===== SECTION 8 ===== -->
+<section class="section" id="sec8">
+  <div class="section-header">
+    <div class="section-icon">🏋️</div>
+    <h2>طريق اكتساب حسن الخلق: رياضة النفس</h2>
+  </div>
+
+  <div class="definition-box">
+    <div class="term">رياضة النفس</div>
+    تعويد النفس تدريجيًّا على الأفعال الحسنة، حتى تصبح هذه الأفعال طبعًا فيها تصدر بسهولة دون تكلّف، تمامًا كما تُبنى عضلات الجسد بالتمرين المتكرر.
+  </div>
+
+  <p>ضرب الشيخ مثالًا رياضيًّا واضحًا: مثل رياضة البدن التي يتمرن فيها الجسم تدريجيًّا حتى تصبح الأثقال التي كانت شاقة في البداية سهلة يسيرة بعد التمرين المستمر، كذلك النفس، فحين تُعوَّدها على فعل الخير تدريجيًّا، تتجاوب معك شيئًا فشيئًا حتى يترسخ فيها الخُلُق الحسن ويصبح طبعًا.</p>
+
+  <div class="quran-verse" style="font-size:17px;">
+    <em style="font-family:'Cairo',sans-serif; font-size:14px; color:var(--text-secondary);">من كلام أهل العلم (بيت شعر استشهد به الشيخ):</em><br>
+    وَالنَّفسُ كَالطِّفلِ إِن تُهمِلْهُ شَبَّ عَلى ۝ حُبِّ الرَّضاعِ وَإِن تَفطِمهُ يَنفَطِمِ
+  </div>
+
+  <div class="key-point">
+    شرح البيت: النفس كالطفل الرضيع، إن تُرك على الرضاعة دون فِطام حتى الكبر تضرَّر جسمه ولم ينمُ، لأن الرضاعة وحدها لا تكفيه غذاءً بعد مرحلة معينة. فلا بد من «فِطامه» تدريجيًّا — بصبر ومصابرة — حتى يعتاد على الطعام الصلب رغم ما فيه من مشقة في البداية. كذلك النفس: إن تُركت على شهواتها ولم تُهذَّب، شبّت على ذلك وتضررت، وإن جوهدت وفُطمت شيئًا فشيئًا عن المألوف السيء، تعوّدت على الخير حتى يصبح هو المألوف الجديد.
+  </div>
+
+  <h3>الخطوات العملية لرياضة النفس التي ذكرها الشيخ</h3>
+
+  <div class="diagram-flow">
+    <div class="flow-card">
+      <div class="num">١</div>
+      <div class="label">حمل النفس على الفعل</div>
+      <div class="desc">مَن أراد اكتساب صفة الجود، يتكلّف العطاء والبذل تكلُّفًا في البداية</div>
+    </div>
+    <div class="flow-card">
+      <div class="num">٢</div>
+      <div class="label">المداومة حتى يصير طبعًا</div>
+      <div class="desc">يُواظب على الفعل حتى يصبح الجود طبعًا له لا يحتاج فيه إلى تكلّف</div>
+    </div>
+    <div class="flow-card">
+      <div class="num">٣</div>
+      <div class="label">معالجة المرض بضده</div>
+      <div class="desc">الجهل يُعالَج بالتعلّم، والبخل بالتصدُّق، والكِبر بالتواضع، والشَّرَه بالكفّ عن المشتهى</div>
+    </div>
+    <div class="flow-card">
+      <div class="num">٤</div>
+      <div class="label">الصبر على المشقة</div>
+      <div class="desc">تحمُّل ثقل المجاهدة في البداية، فالنتيجة إن شاء الله تحوُّل المشقة إلى نعمة ويُسر</div>
+    </div>
+  </div>
+
+  <div class="hadith">
+    إنما العلمُ بالتعلُّم، وإنما الحِلمُ بالتحلُّم
+    <span class="ref">حديث حسنه الألباني، وهو موقوف على أبي الدرداء عند من رواه مرفوعًا</span>
+  </div>
+
+  <div class="key-point">
+    استشهد الشيخ بمثال «الماهر بالقرآن» و«المتعتع فيه»: النبي صلى الله عليه وسلم أخبر أن «الماهر بالقرآن مع السَّفَرة الكرام البَرَرة، والذي يقرأ القرآن ويتتعتع فيه وهو عليه شاق له أجران» (متفق عليه). فالماهر أعلى منزلة، لكنه وصل إليها بعد مرحلة تعتعة ومجاهدة، فحصل له أجر المجاهدة أولًا ثم بلغ منزلة المهارة. كذلك صاحب الخُلُق السيء: يبدأ بمجاهدة شاقة، فيُثاب على مجاهدته، ثم يصل بالتكرار إلى أن يصبح الخُلُق الحسن طبعًا سهلًا عليه.
+  </div>
+
+  <p>ونقل الشيخ عن أحد السلف قوله: «كابدتُ قيام الليل عشرين سنة، وتنعّمتُ به عشرين سنة أخرى» — وهذا يوضح أن المشقة في بداية اكتساب الخُلُق أو العبادة مرحلة مؤقتة تتحوّل لاحقًا إلى تنعُّم ويسر.</p>
+
+  <div class="warning-box">
+    <div class="label">⚠️ خطورة مرض القلب مقارنة بمرض البدن</div>
+    نبّه الشيخ إلى فارق جوهري: مرض البدن ينتهي أثره بالموت، أما مرض القلب (سوء الخُلُق وفساد النفس) فيدوم أثره بعد الموت، لأنه قد يكون سببًا في دخول النار. ولذلك وجب الاهتمام بعلاج القلب أعظم من الاهتمام بعلاج البدن.
+  </div>
+
+  <div class="key-point">
+    مثال تطبيقي ذكره الشيخ عن إمكانية تغيّر الطباع: نُقل عن شيخ الإسلام ابن تيمية أنه كان فيه حِدّة في طبعه، لكنه كان يقمعها بالحِلم. وأعجب من ذلك: أبو بكر الصديق رضي الله عنه، فقد كان في طبعه حِدّة أيضًا، لكن من يقرأ سيرته يرى فيها الحِلم والرفق البالغ، مع أن هذا لم يكن طبعه الأصلي — وهذا أبلغ دليل على أن الأخلاق قابلة للتغيير والتهذيب مهما كان الطبع الأصلي.
+  </div>
+</section>
+
+<!-- ===== SECTION 9 ===== -->
+<section class="section" id="sec9">
+  <div class="section-header">
+    <div class="section-icon">🔍</div>
+    <h2>الأبواب الأربعة لمعرفة عيوب النفس</h2>
+  </div>
+
+  <p>بما أن مداخل الشيطان هي صفات العبد نفسه (كما سبق في القسم الثالث)، فإن معرفة عيوب نفسك خطوة ضرورية لسدّ هذه المداخل. لكن هذه المعرفة صعبة المنال بمجرد التفكير المنفرد، لأن النفس غالبًا ما تُزيِّن لصاحبها أفعاله. لذلك بيّن الشيخ أربعة أبواب عملية للوصول إلى هذه المعرفة:</p>
+
+  <div class="rulings-grid">
+    <div class="ruling-card">
+      <div class="emoji">1️⃣</div>
+      <div class="name">شيخ بصير</div>
+      <div class="detail">الجلوس بين يدي شيخ عالم بصير بأحوال النفوس، يبصّرك بعيوبك وطريقة علاجها — وهذا أقصر الطرق وأكملها</div>
+    </div>
+    <div class="ruling-card">
+      <div class="emoji">2️⃣</div>
+      <div class="name">صديق صدوق بصير</div>
+      <div class="detail">صاحبٌ صالحٌ من أهل العلم والديانة، ينبّهك على ما يكرهه من أخلاقك وأفعالك بصدق</div>
+    </div>
+    <div class="ruling-card">
+      <div class="emoji">3️⃣</div>
+      <div class="name">ألسنة الأعداء</div>
+      <div class="detail">حتى ذمّ الأعداء لك قد يكون فيه فائدة، إذ قد يذكرون فيك عيبًا حقيقيًّا لم تتنبّه له</div>
+    </div>
+    <div class="ruling-card">
+      <div class="emoji">4️⃣</div>
+      <div class="name">مخالطة الناس</div>
+      <div class="detail">رؤية سلوكيات الناس المزعجة، ثم مراجعة النفس: هل أفعل مثل هذا الفعل المزعج مع غيري؟</div>
+    </div>
+  </div>
+
+  <h3>تفصيل الباب الأول: الشيخ البصير</h3>
+  <p>هذا أفضل الطرق وأقصرها، لأن الشيخ العالم بأحوال النفوس يرى العيب من الخارج بموضوعية لا تراها أنت في نفسك، ويستطيع أن يصف العلاج المناسب. ونبّه الشيخ على أدب مهم هنا: إذا نصحك مثل هذا الشيخ، فالمطلوب أن تستجيب بقلبك وتبدأ تفكّر جديًّا في تطبيق النصيحة، لا أن تتكبّر على النصح أو تتجاهله.</p>
+
+  <h3>تفصيل الباب الثاني: الصديق الصدوق</h3>
+  <div class="hadith">
+    مَثَل الجليس الصالح والجليس السوء كحامل المسك ونافخ الكِير؛ فحامل المسك إما أن يُحذِيَك، وإما أن تبتاع منه، وإما أن تجد منه ريحًا طيبة، ونافخ الكِير إما أن يُحرق ثيابك، وإما أن تجد منه ريحًا خبيثة
+    <span class="ref">متفق عليه</span>
+  </div>
+  <div class="key-point">
+    وضّح الشيخ أن هذا الحديث ليس ذمًّا لمهنة الحدادة في ذاتها، وإنما هو تمثيل لتقريب الفارق الكبير بين أثر مخالطة الصالح وأثر مخالطة السوء، سواء أدركتَ ذلك مباشرة أم لا.
+  </div>
+
+  <h3>تفصيل الباب الثالث: ألسنة الأعداء</h3>
+  <p>قد يذمّك عدوّك بعيب موجود فيك فعلًا، فينبغي ألا تُهمل كلامه بحجة أنه عدو، بل تتأمل: هل هذه الصفة فيّ حقًّا؟ وقد يكون العدو يريد بذمّه أن ينفّر الناس عنك ليكسب من عداوته، فيصبح ذمّه — من حيث لا يقصد — سببًا في معرفتك بعيب خفي عليك.</p>
+
+  <h3>تفصيل الباب الرابع: مخالطة الناس</h3>
+  <p>ذكر الشيخ مثالًا واقعيًّا: زميل كان يشتكي من ظلم المديرين له في بداية عمله، فلما صار هو نفسه مديرًا، بدأ يُعامل من تحته بنفس الأسلوب الذي كان يشتكي منه! فتنبيه النفس هنا: إذا رأيتَ صفة مزعجة في معاملة الناس لك، فتأمّل: ألستَ تفعل مثلها مع غيرك أحيانًا؟</p>
+
+  <div class="warning-box">
+    <div class="label">⚠️ تحذير من الوسوسة الزائدة في تتبّع العيوب</div>
+    نبّه الشيخ إلى عدم المبالغة في الحفر داخل النفس بحثًا عن كل عيب خفي، فقد شبّه بعض أهل العلم النفس بجُبٍّ (بئر) فيه من الحيّات والعقارب، فإن قعدتَ تُنبِّش فيه كثيرًا، آذاك ذلك ولم تخرج بفائدة. الأفضل أن تسير مع نفسك بالتدرّج، وتُعالج ما يظهر لك من أحوالها شيئًا فشيئًا، دون الدخول في دوامة تفكير مفرط قد تُوقعك في اضطراب نفسي أو وسوسة.
+  </div>
+</section>
+
+<!-- ===== SECTION 10 ===== -->
+<section class="section" id="sec10">
+  <div class="section-header">
+    <div class="section-icon">✨</div>
+    <h2>علامات حسن الخلق التفصيلية</h2>
+  </div>
+
+  <p>ختم الشيخ الدرس بذكر مجموعة من العلامات التفصيلية لحسن الخلق، وهي معيار عملي يمكن لطالب العلم أن يقيس بها نفسه، ليعرف أين هو من هذه الصفات:</p>
+
+  <div class="rulings-grid">
+    <div class="ruling-card">
+      <div class="emoji">😊</div>
+      <div class="name">كثير الحياء</div>
+      <div class="detail">الحياء لا يأتي إلا بخير</div>
+    </div>
+    <div class="ruling-card">
+      <div class="emoji">🤝</div>
+      <div class="name">قليل الأذى</div>
+      <div class="detail">لا يقصد إيذاء أحد، وما يقع منه إنما هو عن خطأ أو غفلة</div>
+    </div>
+    <div class="ruling-card">
+      <div class="emoji">🌿</div>
+      <div class="name">كثير الصلاح</div>
+      <div class="detail">مُلازم للذكر والعبادة والعلم والصحبة الصالحة</div>
+    </div>
+    <div class="ruling-card">
+      <div class="emoji">🤐</div>
+      <div class="name">قليل الكلام</div>
+      <div class="detail">يُقلّل كلامه إلا فيما ينفع، ويُفكّر قبل أن ينطق</div>
+    </div>
+    <div class="ruling-card">
+      <div class="emoji">💪</div>
+      <div class="name">كثير العمل</div>
+      <div class="detail">الوقت الذي يوفّره من قلّة الكلام يستثمره في العمل الصالح</div>
+    </div>
+    <div class="ruling-card">
+      <div class="emoji">🎯</div>
+      <div class="name">قليل الزَّلَل</div>
+      <div class="detail">نتيجة قلة الكلام وترك المعاصي وتحرّي الحق</div>
+    </div>
+    <div class="ruling-card">
+      <div class="emoji">🚫</div>
+      <div class="name">قليل الفضول</div>
+      <div class="detail">لا يتدخّل فيما لا يعنيه، ولا يضع نفسه في موضع تهمة أو شبهة</div>
+    </div>
+    <div class="ruling-card">
+      <div class="emoji">💝</div>
+      <div class="name">بَرٌّ وصولٌ</div>
+      <div class="detail">بِرّ الوالدين، وصلة الرحم والجيران، والإحسان إلى الناس</div>
+    </div>
+    <div class="ruling-card">
+      <div class="emoji">🕊️</div>
+      <div class="name">وقورٌ صبورٌ</div>
+      <div class="detail">حاله كحال الصالحين، وسِمته سِمة أهل التقى</div>
+    </div>
+    <div class="ruling-card">
+      <div class="emoji">🙏</div>
+      <div class="name">شكورٌ رضِيٌّ</div>
+      <div class="detail">يشكر الناس ويشكر الله، ويرضى بقضاء الله وقدره</div>
+    </div>
+    <div class="ruling-card">
+      <div class="emoji">🤲</div>
+      <div class="name">رفيقٌ</div>
+      <div class="detail">خصوصًا في البيت مع الأهل، لأنهم أثقل عليه من الناس في الخارج</div>
+    </div>
+    <div class="ruling-card">
+      <div class="emoji">🛡️</div>
+      <div class="name">عفيفٌ شفوقٌ</div>
+      <div class="detail">يعفّ عن أموال الناس وأعراضهم، ويرحم الضعيف ويرفق به</div>
+    </div>
+  </div>
+
+  <div class="hadith">
+    إذا أراد الله بأهل بيتٍ خيرًا أدخل عليهم الرِّفق
+    <span class="ref">رواه أحمد وأبو داود، بمعناه</span>
+  </div>
+
+  <div class="key-point">
+    نبّه الشيخ إلى أهمية خاصة للرفق مع الأهل في البيت: لأن الإنسان في بيته مع والديه وأهله يكون أثقل عليهم من ثقل الغرباء، إذ إن الاحتكاك بالغرباء ضعيف والتعامل معهم خفيف، بخلاف أهل البيت الذين يتعامل معهم على راحته وقد يشقّ عليهم دون أن يشعر. فليكن الرفق بالأهل أولى من الرفق بالغرباء.
+  </div>
+
+  <h3>الصفات التي ينبغي تجنّبها (نقيض حسن الخلق)</h3>
+
+  <div class="warning-box">
+    <div class="label">⚠️ صفات ذميمة نهى عنها الشيخ في ختام الدرس</div>
+    لا لعّانًا، ولا سبّابًا، ولا نمّامًا (مفسدًا بين الناس بنقل الكلام)، ولا مغتابًا (ذاكرًا أخاه بما يكره في غيبته)، ولا عجولًا (سواء في الكلام أو في الأفعال؛ فكم من قرار متسرّع يُندَم عليه طويلًا لو صبر صاحبه لحظات)، ولا حقودًا (مُضمرًا الضغينة لغيره)، ولا بخيلًا (لأن البخل يمنع الخير عن المسلمين).
+  </div>
+
+  <div class="hadith">
+    ليس المؤمن بالطعّان، ولا اللعّان، ولا الفاحش، ولا البذيء
+    <span class="ref">رواه الترمذي</span>
+  </div>
+
+  <div class="key-point">
+    ملحوظة ختامية مهمة ذكرها الشيخ: هذه العلامات ليست غاية لاستفزاز النفس بالوسوسة، بل هي معيار يُقاس به التقدّم التدريجي. فإذا وجدتَ نفسك تفعل بعض المخالفات لهذه العلامات، فهذا دليل على وجود خُلُق يحتاج للعلاج، فابدأ في معالجته بالتدرّج كما سبق في «رياضة النفس»، ولا تُفرط في تقليب النفس بحثًا عن كل زلة.
+  </div>
+</section>
+
+</div>
+<!-- ===== QUIZ LAUNCH (BOTTOM) ===== -->
+<div class="quiz-launch-wrapper" style="display:flex; gap:16px; justify-content:center; flex-wrap:wrap;">
+  <button class="quiz-launch-btn" onclick="startQuiz()">
+    <span class="btn-icon">📝</span>
+    ابدأ اختبار المحاضرة الآن
+  </button>
+  <button class="quiz-launch-btn" onclick="downloadAnkiDeck()" style="background: linear-gradient(135deg, var(--gold), #B8934A); box-shadow: 0 6px 24px rgba(197,165,90,0.35);">
+    <span class="btn-icon">🗂️</span>
+    حمّل بطاقات أنكي (Anki)
+  </button>
+</div>
+
+<!-- ===== QUIZ OVERLAY ===== -->
+<div class="quiz-overlay" id="quizOverlay">
+  <div class="quiz-container" id="quizContainer"></div>
+</div>
+
+<script>
+const quizData = [
+  // ====== اختيار من متعدد ======
+  {
+    type: 'mcq',
+    difficulty: 'medium',
+    text: 'ما التعريف الصحيح للخُلُق كما ذكره الشيخ؟',
+    options: [
+      'مجموعة الأفعال الظاهرة التي يقوم بها الإنسان أمام الناس',
+      'هيئة راسخة في النفس تصدر عنها الأفعال الإرادية الاختيارية من غير تكلّف',
+      'الصفات الجسدية التي وُلد بها الإنسان ولا يمكن تغييرها',
+      'الأحكام الشرعية المتعلقة بالمعاملات بين الناس'
+    ],
+    correct: 1,
+    explanation: 'الخُلُق هو هيئة راسخة في النفس، تصدر عنها الأفعال الإرادية الاختيارية من حسنة وسيئة، من غير حاجة إلى فكر أو تكلّف. أما الخيار الأول فهو وصف للأفعال لا للخُلُق نفسه، والخيار الثالث خطأ لأن الأخلاق قابلة للتغيير بالتربية.'
+  },
+  {
+    type: 'mcq',
+    difficulty: 'medium',
+    text: 'بحسب الحديث الذي ذكره الشيخ، لمن يضمن النبي صلى الله عليه وسلم بيتًا في أعلى الجنة؟',
+    options: [
+      'لمن يكثر الصيام والقيام',
+      'لمن يحفظ القرآن كاملًا',
+      'لمن حسّن خُلُقه',
+      'لمن يجاهد في سبيل الله'
+    ],
+    correct: 2,
+    explanation: 'الحديث نصّه: «أنا زعيم ببيت في ربض الجنة لمن ترك المراء... وببيت في أعلى الجنة لمن حسّن خلقه» رواه أبو داود. وهذا يدل على عظم منزلة حسن الخلق عند الله.'
+  },
+  {
+    type: 'mcq',
+    difficulty: 'hard',
+    text: 'فسّر النبي صلى الله عليه وسلم "المتفيهقين" في حديث "أبغضكم إليّ الثرثارون والمتشدقون والمتفيهقون" بأنهم:',
+    options: [
+      'الذين يكثرون من الأسئلة',
+      'الجهلاء الذين لا يفقهون الدين',
+      'المتكبرون',
+      'الذين يتحدثون بلغات متعددة'
+    ],
+    correct: 2,
+    explanation: 'لما سُئل النبي صلى الله عليه وسلم: "قد علمنا الثرثارين والمتشدقين، فما المتفيهقون؟" قال: "المتكبرون". وأصل الفهق: الامتلاء والتوسع، فالمتفيهق يملأ فمه بالكلام تعاظمًا على الناس.'
+  },
+  {
+    type: 'mcq',
+    difficulty: 'hard',
+    text: 'ما الفهم الصحيح لمعنى "مداخل الشيطان" كما وضّحه الشيخ؟',
+    options: [
+      'هي حيل خارجية يستخدمها الشيطان بمعزل عن طبيعة الإنسان',
+      'هي بعينها صفات العبد وعيوبه الخُلُقية، فالشيطان يدخل من باب كل صفة ذميمة موجودة فيه',
+      'هي أوقات معينة في اليوم يكون فيها الشيطان أكثر قدرة على الوسوسة',
+      'هي أماكن بعينها ينشط فيها الشيطان أكثر من غيرها'
+    ],
+    correct: 1,
+    explanation: 'نبّه الشيخ إلى أن مداخل الشيطان ليست منفصلة عن الإنسان، بل هي صفات العبد نفسه؛ فصاحب الجبن يدخل عليه من باب الجبن، وصاحب البخل من باب البخل، وهكذا. فكلما ضاقت هذه الصفات الذميمة، ضاقت مداخل الشيطان.'
+  },
+  {
+    type: 'mcq',
+    difficulty: 'medium',
+    text: 'ما معنى "خُذ العفو" في قوله تعالى "خُذِ الْعَفْوَ وَأْمُرْ بِالْعُرْفِ" كما بيّنه الشيخ؟',
+    options: [
+      'أن تعفو عمن أساء إليك فقط',
+      'أن تأخذ من أموال الناس وأوقاتهم ما تسمح به أنفسهم بيُسر دون إثقال عليهم',
+      'أن تترك جميع حقوقك للناس دون مطالبة',
+      'أن تتجنب أخذ أي شيء من الناس مطلقًا'
+    ],
+    correct: 1,
+    explanation: 'وضّح الشيخ أن "العفو" هنا ليس معناه الصفح فقط، بل معناه الأشمل: أخذ ما تسمح به نفوس الناس بيسر من أموالهم وأوقاتهم، دون أن يُثقل عليهم أو يستقصي في حقوقه.'
+  },
+  {
+    type: 'mcq',
+    difficulty: 'very-hard',
+    text: 'كيف وضّح الشيخ معنى "الجاهلين" في قوله تعالى "وَأَعْرِضْ عَنِ الْجَاهِلِينَ"؟',
+    options: [
+      'هم الأميّون الذين لا يقرأون ولا يكتبون',
+      'هم من لا يعرفون أحكام الدين الأساسية ويحتاجون للتعليم',
+      'هم من يسيئون بالقول أو الفعل ويُلحقون الأذى بالآخرين، لا من يجهل المعلومات',
+      'هم الكفار حصرًا دون غيرهم'
+    ],
+    correct: 2,
+    explanation: 'بيّن الشيخ أن الجهل هنا بمعنى السَّفَه والإساءة لا بمعنى عدم العلم، مستشهدًا ببيت الشاعر الجاهلي: "ونجهل فوق جهل الجاهلينا" أي نتجاوزهم في السفه لا في نقص المعلومات.'
+  },
+  {
+    type: 'mcq',
+    difficulty: 'medium',
+    text: 'الفائدة البلاغية التي ذكرها الشيخ في آيتي "وسارعوا... أُعدّت للمتقين" تُسمّى:',
+    options: [
+      'الطباق',
+      'الالتفات',
+      'الجناس',
+      'الاستعارة'
+    ],
+    correct: 1,
+    explanation: 'الالتفات هو الانتقال من الخطاب المباشر (وسارعوا) إلى ضمير الغائب (أُعدّت للمتقين)، وفائدته تنشيط ذهن السامع ليتساءل عن هوية المتقين فتأتي الإجابة مباشرة بعدها.'
+  },
+  {
+    type: 'mcq',
+    difficulty: 'hard',
+    text: 'لماذا لا يُوصف الكافر بـ"حسن الخلق" في الميزان الشرعي عند الشيخ، ولو كان حَسَن المعاملة مع الناس؟',
+    options: [
+      'لأن الكافر لا يستطيع التعامل بحسن أصلًا',
+      'لأنه لم يقصد بمعاملته الحسنة وجه الله، وقد أساء أعظم إساءة إلى خالقه بالشرك',
+      'لأن حسن الخلق صفة خاصة بالمسلمين وراثيًّا',
+      'لأن الشريعة لا تعترف بأي فعل يقوم به غير المسلم'
+    ],
+    correct: 1,
+    explanation: 'وضّح الشيخ أن الكافر قد أساء إلى خالقه جل وعلا بالشرك ونسبة الولد له مع أنه المنعم عليه بكل شيء، فمعاملته الحسنة الظاهرة لا تُثاب عليها في الآخرة ولا تُسمّى حسن خلق شرعًا، وإن أُثيب عليها في الدنيا بثناء الناس.'
+  },
+  {
+    type: 'mcq',
+    difficulty: 'medium',
+    text: 'بحسب الشيخ، ما هو "رياضة النفس"؟',
+    options: [
+      'ممارسة الرياضة البدنية بانتظام كجزء من العبادة',
+      'تعويد النفس تدريجيًّا على الأفعال الحسنة حتى تصبح طبعًا فيها دون تكلّف',
+      'مجاهدة النفس لمدة محددة ثم تركها كما هي',
+      'قراءة كتب الأخلاق دون تطبيق عملي'
+    ],
+    correct: 1,
+    explanation: 'رياضة النفس هي تعويدها تدريجيًّا على الأفعال الحسنة، مثل تمرين الجسد شيئًا فشيئًا حتى تصبح الأثقال سهلة، فتصبح الأفعال الحسنة طبعًا يصدر بسهولة دون تكلّف.'
+  },
+  {
+    type: 'mcq',
+    difficulty: 'hard',
+    text: 'ما أول وأقصر الأبواب الأربعة لمعرفة عيوب النفس كما رتّبها الشيخ؟',
+    options: [
+      'مخالطة الناس ورؤية سلوكياتهم',
+      'الاستفادة من ألسنة الأعداء',
+      'الجلوس بين يدي شيخ بصير بأحوال النفوس',
+      'العزلة والتأمل الفردي المطوّل'
+    ],
+    correct: 2,
+    explanation: 'أول وأقصر الأبواب هو الجلوس بين يدي شيخ عالم بصير بأحوال النفوس، لأنه يرى العيب بموضوعية من الخارج ويصف العلاج المناسب. أما العزلة والتأمل الفردي فلم يذكرها الشيخ كطريق أصلًا، بل حذّر من الإفراط في تقليب النفس منفردًا.'
+  },
+  {
+    type: 'mcq',
+    difficulty: 'medium',
+    text: 'في حديث "مَثَل الجليس الصالح والجليس السوء كحامل المسك ونافخ الكِير"، ماذا يمثّل "نافخ الكِير"؟',
+    options: [
+      'الجليس الصالح الذي ينفعك دومًا',
+      'الجليس السوء الذي قد يضرّك بطريقة مباشرة أو غير مباشرة',
+      'العالم الذي يُعلّم الناس الخير',
+      'الشخص المحايد الذي لا ينفع ولا يضر'
+    ],
+    correct: 1,
+    explanation: 'نافخ الكِير (الحدّاد) إما أن يُحرق ثيابك أو تجد منه ريحًا خبيثة، وهو تمثيل للجليس السوء الذي يضرّك، بخلاف حامل المسك الذي يمثّل الجليس الصالح الذي ينفعك بطريقة أو بأخرى.'
+  },
+  {
+    type: 'mcq',
+    difficulty: 'very-hard',
+    text: 'وفق التفريق الذي أورده الشيخ، متى يكون الإعراض عن الجاهل واجبًا، ومتى لا يكون؟',
+    options: [
+      'الإعراض واجب دائمًا في كل تعامل مع الجهلاء دون استثناء',
+      'الإعراض خاص بردّ الإساءة الشخصية الموجهة إليك، ولا يشمل ترك واجب الدعوة والإنكار على المخالفات الشرعية',
+      'الإعراض لا يكون إلا مع غير المسلمين',
+      'الإعراض واجب فقط في المسجد لا خارجه'
+    ],
+    correct: 1,
+    explanation: 'بيّن الشيخ أن الإعراض المأمور به في الآية خاص بعدم ردّ الإساءة الشخصية بمثلها، أما من جهل حكمًا شرعيًّا ووقع في مخالفة فالواجب دعوته وتعليمه لا الإعراض عنه.'
+  },
+
+  // ====== صح وخطأ ======
+  {
+    type: 'tf',
+    difficulty: 'medium',
+    text: 'الخُلُق بحسب التعريف الذي ذكره الشيخ هو فعل من أفعال الجوارح مباشرة، وليس له علاقة بالقلب.',
+    correct: false,
+    explanation: 'خطأ. الخُلُق أصله هيئة باطنة راسخة في النفس والقلب، وأما الأفعال الظاهرة على الجوارح فهي ثمرة هذه الهيئة الباطنة وأثرها، لا الخُلُق نفسه.'
+  },
+  {
+    type: 'tf',
+    difficulty: 'medium',
+    text: 'بحسب الحديث الذي ذكره الشيخ، امرأة كانت تصوم وتقوم وتتصدق لكنها تؤذي جيرانها بلسانها أخبر النبي صلى الله عليه وسلم أنها في النار.',
+    correct: true,
+    explanation: 'صحيح. هذا الحديث رواه أحمد والحاكم، وفيه بيان أن كثرة العبادة لا تنفع صاحبها إذا كان سيئ الخُلُق مؤذيًا للناس، وضُرب على النقيض مثال بامرأة قليلة العبادة لا تؤذي أحدًا فكانت من أهل الجنة.'
+  },
+  {
+    type: 'tf',
+    difficulty: 'hard',
+    text: 'الأخلاق بحسب هذه المحاضرة صفة ثابتة لا تتغير أبدًا، فمن وُلد سيئ الخُلُق يبقى كذلك طوال حياته.',
+    correct: false,
+    explanation: 'خطأ. من رحمة الله أن الأخلاق قابلة للتأثر بالتربية والتغيير، والدليل على ذلك مثال أبي بكر الصديق رضي الله عنه الذي كان في طبعه حِدّة، لكن سيرته أظهرت الحلم والرفق البالغ بعد تهذيب نفسه.'
+  },
+  {
+    type: 'tf',
+    difficulty: 'medium',
+    text: 'قال النبي صلى الله عليه وسلم: "البِرّ حُسن الخُلُق، والإثم ما حاك في صدرك وكرهت أن يطّلع عليه الناس"، وهذه العلامة معتبرة في حق كل إنسان بلا استثناء.',
+    correct: false,
+    explanation: 'خطأ. نبّه الشيخ إلى أن علامة "ما حاك في صدرك" معتبرة في حق من كانت فطرته سليمة، أما من انتكست فطرته أو تراكم عليه الجهل فلا تكون هذه العلامة معتبرة في حقه.'
+  },
+  {
+    type: 'tf',
+    difficulty: 'hard',
+    text: 'سوء الخُلُق بحسب المحاضرة قد يكون سببًا في إحباط الأعمال الصالحة أو ذهاب حسناتها للغير، وقد يكون سببًا في دخول النار ابتداءً.',
+    correct: true,
+    explanation: 'صحيح. استدل الشيخ بحديث المفلس الذي تُقتصّ حسناته بسبب إساءته للناس، وبحديث "يهوي بها في النار سبعين خريفًا" الدال على أن سوء الخُلُق قد يكون سببًا مباشرًا في دخول النار.'
+  },
+  {
+    type: 'tf',
+    difficulty: 'medium',
+    text: 'الجاهل في قوله تعالى "وأعرض عن الجاهلين" هو من لا يعرف أحكام الدين، والمطلوب الإعراض عن تعليمه.',
+    correct: false,
+    explanation: 'خطأ مزدوج! أولًا: الجاهل هنا معناه المسيء بالقول أو الفعل، لا من يجهل المعلومات. ثانيًا: من يجهل حكمًا شرعيًّا يجب تعليمه ودعوته لا الإعراض عنه؛ فالإعراض خاص بعدم ردّ الإساءة الشخصية.'
+  },
+  {
+    type: 'tf',
+    difficulty: 'hard',
+    text: 'الرفق بحسب المحاضرة مطلوب مع الغرباء أكثر من الأهل، لأن الأهل يعذرون الإنسان دائمًا.',
+    correct: false,
+    explanation: 'خطأ. نبّه الشيخ إلى أن الرفق مع الأهل في البيت أولى وأهم، لأن الإنسان يكون أثقل على أهله من الغرباء، إذ يتعامل معهم على راحته دون انتباه، فقد يشقّ عليهم دون أن يشعر.'
+  },
+  {
+    type: 'tf',
+    difficulty: 'very-hard',
+    text: 'من علامات حسن الخلق التي ذكرها الشيخ "كثرة الكلام" لأن ذلك يدل على الفصاحة والبيان.',
+    correct: false,
+    explanation: 'خطأ. العلامة الصحيحة هي "قلة الكلام" لا كثرته، لأنها من أسهل وأكبر أسباب حفظ اللسان، وتجعل الإنسان يفكر قبل أن ينطق فيقل زلله.'
+  },
+  {
+    type: 'tf',
+    difficulty: 'hard',
+    text: 'إذا ذمّك عدوّك بصفة معينة، فالموقف الصحيح شرعًا بحسب الشيخ هو تجاهل كلامه بالكلية دون أي تأمل، لأنه عدو ولا يُؤخذ منه شيء.',
+    correct: false,
+    explanation: 'خطأ. بيّن الشيخ أن ألسنة الأعداء قد تكون بابًا لمعرفة عيوب النفس، فينبغي التأمل فيما يُقال دون رمي الكلام كله جانبًا، إذ قد يكون العدو ذكر فيك عيبًا حقيقيًّا خفيًا عليك.'
+  },
+  {
+    type: 'tf',
+    difficulty: 'very-hard',
+    text: 'الوسوسة الزائدة في تتبع عيوب النفس والتنقيب المستمر عن كل زلة خفية هي المنهج الذي دعا إليه الشيخ لتحقيق تزكية النفس الكاملة.',
+    correct: false,
+    explanation: 'خطأ مزدوج! الشيخ حذّر صراحة من الإفراط في تقليب النفس والتنقيب عن كل عيب خفي، وشبّه ذلك بالحفر في جُبّ فيه حيّات وعقارب. المنهج الصحيح هو السير بالتدرج ومعالجة ما يظهر من العيوب دون وسوسة مفرطة.'
+  },
+
+  // ====== مقالي ======
+  {
+    type: 'essay',
+    difficulty: 'hard',
+    text: 'اشرح المقصود بأن "مداخل الشيطان هي صفات العبد"، ووضّح الأثر العملي المترتب على فهم هذه الفائدة في حياة المسلم.',
+    modelAnswer: 'المقصود أن مداخل الشيطان ليست حيلًا منفصلة عن الإنسان يأتيه بها من الخارج، بل هي بعينها العيوب والصفات الذميمة الموجودة في نفس العبد؛ فصاحب الجبن يدخل عليه الشيطان من باب الجبن، وصاحب البخل من باب البخل، وصاحب الكسل من باب الكسل، وهكذا. فالشيطان يستغل ما هو موجود فيك بالفعل، لا أن يخترع لك صفات جديدة.\n\nالأثر العملي: معركة مقاومة وسوسة الشيطان هي في جانب كبير منها معركة إصلاح النفس وتهذيب الأخلاق، لا مجرد الاستعاذة اللفظية أو الدعاء دون عمل. فكلما ضاقت الصفات الذميمة في العبد بالتربية والمجاهدة، ضاقت مداخل الشيطان عليه وأصبح قلبه حصنًا حصينًا يصعب اختراقه، والعكس صحيح: كلما كثرت العيوب اتسعت المداخل وسهُل على الشيطان أن ينفذ ويُفتن العبد.'
+  },
+  {
+    type: 'essay',
+    difficulty: 'very-hard',
+    text: 'وضّح كيف يُبنى الخُلُق الحسن عمليًّا وفق "رياضة النفس"، مستدلًّا بالأمثلة التي ذكرها الشيخ (بيت الشعر، حديث الماهر بالقرآن، مثال ابن تيمية وأبي بكر الصديق).',
+    modelAnswer: 'رياضة النفس هي تعويد النفس تدريجيًّا على الأفعال الحسنة حتى تصبح طبعًا فيها تصدر دون تكلّف، تمامًا كما تُبنى عضلات الجسد بالتمرين المتكرر حتى تصبح الأثقال الشاقة سهلة.\n\nمثال بيت الشعر: "والنفس كالطفل إن تُهمله شبّ على حبّ الرضاع، وإن تفطمه ينفطم" — فالنفس كالطفل الرضيع إن تُرك دون فطام يتضرر جسمه، وإن جوهد وفُطم تدريجيًّا رغم مشقة البداية اعتاد على الطعام الصلب. كذلك النفس تحتاج فطامًا تدريجيًّا عن المألوف السيء لتعتاد الخير.\n\nمثال الماهر بالقرآن: النبي صلى الله عليه وسلم أخبر أن الماهر بالقرآن مع السفرة الكرام البررة، والمتعتع فيه وهو عليه شاق له أجران. فالماهر وصل إلى منزلته بعد مرحلة تعتعة ومجاهدة نال فيها أجرًا مضاعفًا، ثم بلغ لاحقًا منزلة اليسر والمهارة. كذلك صاحب الخُلُق السيء: يبدأ بمجاهدة شاقة يُثاب عليها، ثم يصل بالتكرار إلى أن يصبح الخُلُق الحسن طبعًا سهلًا.\n\nمثال ابن تيمية وأبي بكر الصديق: كلاهما كان في طبعه حِدّة أصلية، لكن ابن تيمية كان يقمعها بالحلم، وأبو بكر رضي الله عنه أظهرت سيرته الحلم والرفق البالغ رغم أن هذا لم يكن طبعه الأصلي. وهذا أبلغ دليل على أن الطبع الأصلي مهما كان يمكن تهذيبه وتغييره بالمجاهدة والصبر حتى يصبح خُلُقًا جديدًا راسخًا.'
+  },
+  {
+    type: 'essay',
+    difficulty: 'hard',
+    text: 'اذكر الأبواب الأربعة التي بيّنها الشيخ لمعرفة عيوب النفس، مع بيان الحكمة من كل باب، والتحذير الذي ذكره الشيخ مصاحبًا لهذا الموضوع.',
+    modelAnswer: 'الأبواب الأربعة:\n\n١- الجلوس بين يدي شيخ بصير بأحوال النفوس: أقصر الطرق وأكملها، لأنه يرى العيب بموضوعية من الخارج ويصف العلاج المناسب.\n\n٢- صديق صدوق بصير من أهل العلم والديانة: ينبّهك بصدق على ما يكرهه من أخلاقك وأفعالك، مثله كمثل حامل المسك الذي إما يُحذيك أو تشتري منه أو تجد منه ريحًا طيبة.\n\n٣- الاستفادة من ألسنة الأعداء: قد يذمّك عدوّك بعيب حقيقي موجود فيك، فينبغي التأمل في كلامه لا رفضه كليةً لمجرد أنه عدو.\n\n٤- مخالطة الناس: رؤية سلوكيات مزعجة من الآخرين تدفعك لمراجعة نفسك: هل أفعل مثل هذا مع غيري؟ كما في مثال الزميل الذي كان يشتكي ظلم مديريه ثم صار يظلم من تحته حين صار مديرًا.\n\nالتحذير المصاحب: نبّه الشيخ إلى عدم الإفراط في تتبع العيوب والتنقيب المستمر في خبايا النفس، وشبّه ذلك بالحفر في جُبٍّ فيه حيّات وعقارب، فقد يؤدي ذلك إلى وسوسة واضطراب دون فائدة حقيقية. والمنهج الصحيح هو السير بالتدرج ومعالجة ما يظهر من العيوب شيئًا فشيئًا.'
+  },
+];
+
+function startQuiz() {
+  const overlay = document.getElementById('quizOverlay');
+  const container = document.getElementById('quizContainer');
+  document.body.style.overflow = 'hidden';
+  overlay.classList.add('active');
+
+  const totalMCQ = quizData.filter(q => q.type === 'mcq').length;
+  const totalTF = quizData.filter(q => q.type === 'tf').length;
+  const totalEssay = quizData.filter(q => q.type === 'essay').length;
+
+  let html = `
+    <div class="quiz-header">
+      <h2>📝 اختبار شامل في المحاضرة</h2>
+      <div class="quiz-meta">
+        <span>🔘 اختيار: ${totalMCQ}</span>
+        <span>✅ صح وخطأ: ${totalTF}</span>
+        <span>📄 مقالي: ${totalEssay}</span>
+      </div>
+    </div>
+    <div class="quiz-progress-bar"><div class="quiz-progress-fill" id="progressFill" style="width:0%"></div></div>
+    <div class="quiz-body">
+  `;
+
+  const letters = ['أ', 'ب', 'ج', 'د'];
+  const diffLabels = { medium: 'متوسط', hard: 'صعب', 'very-hard': 'صعب جدًّا' };
+
+  quizData.forEach((q, i) => {
+    const typeLabel = q.type === 'mcq' ? 'اختيار' : q.type === 'tf' ? 'صح وخطأ' : 'مقالي';
+    const typeClass = q.type === 'mcq' ? 'mcq' : q.type === 'tf' ? 'tf' : 'essay';
+
+    html += `<div class="q-card" id="qCard${i}">`;
+    html += `<span class="q-number ${typeClass}">${typeLabel} — سؤال ${i + 1}</span>`;
+    html += `<span class="q-difficulty ${q.difficulty}">${diffLabels[q.difficulty]}</span>`;
+    html += `<div class="q-text">${q.text}</div>`;
+
+    if (q.type === 'mcq') {
+      html += `<div class="q-options">`;
+      q.options.forEach((opt, j) => {
+        html += `
+          <div class="q-option" data-q="${i}" data-opt="${j}" onclick="selectMCQ(this, ${i}, ${j})">
+            <span class="option-letter">${letters[j]}</span>
+            <span>${opt}</span>
+            <span class="option-icon"></span>
+          </div>`;
+      });
+      html += `</div>`;
+    } else if (q.type === 'tf') {
+      html += `
+        <div class="q-tf-options">
+          <button class="q-tf-btn" data-q="${i}" data-val="true" onclick="selectTF(this, ${i}, true)">✅ صح</button>
+          <button class="q-tf-btn" data-q="${i}" data-val="false" onclick="selectTF(this, ${i}, false)">❌ خطأ</button>
+        </div>`;
+    } else {
+      html += `<textarea class="q-essay-area" id="essay${i}" placeholder="اكتب إجابتك هنا..." oninput="markAnswered(${i})"></textarea>`;
+    }
+
+    html += `<div class="q-correct-box" id="explain${i}"></div>`;
+    html += `</div>`;
+  });
+
+  html += `</div>`;
+  html += `
+    <div class="quiz-actions">
+      <button class="quiz-btn primary" id="submitBtn" onclick="submitQuiz()">📊 إنهاء الاختبار</button>
+      <button class="quiz-btn secondary" onclick="closeQuiz()">✕ إغلاق</button>
+    </div>
+    <div id="scoreArea"></div>
+  `;
+
+  container.innerHTML = html;
+  overlay.scrollTop = 0;
+  updateProgress();
+}
+
+const userAnswers = {};
+
+function selectMCQ(el, qIdx, optIdx) {
+  if (document.getElementById('submitBtn').disabled) return;
+  document.querySelectorAll(`.q-option[data-q="${qIdx}"]`).forEach(o => o.classList.remove('selected'));
+  el.classList.add('selected');
+  userAnswers[qIdx] = optIdx;
+  updateProgress();
+}
+
+function selectTF(el, qIdx, val) {
+  if (document.getElementById('submitBtn').disabled) return;
+  document.querySelectorAll(`.q-tf-btn[data-q="${qIdx}"]`).forEach(b => b.classList.remove('selected'));
+  el.classList.add('selected');
+  userAnswers[qIdx] = val;
+  updateProgress();
+}
+
+function markAnswered(qIdx) {
+  const area = document.getElementById(`essay${qIdx}`);
+  if (area.value.trim().length > 0) {
+    userAnswers[qIdx] = area.value.trim();
+  } else {
+    delete userAnswers[qIdx];
+  }
+  updateProgress();
+}
+
+function updateProgress() {
+  const answered = Object.keys(userAnswers).length;
+  const total = quizData.length;
+  const pct = (answered / total) * 100;
+  const fill = document.getElementById('progressFill');
+  if (fill) fill.style.width = pct + '%';
+}
+
+function submitQuiz() {
+  const btn = document.getElementById('submitBtn');
+  btn.disabled = true;
+  btn.textContent = '✅ تم التصحيح';
+
+  let correctCount = 0;
+  let gradedTotal = 0;
+
+  quizData.forEach((q, i) => {
+    const card = document.getElementById(`qCard${i}`);
+    const explainBox = document.getElementById(`explain${i}`);
+
+    if (q.type === 'mcq') {
+      gradedTotal++;
+      const userAns = userAnswers[i];
+      const isCorrect = userAns === q.correct;
+      if (isCorrect) correctCount++;
+
+      document.querySelectorAll(`.q-option[data-q="${i}"]`).forEach((o, j) => {
+        o.style.cursor = 'default';
+        if (j === q.correct) {
+          o.classList.add('correct-answer');
+          o.querySelector('.option-icon').textContent = '✅';
+        }
+        if (userAns === j && j !== q.correct) {
+          o.classList.add('wrong-answer');
+          o.querySelector('.option-icon').textContent = '❌';
+        }
+      });
+
+      card.classList.add(isCorrect ? 'correct-highlight' : 'wrong-highlight');
+      explainBox.className = `q-correct-box show ${isCorrect ? 'right' : 'wrong'}`;
+      explainBox.innerHTML = `<strong>${isCorrect ? '✅ إجابة صحيحة!' : '❌ إجابة خاطئة'}</strong><br>${q.explanation}`;
+
+    } else if (q.type === 'tf') {
+      gradedTotal++;
+      const userAns = userAnswers[i];
+      const isCorrect = userAns === q.correct;
+      if (isCorrect) correctCount++;
+
+      document.querySelectorAll(`.q-tf-btn[data-q="${i}"]`).forEach(b => {
+        b.style.cursor = 'default';
+        const btnVal = b.dataset.val === 'true';
+        if (btnVal === q.correct) b.classList.add('correct-answer');
+        if (userAns === btnVal && btnVal !== q.correct) b.classList.add('wrong-answer');
+      });
+
+      card.classList.add(isCorrect ? 'correct-highlight' : 'wrong-highlight');
+      explainBox.className = `q-correct-box show ${isCorrect ? 'right' : 'wrong'}`;
+      explainBox.innerHTML = `<strong>${isCorrect ? '✅ إجابة صحيحة!' : '❌ إجابة خاطئة'}</strong><br>${q.explanation}`;
+
+    } else {
+      const area = document.getElementById(`essay${i}`);
+      if (area) area.disabled = true;
+      explainBox.className = 'q-correct-box show model';
+      explainBox.innerHTML = `<strong>📖 الإجابة النموذجية:</strong><br><div style="white-space: pre-wrap; margin-top: 8px;">${q.modelAnswer}</div>`;
+    }
+  });
+
+  // Score card
+  const pct = Math.round((correctCount / gradedTotal) * 100);
+  let grade, gradeClass, msg;
+  if (pct >= 80) { grade = 'ممتاز'; gradeClass = 'excellent'; msg = 'ما شاء الله، بارك الله فيك! مستوى متميّز'; }
+  else if (pct >= 50) { grade = 'جيد'; gradeClass = 'good'; msg = 'أداء جيّد، واصل المراجعة وستتحسّن إن شاء الله'; }
+  else { grade = 'يحتاج مراجعة'; gradeClass = 'needs-work'; msg = 'لا بأس، راجع المحاضرة وأعد المحاولة — فالعلم بالتعلّم'; }
+
+  document.getElementById('scoreArea').innerHTML = `
+    <div class="quiz-score-card">
+      <div class="score-circle ${gradeClass}">
+        <span class="score-num">${pct}%</span>
+        <span class="score-label">${correctCount}/${gradedTotal}</span>
+      </div>
+      <div class="score-msg">${grade}</div>
+      <div class="score-detail">${msg}</div>
+      <p style="margin-top: 12px; font-size: 13px; color: var(--text-secondary);">الأسئلة المقالية (${quizData.filter(q=>q.type==='essay').length}) تُراجع ذاتيًّا بمقارنة إجابتك بالإجابة النموذجية</p>
+    </div>
+  `;
+
+  document.getElementById('scoreArea').scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
+
+function closeQuiz() {
+  const overlay = document.getElementById('quizOverlay');
+  overlay.classList.remove('active');
+  document.body.style.overflow = '';
+  // Reset
+  Object.keys(userAnswers).forEach(k => delete userAnswers[k]);
+}
+
+/* ============================================================
+   ANKI DECK EXPORT
+   بطاقات سؤال/جواب بسيطة مبنية على محتوى المحاضرة:
+   تعريفات، أحاديث وآيات (نص ← مصدر)، وفوائد رئيسية.
+   الصيغة: Tab-separated (سؤال [TAB] جواب) — تُستورد في Anki
+   عبر: File > Import، مع اختيار Fields separated by: Tab
+   ============================================================ */
+const ankiCards = [
+  // تعريفات
+  ['ما تعريف الخُلُق كما ذكره الشيخ؟', 'هيئة راسخة في النفس، تصدر عنها الأفعال الإرادية الاختيارية، من حسنة وسيئة، وجميلة وقبيحة، من غير حاجة إلى فكر ولا رويّة.'],
+  ['ما معنى "هيئة راسخة" في تعريف الخُلُق؟', 'صفة ثابتة مستقرة في النفس، وليست حالة عارضة تزول بزوال سببها.'],
+  ['هل الخُلُق عمل القلب أم عمل الجوارح؟', 'الخُلُق أصله عمل قلبي (هيئة باطنة في النفس)، وأما أفعال الجوارح فهي ثمرة هذا العمل القلبي وأثره، وليست هي الخُلُق نفسه.'],
+  ['ما معنى "رياضة النفس"؟', 'تعويد النفس تدريجيًّا على الأفعال الحسنة، حتى تصبح هذه الأفعال طبعًا فيها تصدر بسهولة دون تكلّف.'],
+  ['من هو "الثرثار" كما ورد في شرح الحديث؟', 'كثير الكلام تكلُّفًا وتشدُّقًا من غير حاجة.'],
+  ['من هو "المتشدِّق"؟', 'الذي يتفاصح في كلامه ويلوي لسانه به تفاخرًا وتعاظمًا على الناس.'],
+  ['من هو "المتفيهق" كما فسّره النبي صلى الله عليه وسلم؟', 'المتكبِّر.'],
+  ['ما معنى "خُذ العفو" في قوله تعالى "خُذِ الْعَفْوَ وَأْمُرْ بِالْعُرْفِ"؟', 'أن تأخذ من أموال الناس وأوقاتهم وطاقتهم ما تسمح به أنفسهم بيُسر، دون أن يُثقل عليهم أو يستقصي في حقوقه عليهم.'],
+  ['ما معنى "الجاهلين" في قوله تعالى "وَأَعْرِضْ عَنِ الْجَاهِلِينَ"؟', 'ليس المقصود من لا يعرف العلم، بل من يُسيء بالقول أو الفعل ويُلحق الأذى بالآخرين.'],
+  ['ما "مداخل الشيطان" كما بيّنها الشيخ؟', 'هي بعينها صفات العبد وعيوبه الخُلُقية؛ فصاحب الجبن يدخل عليه الشيطان من باب الجبن، وصاحب البخل من باب البخل، وهكذا.'],
+
+  // أدلة (أحاديث وآيات)
+  ['أكمل الحديث: "أنا زعيمٌ ببيتٍ في ... لمن حسَّن خُلُقَه"', 'أعلى الجنة. (رواه أبو داود، وحسّنه الألباني)'],
+  ['من هم أبغض الناس إلى النبي صلى الله عليه وسلم وأبعدهم منه مجلسًا يوم القيامة؟', 'الثرثارون والمتشدِّقون والمتفيهقون. (رواه الترمذي)'],
+  ['أكمل الحديث: "المؤمن الذي يخالط الناس ويصبر على أذاهم ... "', 'خيرٌ من الذي لا يخالط الناس ولا يصبر على أذاهم. (رواه الترمذي وابن ماجه)'],
+  ['بم يُدرك المؤمن درجة الصائم القائم؟', 'بحُسن خُلُقه. (رواه أبو داود)'],
+  ['فيمَ بُعث النبي صلى الله عليه وسلم بحسب حديث "إنما بُعثتُ..."؟', 'لأتمِّم مكارم الأخلاق. (رواه أحمد)'],
+  ['بمَ وصفت عائشة رضي الله عنها خُلُق النبي صلى الله عليه وسلم؟', '"كان خُلُقه القرآن". (رواه مسلم)'],
+  ['ما أثقل شيء في الميزان يوم القيامة؟', 'حُسن الخُلُق. (رواه أبو داود والترمذي)'],
+  ['أكمل الحديث: "البِرُّ حُسنُ الخُلُق، والإثمُ ..."', 'ما حاكَ في صدرِك وكرِهتَ أن يطَّلِعَ عليه الناس. (رواه مسلم)'],
+  ['من أكمل المؤمنين إيمانًا؟', 'أحسنهم خُلُقًا. (رواه أبو داود والترمذي)'],
+  ['ماذا قال الله في وصف فِعل المتقين تجاه الغيظ والناس؟ (آل عمران)', '"وَالْكَاظِمِينَ الْغَيْظَ وَالْعَافِينَ عَنِ النَّاسِ وَاللَّهُ يُحِبُّ الْمُحْسِنِينَ" (آل عمران: ١٣٤)'],
+  ['أكمل الآية: "خُذِ الْعَفْوَ وَأْمُرْ بِالْعُرْفِ ..."', '"وَأَعْرِضْ عَنِ الْجَاهِلِينَ" (الأعراف: ١٩٩)'],
+  ['ماذا يقول الله في وصف النبي صلى الله عليه وسلم في سورة القلم؟', '"وَإِنَّكَ لَعَلَىٰ خُلُقٍ عَظِيمٍ" (القلم: ٤)'],
+  ['على ماذا رتّب الله الفلاح والخسران في سورة الشمس؟', 'على تزكية النفس أو إهمالها: "قَدْ أَفْلَحَ مَن زَكَّاهَا وَقَدْ خَابَ مَن دَسَّاهَا" (الشمس: ٩-١٠)'],
+  ['ماذا قال الله في جزاء العفو؟', '"وَمَا زَادَ اللَّهُ عَبْدًا بِعَفْوٍ إِلَّا عِزًّا" (رواه مسلم)'],
+  ['بمَ يُشبَّه الجليس الصالح والجليس السوء في الحديث النبوي؟', 'كحامل المسك ونافخ الكِير. (متفق عليه)'],
+  ['ماذا قال النبي صلى الله عليه وسلم عن إدخال الرِّفق على أهل بيت؟', '"إذا أراد الله بأهل بيتٍ خيرًا أدخل عليهم الرِّفق." (رواه أحمد وأبو داود)'],
+  ['بمَ وصف النبي صلى الله عليه وسلم المؤمن في نفي بعض الصفات عنه؟', '"ليس المؤمن بالطعّان، ولا اللعّان، ولا الفاحش، ولا البذيء." (رواه الترمذي)'],
+  ['ماذا قال النبي صلى الله عليه وسلم عن العلم والحِلم؟', '"إنما العلمُ بالتعلُّم، وإنما الحِلمُ بالتحلُّم."'],
+
+  // فوائد ونقاط مهمة
+  ['لماذا لا يُوصف الكافر بـ"حسن الخلق" شرعًا ولو كان حَسَن المعاملة؟', 'لأنه لم يقصد بمعاملته وجه الله، وقد أساء أعظم إساءة إلى خالقه بالشرك ونسبة الولد له، مع أنه المنعم عليه بكل شيء.'],
+  ['ما الفرق بين "الإعراض عن الجاهلين" الواجب و"واجب الدعوة والإنكار"؟', 'الإعراض خاص بعدم ردّ الإساءة الشخصية الموجهة إليك بمثلها؛ أما من جهل حكمًا شرعيًّا فالواجب دعوته وتعليمه لا الإعراض عنه.'],
+  ['ما الفائدة البلاغية في آيتي "وسارعوا... أُعدّت للمتقين"؟', 'الالتفات: الانتقال من خطاب المتقين مباشرة إلى الحديث عنهم بضمير الغائب، وفائدته تنشيط ذهن السامع.'],
+  ['كيف قد يتأثر أجر الأعمال الصالحة بسوء الخُلُق؟', 'قد يكون سوء الخُلُق سببًا في ذهاب الحسنات للغير (كما في حديث المفلس) أو إحباط العمل بالكلية (كالرياء)، أو حتى سببًا في دخول النار.'],
+  ['ما الأبواب الأربعة لمعرفة عيوب النفس؟', '١) الجلوس بين يدي شيخ بصير. ٢) صديق صدوق بصير. ٣) الاستفادة من ألسنة الأعداء. ٤) مخالطة الناس ومراجعة النفس.'],
+  ['بمَ مثّل بعض أهل العلم النفس عند التحذير من الإفراط في تتبع عيوبها؟', 'بجُبٍّ (بئر) فيه من الحيّات والعقارب؛ فكثرة التنقيب فيها تُؤذي صاحبها دون فائدة حقيقية.'],
+  ['ما الدليل على أن الطبع الأصلي قابل للتغيير رغم وجود حِدّة فيه؟', 'مثال أبي بكر الصديق رضي الله عنه؛ فقد كان في طبعه حِدّة، لكن سيرته أظهرت الحلم والرفق البالغ بعد المجاهدة.'],
+  ['لماذا يُعتبر الرفق بالأهل في البيت أولى من الرفق بالغرباء؟', 'لأن الإنسان يتعامل مع أهله على راحته، فيكون أثقل عليهم من الغرباء الذين يكون الاحتكاك بهم أضعف.'],
+  ['اذكر أربعًا من علامات حسن الخلق التي ذكرها الشيخ.', 'كثرة الحياء، قلة الأذى، قلة الكلام، قلة الفضول (وغيرها: كثرة الصلاح، كثرة العمل، البِرّ والصلة، الوقار، الشكر، الرضا، الرفق، العفة).'],
+  ['اذكر أربعًا من الصفات الذميمة التي نهى عنها الشيخ في ختام الدرس.', 'اللعن، السباب، النميمة، الغِيبة (وأيضًا: العجلة، الحقد، البخل).'],
+];
+
+function downloadAnkiDeck() {
+  // بناء محتوى الملف بصيغة Tab-separated (سؤال TAB جواب)
+  let content = ankiCards.map(([q, a]) => {
+    // تنظيف أي تابات أو أسطر جديدة داخل النص حتى لا يكسر التنسيق
+    const clean = s => s.replace(/\t/g, ' ').replace(/\r?\n/g, '<br>');
+    return `${clean(q)}\t${clean(a)}`;
+  }).join('\n');
+
+  // BOM لضمان عرض العربي بشكل صحيح عند فتح الملف أو استيراده
+  const BOM = '\uFEFF';
+  const blob = new Blob([BOM + content], { type: 'text/plain;charset=utf-8' });
+  const url = URL.createObjectURL(blob);
+
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'بطاقات_أنكي_حسن_الخلق.txt';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+</script>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="dua">اللهم اهدني لأحسن الأخلاق، لا يهدي لأحسنها إلا أنت، واصرف عني سيئها، لا يصرف عني سيئها إلا أنت</div>
+  <p>اللهم علّمنا ما ينفعنا وانفعنا بما علّمتنا وزدنا علمًا، وحسّن أخلاقنا كما حسّنت خَلقنا</p>
+  <p style="margin-top: 12px; opacity: 0.7; font-size: 13px;">تفريغ وشرح محاضرة الأخلاق — حسن الخلق وتهذيب النفس</p>
+</footer>
 
 </body>
 </html>
