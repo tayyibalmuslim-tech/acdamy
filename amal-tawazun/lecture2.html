@@ -3,125 +3,518 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>المحاضرة 2 | الأعمال والتوازن بينها</title>
-<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
-<!--
-  LECTURE_STATUS: EMPTY
-  هذا الملف محاضرة فارغة بانتظار التعبئة.
-  عند إضافة محتوى حقيقي، غيّر التعليق أعلاه إلى LECTURE_STATUS: FILLED
-  حتى تتعرف عليه صفحة الفئة (index.html) كمحاضرة مكتملة ويزيد العداد تلقائيًا.
--->
-<meta name="lecture-status" content="empty">
+<title>فضل العلم وأصول طلبه | أصول الأعمال والتوازن بينها</title>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --gold: #C5A55A;
-    --gold-light: #E8D5A3;
-    --ivory: #FAF7F0;
-    --brown-deep: #3A2A1A;
-    --brown-mid: #5C4033;
-    --brown-warm: #7A5C40;
-    --green-islamic: #1B6B4A;
-    --green-light: #E8F5EE;
-    --green-accent: #2D8B6A;
-    --cream: #FFF8EC;
-    --border-soft: #E5D5BF;
-    --text-main: #2C1E10;
-    --text-secondary: #6B5744;
-    --shadow-soft: 0 2px 20px rgba(58, 42, 26, 0.08);
-    --shadow-card: 0 4px 24px rgba(58, 42, 26, 0.1);
+  :root{
+    --brown-dark:#3b2a1a;
+    --brown:#6b4a2f;
+    --gold:#c9973a;
+    --gold-light:#e8c777;
+    --green-dark:#1f4d3d;
+    --green:#2f6b52;
+    --cream:#faf6ee;
+    --cream-2:#f2ead8;
+    --ink:#2b241a;
+    --danger:#8c3b2e;
   }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body {
-    font-family: 'Cairo', sans-serif;
-    background: var(--ivory);
-    color: var(--text-main);
-    line-height: 1.9;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
+  *{box-sizing:border-box;}
+  body{margin:0;font-family:'Cairo',sans-serif;background:var(--cream);color:var(--ink);line-height:1.9;}
+  h1,h2,h3,.arabic-emph{font-family:'Amiri',serif;}
+
+  header{
+    background:linear-gradient(135deg,var(--brown-dark),var(--green-dark));
+    color:var(--cream);padding:50px 20px 70px;text-align:center;position:relative;overflow:hidden;
   }
-  .header {
-    background: linear-gradient(160deg, var(--brown-deep) 0%, var(--brown-mid) 60%, var(--brown-warm) 100%);
-    color: var(--ivory);
-    padding: 40px 24px;
-    text-align: center;
+  header::before{
+    content:"";position:absolute;inset:0;
+    background:radial-gradient(circle at 15% 20%, rgba(201,151,58,0.15) 0%, transparent 40%),
+               radial-gradient(circle at 85% 80%, rgba(201,151,58,0.15) 0%, transparent 40%);
   }
-  .breadcrumb {
-    font-size: 13px;
-    color: var(--gold-light);
-    margin-bottom: 14px;
-    opacity: 0.85;
+  header .ornament{font-size:2rem;color:var(--gold);margin-bottom:10px;position:relative;}
+  header h1{font-size:2.5rem;margin:10px 0;position:relative;text-shadow:0 2px 10px rgba(0,0,0,0.3);}
+  header p.subtitle{font-size:1.1rem;color:var(--gold-light);max-width:700px;margin:15px auto 0;position:relative;}
+  .lecture-badge{display:inline-block;background:rgba(255,255,255,0.12);border:1px solid var(--gold);padding:6px 20px;border-radius:30px;font-size:0.9rem;margin-top:20px;position:relative;}
+  .top-anki-btn{margin-top:25px;position:relative;}
+
+  .anki-btn{
+    background:linear-gradient(135deg,var(--gold),#a9772a);color:#2b1c0e;border:none;
+    padding:14px 32px;border-radius:12px;font-family:'Cairo',sans-serif;font-weight:700;font-size:1rem;
+    cursor:pointer;box-shadow:0 6px 18px rgba(0,0,0,0.25);transition:transform .2s, box-shadow .2s;
   }
-  .breadcrumb a { color: var(--gold-light); text-decoration: none; }
-  .breadcrumb a:hover { text-decoration: underline; }
-  .header h1 {
-    font-family: 'Amiri', serif;
-    font-size: clamp(24px, 5vw, 34px);
-  }
-  main {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 60px 24px;
-  }
-  .empty-card {
-    max-width: 520px;
-    text-align: center;
-    background: white;
-    border: 1px dashed var(--border-soft);
-    border-radius: 20px;
-    padding: 50px 36px;
-    box-shadow: var(--shadow-soft);
-  }
-  .empty-icon { font-size: 48px; margin-bottom: 18px; opacity: 0.6; }
-  .empty-card h2 {
-    font-family: 'Amiri', serif;
-    color: var(--brown-deep);
-    font-size: 22px;
-    margin-bottom: 12px;
-  }
-  .empty-card p {
-    color: var(--text-secondary);
-    font-size: 15px;
-    line-height: 1.9;
-  }
-  .back-link {
-    display: inline-block;
-    margin-top: 24px;
-    padding: 10px 26px;
-    background: var(--green-light);
-    color: var(--green-islamic);
-    text-decoration: none;
-    border-radius: 20px;
-    font-weight: 700;
-    font-size: 14px;
-  }
-  footer {
-    text-align: center;
-    padding: 24px;
-    color: var(--text-secondary);
-    font-size: 13px;
-  }
+  .anki-btn:hover{transform:translateY(-3px);box-shadow:0 10px 22px rgba(0,0,0,0.3);}
+
+  .toc-wrap{max-width:900px;margin:-40px auto 40px;position:relative;z-index:2;padding:0 20px;}
+  .toc{background:#fff;border-radius:16px;padding:30px;box-shadow:0 10px 30px rgba(59,42,26,0.15);border-top:5px solid var(--gold);}
+  .toc h2{margin-top:0;color:var(--green-dark);font-size:1.4rem;border-bottom:2px dashed var(--gold);padding-bottom:12px;}
+  .toc ol{columns:2;column-gap:30px;padding-inline-start:20px;}
+  .toc li{margin-bottom:10px;}
+  .toc a{color:var(--brown);text-decoration:none;font-weight:600;}
+  .toc a:hover{color:var(--green);text-decoration:underline;}
+
+  main{max-width:900px;margin:0 auto;padding:0 20px 60px;}
+  section{margin-bottom:50px;scroll-margin-top:20px;}
+  section > h2{color:var(--green-dark);font-size:1.6rem;display:flex;align-items:center;gap:12px;border-right:5px solid var(--gold);padding-right:15px;margin-bottom:25px;}
+  h3.sub-heading{color:var(--brown);font-size:1.2rem;margin-top:30px;margin-bottom:12px;}
+  p{margin:0 0 16px;}
+
+  .definition-box{background:var(--cream-2);border-right:4px solid var(--green);border-radius:10px;padding:18px 22px;margin:20px 0;}
+  .definition-box .label{font-weight:800;color:var(--green-dark);display:block;margin-bottom:8px;font-size:0.95rem;}
+
+  .evidence-block{background:#fff;border:1px solid var(--gold-light);border-right:5px solid var(--gold);border-radius:10px;padding:18px 22px;margin:20px 0;}
+  .evidence-block .label{font-weight:800;color:var(--brown);display:block;margin-bottom:8px;font-size:0.9rem;}
+  .evidence-block .arabic-emph{font-size:1.15rem;color:var(--green-dark);display:block;margin-bottom:6px;}
+  .evidence-block .source{font-size:0.85rem;color:#8a7a5c;margin-top:8px;}
+
+  .key-point{background:linear-gradient(135deg,#fff,#fdf9ef);border:2px solid var(--gold-light);border-radius:10px;padding:16px 20px;margin:16px 0;display:flex;gap:12px;align-items:flex-start;}
+  .key-point .star{color:var(--gold);font-size:1.3rem;flex-shrink:0;}
+
+  .warning-box{background:#fdf1ee;border:2px solid #e0a996;border-right:5px solid var(--danger);border-radius:10px;padding:16px 22px;margin:20px 0;}
+  .warning-box .label{font-weight:800;color:var(--danger);display:block;margin-bottom:8px;}
+
+  table.comparison-table{width:100%;border-collapse:collapse;margin:20px 0;background:#fff;box-shadow:0 4px 12px rgba(0,0,0,0.06);border-radius:10px;overflow:hidden;}
+  table.comparison-table th{background:var(--green-dark);color:#fff;padding:12px;text-align:right;}
+  table.comparison-table td{padding:12px;border-bottom:1px solid #eee;}
+  table.comparison-table tr:nth-child(even) td{background:var(--cream-2);}
+
+  .flow-list{display:flex;flex-direction:column;gap:14px;margin:20px 0;}
+  .flow-card{display:flex;gap:16px;align-items:flex-start;background:#fff;border-radius:10px;padding:16px 20px;box-shadow:0 3px 10px rgba(0,0,0,0.06);border-right:4px solid var(--green);}
+  .flow-card .num{background:var(--green-dark);color:#fff;width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;flex-shrink:0;}
+
+  .action-card{background:linear-gradient(135deg,#eef7f0,#fff);border:2px solid var(--green);border-radius:10px;padding:16px 22px;margin:16px 0;}
+  .action-card .label{font-weight:800;color:var(--green-dark);display:block;margin-bottom:6px;}
+
+  ul.styled-list{padding-inline-start:22px;}
+  ul.styled-list li{margin-bottom:8px;}
+
+  .divider{text-align:center;color:var(--gold);font-size:1.4rem;margin:35px 0;letter-spacing:15px;}
+
+  .bottom-anki{text-align:center;background:linear-gradient(135deg,var(--brown-dark),var(--green-dark));border-radius:16px;padding:35px 20px;color:#fff;margin:40px 0;}
+  .bottom-anki h3{color:var(--gold-light);margin-top:0;}
+  .bottom-anki p{color:#e8e0cf;font-size:0.95rem;}
+
+  footer{background:var(--brown-dark);color:var(--cream);text-align:center;padding:40px 20px;}
+  footer .dua{font-family:'Amiri',serif;font-size:1.3rem;color:var(--gold-light);max-width:600px;margin:0 auto 10px;}
+  footer .small{color:#c9b998;font-size:0.85rem;}
+
+  @media (max-width:600px){.toc ol{columns:1;}header h1{font-size:1.8rem;}}
 </style>
 </head>
 <body>
 
-<header class="header">
-  <div class="breadcrumb"><a href="../index.html">الأكاديمية الشرعية</a> ← <a href="index.html">الأعمال والتوازن بينها</a> ← المحاضرة 2</div>
-  <h1>المحاضرة 2</h1>
+<header>
+  <div class="ornament">۞ ۩ ۞</div>
+  <h1>فضل العلم وأصول طلبه</h1>
+  <p class="subtitle">لماذا نبدأ رحلتنا العلمية بفضل العلم؟ وما الفرق بين فرض العين وفرض الكفاية؟ وكيف نرتب أولوياتنا في طلب العلم؟</p>
+  <div class="lecture-badge">المجلس الثاني — أصول الأعمال والتوازن بينها</div>
+  <div class="top-anki-btn">
+    <button class="anki-btn" onclick="downloadAnkiDeck()">🗂️ حمّل بطاقات أنكي</button>
+  </div>
 </header>
 
-<main>
-  <div class="empty-card">
-    <div class="empty-icon">📝</div>
-    <h2>هذه المحاضرة لم تُملأ بعد</h2>
-    <p>سيتم إضافة الشرح المفصّل وبطاقات المراجعة لهذه المحاضرة قريبًا بإذن الله.</p>
-    <a class="back-link" href="index.html">← الرجوع لقائمة المحاضرات</a>
+<div class="toc-wrap">
+  <div class="toc">
+    <h2>📖 محتويات المحاضرة</h2>
+    <ol>
+      <li><a href="#sec1">مراجعة سريعة: محاور سورة العصر</a></li>
+      <li><a href="#sec2">أصل مهم: المقصود بـ "العلم" في النصوص الشرعية</a></li>
+      <li><a href="#sec3">أدلة فضل العلم من القرآن الكريم</a></li>
+      <li><a href="#sec4">أدلة فضل العلم والعلماء من السنة النبوية</a></li>
+      <li><a href="#sec5">فضل تعليم الناس ونقل العلم</a></li>
+      <li><a href="#sec6">تشبيه نبوي: الأراضي الثلاث</a></li>
+      <li><a href="#sec7">حكم طلب العلم: فرض عين وفرض كفاية</a></li>
+      <li><a href="#sec8">أقسام العلوم الأخرى: المباح والمحرم</a></li>
+      <li><a href="#sec9">أقسام العلم الشرعي الثلاثة</a></li>
+      <li><a href="#sec10">ترتيب الأولويات في طلب العلم</a></li>
+    </ol>
   </div>
+</div>
+
+<main>
+
+<section id="sec1">
+  <h2><span class="icon">🔄</span> مراجعة سريعة: محاور سورة العصر</h2>
+  <p>افتُتحت هذه المادة (أصول الأعمال والتوازن بينها) بالحديث عن وظيفة الإنسان الأساسية: <strong>العبودية لله عز وجل</strong>. واستُخدمت سورة العصر كإطار لفهم الأعمال الأساسية التي تحقق هذه العبودية.</p>
+
+  <div class="evidence-block">
+    <span class="label">📜 الدليل المحوري</span>
+    <span class="arabic-emph">"وَالْعَصْرِ إِنَّ الْإِنْسَانَ لَفِي خُسْرٍ إِلَّا الَّذِينَ آمَنُوا وَعَمِلُوا الصَّالِحَاتِ وَتَوَاصَوْا بِالْحَقِّ وَتَوَاصَوْا بِالصَّبْرِ"</span>
+    <div class="source">سورة العصر</div>
+  </div>
+
+  <div class="flow-list">
+    <div class="flow-card"><div class="num">1</div><div><strong>الإيمان</strong> — الأصل الذي تُبنى عليه كل الأعمال.</div></div>
+    <div class="flow-card"><div class="num">2</div><div><strong>العمل الصالح</strong> — تطبيق عملي للإيمان.</div></div>
+    <div class="flow-card"><div class="num">3</div><div><strong>التواصي بالحق</strong> — ويتمثل في الدعوة إلى الله.</div></div>
+    <div class="flow-card"><div class="num">4</div><div><strong>التواصي بالصبر</strong> — ويتعلق بالتربية وأنواعها، لنصبر على هذه العبوديات.</div></div>
+  </div>
+
+  <div class="key-point">
+    <span class="star">💡</span>
+    <div>قبل هذه المحاور الأربعة كلها، لا بد من <strong>العلم</strong> الذي يسبقها؛ فبه نعرف كيف نؤمن، وكيف نعمل الصالحات، وكيف ندعو إلى الله، وكيف نربي أنفسنا ونزكيها. لذلك خُصصت هذه المحاضرة بالكامل للحديث عن فضل العلم.</div>
+  </div>
+</section>
+
+<section id="sec2">
+  <h2><span class="icon">🎯</span> أصل مهم: المقصود بـ "العلم" في النصوص الشرعية</h2>
+
+  <div class="definition-box">
+    <span class="label">📌 قاعدة أساسية</span>
+    كلما وردت كلمة "العلم" في النصوص الشرعية (القرآن والسنة) أو في مجالس هذه المادة، فالمقصود بها أولًا هو <strong>العلم الشرعي</strong> — علم الدين والشريعة — وليس العلوم الدنيوية.
+  </div>
+
+  <div class="key-point">
+    <span class="star">💡</span>
+    <div>هذا لا يعني ذم العلوم الدنيوية أو ترك تعلّمها؛ فهي مطلوبة أيضًا، لكن حين يُذكر "فضل العلم" في النصوص الشرعية فالمقصود الأول هو العلم الموصل لخشية الله والمنزّل في الكتاب والسنة.</div>
+  </div>
+
+  <div class="warning-box">
+    <span class="label">⚠️ تنبيه</span>
+    مثال تطبيقي على أهمية هذا الأصل: من يطلب العلم الشرعي بنية الحصول على وظيفة أو مال فقط (كمن كان يطلب الفقه ليصبح قاضيًا وينال به الدنيا)، فهذا خارج عن المعنى الممدوح في النصوص، وقد وردت فيه أحاديث تحذيرية (انظر قسم الرياء في طلب العلم في محاضرة أخرى).
+  </div>
+</section>
+
+<section id="sec3">
+  <h2><span class="icon">📗</span> أدلة فضل العلم من القرآن الكريم</h2>
+
+  <div class="evidence-block">
+    <span class="label">📜 الدليل الأول</span>
+    <span class="arabic-emph">"شَهِدَ اللَّهُ أَنَّهُ لَا إِلَٰهَ إِلَّا هُوَ وَالْمَلَائِكَةُ وَأُولُو الْعِلْمِ قَائِمًا بِالْقِسْطِ"</span>
+    <div class="source">سورة آل عمران، آية 18</div>
+    <p style="margin-top:10px;">قال الإمام القرطبي: في هذه الآية دليل على فضل العلم وشرف العلماء وفضلهم؛ فلو كان أحد أشرف من العلماء لقرنهم الله تعالى باسمه واسم ملائكته كما قرن اسم العلماء بهما.</p>
+  </div>
+
+  <div class="evidence-block">
+    <span class="label">📜 الدليل الثاني</span>
+    <span class="arabic-emph">"وَقُلْ رَبِّ زِدْنِي عِلْمًا"</span>
+    <div class="source">سورة طه، آية 114</div>
+    <p style="margin-top:10px;">قال القرطبي: فلو كان شيء أشرف من العلم لأمر الله تعالى نبيّه أن يستزيد منه، كما أمره أن يستزيد من العلم.</p>
+  </div>
+
+  <div class="evidence-block">
+    <span class="label">📜 الدليل الثالث</span>
+    <span class="arabic-emph">"يَرْفَعِ اللَّهُ الَّذِينَ آمَنُوا مِنكُمْ وَالَّذِينَ أُوتُوا الْعِلْمَ دَرَجَاتٍ"</span>
+    <div class="source">سورة المجادلة، آية 11</div>
+    <p style="margin-top:10px;">قال القرطبي: أي في الثواب في الآخرة وفي الكرامة في الدنيا. وقال ابن مسعود رضي الله عنه: يرفع المؤمن بإيمانه أولًا، ثم بعلمه ثانيًا.</p>
+  </div>
+
+  <div class="key-point">
+    <span class="star">💡</span>
+    <div>قال ابن عباس رضي الله عنه موضحًا مقدار هذه الدرجات: "للعلماء درجات فوق المؤمنين بسبعمائة درجة، ما بين الدرجتين مسيرة خمسمائة عام".</div>
+  </div>
+
+  <div class="evidence-block">
+    <span class="label">📜 الدليل الرابع</span>
+    <span class="arabic-emph">"إِنَّمَا يَخْشَى اللَّهَ مِنْ عِبَادِهِ الْعُلَمَاءُ"</span>
+    <div class="source">سورة فاطر، آية 28</div>
+    <p style="margin-top:10px;">قال ابن كثير: الذين يخشون الله حق خشيته هم العلماء العارفون به؛ لأنهم كلما ازدادوا علمًا بأسماء الله وصفاته، ازدادوا خشية وتعظيمًا له.</p>
+  </div>
+
+  <div class="evidence-block">
+    <span class="label">📜 الدليل الخامس</span>
+    <span class="arabic-emph">"قُلْ هَلْ يَسْتَوِي الَّذِينَ يَعْلَمُونَ وَالَّذِينَ لَا يَعْلَمُونَ"</span>
+    <div class="source">سورة الزمر، آية 9</div>
+    <p style="margin-top:10px;">استفهام إنكاري يدل على استحالة استواء العالم بغيره، وهذا أمر لا يختلف فيه اثنان.</p>
+  </div>
+</section>
+
+<section id="sec4">
+  <h2><span class="icon">📕</span> أدلة فضل العلم والعلماء من السنة النبوية</h2>
+
+  <div class="evidence-block">
+    <span class="label">📜 حديث معاوية رضي الله عنه</span>
+    <span class="arabic-emph">"من يُرِد الله به خيرًا يفقّهه في الدين"</span>
+    <div class="source">متفق عليه</div>
+  </div>
+
+  <div class="evidence-block">
+    <span class="label">📜 حديث أبي أمامة رضي الله عنه - فضل العالم على العابد</span>
+    <span class="arabic-emph">"فضل العالم على العابد كفضلي على أدناكم"، ثم قال: "إن الله وملائكته وأهل السماوات والأرض حتى النملة في جحرها وحتى الحوت ليصلّون على معلّم الناس الخير"</span>
+    <div class="source">رواه الترمذي</div>
+  </div>
+
+  <div class="definition-box">
+    <span class="label">📌 لماذا تصلي المخلوقات على معلّم الناس الخير؟</span>
+    لأن العالم إذا علّم الناس الخير علّمهم كذلك كيفية الإحسان إلى المخلوقات كلها، فينعكس أثر هذا التعليم على كل ما حوله من المخلوقات، فتدعو له.
+  </div>
+
+  <div class="evidence-block">
+    <span class="label">📜 حديث - فضل العالم كفضل القمر</span>
+    <span class="arabic-emph">"وإن فضل العالم على العابد كفضل القمر ليلة البدر على سائر الكواكب"</span>
+    <div class="source">رواه أبو داود والترمذي</div>
+  </div>
+
+  <div class="evidence-block">
+    <span class="label">📜 حديث - العلماء ورثة الأنبياء</span>
+    <span class="arabic-emph">"وإن العلماء ورثة الأنبياء، وإن الأنبياء لم يورّثوا دينارًا ولا درهمًا، وإنما ورّثوا العلم، فمن أخذه أخذ بحظ وافر"</span>
+    <div class="source">رواه أبو داود والترمذي</div>
+  </div>
+
+  <div class="evidence-block">
+    <span class="label">📜 حديث أبي هريرة - طريق العلم يوصل للجنة</span>
+    <span class="arabic-emph">"من سلك طريقًا يلتمس فيه علمًا، سهّل الله له به طريقًا إلى الجنة"</span>
+    <div class="source">رواه مسلم</div>
+  </div>
+
+  <div class="key-point">
+    <span class="star">💡</span>
+    <div><strong>مثال تطبيقي:</strong> طالب علم يخصص وقتًا أسبوعيًا ثابتًا لحضور دروس العلم الشرعي، مستحضرًا أن هذا السلوك بحد ذاته من أسباب دخول الجنة بإذن الله، لا مجرد "نشاط ثقافي".</div>
+  </div>
+</section>
+
+<section id="sec5">
+  <h2><span class="icon">🌍</span> فضل تعليم الناس ونقل العلم</h2>
+
+  <p>لا يكفي أن نتعلم لأنفسنا فقط، بل ينبغي أن ننقل هذا العلم لمن حولنا حتى يعم النفع.</p>
+
+  <div class="evidence-block">
+    <span class="label">📜 حديث سهل بن سعد - هداية رجل واحد خير من حُمر النعم</span>
+    <span class="arabic-emph">"لأن يهدي الله بك رجلًا واحدًا خير لك من أن يكون لك حُمر النعم"</span>
+    <div class="source">متفق عليه</div>
+    <p style="margin-top:10px;">وحُمر النعم هي أنفس أنواع الإبل عند العرب، أي أن هداية شخص واحد على يديك خير من امتلاك أثمن الممتلكات المادية.</p>
+  </div>
+</section>
+
+<section id="sec6">
+  <h2><span class="icon">🌧️</span> تشبيه نبوي: الأراضي الثلاث</h2>
+
+  <div class="evidence-block">
+    <span class="label">📜 حديث أبي موسى الأشعري رضي الله عنه</span>
+    <span class="arabic-emph">"إن مثل ما بعثني الله به من الهدى والعلم كمثل غيث أصاب أرضًا، فكانت منها طائفة طيبة قبلت الماء فأنبتت الكلأ والعشب الكثير، وكانت منها أجادب أمسكت الماء فنفع الله بها الناس فشربوا وسقوا وزرعوا، وأصابت منها طائفة أخرى إنما هي قيعان لا تمسك ماء ولا تنبت كلأ"</span>
+    <div class="source">متفق عليه</div>
+  </div>
+
+  <table class="comparison-table">
+    <tr><th>نوع الأرض</th><th>وصفها</th><th>يمثل</th></tr>
+    <tr>
+      <td>الأرض الطيبة</td>
+      <td>قبلت الماء فأنبتت الزرع والعشب الكثير</td>
+      <td>من فقه دين الله فانتفع بنفسه ونفع الناس (تعلّم وعلّم)</td>
+    </tr>
+    <tr>
+      <td>الأجادب (الحافظة)</td>
+      <td>أمسكت الماء ولم تنبت، لكن الناس انتفعوا بمائها</td>
+      <td>من حفظ العلم ونقله دون أن يستنبط منه بنفسه (كبعض رواة الحديث)</td>
+    </tr>
+    <tr>
+      <td>القيعان</td>
+      <td>لا تمسك ماء ولا تنبت كلأ</td>
+      <td>من لم يتعلم ولم ينفع غيره، ولا هو انتفع بالعلم</td>
+    </tr>
+  </table>
+
+  <div class="key-point">
+    <span class="star">💡</span>
+    <div>الهدف الأسمى: أن يكون الإنسان من النوع الأول (الأرض الطيبة)، فينتفع بعلمه ثم ينقله لغيره. وإن لم يستطع، فأقلّ الأحوال أن يحفظ العلم وينقله لمن يستطيع الانتفاع به، ولا يكون من النوع الثالث الذي لا ينفع نفسه ولا غيره.</div>
+  </div>
+</section>
+
+<section id="sec7">
+  <h2><span class="icon">⚖️</span> حكم طلب العلم: فرض عين وفرض كفاية</h2>
+
+  <div class="evidence-block">
+    <span class="label">📜 الدليل</span>
+    <span class="arabic-emph">"طلب العلم فريضة على كل مسلم"</span>
+    <div class="source">رواه ابن ماجه عن أنس بن مالك رضي الله عنه</div>
+  </div>
+
+  <p>قسّم أهل العلم العلم الشرعي إلى قسمين:</p>
+
+  <table class="comparison-table">
+    <tr><th>القسم</th><th>التعريف</th><th>أمثلة</th></tr>
+    <tr>
+      <td><strong>فرض العين</strong></td>
+      <td>ما لا يسقط عن الفرد إلا بقيامه بنفسه، فلا يكفي أن يقوم به غيره</td>
+      <td>الشهادتين، الطهارة، الصلاة، الصيام، الزكاة (إن ملك النصاب)، الحج (إن استطاع)، معرفة المحرمات</td>
+    </tr>
+    <tr>
+      <td><strong>فرض الكفاية</strong></td>
+      <td>إذا قام به بعض الناس سقط الإثم عن الباقين، وإن لم يقم به أحد أثمت الأمة كلها</td>
+      <td>علوم الآلات كالنحو والبلاغة، علوم الحديث والرجال، أصول الفقه</td>
+    </tr>
+  </table>
+
+  <div class="flow-list">
+    <div class="flow-card"><div class="num">1</div><div><strong>البداية:</strong> عند البلوغ، أول ما يجب تعلّمه هو التوحيد والشهادتان.</div></div>
+    <div class="flow-card"><div class="num">2</div><div><strong>الطهارة والصلاة:</strong> تعلّم كيفية الوضوء والصلاة الصحيحة.</div></div>
+    <div class="flow-card"><div class="num">3</div><div><strong>الصيام:</strong> عند دخول رمضان، يتعلم أحكام الصيام ومبطلاته.</div></div>
+    <div class="flow-card"><div class="num">4</div><div><strong>الزكاة:</strong> إذا ملك المال وبلغ النصاب وحال عليه الحول.</div></div>
+    <div class="flow-card"><div class="num">5</div><div><strong>الحج:</strong> إذا استطاع إليه سبيلًا.</div></div>
+    <div class="flow-card"><div class="num">6</div><div><strong>المحرمات:</strong> معرفة أن الربا والزنا وشرب الخمر ونحوها حرام.</div></div>
+  </div>
+
+  <div class="key-point">
+    <span class="star">💡</span>
+    <div>هذا التدرج المنطقي يوضح أن فرض العين يتوسع مع تطور حياة الشخص؛ فما لم يكن واجبًا عليه في مرحلة (كالحج قبل الاستطاعة) يصبح واجبًا حين تتوفر شروطه.</div>
+  </div>
+
+  <div class="warning-box">
+    <span class="label">⚠️ حالة خاصة</span>
+    إن واجهت شبهة معينة أو رأيت بدعة ووقعت في إشكال اعتقادي، فتعلّم ما يدفع هذه الشبهة أو البدعة يصبح فرض عين عليك في تلك اللحظة، حتى لو لم يكن كذلك للناس عمومًا.
+  </div>
+</section>
+
+<section id="sec8">
+  <h2><span class="icon">📊</span> أقسام العلوم الأخرى: المباح والمحرم</h2>
+
+  <table class="comparison-table">
+    <tr><th>القسم</th><th>التعريف</th><th>أمثلة</th></tr>
+    <tr>
+      <td>علوم مباحة</td>
+      <td>لا هي فرض ولا حرام</td>
+      <td>الشعر الخالي من البذاءة، التاريخ، الجغرافيا</td>
+    </tr>
+    <tr>
+      <td>علوم محرمة</td>
+      <td>لا يجوز تعلّمها أصلًا</td>
+      <td>السحر</td>
+    </tr>
+  </table>
+
+  <div class="key-point">
+    <span class="star">💡</span>
+    <div>بعض أهل العلم أدخل بعض العلوم الدنيوية (كالطب والحساب) ضمن فروض الكفاية إذا كانت الأمة بحاجة إليها لحفظ الأبدان أو إقامة الشريعة (كعلم المواريث)، بينما رأى آخرون أنها علوم دنيوية يجب تعلّمها بقدر الحاجة فقط، وليست علومًا شرعية بذاتها.</div>
+  </div>
+</section>
+
+<section id="sec9">
+  <h2><span class="icon">🧩</span> أقسام العلم الشرعي الثلاثة</h2>
+
+  <p>قسّم كثير من أهل العلم العلوم الشرعية المستنبطة من الكتاب والسنة إلى ثلاثة أقسام:</p>
+
+  <table class="comparison-table">
+    <tr><th>القسم</th><th>وصفه</th></tr>
+    <tr><td><strong>1. علم الاعتقاد (العقيدة)</strong></td><td>متمثل في حديث الإيمان وما يتفرع عنه من مسائل.</td></tr>
+    <tr><td><strong>2. علم الفقه</strong></td><td>الأحكام العملية المتعلقة بالعبادات والمعاملات.</td></tr>
+    <tr><td><strong>3. علم أحوال القلوب (الأخلاق)</strong></td><td>الإخلاص، الخوف من الله، الرجاء، الصدق، اليقين، التوكل.</td></tr>
+  </table>
+
+  <div class="warning-box">
+    <span class="label">⚠️ تنبيه مهم جدًا</span>
+    القسم الثالث (أحوال القلوب) هو الأكثر إهمالًا رغم أهميته البالغة. لا يستقيم عبدٌ إلا بالعمل بهذه الأمور؛ فتخيل طالب علم عنده خلل في الإخلاص أو الصدق أو الكِبر، فكل ما تعلّمه قد يضيع بسبب هذه الآفات القاتلة.
+  </div>
+
+  <div class="evidence-block">
+    <span class="label">📜 الدليل على أهمية القلب</span>
+    <span class="arabic-emph">"ألا وإن في الجسد مضغة، إذا صلحت صلح الجسد كله، وإذا فسدت فسد الجسد كله، ألا وهي القلب"</span>
+    <div class="source">متفق عليه</div>
+  </div>
+
+  <div class="key-point">
+    <span class="star">💡</span>
+    <div>لهذا كان الأئمة الكبار (كالإمام أحمد والشافعي والنووي) مهتمين جدًا بهذا الجانب، وتركوا فيه فوائد وكتابات كثيرة لإصلاح القلوب.</div>
+  </div>
+</section>
+
+<section id="sec10">
+  <h2><span class="icon">🧭</span> ترتيب الأولويات في طلب العلم</h2>
+
+  <div class="flow-list">
+    <div class="flow-card">
+      <div class="num">1</div>
+      <div><strong>المرحلة الأولى:</strong> إصلاح النفس أولًا بتعلّم فروض الأعيان، وتطهير القلب من الآفات.</div>
+    </div>
+    <div class="flow-card">
+      <div class="num">2</div>
+      <div><strong>المرحلة الثانية:</strong> بعد استقرار الأمور، البدء في تعلّم بعض فروض الكفايات لنفع الأمة وسد حاجتها.</div>
+    </div>
+    <div class="flow-card">
+      <div class="num">3</div>
+      <div><strong>مستمر مع الرحلتين:</strong> تعهّد القلب بالإصلاح والتزكية باستمرار، فهذا لا ينتهي أبدًا طوال الحياة.</div>
+    </div>
+  </div>
+
+  <div class="warning-box">
+    <span class="label">⚠️ خطأ شائع في ترتيب الأولويات</span>
+    كثير من طلاب العلم يبدأون بالحاجات الكفائية (مثل علوم التفسير المتقدمة) قبل أن يُتقنوا فروض الأعيان الأساسية. هذا خلل في ترتيب الأولويات، وقد يؤدي إلى تشتت الجهد دون بناء أساس متين.
+  </div>
+
+  <div class="action-card">
+    <span class="label">✅ نصيحة عملية للمذاكرة والاستمرار</span>
+    <ul class="styled-list">
+      <li>لا تتنطط بين برامج تعليمية متعددة دون إكمال أي منها؛ التزم ببرنامج واحد حتى تجني ثمرته.</li>
+      <li>دوّن الفوائد أولًا بأول ولا تتركها تتراكم.</li>
+      <li>الصبر والمجاهدة ضروريان؛ فطريق العلم ليس محفوفًا بالورود، وقد تشعر أحيانًا أنك لا تستفيد، وهذا أمر وارد فلا تحبط.</li>
+      <li>استعن بالله بالدعاء دائمًا، فقد قال بعض السلف: "شكوت إلى وكيع سوء حفظي، فأرشدني إلى ترك المعاصي، وأخبرني أن العلم نور ونور الله لا يُهدى لعاصٍ".</li>
+    </ul>
+  </div>
+
+  <div class="key-point">
+    <span class="star">💡</span>
+    <div><strong>مثال تطبيقي لصاحب مشروع (كصناعة العطور):</strong> بنفس منطق ترتيب الأولويات في طلب العلم، يمكن لصاحب المشروع أن يبدأ بتعلّم "فرض العين" الخاص بمشروعه — أي الأساسيات التي لا غنى عنها لتشغيل المشروع بشكل صحيح (كالتسعير والمحاسبة الأساسية) — قبل الانتقال لتعلّم مهارات متقدمة (كالتسويق الرقمي المتقدم أو التوسع الدولي) التي تشبه فروض الكفاية.</div>
+  </div>
+</section>
+
+<div class="bottom-anki">
+  <h3>🗂️ راجع المحاضرة بطريقة تفاعلية</h3>
+  <p>حمّل بطاقات الأنكي المستخرجة من هذه المحاضرة وراجعها في أي وقت</p>
+  <button class="anki-btn" onclick="downloadAnkiDeck()">🗂️ حمّل بطاقات أنكي</button>
+</div>
+
 </main>
 
-<footer>الأكاديمية الشرعية — طلب العلم عبادة</footer>
+<footer>
+  <p class="dua">اللهم علّمنا ما ينفعنا وانفعنا بما علّمتنا وزدنا علمًا</p>
+  <p class="small">أصول الأعمال والتوازن بينها — تلخيص تعليمي</p>
+</footer>
+
+<script>
+const ankiCards = [
+["ما هي المحاور الأربعة الأساسية في سورة العصر؟","الإيمان، العمل الصالح، التواصي بالحق (الدعوة)، التواصي بالصبر (التربية)."],
+["ما الذي يسبق كل محاور سورة العصر بحسب المحاضرة؟","العلم؛ فبه نعرف كيف نؤمن ونعمل الصالحات وندعو ونربي أنفسنا."],
+["ما المقصود بكلمة 'العلم' في النصوص الشرعية؟","العلم الشرعي، أي علم الدين والشريعة، وليس العلوم الدنيوية أولًا."],
+["أكمل الآية: شهد الله أنه لا إله إلا هو والملائكة...","وأولو العلم قائمًا بالقسط (آل عمران: 18)"],
+["ماذا قال القرطبي عن دلالة اقتران 'أولو العلم' باسم الله والملائكة؟","دليل على فضل العلم وشرف العلماء وفضلهم."],
+["أكمل الآية: وقل ربي زدني...","علمًا (طه: 114)"],
+["ما دلالة أمر الله لنبيه أن يستزيد من العلم؟","دليل على شرف العلم وأهميته، إذ لو كان شيء أشرف منه لأمره بالاستزادة منه."],
+["أكمل الآية: يرفع الله الذين آمنوا منكم...","والذين أوتوا العلم درجات (المجادلة: 11)"],
+["بحسب ابن مسعود، بم يُرفع المؤمن العالم؟","يُرفع بإيمانه أولًا، ثم بعلمه ثانيًا."],
+["كم الفرق بين درجة العالم ودرجة المؤمن بحسب ابن عباس؟","سبعمائة درجة، ما بين كل درجتين مسيرة خمسمائة عام."],
+["أكمل الآية: إنما يخشى الله من عباده...","العلماء (فاطر: 28)"],
+["من هم الذين يخشون الله حق خشيته بحسب ابن كثير؟","العلماء العارفون بالله، لأنهم كلما ازدادوا علمًا ازدادوا خشية وتعظيمًا له."],
+["أكمل الآية: قل هل يستوي الذين يعلمون...","والذين لا يعلمون (الزمر: 9)"],
+["ما الدليل من السنة على أن العلم علامة إرادة الخير بالعبد؟","من يرد الله به خيرًا يفقهه في الدين (متفق عليه)"],
+["بم شبّه النبي صلى الله عليه وسلم فضل العالم على العابد؟","كفضلي على أدناكم، وكفضل القمر ليلة البدر على سائر الكواكب."],
+["من الذي يصلي على معلّم الناس الخير بحسب الحديث؟","الله وملائكته وأهل السماوات والأرض حتى النملة في جحرها وحتى الحوت."],
+["ماذا ورّث الأنبياء للعلماء بحسب الحديث؟","العلم، فلم يورّثوا دينارًا ولا درهمًا وإنما ورّثوا العلم."],
+["ما ثواب من سلك طريقًا يلتمس فيه علمًا؟","سهّل الله له به طريقًا إلى الجنة."],
+["ماذا خير من حُمر النعم بحسب حديث سهل بن سعد؟","أن يهدي الله بك رجلًا واحدًا."],
+["ما هي الأراضي الثلاث في تشبيه النبي صلى الله عليه وسلم للعلم؟","الأرض الطيبة المنبتة، الأجادب الحافظة للماء، والقيعان التي لا تمسك ولا تنبت."],
+["ماذا تمثل 'الأرض الطيبة' في حديث تشبيه العلم؟","من فقه في دين الله فانتفع بنفسه ونفع الناس، فتعلم وعلّم."],
+["ماذا تمثل 'الأجادب' في حديث تشبيه العلم؟","من حفظ العلم ونقله لغيره دون أن ينتفع به بنفسه بالاستنباط."],
+["ماذا تمثل 'القيعان' في حديث تشبيه العلم؟","من لم يتعلم ولم ينفع غيره، ولا هو انتفع بالعلم."],
+["أكمل الحديث: طلب العلم...","فريضة على كل مسلم (رواه ابن ماجه)"],
+["ما الفرق بين فرض العين وفرض الكفاية؟","فرض العين لا يسقط إلا بقيام الفرد به بنفسه، وفرض الكفاية يسقط الإثم عن الجميع إذا قام به البعض."],
+["اذكر ثلاثة أمثلة على فرض العين.","الشهادتين، الطهارة والصلاة، الصيام، الزكاة، الحج (عند الاستطاعة)."],
+["اذكر أمثلة على فرض الكفاية.","علوم الآلات كالنحو والبلاغة، علوم الحديث والرجال، أصول الفقه."],
+["متى يصبح تعلّم دفع شبهة معينة فرض عين؟","إذا واجه الشخص شبهة أو بدعة بعينها تستدعي معرفة كيفية دفعها."],
+["ما هي العلوم المباحة كما ذُكرت في المحاضرة؟","الشعر الخالي من البذاءة، والتاريخ، والجغرافيا."],
+["ما مثال العلوم المحرمة التي لا يجوز تعلّمها؟","السحر."],
+["ما هي الأقسام الثلاثة للعلم الشرعي؟","علم الاعتقاد (العقيدة)، علم الفقه، وعلم أحوال القلوب (الأخلاق)."],
+["أي قسم من أقسام العلم الشرعي الثلاثة هو الأكثر إهمالًا؟","علم أحوال القلوب والأخلاق."],
+["ما الدليل على أهمية إصلاح القلب؟","ألا وإن في الجسد مضغة إذا صلحت صلح الجسد كله، وإذا فسدت فسد الجسد كله، ألا وهي القلب (متفق عليه)"],
+["ما الخطأ الشائع في ترتيب أولويات طلب العلم؟","البدء بالحاجات الكفائية المتقدمة قبل إتقان فروض الأعيان الأساسية."],
+["ما نصيحة وكيع لمن شكا سوء حفظه؟","ترك المعاصي، وأن العلم نور ونور الله لا يُهدى لعاصٍ."],
+["ما هي المرحلة الأولى في ترتيب أولويات طلب العلم؟","إصلاح النفس أولًا بتعلّم فروض الأعيان وتطهير القلب من الآفات."]
+];
+
+function downloadAnkiDeck() {
+  let content = ankiCards.map(([q, a]) => {
+    const clean = s => s.replace(/\t/g, ' ').replace(/\r?\n/g, '<br>');
+    return `${clean(q)}\t${clean(a)}`;
+  }).join('\n');
+  const BOM = '\uFEFF';
+  const blob = new Blob([BOM + content], { type: 'text/plain;charset=utf-8' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'بطاقات_أنكي_فضل_العلم.txt';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+</script>
 
 </body>
 </html>
