@@ -3,125 +3,1413 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>المحاضرة 1 | الحقوق والآداب</title>
-<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
-<!--
-  LECTURE_STATUS: EMPTY
-  هذا الملف محاضرة فارغة بانتظار التعبئة.
-  عند إضافة محتوى حقيقي، غيّر التعليق أعلاه إلى LECTURE_STATUS: FILLED
-  حتى تتعرف عليه صفحة الفئة (index.html) كمحاضرة مكتملة ويزيد العداد تلقائيًا.
--->
-<meta name="lecture-status" content="empty">
+<title>المحاضرة الأولى: آداب النية والأدب مع الله</title>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --gold: #C5A55A;
-    --gold-light: #E8D5A3;
-    --ivory: #FAF7F0;
-    --brown-deep: #3A2A1A;
-    --brown-mid: #5C4033;
-    --brown-warm: #7A5C40;
-    --green-islamic: #1B6B4A;
-    --green-light: #E8F5EE;
-    --green-accent: #2D8B6A;
-    --cream: #FFF8EC;
-    --border-soft: #E5D5BF;
-    --text-main: #2C1E10;
-    --text-secondary: #6B5744;
-    --shadow-soft: 0 2px 20px rgba(58, 42, 26, 0.08);
-    --shadow-card: 0 4px 24px rgba(58, 42, 26, 0.1);
+  :root{
+    --brown-dark:#3b2a1a;
+    --brown:#6b4423;
+    --brown-light:#a9784f;
+    --gold:#c9a25c;
+    --gold-light:#e8d5a8;
+    --green:#2f5d3a;
+    --green-light:#4a7d5a;
+    --cream:#faf6ee;
+    --cream-dark:#f0e6d2;
+    --ink:#2b2118;
+    --white:#fffdf9;
+    --danger:#8b3a2f;
+    --shadow: 0 4px 20px rgba(59,42,26,.12);
   }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body {
-    font-family: 'Cairo', sans-serif;
-    background: var(--ivory);
-    color: var(--text-main);
-    line-height: 1.9;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    font-family:'Cairo',sans-serif;
+    background:var(--cream);
+    color:var(--ink);
+    line-height:1.9;
   }
-  .header {
-    background: linear-gradient(160deg, var(--brown-deep) 0%, var(--brown-mid) 60%, var(--brown-warm) 100%);
-    color: var(--ivory);
-    padding: 40px 24px;
-    text-align: center;
+  h1,h2,h3,h4{font-family:'Amiri',serif;}
+  .quran-font{font-family:'Amiri',serif;}
+
+  /* ===== HEADER ===== */
+  header{
+    background:linear-gradient(135deg,var(--brown-dark) 0%,var(--brown) 55%,var(--brown-light) 100%);
+    color:var(--cream);
+    text-align:center;
+    padding:50px 20px 60px;
+    position:relative;
+    overflow:hidden;
+    border-bottom:6px solid var(--gold);
   }
-  .breadcrumb {
-    font-size: 13px;
-    color: var(--gold-light);
-    margin-bottom: 14px;
-    opacity: 0.85;
+  header::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background-image:
+      radial-gradient(circle at 15% 20%, rgba(201,162,92,.15) 0, transparent 40%),
+      radial-gradient(circle at 85% 80%, rgba(201,162,92,.15) 0, transparent 40%);
+    pointer-events:none;
   }
-  .breadcrumb a { color: var(--gold-light); text-decoration: none; }
-  .breadcrumb a:hover { text-decoration: underline; }
-  .header h1 {
-    font-family: 'Amiri', serif;
-    font-size: clamp(24px, 5vw, 34px);
+  .basmala{
+    font-family:'Amiri',serif;
+    font-size:1.7rem;
+    color:var(--gold-light);
+    margin-bottom:14px;
+    letter-spacing:1px;
   }
-  main {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 60px 24px;
+  .lecture-badge{
+    display:inline-block;
+    background:rgba(201,162,92,.18);
+    border:1.5px solid var(--gold);
+    color:var(--gold-light);
+    padding:6px 22px;
+    border-radius:30px;
+    font-size:.95rem;
+    font-weight:700;
+    margin-bottom:16px;
+    letter-spacing:.5px;
   }
-  .empty-card {
-    max-width: 520px;
-    text-align: center;
-    background: white;
-    border: 1px dashed var(--border-soft);
-    border-radius: 20px;
-    padding: 50px 36px;
-    box-shadow: var(--shadow-soft);
+  header h1{
+    font-size:2.4rem;
+    margin:0 0 14px;
+    color:var(--white);
+    text-shadow:0 2px 10px rgba(0,0,0,.25);
   }
-  .empty-icon { font-size: 48px; margin-bottom: 18px; opacity: 0.6; }
-  .empty-card h2 {
-    font-family: 'Amiri', serif;
-    color: var(--brown-deep);
-    font-size: 22px;
-    margin-bottom: 12px;
+  header p.desc{
+    max-width:680px;
+    margin:0 auto;
+    color:var(--cream-dark);
+    font-size:1.05rem;
   }
-  .empty-card p {
-    color: var(--text-secondary);
-    font-size: 15px;
-    line-height: 1.9;
+  .header-actions{
+    margin-top:26px;
+    display:flex;
+    gap:14px;
+    justify-content:center;
+    flex-wrap:wrap;
   }
-  .back-link {
-    display: inline-block;
-    margin-top: 24px;
-    padding: 10px 26px;
-    background: var(--green-light);
-    color: var(--green-islamic);
-    text-decoration: none;
-    border-radius: 20px;
-    font-weight: 700;
-    font-size: 14px;
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:12px 26px;
+    border-radius:10px;
+    font-weight:700;
+    font-size:1rem;
+    text-decoration:none;
+    cursor:pointer;
+    border:none;
+    transition:transform .15s ease, box-shadow .15s ease;
+    font-family:'Cairo',sans-serif;
   }
-  footer {
-    text-align: center;
-    padding: 24px;
-    color: var(--text-secondary);
-    font-size: 13px;
+  .btn:hover{transform:translateY(-2px);}
+  .btn-gold{background:var(--gold);color:var(--brown-dark);box-shadow:0 4px 14px rgba(201,162,92,.4);}
+  .btn-green{background:var(--green);color:var(--white);box-shadow:0 4px 14px rgba(47,93,58,.4);}
+
+  /* ===== TOC ===== */
+  .toc-wrap{
+    max-width:900px;
+    margin:-34px auto 40px;
+    background:var(--white);
+    border-radius:16px;
+    box-shadow:var(--shadow);
+    padding:26px 30px;
+    position:relative;
+    z-index:5;
+    border:1px solid var(--cream-dark);
+  }
+  .toc-wrap h2{
+    color:var(--brown);
+    font-size:1.4rem;
+    margin-top:0;
+    border-bottom:2px solid var(--gold);
+    padding-bottom:10px;
+    display:flex;
+    align-items:center;
+    gap:8px;
+  }
+  .toc-list{
+    list-style:none;
+    margin:0;
+    padding:0;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:8px 20px;
+  }
+  .toc-list li a{
+    text-decoration:none;
+    color:var(--ink);
+    display:flex;
+    align-items:center;
+    gap:10px;
+    padding:9px 12px;
+    border-radius:8px;
+    transition:background .15s;
+    font-weight:600;
+  }
+  .toc-list li a:hover{background:var(--cream-dark);color:var(--brown);}
+  .toc-num{
+    background:var(--green);
+    color:var(--white);
+    width:26px;height:26px;
+    border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    font-size:.85rem;flex-shrink:0;
+  }
+
+  /* ===== MAIN CONTAINER ===== */
+  main{max-width:900px;margin:0 auto;padding:0 20px 60px;}
+
+  section.chapter{
+    background:var(--white);
+    border-radius:18px;
+    box-shadow:var(--shadow);
+    margin-bottom:38px;
+    padding:34px 34px 40px;
+    border-top:5px solid var(--gold);
+    scroll-margin-top:20px;
+  }
+  .chapter-title{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    color:var(--brown-dark);
+    font-size:1.7rem;
+    margin-top:0;
+    margin-bottom:22px;
+    padding-bottom:14px;
+    border-bottom:2px dashed var(--gold-light);
+  }
+  .chapter-icon{
+    background:var(--green);
+    color:var(--white);
+    width:46px;height:46px;
+    border-radius:12px;
+    display:flex;align-items:center;justify-content:center;
+    font-size:1.4rem;
+    flex-shrink:0;
+  }
+  h3.sub-title{
+    color:var(--green);
+    font-size:1.25rem;
+    margin:30px 0 12px;
+    border-right:4px solid var(--green);
+    padding-right:12px;
+  }
+  p{margin:0 0 16px;}
+
+  /* ===== BLOCKS ===== */
+  .quran-verse{
+    background:linear-gradient(120deg,var(--green) 0%, var(--green-light) 100%);
+    color:var(--white);
+    padding:22px 26px;
+    border-radius:14px;
+    margin:20px 0;
+    position:relative;
+    box-shadow:0 4px 16px rgba(47,93,58,.25);
+  }
+  .quran-verse::before{
+    content:"﴾";
+    position:absolute;
+    top:6px; right:16px;
+    font-size:2.2rem;
+    color:rgba(255,255,255,.3);
+    font-family:'Amiri',serif;
+  }
+  .quran-verse .text{
+    font-family:'Amiri',serif;
+    font-size:1.35rem;
+    text-align:center;
+    line-height:2.1;
+    margin-bottom:10px;
+  }
+  .quran-verse .ref{
+    text-align:left;
+    font-size:.9rem;
+    color:var(--gold-light);
+    font-weight:700;
+  }
+
+  .hadith{
+    background:var(--cream-dark);
+    border-right:5px solid var(--brown);
+    padding:20px 24px;
+    border-radius:10px;
+    margin:20px 0;
+  }
+  .hadith .label{
+    color:var(--brown);
+    font-weight:800;
+    font-size:.9rem;
+    margin-bottom:8px;
+    display:flex;align-items:center;gap:6px;
+  }
+  .hadith .text{
+    font-family:'Amiri',serif;
+    font-size:1.2rem;
+    line-height:2;
+  }
+  .hadith .ref{
+    margin-top:10px;
+    font-size:.88rem;
+    color:var(--brown);
+    font-weight:700;
+  }
+
+  .definition-box{
+    background:var(--white);
+    border:2px solid var(--gold);
+    border-radius:12px;
+    padding:18px 22px;
+    margin:20px 0;
+    position:relative;
+  }
+  .definition-box .label{
+    position:absolute;
+    top:-14px; right:16px;
+    background:var(--gold);
+    color:var(--brown-dark);
+    font-weight:800;
+    padding:3px 16px;
+    border-radius:20px;
+    font-size:.85rem;
+  }
+  .definition-box .term{
+    font-weight:800;
+    color:var(--brown);
+    font-size:1.1rem;
+    margin-bottom:6px;
+  }
+
+  .key-point{
+    background:#eef6ee;
+    border-right:5px solid var(--green);
+    padding:16px 22px;
+    border-radius:10px;
+    margin:18px 0;
+    display:flex;
+    gap:12px;
+  }
+  .key-point .icon{color:var(--green);font-size:1.3rem;flex-shrink:0;}
+
+  .warning-box{
+    background:#fbeceb;
+    border-right:5px solid var(--danger);
+    padding:16px 22px;
+    border-radius:10px;
+    margin:18px 0;
+    display:flex;
+    gap:12px;
+  }
+  .warning-box .icon{color:var(--danger);font-size:1.3rem;flex-shrink:0;}
+
+  .flow-wrap{margin:22px 0;display:flex;flex-direction:column;gap:0;}
+  .flow-card{
+    background:var(--cream-dark);
+    border-radius:10px;
+    padding:14px 20px;
+    display:flex;
+    align-items:center;
+    gap:16px;
+    position:relative;
+  }
+  .flow-card + .flow-card{margin-top:22px;}
+  .flow-card + .flow-card::before{
+    content:"↓";
+    position:absolute;
+    top:-24px; right:34px;
+    color:var(--gold);
+    font-size:1.3rem;
+    font-weight:900;
+  }
+  .flow-num{
+    background:var(--brown);
+    color:var(--white);
+    width:34px;height:34px;
+    border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    font-weight:800;
+    flex-shrink:0;
+  }
+
+  .ruling-card{
+    display:inline-block;
+    padding:6px 16px;
+    border-radius:20px;
+    font-weight:800;
+    font-size:.9rem;
+    margin:4px 6px 4px 0;
+  }
+  .ruling-wajib{background:#fbeceb;color:var(--danger);}
+  .ruling-mostahab{background:#eef6ee;color:var(--green);}
+  .ruling-makrouh{background:#fdf3e3;color:#a06a1a;}
+  .ruling-haram{background:var(--brown-dark);color:var(--gold-light);}
+
+  table.comparison-table{
+    width:100%;
+    border-collapse:collapse;
+    margin:20px 0;
+    border-radius:10px;
+    overflow:hidden;
+    box-shadow:var(--shadow);
+  }
+  table.comparison-table th{
+    background:var(--brown);
+    color:var(--white);
+    padding:12px 14px;
+    font-size:.95rem;
+  }
+  table.comparison-table td{
+    padding:12px 14px;
+    border-bottom:1px solid var(--cream-dark);
+    background:var(--white);
+    font-size:.95rem;
+    text-align:center;
+  }
+  table.comparison-table tr:nth-child(even) td{background:var(--cream);}
+
+  .example-box{
+    background:#fdf8ee;
+    border:1.5px dashed var(--gold);
+    border-radius:10px;
+    padding:16px 20px;
+    margin:18px 0;
+  }
+  .example-box .label{
+    font-weight:800;
+    color:var(--brown);
+    margin-bottom:6px;
+    display:flex;align-items:center;gap:6px;
+  }
+
+  /* ===== QUIZ ===== */
+  #quiz-section{
+    background:linear-gradient(160deg,var(--brown-dark),var(--brown));
+    color:var(--white);
+    border-top:5px solid var(--gold);
+  }
+  #quiz-section .chapter-title{color:var(--white);border-bottom-color:rgba(201,162,92,.4);}
+  .quiz-intro{
+    background:rgba(255,255,255,.08);
+    padding:20px;
+    border-radius:12px;
+    margin-bottom:20px;
+    text-align:center;
+  }
+  #start-quiz-btn{margin:0 auto;display:inline-flex;}
+  .quiz-question{
+    background:rgba(255,255,255,.06);
+    border-radius:14px;
+    padding:22px;
+    margin-bottom:20px;
+    border:1px solid rgba(201,162,92,.25);
+  }
+  .q-meta{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;flex-wrap:wrap;gap:8px;}
+  .q-diff{
+    padding:3px 12px;
+    border-radius:20px;
+    font-size:.78rem;
+    font-weight:800;
+  }
+  .diff-medium{background:#4a7d5a;color:#fff;}
+  .diff-hard{background:#c9a25c;color:#3b2a1a;}
+  .diff-very-hard{background:#8b3a2f;color:#fff;}
+  .q-text{font-size:1.1rem;font-weight:700;margin-bottom:14px;}
+  .q-options{display:flex;flex-direction:column;gap:10px;}
+  .q-option{
+    background:rgba(255,255,255,.08);
+    border:1.5px solid rgba(255,255,255,.2);
+    border-radius:10px;
+    padding:12px 16px;
+    cursor:pointer;
+    transition:background .15s;
+  }
+  .q-option:hover{background:rgba(255,255,255,.16);}
+  .q-option.selected{border-color:var(--gold);background:rgba(201,162,92,.25);}
+  .q-option.correct-answer{background:rgba(47,93,58,.6);border-color:#4a7d5a;}
+  .q-option.wrong-answer{background:rgba(139,58,47,.6);border-color:#8b3a2f;}
+  .tf-options{display:flex;gap:14px;}
+  .tf-options .q-option{flex:1;text-align:center;}
+  .q-explanation{
+    margin-top:14px;
+    padding:14px 16px;
+    background:rgba(0,0,0,.2);
+    border-radius:10px;
+    font-size:.95rem;
+    display:none;
+  }
+  .q-explanation.show{display:block;}
+  .essay-answer-box{
+    width:100%;
+    min-height:90px;
+    border-radius:10px;
+    border:1.5px solid rgba(255,255,255,.3);
+    background:rgba(255,255,255,.08);
+    color:var(--white);
+    padding:12px;
+    font-family:'Cairo',sans-serif;
+    font-size:1rem;
+    resize:vertical;
+  }
+  .model-answer{
+    margin-top:12px;
+    padding:14px 16px;
+    background:rgba(201,162,92,.15);
+    border-radius:10px;
+    display:none;
+    border:1px solid rgba(201,162,92,.4);
+  }
+  .model-answer.show{display:block;}
+  .show-answer-btn{
+    margin-top:10px;
+    background:var(--gold);
+    color:var(--brown-dark);
+    border:none;
+    padding:8px 18px;
+    border-radius:8px;
+    font-weight:700;
+    cursor:pointer;
+  }
+  #score-card{
+    text-align:center;
+    padding:40px 20px;
+    display:none;
+  }
+  #score-card.show{display:block;}
+  #score-card .big-score{font-size:3.5rem;font-weight:900;color:var(--gold);font-family:'Amiri',serif;}
+  #submit-quiz-btn{margin-top:10px;}
+
+  /* ===== FOOTER ===== */
+  footer{
+    background:var(--brown-dark);
+    color:var(--cream-dark);
+    text-align:center;
+    padding:40px 20px;
+    border-top:6px solid var(--gold);
+  }
+  footer .dua{
+    font-family:'Amiri',serif;
+    font-size:1.3rem;
+    color:var(--gold-light);
+    max-width:700px;
+    margin:0 auto 14px;
+    line-height:2;
+  }
+  footer .credit{font-size:.85rem;opacity:.7;}
+
+  @media (max-width:640px){
+    .toc-list{grid-template-columns:1fr;}
+    header h1{font-size:1.7rem;}
+    section.chapter{padding:22px 18px;}
+    .quran-verse .text{font-size:1.1rem;}
   }
 </style>
 </head>
 <body>
 
-<header class="header">
-  <div class="breadcrumb"><a href="../index.html">الأكاديمية الشرعية</a> ← <a href="index.html">الحقوق والآداب</a> ← المحاضرة 1</div>
-  <h1>المحاضرة 1</h1>
+<header>
+  <div class="basmala">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
+  <span class="lecture-badge">المحاضرة رقم ١</span>
+  <h1>آداب النية والأدب مع الله عز وجل</h1>
+  <p class="desc">
+    مدخل إلى علاقة العبد بربه ونفسه: أهمية النية ودورها في قَبول الأعمال وردّها،
+    ثم جملة من آداب المسلم مع خالقه سبحانه وتعالى — شكر النعمة، المراقبة، الفرار إلى الله،
+    حسن الظن به، والخوف والرجاء.
+  </p>
+  <div class="header-actions">
+    <a href="#quiz-section" class="btn btn-gold">📝 ابدأ الاختبار التفاعلي</a>
+    <button class="btn btn-green" onclick="downloadAnkiDeck()">🗂️ حمّل بطاقات أنكي</button>
+  </div>
 </header>
 
+<div class="toc-wrap">
+  <h2>📖 محتويات المحاضرة</h2>
+  <ul class="toc-list">
+    <li><a href="#intro"><span class="toc-num">١</span> مقدمة: أهمية علم الآداب</a></li>
+    <li><a href="#niyyah-importance"><span class="toc-num">٢</span> لماذا بدأ العلماء بالنية؟</a></li>
+    <li><a href="#niyyah-definition"><span class="toc-num">٣</span> تعريف النية وحقيقتها</a></li>
+    <li><a href="#niyyah-evidence"><span class="toc-num">٤</span> أدلة عظم شأن النية</a></li>
+    <li><a href="#niyyah-effect"><span class="toc-num">٥</span> أثر النية على الأعمال</a></li>
+    <li><a href="#niyyah-rules"><span class="toc-num">٦</span> أحكام فقهية متعلقة بالنية</a></li>
+    <li><a href="#niyyah-intent-vs-resolve"><span class="toc-num">٧</span> الفرق بين الخاطر والعزم</a></li>
+    <li><a href="#adab-allah"><span class="toc-num">٨</span> الأدب مع الله عز وجل</a></li>
+    <li><a href="#quiz-section"><span class="toc-num">٩</span> الاختبار التفاعلي</a></li>
+  </ul>
+</div>
+
 <main>
-  <div class="empty-card">
-    <div class="empty-icon">📝</div>
-    <h2>هذه المحاضرة لم تُملأ بعد</h2>
-    <p>سيتم إضافة الشرح المفصّل وبطاقات المراجعة لهذه المحاضرة قريبًا بإذن الله.</p>
-    <a class="back-link" href="index.html">← الرجوع لقائمة المحاضرات</a>
+
+<!-- ============ SECTION 1: INTRO ============ -->
+<section class="chapter" id="intro">
+  <h2 class="chapter-title"><span class="chapter-icon">🕌</span> مقدمة: لماذا ندرس الآداب؟</h2>
+
+  <p>
+    الشريعة الإسلامية -كما قسّمها العلماء- تنقسم إلى أربعة أقسام كبرى: <strong>العقيدة</strong>،
+    و<strong>العبادات</strong>، و<strong>المعاملات</strong>، و<strong>الأخلاق والآداب</strong>.
+    والآداب جزء أصيل من هذه الأقسام، وليست هامشًا على الدين؛ فالإسلام لم يقتصر على تنظيم علاقة
+    العبد بربه في الصلاة والصيام فقط، بل نظّم له تعامله مع نفسه، ومع والديه، ومع أقاربه،
+    ومع المجتمع، بل ومع الحيوان والجماد أيضًا.
+  </p>
+
+  <div class="key-point">
+    <span class="icon">💡</span>
+    <div>
+      <strong>فائدة مهمة:</strong> رتّب الشرع على الالتزام بالآداب اليومية ثوابًا عظيمًا،
+      فمجرد معرفة الأدب وتطبيقه اتّباعًا لسنة النبي صلى الله عليه وسلم يُكتب للمسلم به أجر،
+      حتى في أبسط تصرفاته كالأكل والشرب.
+    </div>
   </div>
+
+  <h3 class="sub-title">المرجع العلمي للمادة</h3>
+  <p>
+    اعتمدت هذه السلسلة أساسًا على كتاب <strong>"منهاج المسلم"</strong> للشيخ أبي بكر جابر الجزائري،
+    مع إضافات وشروحات تكميلية. والمادة مقسّمة إلى ست وحدات رئيسية تمثّل دوائر متسعة حول
+    المسلم، من الأضيق إلى الأوسع:
+  </p>
+
+  <div class="flow-wrap">
+    <div class="flow-card"><span class="flow-num">١</span> علاقة العبد بربه ونفسه (النية، الأدب مع الله، مع القرآن، مع النبي ﷺ، مع النفس)</div>
+    <div class="flow-card"><span class="flow-num">٢</span> الأسرة (حقوق الوالدين، الزوجين، الأولاد)</div>
+    <div class="flow-card"><span class="flow-num">٣</span> الأقارب والمجتمع القريب (صلة الرحم، الإخوة)</div>
+    <div class="flow-card"><span class="flow-num">٤</span> المجتمع العام (آداب العلم، الضيافة، الدعوة)</div>
+    <div class="flow-card"><span class="flow-num">٥</span> آداب شخصية تفصيلية (الأكل، الشرب، اللباس)</div>
+    <div class="flow-card"><span class="flow-num">٦</span> تطبيقات عملية ختامية</div>
+  </div>
+
+  <div class="warning-box">
+    <span class="icon">⚠️</span>
+    <div>
+      <strong>تنبيه منهجي:</strong> العلم الشرعي ليس معلومة نظرية تُحفظ وتُنسى، بل غاية دراسته
+      العمل بها. فكل أدب يُتعلَّم يجب أن يُترجَم إلى سلوك فعلي فور نهاية المحاضرة، مع المذاكرة
+      أولًا بأول حتى لا يتفلّت العلم من الذاكرة.
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECTION 2: WHY NIYYAH FIRST ============ -->
+<section class="chapter" id="niyyah-importance">
+  <h2 class="chapter-title"><span class="chapter-icon">🌱</span> لماذا يبدأ العلماء بباب النية؟</h2>
+
+  <p>
+    من عادة العلماء أن يفتتحوا كتب الآداب والأحكام بباب النية، وهذا اختيار مقصود وليس ترتيبًا
+    عشوائيًا؛ لأن النية هي <strong>الأساس الذي يُبنى عليه قبول العمل أو ردّه</strong>. فالعبد قد
+    يقوم بعمل ظاهره الصلاح، لكنه لا يُثاب عليه إن خلا من النية الصحيحة.
+  </p>
+
+  <div class="example-box">
+    <div class="label">🔸 مثال توضيحي</div>
+    الأكل باليد اليمنى سنة نبوية. فلو أن رجلًا يستخدم يمينه بطبعه (لأنه ليس أشول) فأكل بيمينه
+    دون أن يستحضر أن هذا اتباع للسنة، فإنه <strong>لا يُؤجر</strong> على هذا الفعل رغم موافقته
+    للسنة ظاهرًا؛ لأن الأجر مبني على النية والقصد، لا على مجرد موافقة الفعل للسنة.
+  </div>
+
+  <div class="key-point">
+    <span class="icon">💡</span>
+    <div>
+      جميع الأعمال تتكيّف بالنية وتكون بحسبها، فتقوى وتضعف، وتصح وتفسد تبعًا لها. والنية تارة
+      تكون <strong>شرطًا</strong> في العمل، وتارة تكون <strong>ركنًا</strong>، ولذلك يفرد الفقهاء لها
+      أبوابًا مستقلة في كتب الفقه.
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECTION 3: DEFINITION ============ -->
+<section class="chapter" id="niyyah-definition">
+  <h2 class="chapter-title"><span class="chapter-icon">📜</span> تعريف النية وحقيقتها</h2>
+
+  <div class="definition-box">
+    <span class="label">تعريف</span>
+    <div class="term">النية اصطلاحًا</div>
+    انبعاثُ القلب نحو العمل الموافق لغرضٍ صحيح، من جلب نفعٍ أو دفع ضرٍّ، حالًا أو مآلًا،
+    وهي الإرادة المتوجهة نحو الفعل ابتغاء رضا الله تعالى وامتثال أمره.
+  </div>
+
+  <p>محلّ النية القلب لا اللسان، ولهذا نستنتج ثلاث قواعد أساسية:</p>
+
+  <div class="flow-wrap">
+    <div class="flow-card"><span class="flow-num">١</span> <strong>لا يجوز التلفظ بالنية</strong> — فلا يُقال قبل الصلاة "نويت أصلي صلاة الظهر"؛ لأن النية عمل قلبي محض.</div>
+    <div class="flow-card"><span class="flow-num">٢</span> <strong>الاستثناء:</strong> نية الإحرام في الحج والعمرة، حيث يُشرَع التلفظ بقول "لبيك اللهم حجًّا" أو "عمرةً"، مع أن أصل النية محلها القلب أيضًا.</div>
+    <div class="flow-card"><span class="flow-num">٣</span> النية تكون <strong>قبل العمل</strong> لا أثناءه؛ فمن دخل في نافلة ثم أراد تحويلها إلى فرض في وسط الصلاة، لم يصح ذلك؛ لأن نية الفرض يجب أن تسبق الدخول فيه.</div>
+  </div>
+
+  <div class="warning-box">
+    <span class="icon">⚠️</span>
+    <div>
+      <strong>خطأ شائع:</strong> الظن بأن تغيير النية أثناء العمل جائز مطلقًا. الصحيح أن تحويل
+      نية <em>الفرض إلى نفل</em> أثناء الصلاة قد يجوز في بعض الصور عند الفقهاء، لكن تحويل
+      <em>النفل إلى فرض</em> أثناء الصلاة لا يصح؛ لأن نية الفرض شرط سابق للدخول فيه.
+    </div>
+  </div>
+
+  <h3 class="sub-title">الركن والشرط: فرق دقيق</h3>
+  <p>
+    ذكر الشيخ في سياق الحديث عن النية أنها "ركن الأعمال وشرطها"، وهذا يستدعي توضيح الفرق بين
+    اللفظين فقهيًّا:
+  </p>
+
+  <table class="comparison-table">
+    <tr><th>المصطلح</th><th>تعريفه</th><th>مثال من الصلاة</th></tr>
+    <tr><td><strong>الرُّكن</strong></td><td>جزء من ماهية الشيء وحقيقته، لا يقوم الشيء بدونه</td><td>تكبيرة الإحرام، قراءة الفاتحة، القيام</td></tr>
+    <tr><td><strong>الشَّرط</strong></td><td>أمر خارج عن ماهية الشيء لكن صحته متوقفة عليه</td><td>النية، الطهارة، استقبال القبلة</td></tr>
+  </table>
+
+  <p>
+    والحاصل عمليًّا واحد في الحالتين: فكما تبطل الصلاة بترك ركن كتكبيرة الإحرام، تبطل كذلك
+    بانعدام النية؛ لأن كليهما شرط لصحة العبادة، وإن اختلف الموضع الاصطلاحي لكل منهما.
+  </p>
+</section>
+
+<!-- ============ SECTION 4: EVIDENCE ============ -->
+<section class="chapter" id="niyyah-evidence">
+  <h2 class="chapter-title"><span class="chapter-icon">📚</span> الأدلة على عِظَم شأن النية</h2>
+
+  <h3 class="sub-title">أولًا: من القرآن الكريم</h3>
+
+  <div class="quran-verse">
+    <div class="text">وَمَا أُمِرُوا إِلَّا لِيَعْبُدُوا اللَّهَ مُخْلِصِينَ لَهُ الدِّينَ</div>
+    <div class="ref">سورة البيّنة، آية ٥</div>
+  </div>
+
+  <div class="quran-verse">
+    <div class="text">قُلْ إِنِّي أُمِرْتُ أَنْ أَعْبُدَ اللَّهَ مُخْلِصًا لَهُ الدِّينَ</div>
+    <div class="ref">سورة الزمر، آية ١١</div>
+  </div>
+
+  <p>
+    الآيتان تقرران أن العبادة الحقّة مبناها الإخلاص، وأن غياب النية الخالصة يُذهب بثواب العمل
+    مهما بلغ ظاهره من الصلاح.
+  </p>
+
+  <h3 class="sub-title">ثانيًا: من السنة النبوية</h3>
+
+  <div class="hadith">
+    <div class="label">🕋 حديث شريف</div>
+    <div class="text">«إِنَّمَا الْأَعْمَالُ بِالنِّيَّاتِ، وَإِنَّمَا لِكُلِّ امْرِئٍ مَا نَوَى»</div>
+    <div class="ref">متفق عليه، من حديث عمر بن الخطاب رضي الله عنه</div>
+  </div>
+
+  <p>
+    هذا الحديث من أصول الأحكام في الشريعة كلها، وينبني عليه كثير من أبواب الفقه؛ فوجود الأعمال
+    وصورتها لا عبرة به وحده، بل القبول متوقف على النية.
+  </p>
+
+  <div class="hadith">
+    <div class="label">🕋 حديث شريف</div>
+    <div class="text">«إِنَّ اللَّهَ لَا يَنْظُرُ إِلَى صُوَرِكُمْ وَأَمْوَالِكُمْ، وَلَكِنْ يَنْظُرُ إِلَى قُلُوبِكُمْ وَأَعْمَالِكُمْ»</div>
+    <div class="ref">رواه مسلم</div>
+  </div>
+
+  <div class="hadith">
+    <div class="label">🕋 حديث شريف</div>
+    <div class="text">«مَنْ هَمَّ بِحَسَنَةٍ وَلَمْ يَعْمَلْهَا كُتِبَتْ لَهُ حَسَنَةً»</div>
+    <div class="ref">متفق عليه</div>
+  </div>
+
+  <div class="key-point">
+    <span class="icon">💡</span>
+    <div>
+      من رحمة الله بعباده أن مجرد <strong>الهمّ بالحسنة</strong> يُكتب حسنةً كاملة وإن لم يُعمَل بها،
+      بخلاف الهمّ بالسيئة إذا تُرك ولم يُعزَم عليه، فإنه لا يُكتب على صاحبه شيء.
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECTION 5: EFFECT OF NIYYAH ============ -->
+<section class="chapter" id="niyyah-effect">
+  <h2 class="chapter-title"><span class="chapter-icon">⚖️</span> أثر النية على قيمة الأعمال</h2>
+
+  <h3 class="sub-title">النية تضاعف الأجر: حديث أصحاب المِلَل الأربع</h3>
+
+  <div class="hadith">
+    <div class="label">🕋 حديث شريف (مختصر المعنى)</div>
+    <div class="text">
+      «إِنَّمَا الدُّنْيَا لِأَرْبَعَةِ نَفَرٍ: رَجُلٌ آتَاهُ اللَّهُ مَالًا وَعِلْمًا فَهُوَ يَعْمَلُ فِيهِ بِعِلْمِهِ...
+      وَرَجُلٌ آتَاهُ اللَّهُ عِلْمًا وَلَمْ يُؤْتِهِ مَالًا فَهُوَ صَادِقُ النِّيَّةِ يَقُولُ لَوْ أَنَّ لِي مَالًا لَعَمِلْتُ بِعَمَلِ فُلَانٍ، فَهُوَ بِنِيَّتِهِ فَأَجْرُهُمَا سَوَاءٌ...»</div>
+    <div class="ref">رواه الترمذي وابن ماجه</div>
+  </div>
+
+  <p>يوضح هذا الحديث أربع صور مجتمعة في التطبيق العملي:</p>
+
+  <table class="comparison-table">
+    <tr><th>الشخص</th><th>حاله</th><th>النتيجة</th></tr>
+    <tr><td>الأول</td><td>أعطاه الله علمًا ومالًا فأنفق في الخير</td><td>مأجور على عمله</td></tr>
+    <tr><td>الثاني</td><td>عنده نية صادقة أنه لو ملك المال لأنفق مثل الأول، لكنه لا يملك</td><td>مأجور مثل الأول تمامًا (فهما في الأجر سواء)</td></tr>
+    <tr><td>الثالث</td><td>أعطاه الله مالًا بلا علم فأنفقه في المعاصي</td><td>آثم بعمله</td></tr>
+    <tr><td>الرابع</td><td>ينوي لو ملك مالًا لأنفقه في المعاصي مثل الثالث</td><td>آثم مثله تمامًا (فهما في الوزر سواء)</td></tr>
+  </table>
+
+  <div class="example-box">
+    <div class="label">🔸 مثال معاصر</div>
+    من رأى شخصًا يتصدق بمبلغ كبير في بناء مسجد أو مستشفى، فقال بصدق: "لو كان معي مال لفعلت
+    مثله"، فإنه يُشارك في الأجر تمامًا، رغم أنه لم يدفع شيئًا فعليًّا؛ لصدق نيته.
+  </div>
+
+  <h3 class="sub-title">النية تُفسد العمل: القاتل والمقتول</h3>
+
+  <div class="hadith">
+    <div class="label">🕋 حديث شريف</div>
+    <div class="text">«إِذَا الْتَقَى الْمُسْلِمَانِ بِسَيْفَيْهِمَا فَالْقَاتِلُ وَالْمَقْتُولُ فِي النَّارِ»، قِيلَ: يَا رَسُولَ اللَّهِ هَذَا الْقَاتِلُ فَمَا بَالُ الْمَقْتُولِ؟ قَالَ: «إِنَّهُ كَانَ حَرِيصًا عَلَى قَتْلِ صَاحِبِهِ»</div>
+    <div class="ref">متفق عليه</div>
+  </div>
+
+  <div class="key-point">
+    <span class="icon">💡</span>
+    <div>
+      المقتول هنا كان <strong>عازمًا</strong> على قتل صاحبه لو تمكّن منه، فسوّت النيةُ الفاسدةُ بينه
+      وبين القاتل الفعلي في الحكم، رغم أن الأول لم يُنفّذ فعل القتل. هذا يبيّن أن النية وحدها
+      قد تجرّ العقوبة كاملة إذا اقترنت بالعزم.
+    </div>
+  </div>
+
+  <h3 class="sub-title">النية تحبط العمل الصالح: الغازي وقاعد المدينة</h3>
+
+  <div class="hadith">
+    <div class="label">🕋 حديث شريف</div>
+    <div class="text">«إِنَّ بِالْمَدِينَةِ أَقْوَامًا مَا قَطَعْنَا وَادِيًا وَلَا وَطِئْنَا مَوْطِئًا يَغِيظُ الْكُفَّارَ... إِلَّا شَرِكُونَا فِي ذَلِكَ الْأَجْرِ، وَهُمْ بِالْمَدِينَةِ»، قَالُوا: وَهُمْ بِالْمَدِينَةِ؟ قَالَ: «وَهُمْ بِالْمَدِينَةِ حَبَسَهُمُ الْعُذْرُ»</div>
+    <div class="ref">رواه البخاري - حديث غزوة تبوك</div>
+  </div>
+
+  <p>
+    قوم صادقون تخلّفوا عن الجهاد لعذر حقيقي (مرض أو عدم نفقة)، لكنهم كانوا صادقي النية أنهم لو
+    قدروا لخرجوا، فأثابهم الله ثواب المجاهدين الفعليين، فحسن النية جعل غير الغازي كالغازي في الأجر.
+  </p>
+
+  <h3 class="sub-title">النية تقلب المباح طاعة، والطاعة معصية</h3>
+
+  <div class="key-point">
+    <span class="icon">💡</span>
+    <div>
+      المباحات (كالأكل والنوم) لا يترتب عليها ثواب بذاتها، لكن يمكن أن تنقلب طاعة إذا نوى بها
+      المسلم إعانة نفسه على العبادة، كمن ينام مبكرًا بنية التقوّي على قيام الفجر.
+    </div>
+  </div>
+
+  <div class="warning-box">
+    <span class="icon">⚠️</span>
+    <div>
+      <strong>قاعدة مهمة جدًّا:</strong> لا ينقلب بالنية الصالحة إلى طاعة إلا ما كان <strong>مباحًا</strong>
+      في أصله. أما <strong>المحرَّم</strong> فلا ينقلب طاعة بحال من الأحوال مهما حَسُنت النية المصاحبة له.
+    </div>
+  </div>
+
+  <div class="example-box">
+    <div class="label">🔸 أمثلة على المحرَّم الذي لا تُصلحه النية</div>
+    <ul style="margin:0;padding-right:20px;">
+      <li>من يغتاب شخصًا "ليطيّب خاطر" شخص آخر: هو آثمٌ عاصٍ لله، ولا تنفعه نيته الحَسَنة.</li>
+      <li>من يبني مسجدًا بمالٍ حرام: لا يُثاب عليه، رغم ظاهر العمل الصالح.</li>
+      <li>من يحضر مجالس المعاصي بنية "تشجيع الأعمال الخيرية" التي تُقام هناك: آثمٌ غير مأجور.</li>
+      <li>من يذبح لغير الله أو ينذر لغير الله بنية "محبة الصالحين": مشركٌ عاصٍ، ولو حسُنت نيته الظاهرة.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ SECTION 6: FIQH RULES ============ -->
+<section class="chapter" id="niyyah-rules">
+  <h2 class="chapter-title"><span class="chapter-icon">⚙️</span> مسائل فقهية متعلقة بالنية</h2>
+
+  <h3 class="sub-title">جمع النيات في عبادة واحدة</h3>
+  <p>
+    يجوز للمسلم أن يجمع أكثر من نية في عبادة واحدة إذا كانت النيات متوافقة ولا تناقض بينها،
+    وهذا يزيد من أجره، لكن هناك حالات لا يصح فيها الجمع.
+  </p>
+
+  <table class="comparison-table">
+    <tr><th>الحالة</th><th>الحكم</th><th>السبب</th></tr>
+    <tr><td>تحية المسجد + سنة الوضوء + السنة القبلية (في وقت واحد)</td><td>✅ يجوز الجمع</td><td>عبادات متوافقة الجنس والوقت، نصّ عليها العلماء</td></tr>
+    <tr><td>سنة العشاء الراتبة + قيام الليل</td><td>❌ لا يجوز الجمع</td><td>راتبتان مستقلتان، لكل منهما نية خاصة بها</td></tr>
+    <tr><td>صلاة الضحى + قضاء سنة الفجر الفائتة</td><td>❌ لا يجوز الجمع</td><td>كل منهما سنة مستقلة بذاتها</td></tr>
+    <tr><td>نية النفل + نية الفرض في نفس الركعة</td><td>❌ لا يصح</td><td>الفرض لا يتحول إليه النفل أثناء الصلاة، خلافًا للعكس عند بعض العلماء</td></tr>
+  </table>
+
+  <h3 class="sub-title">اقتداء المُصلِّي بمن يخالفه في النية</h3>
+  <div class="key-point">
+    <span class="icon">💡</span>
+    <div>
+      على الراجح، يجوز اقتداء من يصلي <strong>الفرض</strong> بمن يصلي <strong>السنة</strong>
+      (كأن يدخل مأموم لصلاة الفرض خلف من يصلي نافلة)، وكل منهما يُتم صلاته على النية التي دخل بها.
+    </div>
+  </div>
+
+  <h3 class="sub-title">قراءة النوايا المكتوبة</h3>
+  <p>
+    ذُكر في المحاضرة أن بعض الناس يستعين في بداية تعوّده على استحضار النية بكتابة نوايا معينة
+    (كنوايا الصيام: التقرّب إلى الله، اتباع السنة، مباعدة النار) ثم يستحضرها بقلبه دون تلفظ.
+    هذا جائز على سبيل التدرّب، على أن يبقى محل النية الحقيقي هو القلب لا مجرد القراءة الشكلية.
+  </p>
+
+  <div class="key-point">
+    <span class="icon">💡</span>
+    <div>
+      كلما تعدّدت النوايا الصحيحة المصاحبة للعمل الواحد (كالصيام النافلة)، زاد الأجر؛ فمن صام
+      يوم الاثنين ناويًا اتباع السنة، ومباعدة النار، والتقرب إلى الله، حصل على أجر كل نية على حدة.
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECTION 7: KHATIR VS AZM ============ -->
+<section class="chapter" id="niyyah-intent-vs-resolve">
+  <h2 class="chapter-title"><span class="chapter-icon">🔀</span> الفرق بين "الخاطر" و"العزم" في المعصية</h2>
+
+  <p>
+    مسألة دقيقة ومهمة تُجيب عن سؤال: متى يُؤاخَذ الإنسان على مجرد التفكير في المعصية، ومتى لا يُؤاخَذ؟
+  </p>
+
+  <div class="definition-box">
+    <span class="label">تعريف</span>
+    <div class="term">الخاطر</div>
+    فكرة تعرض على القلب عرضًا دون تصميم أو اتخاذ أي إجراء لتنفيذها، ثم تُدفَع أو تُنسى.
+  </div>
+
+  <div class="definition-box">
+    <span class="label">تعريف</span>
+    <div class="term">العزم</div>
+    تصميم القلب الجازم على فعل المعصية مع الشروع الفعلي في اتخاذ أسبابها، وإن لم يكتمل الفعل لعائق خارجي.
+  </div>
+
+  <table class="comparison-table">
+    <tr><th>الحالة</th><th>الوصف</th><th>الحكم</th></tr>
+    <tr><td>خاطر مجرد</td><td>جاءه تفكير عابر بفعل معصية ثم دفعه أو نسيه</td><td>لا يُكتب عليه إثم</td></tr>
+    <tr><td>عزم مؤكد مع مباشرة الأسباب</td><td>مثل السارق الذي دخل العمارة واتخذ كل إجراءات السرقة، فوجد الباب مغلقًا أو الشرطة موجودة فلم يسرق</td><td>يُكتب عليه إثم العزم (لا إثم السرقة ذاتها)</td></tr>
+  </table>
+
+  <div class="example-box">
+    <div class="label">🔸 مثال مقارن</div>
+    الحديث السابق عن الرجل الذي رأى مال صاحبه فقال "لو كان معي مثله لعملت كعمله (في المعصية)"
+    يُعدّ من العزم الصادق، فهو يأخذ وزرًا مثل فاعل المعصية تمامًا، بخلاف من عرض له مجرد خاطر
+    ودفعه دون أن يتخذ خطوة عملية نحوه.
+  </div>
+
+  <div class="hadith">
+    <div class="label">🕋 شاهد إضافي</div>
+    <div class="text">حديث أصحاب الغار الذين انطبقت عليهم الصخرة، فتوسل كل واحد منهم إلى الله بعمل صالح خالص، ومنهم من امتنع عن معصية خوفًا من الله رغم القدرة عليها، ففرّج الله عنهم ببركة صدق أعمالهم ونياتهم.</div>
+    <div class="ref">متفق عليه</div>
+  </div>
+</section>
+
+<!-- ============ SECTION 8: ADAB MAA ALLAH ============ -->
+<section class="chapter" id="adab-allah">
+  <h2 class="chapter-title"><span class="chapter-icon">🤲</span> الأدب مع الله عز وجل</h2>
+
+  <p>
+    بعد بيان أهمية النية، ينتقل الحديث إلى مجموعة من الآداب القلبية التي ينبغي أن يتحلى بها
+    المسلم في علاقته بربه سبحانه وتعالى، وهي آداب مبنية على استحضار معاني ربوبية الله وألوهيته.
+  </p>
+
+  <h3 class="sub-title">١. شكر نعم الله تعالى</h3>
+
+  <div class="quran-verse">
+    <div class="text">وَإِنْ تَعُدُّوا نِعْمَةَ اللَّهِ لَا تُحْصُوهَا</div>
+    <div class="ref">سورة النحل، آية ١٨</div>
+  </div>
+
+  <div class="key-point">
+    <span class="icon">💡</span>
+    <div>
+      لاحظ التعبير القرآني: <strong>"نِعْمَةَ اللَّهِ"</strong> بالإفراد لا بالجمع، وهذا يشير إلى أن
+      النعمة الواحدة تحتها نِعَمٌ لا تُحصى؛ فنعمة البصر وحدها -مثلًا- تتفرع عنها القدرة على الحركة
+      والعبادة والقراءة والعمل، وهكذا.
+    </div>
+  </div>
+
+  <p>
+    نعم الله تُحيط بالإنسان منذ نشأته الأولى: <em>"اكتنفته من ساعة عُلوقه نطفة في رحم أمه، وتُسايره
+    إلى أن يلقى ربه عز وجل"</em>. فالتغذية داخل الرحم، والرعاية في أطوار الجنين، ثم استمرار النعم
+    طوال الحياة، كل ذلك يستوجب من العبد شكرًا دائمًا بلسانه وجوارحه.
+  </p>
+
+  <div class="quran-verse">
+    <div class="text">وَمَا بِكُمْ مِنْ نِعْمَةٍ فَمِنَ اللَّهِ</div>
+    <div class="ref">سورة النحل، آية ٥٣</div>
+  </div>
+
+  <div class="quran-verse">
+    <div class="text">فَاذْكُرُونِي أَذْكُرْكُمْ وَاشْكُرُوا لِي وَلَا تَكْفُرُونِ</div>
+    <div class="ref">سورة البقرة، آية ١٥٢</div>
+  </div>
+
+  <div class="warning-box">
+    <span class="icon">⚠️</span>
+    <div>
+      ليس من الأدب مع الله <strong>جحود النعمة</strong> أو التنكّر لفضل المنعم سبحانه، بل الواجب أن
+      يستحضر العبد نعمة الله عليه حتى في اليوم الذي يقع فيه بالمعصية، فيثني على الله رغم ذنبه ولا ينسى شكره.
+    </div>
+  </div>
+
+  <h3 class="sub-title">٢. مراقبة الله تعالى (المهابة والتعظيم)</h3>
+
+  <p>
+    الأدب الثاني أن يستحضر العبد اطّلاع الله تعالى على جميع أحواله الظاهرة والباطنة، فيمتلئ
+    قلبه هيبةً ووقارًا لله، ويخجل من معصيته.
+  </p>
+
+  <div class="quran-verse">
+    <div class="text">وَإِنْ تَجْهَرْ بِالْقَوْلِ فَإِنَّهُ يَعْلَمُ السِّرَّ وَأَخْفَى</div>
+    <div class="ref">سورة طه، آية ٧</div>
+  </div>
+
+  <div class="quran-verse">
+    <div class="text">وَمَا تَكُونُ فِي شَأْنٍ وَمَا تَتْلُو مِنْهُ مِنْ قُرْآنٍ وَلَا تَعْمَلُونَ مِنْ عَمَلٍ إِلَّا كُنَّا عَلَيْكُمْ شُهُودًا إِذْ تُفِيضُونَ فِيهِ ۚ وَمَا يَعْزُبُ عَنْ رَبِّكَ مِنْ مِثْقَالِ ذَرَّةٍ فِي الْأَرْضِ وَلَا فِي السَّمَاءِ</div>
+    <div class="ref">سورة يونس، آية ٦١</div>
+  </div>
+
+  <div class="key-point">
+    <span class="icon">💡</span>
+    <div>
+      الله سبحانه يرى العبد وهو يعصيه لكنه <strong>يُمهله</strong> رحمةً به لا غفلة عنه، فليبادر
+      العبد إلى التوبة كلما وقع في ذنب، وليجعل من عادته أن يتوب توبتين: توبة خاصة عن الذنب
+      الذي يذكره، وتوبة عامة عن كل ما نسيه من الذنوب.
+    </div>
+  </div>
+
+  <h3 class="sub-title">٣. الفرار إلى الله والتوكل عليه</h3>
+
+  <p>
+    من آداب المسلم مع ربه أن يعلم أنه مقدور عليه، وأنه لا ملجأ من الله إلا إليه، فيتوكل عليه
+    ويفوّض أمره إليه.
+  </p>
+
+  <div class="quran-verse">
+    <div class="text">فَفِرُّوا إِلَى اللَّهِ ۖ إِنِّي لَكُمْ مِنْهُ نَذِيرٌ مُبِينٌ</div>
+    <div class="ref">سورة الذاريات، آية ٥٠</div>
+  </div>
+
+  <div class="quran-verse">
+    <div class="text">وَعَلَى اللَّهِ فَلْيَتَوَكَّلِ الْمُؤْمِنُونَ</div>
+    <div class="ref">سورة آل عمران، آية ١٢٢ (بمعناها)</div>
+  </div>
+
+  <div class="warning-box">
+    <span class="icon">⚠️</span>
+    <div>
+      ليس من الأدب مع الله <strong>الاعتماد بالقلب</strong> على من لا حول له ولا قوة من البشر،
+      فالمسلم مأمور بالأخذ بالأسباب ظاهرًا، لكن التوكل والاعتماد القلبي يكون على الله وحده.
+    </div>
+  </div>
+
+  <h3 class="sub-title">٤. الطمع في رحمة الله والدعاء</h3>
+
+  <div class="quran-verse">
+    <div class="text">وَرَحْمَتِي وَسِعَتْ كُلَّ شَيْءٍ</div>
+    <div class="ref">سورة الأعراف، آية ١٥٦</div>
+  </div>
+
+  <div class="quran-verse">
+    <div class="text">وَإِذَا سَأَلَكَ عِبَادِي عَنِّي فَإِنِّي قَرِيبٌ أُجِيبُ دَعْوَةَ الدَّاعِ إِذَا دَعَانِ</div>
+    <div class="ref">سورة البقرة، آية ١٨٦</div>
+  </div>
+
+  <div class="key-point">
+    <span class="icon">💡</span>
+    <div>
+      التوسل إلى الله يكون بطريقين: التوسل بأسمائه وصفاته سبحانه (مثل: "يا رحيم ارحمني")،
+      والتوسل بعمل صالح خالص كما فعل أصحاب الغار.
+    </div>
+  </div>
+
+  <div class="warning-box">
+    <span class="icon">⚠️</span>
+    <div>
+      ليس من الأدب <strong>اليأس من رحمة الله</strong> أو القنوط من إحسانه مهما عظمت الذنوب،
+      فرحمته سبحانه وسعت كل شيء.
+    </div>
+  </div>
+
+  <h3 class="sub-title">٥. الخوف من بطش الله وشدة عقابه</h3>
+
+  <div class="quran-verse">
+    <div class="text">إِنَّ بَطْشَ رَبِّكَ لَشَدِيدٌ</div>
+    <div class="ref">سورة البروج، آية ١٢</div>
+  </div>
+
+  <div class="quran-verse">
+    <div class="text">وَاللَّهُ عَزِيزٌ ذُو انْتِقَامٍ</div>
+    <div class="ref">سورة آل عمران، آية ٤ (بمعناها)</div>
+  </div>
+
+  <p>
+    استحضار شدة عقاب الله وسرعة حسابه يدفع العبد إلى اتقاء غضبه بالطاعة، وتوقّي سخطه بترك المعصية،
+    فالعبد الضعيف لا يليق به أن يتعرّض بالمعصية والظلم للرب العزيز القادر.
+  </p>
+
+  <h3 class="sub-title">٦. حسن الظن بالله تعالى</h3>
+
+  <div class="quran-verse">
+    <div class="text">مَنْ جَاءَ بِالْحَسَنَةِ فَلَهُ عَشْرُ أَمْثَالِهَا ۖ وَمَنْ جَاءَ بِالسَّيِّئَةِ فَلَا يُجْزَىٰ إِلَّا مِثْلَهَا</div>
+    <div class="ref">سورة الأنعام، آية ١٦٠</div>
+  </div>
+
+  <div class="key-point">
+    <span class="icon">💡</span>
+    <div>
+      من مظاهر لطف الله وكرمه: مضاعفة الحسنة عشر أمثالها، بل يزيد سبحانه لمن يشاء، بينما تُجزى
+      السيئة بمثلها فقط دون مضاعفة، وهذا من عدله ورحمته سبحانه.
+    </div>
+  </div>
+
+  <div class="warning-box">
+    <span class="icon">⚠️</span>
+    <div>
+      <strong>تنبيه دقيق:</strong> حسن الظن بالله لا يعني التقصير والتواكل، فليس من حسن الظن أن
+      يُقصّر العبد في العمل ويقول "الله سيغفر لي" دون خوف أو محاسبة للنفس. الجمع الصحيح هو أن
+      يكون العبد <strong>بين الخوف والرجاء</strong>: يخاف من ذنوبه، ويرجو رحمة ربه، كحال عمر بن
+      الخطاب رضي الله عنه الذي كان يخاف على نفسه من النفاق رغم حسن ظنه بالله.
+    </div>
+  </div>
+
+  <h3 class="sub-title">خلاصة آداب العبد مع ربه</h3>
+
+  <div class="flow-wrap">
+    <div class="flow-card"><span class="flow-num">١</span> شكر النعمة</div>
+    <div class="flow-card"><span class="flow-num">٢</span> الحياء من الله عند الميل إلى المعصية</div>
+    <div class="flow-card"><span class="flow-num">٣</span> الإنابة والرجوع إليه سبحانه</div>
+    <div class="flow-card"><span class="flow-num">٤</span> التوكل عليه ورجاء رحمته</div>
+    <div class="flow-card"><span class="flow-num">٥</span> الخوف من نقمته وعقابه</div>
+    <div class="flow-card"><span class="flow-num">٦</span> حسن الظن به سبحانه في إنجاز وعده وإنفاذ وعيده</div>
+  </div>
+
+  <div class="key-point">
+    <span class="icon">💡</span>
+    <div>
+      وبقدر تمسّك العبد بهذه الآداب ومحافظته عليها، تعلو درجته ويرتفع مقامه عند الله، فيصبح من
+      أهل ولاية الله ورعايته، وهذا أقصى ما يتمناه المسلم طوال حياته.
+    </div>
+  </div>
+</section>
+
+<!-- ============ QUIZ SECTION ============ -->
+<section class="chapter" id="quiz-section">
+  <h2 class="chapter-title"><span class="chapter-icon">📝</span> الاختبار التفاعلي</h2>
+  <div class="quiz-intro" id="quiz-intro-box">
+    <p style="margin:0 0 14px;">اختبر فهمك لمحتوى المحاضرة عبر ١٨ سؤالًا متدرجة الصعوبة (اختيار من متعدد، صح/خطأ، وأسئلة مقالية).</p>
+    <button class="btn btn-gold" id="start-quiz-btn" onclick="startQuiz()">▶️ ابدأ الاختبار الآن</button>
+    <div style="margin-top:14px;">
+      <button class="btn btn-green" onclick="downloadAnkiDeck()">🗂️ حمّل بطاقات أنكي</button>
+    </div>
+  </div>
+
+  <div id="quiz-container" style="display:none;"></div>
+  <div id="score-card">
+    <div class="big-score" id="final-score">--</div>
+    <p id="score-message" style="font-size:1.1rem;"></p>
+    <button class="btn btn-gold" onclick="location.reload()">🔄 إعادة المحاولة</button>
+  </div>
+</section>
+
 </main>
 
-<footer>الأكاديمية الشرعية — طلب العلم عبادة</footer>
+<footer>
+  <div class="dua">
+    اللهم ارزقنا حسن النية والقبول، وارزقنا ولايتك ولا تحرمنا رعايتك،
+    واجعلنا لديك من المقربين، وارزقنا العلم النافع والعمل الصالح، يا رب العالمين آمين.
+  </div>
+  <div class="credit">أُعدّت هذه الصفحة كملخص تعليمي لمحاضرة "آداب النية والأدب مع الله" — المحاضرة الأولى</div>
+</footer>
+
+<script>
+/* ========================= QUIZ DATA ========================= */
+const quizData = [
+  {
+    type:"mcq", difficulty:"medium",
+    question:"لماذا يبدأ العلماء كتب الآداب والفقه بباب النية؟",
+    options:["لأنها أول ما ورد في القرآن","لأنها الأساس الذي يُبنى عليه قبول العمل وصحته وفساده","لأن النبي ﷺ بدأ بها في كل خطبه","لأنها أسهل الأبواب"],
+    correct:1,
+    explanation:"النية هي الأساس الذي تتكيف به الأعمال، فتقوى وتضعف وتصح وتفسد بحسبها، ولذلك يُفتتح بها الحديث عن الأعمال."
+  },
+  {
+    type:"mcq", difficulty:"medium",
+    question:"ما تعريف النية اصطلاحًا كما ورد في المحاضرة؟",
+    options:["قول باللسان قبل العبادة","انبعاث القلب نحو العمل الموافق لغرض صحيح ابتغاء رضا الله","التفكير في نتيجة العمل","خاطر يمر بالذهن دون تأثير"],
+    correct:1,
+    explanation:"النية هي انبعاث القلب نحو العمل الموافق لغرض صحيح، من جلب نفع أو دفع ضر، حالًا أو مآلًا، وهي عمل قلبي محض."
+  },
+  {
+    type:"mcq", difficulty:"hard",
+    question:"ما الفرق الدقيق بين الرُّكن والشرط كما وضّحه الشيخ بمثال الصلاة؟",
+    options:["لا فرق بينهما إطلاقًا","الركن جزء من ماهية الشيء، والشرط أمر خارج عن ماهيته لكن الصحة متوقفة عليه","الركن يخص الأقوال والشرط يخص الأفعال","الشرط أهم من الركن في كل الأحوال"],
+    correct:1,
+    explanation:"الركن كتكبيرة الإحرام جزء من حقيقة الصلاة، بينما الشرط كالنية والطهارة خارج عن ماهية الصلاة لكن صحتها متوقفة عليه، والمؤدى العملي في البطلان عند التخلف واحد."
+  },
+  {
+    type:"mcq", difficulty:"medium",
+    question:"من أي سورة الآية: (وَمَا أُمِرُوا إِلَّا لِيَعْبُدُوا اللَّهَ مُخْلِصِينَ لَهُ الدِّينَ)؟",
+    options:["سورة الزمر","سورة البيّنة","سورة النحل","سورة البقرة"],
+    correct:1,
+    explanation:"الآية من سورة البيّنة، وتؤكد أن العبادة الحقة أساسها الإخلاص لله."
+  },
+  {
+    type:"mcq", difficulty:"hard",
+    question:"في حديث النَّفَر الأربعة، ما وجه التسوية بين صاحب العلم والمال وصاحب العلم دون المال؟",
+    options:["لأن كليهما أنفق فعليًا","لأن الثاني صادق النية أنه لو ملك المال لفعل كفعل الأول فكانا في الأجر سواء","لأن الثاني أكثر علمًا من الأول","لا تسوية بينهما في الحديث"],
+    correct:1,
+    explanation:"النبي ﷺ قال: «فهما في الأجر سواء» لأن الثاني صدقت نيته في أنه لو أوتي مالًا لعمل كعمل الأول، فأثيب بنيته الصادقة وإن لم ينفق فعليًا."
+  },
+  {
+    type:"mcq", difficulty:"very-hard",
+    question:"لماذا حُكم على المقتول بالنار في حديث «إذا التقى المسلمان بسيفيهما»؟",
+    options:["لأنه دافع عن نفسه فقط","لأنه كان حريصًا عازمًا على قتل صاحبه لو تمكن منه","لأنه شارك في القتال دون سبب شرعي","لأن الحديث لا يفرّق بينهما لأي سبب"],
+    correct:1,
+    explanation:"النبي ﷺ علّل ذلك بقوله: «لأنه كان حريصًا على قتل صاحبه»، فسوّت النية الفاسدة (العزم على القتل) بين القاتل والمقتول في الحكم."
+  },
+  {
+    type:"mcq", difficulty:"hard",
+    question:"ما القاعدة الشرعية المتعلقة بانقلاب الأعمال بالنية؟",
+    options:["كل عمل مباح أو محرم ينقلب طاعة بالنية الحسنة","لا ينقلب بالنية الصالحة إلى طاعة إلا ما كان مباحًا؛ أما المحرَّم فلا ينقلب طاعة بحال","النية لا تغير من حكم العمل شيئًا","المحرَّم ينقلب طاعة إذا كانت النية خالصة لله"],
+    correct:1,
+    explanation:"هذه قاعدة صريحة وردت في المحاضرة: النية الصالحة تُصلح المباح فتجعله طاعة مأجورة، لكنها لا تُصلح المحرَّم أبدًا مهما حسنت النية المصاحبة له."
+  },
+  {
+    type:"mcq", difficulty:"medium",
+    question:"ما حكم من يغتاب شخصًا بنية 'تطييب خاطر' شخص آخر؟",
+    options:["جائز لأن نيته حسنة","عاصٍ آثم، ولا تنفعه نيته الحسنة لأن الغيبة محرّمة أصلًا","مأجور لأنه أصلح ذات البين","مكروه فقط وليس محرّمًا"],
+    correct:1,
+    explanation:"الغيبة معصية محرّمة، والمحرَّم لا ينقلب طاعة بأي نية حسنة، فهو آثم رغم قصده الطيب."
+  },
+  {
+    type:"mcq", difficulty:"medium",
+    question:"أي الجمع بين النيات التالية يجوز شرعًا؟",
+    options:["الجمع بين سنة العشاء الراتبة وقيام الليل","الجمع بين صلاة الضحى وقضاء سنة الفجر الفائتة","الجمع بين تحية المسجد وسنة الوضوء والسنة القبلية في وقت واحد","الجمع بين نية الفرض ونية النفل في نفس الركعة"],
+    correct:2,
+    explanation:"نصّ العلماء على جواز جمع تحية المسجد مع سنة الوضوء والسنة القبلية، بخلاف جمع الرواتب المستقلة ببعضها أو تحويل النفل إلى فرض أثناء الصلاة."
+  },
+  {
+    type:"mcq", difficulty:"hard",
+    question:"ما الفرق بين 'الخاطر' و'العزم' في التأثيم؟",
+    options:["لا فرق، كلاهما يُؤثَّم عليه","الخاطر المجرد الذي يُدفَع لا إثم فيه، أما العزم المصحوب بمباشرة الأسباب فيُؤثَّم عليه وإن لم يكتمل الفعل","العزم لا يُؤثَّم عليه أبدًا","الخاطر أشد إثمًا من العزم"],
+    correct:1,
+    explanation:"كما في قصة السارق الذي دخل العمارة واتخذ كل الإجراءات فوجد الباب مغلقًا: يُؤاخَذ بإثم العزم، بخلاف من عرض له خاطر مجرد فدفعه أو نسيه فلا إثم عليه."
+  },
+  {
+    type:"mcq", difficulty:"medium",
+    question:"ما الدليل القرآني على أن الله يعلم السر وأخفى؟",
+    options:["﴿وَرَحْمَتِي وَسِعَتْ كُلَّ شَيْءٍ﴾","﴿وَإِنْ تَجْهَرْ بِالْقَوْلِ فَإِنَّهُ يَعْلَمُ السِّرَّ وَأَخْفَى﴾","﴿فَاذْكُرُونِي أَذْكُرْكُمْ﴾","﴿إِنَّ بَطْشَ رَبِّكَ لَشَدِيدٌ﴾"],
+    correct:1,
+    explanation:"الآية من سورة طه، وتؤسس لأدب المراقبة: أن الله يعلم ما يُخفيه الإنسان حتى في حديث نفسه."
+  },
+  {
+    type:"mcq", difficulty:"medium",
+    question:"ما الأدب المقصود في قوله تعالى (فَفِرُّوا إِلَى اللَّهِ)؟",
+    options:["الفرار من مواجهة المشاكل","اللجوء والتوكل على الله وحده دون الاعتماد القلبي على غيره","الهروب من المجتمع للعزلة","ترك الأخذ بالأسباب كليًا"],
+    correct:1,
+    explanation:"الأدب هو أن يعلم العبد أنه لا ملجأ من الله إلا إليه، فيتوكل عليه بقلبه مع الأخذ بالأسباب الظاهرة، لا أن يعتمد قلبيًا على من لا حول له ولا قوة."
+  },
+  {
+    type:"mcq", difficulty:"very-hard",
+    question:"لماذا لا يُعدّ التقصير مع القول 'الله سيغفر لي' من حسن الظن بالله؟",
+    options:["لأن حسن الظن الصحيح يجمع بين الرجاء والخوف من الذنوب ومحاسبة النفس، لا التواكل والتقصير","لأن الله لا يغفر الذنوب الكبيرة","لأن حسن الظن لا يجوز أصلًا","لأن هذا القول كفر بالله"],
+    correct:0,
+    explanation:"حسن الظن الصحيح -كحال عمر رضي الله عنه- يكون مع الخوف من الذنوب ومحاسبة النفس، لا مع التقصير المتعمد اتكالًا على الرجاء وحده."
+  },
+  {
+    type:"tf", difficulty:"medium",
+    question:"يجوز التلفظ بالنية باللسان في كل العبادات لأن ذلك يُقوّي استحضار القلب لها.",
+    correct:false,
+    explanation:"خطأ: النية محلها القلب ولا يجوز التلفظ بها في أصل العبادات، والاستثناء الوحيد المذكور هو نية الإحرام في الحج والعمرة."
+  },
+  {
+    type:"tf", difficulty:"hard",
+    question:"من هَمّ بسيئة ولم يعملها كُتبت عليه سيئة، تمامًا كما يُكتب الأجر لمن همّ بحسنة ولم يعملها.",
+    correct:false,
+    explanation:"خطأ مركّب في عبارتين: الأول أن من همّ بسيئة ولم يعملها لا تُكتب عليه سيئة (بل قد تُكتب له حسنة لتركها)، والثاني: التسوية بين الهمّ بالحسنة والهمّ بالسيئة غير صحيحة؛ فالشرع فرّق بينهما رحمة بالعباد."
+  },
+  {
+    type:"tf", difficulty:"hard",
+    question:"يجوز تحويل نية الفرض إلى نفل أثناء الصلاة في بعض الصور عند الفقهاء، ويجوز كذلك عكسه من نفل إلى فرض أثناء الصلاة.",
+    correct:false,
+    explanation:"خطأ في الشق الثاني: يجوز عند بعض الفقهاء تحويل الفرض إلى نفل في أثناء الصلاة، لكن لا يجوز تحويل النفل إلى فرض أثناءها؛ لأن نية الفرض يجب أن تسبق الدخول فيه."
+  },
+  {
+    type:"tf", difficulty:"medium",
+    question:"من بنى مسجدًا بمال حرام فإنه لا يُثاب على هذا البناء رغم ظاهره الصالح.",
+    correct:true,
+    explanation:"صحيح: المال الحرام لا يجعل العمل مقبولًا، فالمحرَّم لا ينقلب طاعة بأي نية أو ظاهر صالح."
+  },
+  {
+    type:"tf", difficulty:"medium",
+    question:"القاعدة الشرعية أن الحسنة تُضاعف بعشر أمثالها والسيئة تُضاعف كذلك بعشر أمثالها من باب العدل.",
+    correct:false,
+    explanation:"خطأ: الحسنة تُضاعف بعشر أمثالها وقد يزيد الله لمن يشاء، أما السيئة فلا تُجزى إلا بمثلها دون مضاعفة، كما في قوله تعالى: (وَمَنْ جَاءَ بِالسَّيِّئَةِ فَلَا يُجْزَىٰ إِلَّا مِثْلَهَا)."
+  },
+  {
+    type:"essay", difficulty:"very-hard",
+    question:"وضّح بالتفصيل مع مثال عملي: كيف يمكن أن يتحول العمل المباح إلى طاعة مأجورة، ولماذا لا ينطبق نفس المبدأ على المحرَّم مهما حسنت نية فاعله؟",
+    modelAnswer:"العمل المباح -كالأكل والنوم- لا يترتب عليه أجر أو وزر بذاته لأن الشرع لم يُرتّب عليه ثوابًا مقصودًا، لكن إذا اقترنت به نية صالحة (كأن ينام العبد مبكرًا بنية التقوّي على قيام الليل وصلاة الفجر، أو يأكل بنية التقوّي على الصيام والعبادة) فإنه يتحول إلى طاعة يُثاب عليها العبد؛ لأن النية هنا وجّهت فعلًا محايدًا نحو غرض شرعي صحيح.\n\nأما المحرَّم فهو مُحرَّم لذاته بنص الشرع (كالغيبة والربا والشرك)، والنية لا تُغيّر من حقيقة الحكم الشرعي للفعل نفسه، وإنما تؤثر في مصير الفاعل من حيث زيادة الإثم أو نقصانه، لا في تحويل الحكم من التحريم إلى الإباحة أو الاستحباب. فمن يغتاب بنية 'الإصلاح بين الناس' يبقى آثمًا لأن الغيبة محرّمة بذاتها، ومن يبني مسجدًا بمال حرام لا يُثاب لأن أصل الفعل (اكتساب المال) محرّم. فالقاعدة إذًا: النية تُفعّل الثواب في المباح، ولا تُبطل التحريم في المحرَّم."
+  },
+  {
+    type:"essay", difficulty:"hard",
+    question:"اشرح الفرق بين 'الخاطر' و'العزم' في الحكم الشرعي، مستدلًا بمثال من المحاضرة، ووضّح الحكمة من هذا التفريق.",
+    modelAnswer:"الخاطر هو فكرة عابرة تمر على القلب دون أن يتخذ صاحبها أي إجراء عملي نحو تنفيذها، وسرعان ما تُدفع أو تُنسى؛ وهذا لا يُكتب على صاحبه إثم لأنه لم يخرج عن كونه وسوسة أو تفكيرًا غير مقصود.\n\nأما العزم فهو تصميم قلبي جازم مصحوب ببدء اتخاذ الأسباب الفعلية لتنفيذ المعصية، كما في مثال السارق الذي دخل العمارة فعلًا واتخذ كل ما يلزم للسرقة، لكنه لم يتمكن لعائق خارجي (كوجود الشرطة أو إغلاق الباب)؛ فهذا يُكتب عليه إثم العزم وإن لم تقع السرقة فعليًا.\n\nالحكمة من هذا التفريق: رحمة الله بعباده في عدم مؤاخذتهم على خواطر النفس التي لا تخلو منها البشرية، مع تحقيق العدل بمحاسبة من صمّم فعليًا وبدأ التنفيذ ولم يمنعه إلا عجزه، لا تركه الاختياري."
+  }
+];
+
+let userAnswers = [];
+let quizStarted = false;
+
+function startQuiz(){
+  document.getElementById('quiz-intro-box').style.display='none';
+  const container = document.getElementById('quiz-container');
+  container.style.display='block';
+  let html='';
+  quizData.forEach((q,i)=>{
+    const diffClass = q.difficulty==='medium'?'diff-medium':(q.difficulty==='hard'?'diff-hard':'diff-very-hard');
+    const diffLabel = q.difficulty==='medium'?'متوسط':(q.difficulty==='hard'?'صعب':'صعب جدًّا');
+    html += `<div class="quiz-question" id="q-${i}">
+      <div class="q-meta">
+        <span>سؤال ${i+1} من ${quizData.length}</span>
+        <span class="q-diff ${diffClass}">${diffLabel}</span>
+      </div>
+      <div class="q-text">${q.question}</div>`;
+
+    if(q.type==='mcq'){
+      html += `<div class="q-options">`;
+      q.options.forEach((opt,oi)=>{
+        html += `<div class="q-option" onclick="selectOption(${i},${oi})" id="opt-${i}-${oi}">${opt}</div>`;
+      });
+      html += `</div><div class="q-explanation" id="exp-${i}">${q.explanation}</div>`;
+    } else if(q.type==='tf'){
+      html += `<div class="q-options tf-options">
+        <div class="q-option" onclick="selectTF(${i},true)" id="opt-${i}-true">✅ صحيح</div>
+        <div class="q-option" onclick="selectTF(${i},false)" id="opt-${i}-false">❌ خطأ</div>
+      </div><div class="q-explanation" id="exp-${i}">${q.explanation}</div>`;
+    } else if(q.type==='essay'){
+      html += `<textarea class="essay-answer-box" id="essay-${i}" placeholder="اكتب إجابتك هنا..."></textarea>
+        <button class="show-answer-btn" onclick="toggleModelAnswer(${i})">عرض الإجابة النموذجية</button>
+        <div class="model-answer" id="model-${i}"><strong>الإجابة النموذجية:</strong><br>${q.modelAnswer.replace(/\n/g,'<br>')}</div>`;
+    }
+    html += `</div>`;
+  });
+  html += `<button class="btn btn-gold" id="submit-quiz-btn" onclick="submitQuiz()">✅ عرض النتيجة النهائية</button>`;
+  container.innerHTML = html;
+  userAnswers = new Array(quizData.length).fill(null);
+}
+
+function selectOption(qIndex, optIndex){
+  const q = quizData[qIndex];
+  document.querySelectorAll(`#q-${qIndex} .q-option`).forEach(el=>el.classList.remove('selected'));
+  document.getElementById(`opt-${qIndex}-${optIndex}`).classList.add('selected');
+  userAnswers[qIndex] = optIndex;
+  q.options.forEach((opt,oi)=>{
+    const el = document.getElementById(`opt-${qIndex}-${oi}`);
+    if(oi===q.correct) el.classList.add('correct-answer');
+    else if(oi===optIndex) el.classList.add('wrong-answer');
+  });
+  document.getElementById(`exp-${qIndex}`).classList.add('show');
+}
+
+function selectTF(qIndex, val){
+  const q = quizData[qIndex];
+  const trueEl = document.getElementById(`opt-${qIndex}-true`);
+  const falseEl = document.getElementById(`opt-${qIndex}-false`);
+  trueEl.classList.remove('selected','correct-answer','wrong-answer');
+  falseEl.classList.remove('selected','correct-answer','wrong-answer');
+  userAnswers[qIndex] = val;
+  const chosenEl = val ? trueEl : falseEl;
+  chosenEl.classList.add('selected');
+  if(val===q.correct){
+    chosenEl.classList.add('correct-answer');
+  } else {
+    chosenEl.classList.add('wrong-answer');
+    (q.correct?trueEl:falseEl).classList.add('correct-answer');
+  }
+  document.getElementById(`exp-${qIndex}`).classList.add('show');
+}
+
+function toggleModelAnswer(qIndex){
+  document.getElementById(`model-${qIndex}`).classList.toggle('show');
+}
+
+function submitQuiz(){
+  let score=0, total=0;
+  quizData.forEach((q,i)=>{
+    if(q.type==='essay') return;
+    total++;
+    if(userAnswers[i]===q.correct) score++;
+  });
+  document.getElementById('quiz-container').style.display='none';
+  const scoreCard = document.getElementById('score-card');
+  scoreCard.classList.add('show');
+  const percentage = total>0 ? Math.round((score/total)*100) : 0;
+  document.getElementById('final-score').textContent = `${score} / ${total}`;
+  let msg = '';
+  if(percentage>=85) msg = `ما شاء الله! نتيجة ممتازة (${percentage}%) — استوعبت المحاضرة بعمق.`;
+  else if(percentage>=60) msg = `نتيجة جيدة (${percentage}%) — راجع الأجزاء التي أخطأت فيها.`;
+  else msg = `نتيجة (${percentage}%) — يُنصح بمراجعة المحاضرة والملزمة مرة أخرى.`;
+  document.getElementById('score-message').textContent = msg;
+  scoreCard.scrollIntoView({behavior:'smooth'});
+}
+
+/* ========================= ANKI CARDS ========================= */
+const ankiCards = [
+  // ===== تعريفات =====
+  ["ما تعريف النية اصطلاحًا؟","انبعاث القلب نحو العمل الموافق لغرض صحيح، من جلب نفع أو دفع ضر، حالًا أو مآلًا، وهي الإرادة المتوجهة نحو الفعل ابتغاء رضا الله."],
+  ["أين محل النية: القلب أم اللسان؟","محل النية القلب، ولا يجوز التلفظ بها إلا في نية الإحرام للحج والعمرة."],
+  ["ما تعريف الرُّكن في الفقه؟","جزء من ماهية الشيء وحقيقته، لا يقوم الشيء بدونه، مثل تكبيرة الإحرام في الصلاة."],
+  ["ما تعريف الشرط في الفقه؟","أمر خارج عن ماهية الشيء، لكن صحة الشيء متوقفة عليه، مثل النية والطهارة للصلاة."],
+  ["ما تعريف 'الخاطر' كما ورد في المحاضرة؟","فكرة تعرض على القلب عرضًا دون تصميم أو اتخاذ إجراء لتنفيذها، ثم تُدفَع أو تُنسى."],
+  ["ما تعريف 'العزم' كما ورد في المحاضرة؟","تصميم القلب الجازم على فعل المعصية مع الشروع الفعلي في اتخاذ أسبابها، وإن لم يكتمل الفعل."],
+  ["هل النية في الصلاة رُكن أم شرط؟","شرط من شروط صحة الصلاة، وليست ركنًا لأنها ليست جزءًا من ماهية الصلاة."],
+  // ===== أدلة (آيات وأحاديث) =====
+  ["ما الدليل القرآني على أهمية الإخلاص في النية من سورة البيّنة؟","﴿وَمَا أُمِرُوا إِلَّا لِيَعْبُدُوا اللَّهَ مُخْلِصِينَ لَهُ الدِّينَ﴾ - سورة البيّنة، آية ٥"],
+  ["ما الدليل القرآني على أهمية الإخلاص من سورة الزمر؟","﴿قُلْ إِنِّي أُمِرْتُ أَنْ أَعْبُدَ اللَّهَ مُخْلِصًا لَهُ الدِّينَ﴾ - سورة الزمر، آية ١١"],
+  ["ما الحديث الذي يُعد أصلًا في بيان أثر النية على الأعمال؟","«إِنَّمَا الْأَعْمَالُ بِالنِّيَّاتِ، وَإِنَّمَا لِكُلِّ امْرِئٍ مَا نَوَى» - متفق عليه"],
+  ["ما الحديث الدال على أن الله ينظر إلى القلوب لا الصور؟","«إِنَّ اللَّهَ لَا يَنْظُرُ إِلَى صُوَرِكُمْ وَأَمْوَالِكُمْ، وَلَكِنْ يَنْظُرُ إِلَى قُلُوبِكُمْ وَأَعْمَالِكُمْ» - رواه مسلم"],
+  ["ما الحديث الدال على أن الهمّ بالحسنة يُكتب أجرًا وإن لم يُعمل؟","«مَنْ هَمَّ بِحَسَنَةٍ وَلَمْ يَعْمَلْهَا كُتِبَتْ لَهُ حَسَنَةً» - متفق عليه"],
+  ["ما الحديث الدال على تسوية الأجر بين صاحب المال وصاحب النية الصادقة دون مال؟","حديث النَّفَر الأربعة: «...فهو صادق النية يقول لو أن لي مالًا لعملت بعمل فلان، فهما في الأجر سواء» - رواه الترمذي وابن ماجه"],
+  ["ما الحديث الدال على أن النية الفاسدة قد تُسوّي بين القاتل والمقتول في العقاب؟","«إِذَا الْتَقَى الْمُسْلِمَانِ بِسَيْفَيْهِمَا فَالْقَاتِلُ وَالْمَقْتُولُ فِي النَّارِ» ... «لأنه كان حريصًا على قتل صاحبه» - متفق عليه"],
+  ["ما الحديث الدال على أن قاعدي المدينة قد يشاركون الغزاة في الأجر بصدق النية؟","«إِنَّ بِالْمَدِينَةِ أَقْوَامًا مَا قَطَعْنَا وَادِيًا... إِلَّا شَرِكُونَا فِي ذَلِكَ، وَهُمْ بِالْمَدِينَةِ حَبَسَهُمُ الْعُذْرُ» - رواه البخاري، غزوة تبوك"],
+  ["ما الآية الدالة على أن نعم الله لا تُحصى؟","﴿وَإِنْ تَعُدُّوا نِعْمَةَ اللَّهِ لَا تُحْصُوهَا﴾ - سورة النحل، آية ١٨"],
+  ["ما الآية الدالة على أن كل نعمة مصدرها الله وحده؟","﴿وَمَا بِكُمْ مِنْ نِعْمَةٍ فَمِنَ اللَّهِ﴾ - سورة النحل، آية ٥٣"],
+  ["ما الآية الآمرة بالشكر والنهي عن الكفران؟","﴿فَاذْكُرُونِي أَذْكُرْكُمْ وَاشْكُرُوا لِي وَلَا تَكْفُرُونِ﴾ - سورة البقرة، آية ١٥٢"],
+  ["ما الآية الدالة على علم الله بالسر وأخفى منه؟","﴿وَإِنْ تَجْهَرْ بِالْقَوْلِ فَإِنَّهُ يَعْلَمُ السِّرَّ وَأَخْفَى﴾ - سورة طه، آية ٧"],
+  ["ما الآية الدالة على مراقبة الله لكل شأن ولو مثقال ذرة؟","﴿وَمَا يَعْزُبُ عَنْ رَبِّكَ مِنْ مِثْقَالِ ذَرَّةٍ فِي الْأَرْضِ وَلَا فِي السَّمَاءِ﴾ - سورة يونس، آية ٦١"],
+  ["ما الآية الآمرة بالفرار إلى الله؟","﴿فَفِرُّوا إِلَى اللَّهِ ۖ إِنِّي لَكُمْ مِنْهُ نَذِيرٌ مُبِينٌ﴾ - سورة الذاريات، آية ٥٠"],
+  ["ما الآية الدالة على سعة رحمة الله؟","﴿وَرَحْمَتِي وَسِعَتْ كُلَّ شَيْءٍ﴾ - سورة الأعراف، آية ١٥٦"],
+  ["ما الآية الدالة على إجابة الله للداعي؟","﴿وَإِذَا سَأَلَكَ عِبَادِي عَنِّي فَإِنِّي قَرِيبٌ أُجِيبُ دَعْوَةَ الدَّاعِ إِذَا دَعَانِ﴾ - سورة البقرة، آية ١٨٦"],
+  ["ما الآية الدالة على شدة بطش الله؟","﴿إِنَّ بَطْشَ رَبِّكَ لَشَدِيدٌ﴾ - سورة البروج، آية ١٢"],
+  ["ما الآية الدالة على مضاعفة أجر الحسنة دون مضاعفة عقوبة السيئة؟","﴿مَنْ جَاءَ بِالْحَسَنَةِ فَلَهُ عَشْرُ أَمْثَالِهَا وَمَنْ جَاءَ بِالسَّيِّئَةِ فَلَا يُجْزَىٰ إِلَّا مِثْلَهَا﴾ - سورة الأنعام، آية ١٦٠"],
+  // ===== فوائد ونقاط مهمة =====
+  ["هل يُؤجر من أكل باليمين موافقةً للسنة دون أن ينوي اتباع السنة؟","لا يُؤجر؛ لأن الأجر مبني على استحضار النية لا على مجرد موافقة الفعل للسنة ظاهرًا."],
+  ["هل ينقلب المباح إلى طاعة بالنية الصالحة؟","نعم، كمن ينام بنية التقوّي على قيام الليل، فينقلب النوم المباح إلى طاعة مأجورة."],
+  ["هل ينقلب المحرَّم إلى طاعة بالنية الحسنة؟","لا، أبدًا؛ فالمحرَّم لا ينقلب طاعة بحال من الأحوال مهما حسنت نية فاعله."],
+  ["ما حكم من يغتاب شخصًا بنية تطييب خاطر آخر؟","هو آثم عاصٍ لله، ولا تنفعه نيته الحسنة؛ لأن الغيبة محرّمة في ذاتها."],
+  ["ما حكم من بنى مسجدًا بمال حرام؟","لا يُثاب على بنائه، رغم ظاهره الصالح؛ لأن أصل كسب المال محرّم."],
+  ["ما حكم من يذبح لغير الله بنية محبة الصالحين؟","هو مشرك عاصٍ لله، ولا تُبرر هذه النية فعل الذبح لغير الله."],
+  ["هل يجوز الجمع بين تحية المسجد وسنة الوضوء والسنة القبلية بنية واحدة؟","نعم يجوز الجمع بينها؛ لأنها عبادات متوافقة نصّ العلماء على جواز جمعها."],
+  ["هل يجوز الجمع بين سنة العشاء الراتبة وقيام الليل بنية واحدة؟","لا يجوز؛ لأن كل راتبة سنة مستقلة بذاتها لا يصح جمعها مع غيرها."],
+  ["هل يجوز تحويل نية النفل إلى فرض أثناء الصلاة؟","لا يجوز؛ لأن نية الفرض يجب أن تسبق الدخول في الصلاة."],
+  ["هل يجوز اقتداء من يصلي الفرض بمن يصلي السنة؟","نعم يجوز على الراجح، وكل منهما يُتم صلاته على النية التي دخل بها."],
+  ["ما الفرق في الحكم بين الخاطر المجرد والعزم المصحوب بمباشرة الأسباب؟","الخاطر المجرد الذي يُدفَع لا إثم فيه، أما العزم المصحوب بمباشرة الأسباب فيُؤاخَذ عليه صاحبه وإن لم يكتمل الفعل."],
+  ["ما مثال العزم المؤاخَذ عليه صاحبه دون تنفيذ المعصية؟","السارق الذي دخل العمارة واتخذ كل إجراءات السرقة، فوجد الباب مغلقًا أو الشرطة موجودة فلم يسرق؛ يُؤاخَذ بإثم العزم."],
+  ["لماذا سُوّي بين المقتول والقاتل في حديث التقاء السيفين؟","لأن المقتول كان حريصًا عازمًا على قتل صاحبه لو تمكّن منه، فأخذته النية الفاسدة بحكم القاتل."],
+  ["لماذا استُخدم لفظ 'نعمة الله' بالإفراد لا 'نِعَم الله' بالجمع في الآية؟","للإشارة إلى أن النعمة الواحدة تحتها نِعَمٌ لا تُحصى، كنعمة البصر التي تتفرع عنها نعم كثيرة."],
+  ["لماذا يُمهل الله العاصي رغم رؤيته لمعصيته؟","رحمة به لا غفلة عنه سبحانه، فليبادر العبد إلى التوبة كلما وقع في ذنب."],
+  ["ما الأدب المطلوب من المسلم تجاه الاعتماد القلبي؟","الأخذ بالأسباب الظاهرة مع اعتماد القلب على الله وحده دون الاعتماد على من لا حول له ولا قوة."],
+  ["ما الفرق بين التوسل بالأسماء والصفات والتوسل بالعمل الصالح؟","التوسل بالأسماء كقول 'يا رحيم ارحمني'، والتوسل بالعمل الصالح كفعل أصحاب الغار الذين توسلوا بأعمالهم الصالحة."],
+  ["لماذا لا يُعد التقصير مع قول 'الله سيغفر لي' من حسن الظن؟","لأن حسن الظن الصحيح يجمع بين الرجاء ومحاسبة النفس والخوف من الذنوب، لا التواكل والتقصير المتعمد."],
+  ["كم مرة تُضاعف الحسنة على الأقل، وهل تُضاعف السيئة كذلك؟","تُضاعف الحسنة عشر أمثالها على الأقل وقد يزيد الله لمن يشاء، أما السيئة فلا تُجزى إلا بمثلها دون مضاعفة."],
+  ["ما الكتاب المرجعي الأساسي لهذه السلسلة من محاضرات الآداب؟","كتاب 'منهاج المسلم' للشيخ أبي بكر جابر الجزائري، مع إضافات تكميلية من المحاضر."],
+  ["كم عدد الوحدات الرئيسية التي تُقسّم إليها مادة الآداب في هذه السلسلة؟","ست وحدات: علاقة العبد بربه ونفسه، الأسرة، الأقارب والمجتمع القريب، المجتمع العام، آداب شخصية تفصيلية، وتطبيقات ختامية."],
+  ["ما أول الآداب التي تُدرَّس في وحدة 'علاقة العبد بربه ونفسه'؟","آداب النية، ثم الأدب مع القرآن، ثم الأدب مع النبي ﷺ، ثم الأدب مع النفس."]
+];
+
+function downloadAnkiDeck() {
+  const deckName = "الاكاديمية::الآداب::١ - آداب النية والأدب مع الله";
+  let content = ankiCards.map(([q, a]) => {
+    const clean = s => s.replace(/\t/g, ' ').replace(/\r?\n/g, '<br>');
+    return `${clean(q)}\t${clean(a)}\t${deckName}`;
+  }).join('\n');
+  const BOM = '\uFEFF';
+  const blob = new Blob([BOM + content], { type: 'text/plain;charset=utf-8' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'بطاقات_أنكي_آداب_النية_والأدب_مع_الله.txt';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+</script>
 
 </body>
 </html>
