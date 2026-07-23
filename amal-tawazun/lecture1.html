@@ -3,125 +3,1165 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>المحاضرة 1 | الأعمال والتوازن بينها</title>
-<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
-<!--
-  LECTURE_STATUS: EMPTY
-  هذا الملف محاضرة فارغة بانتظار التعبئة.
-  عند إضافة محتوى حقيقي، غيّر التعليق أعلاه إلى LECTURE_STATUS: FILLED
-  حتى تتعرف عليه صفحة الفئة (index.html) كمحاضرة مكتملة ويزيد العداد تلقائيًا.
--->
-<meta name="lecture-status" content="empty">
+<title>أصول الأعمال والتوازن بينها | المحاضرة الأولى: البوصلة والوظيفة الأساسية</title>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --gold: #C5A55A;
-    --gold-light: #E8D5A3;
-    --ivory: #FAF7F0;
-    --brown-deep: #3A2A1A;
-    --brown-mid: #5C4033;
-    --brown-warm: #7A5C40;
-    --green-islamic: #1B6B4A;
-    --green-light: #E8F5EE;
-    --green-accent: #2D8B6A;
-    --cream: #FFF8EC;
-    --border-soft: #E5D5BF;
-    --text-main: #2C1E10;
-    --text-secondary: #6B5744;
-    --shadow-soft: 0 2px 20px rgba(58, 42, 26, 0.08);
-    --shadow-card: 0 4px 24px rgba(58, 42, 26, 0.1);
+  :root{
+    --gold:#b8860b;
+    --gold-light:#d4a94a;
+    --gold-bg:#fbf6e9;
+    --brown-dark:#3e2c1c;
+    --brown:#5a3e26;
+    --brown-light:#8a6a45;
+    --green-dark:#1f4d3a;
+    --green:#2e6b4f;
+    --green-light:#e8f3ec;
+    --cream:#fdf9f0;
+    --paper:#fffdf7;
+    --ink:#2b2118;
+    --muted:#7a6a55;
+    --danger:#9c3b3b;
+    --shadow: 0 4px 18px rgba(62,44,28,0.08);
   }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body {
-    font-family: 'Cairo', sans-serif;
-    background: var(--ivory);
-    color: var(--text-main);
-    line-height: 1.9;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    font-family:'Cairo', sans-serif;
+    background: linear-gradient(180deg, var(--cream) 0%, #f7f1e2 100%);
+    color: var(--ink);
+    line-height:1.9;
   }
-  .header {
-    background: linear-gradient(160deg, var(--brown-deep) 0%, var(--brown-mid) 60%, var(--brown-warm) 100%);
-    color: var(--ivory);
-    padding: 40px 24px;
-    text-align: center;
+  .amiri{font-family:'Amiri', serif;}
+
+  /* ===== Header ===== */
+  header.hero{
+    background: radial-gradient(ellipse at top, var(--brown) 0%, var(--brown-dark) 75%);
+    color:#fff8e7;
+    padding:56px 20px 70px;
+    text-align:center;
+    position:relative;
+    overflow:hidden;
+    border-bottom:6px solid var(--gold);
   }
-  .breadcrumb {
-    font-size: 13px;
-    color: var(--gold-light);
-    margin-bottom: 14px;
-    opacity: 0.85;
+  header.hero::before{
+    content:"";
+    position:absolute; inset:0;
+    background-image:
+      radial-gradient(circle at 15% 20%, rgba(212,169,74,0.10) 0, transparent 40%),
+      radial-gradient(circle at 85% 80%, rgba(212,169,74,0.12) 0, transparent 40%);
+    pointer-events:none;
   }
-  .breadcrumb a { color: var(--gold-light); text-decoration: none; }
-  .breadcrumb a:hover { text-decoration: underline; }
-  .header h1 {
-    font-family: 'Amiri', serif;
-    font-size: clamp(24px, 5vw, 34px);
+  .bismillah{
+    font-family:'Amiri', serif;
+    font-size:1.7rem;
+    color:var(--gold-light);
+    margin-bottom:18px;
+    letter-spacing:1px;
   }
-  main {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 60px 24px;
+  header.hero h1{
+    font-size:2.3rem;
+    margin:0 0 10px;
+    font-weight:900;
+    color:#fff8e7;
   }
-  .empty-card {
-    max-width: 520px;
-    text-align: center;
-    background: white;
-    border: 1px dashed var(--border-soft);
-    border-radius: 20px;
-    padding: 50px 36px;
-    box-shadow: var(--shadow-soft);
+  header.hero .subtitle{
+    font-size:1.1rem;
+    color:#e9dcc0;
+    max-width:720px;
+    margin:0 auto 22px;
   }
-  .empty-icon { font-size: 48px; margin-bottom: 18px; opacity: 0.6; }
-  .empty-card h2 {
-    font-family: 'Amiri', serif;
-    color: var(--brown-deep);
-    font-size: 22px;
-    margin-bottom: 12px;
+  .meta-badges{
+    display:flex; flex-wrap:wrap; gap:10px; justify-content:center; margin-top:18px;
   }
-  .empty-card p {
-    color: var(--text-secondary);
-    font-size: 15px;
-    line-height: 1.9;
+  .badge{
+    background:rgba(255,255,255,0.08);
+    border:1px solid rgba(212,169,74,0.5);
+    color:var(--gold-light);
+    padding:6px 16px;
+    border-radius:30px;
+    font-size:0.85rem;
   }
-  .back-link {
-    display: inline-block;
-    margin-top: 24px;
-    padding: 10px 26px;
-    background: var(--green-light);
-    color: var(--green-islamic);
-    text-decoration: none;
-    border-radius: 20px;
-    font-weight: 700;
-    font-size: 14px;
+
+  /* ===== Container ===== */
+  .wrap{ max-width:900px; margin:0 auto; padding:0 20px; }
+
+  /* ===== TOC ===== */
+  nav.toc{
+    background: var(--paper);
+    border:1px solid #e7dcc3;
+    border-radius:16px;
+    box-shadow: var(--shadow);
+    margin:-40px auto 40px;
+    padding:26px 28px;
+    position:relative;
+    z-index:2;
   }
-  footer {
-    text-align: center;
-    padding: 24px;
-    color: var(--text-secondary);
-    font-size: 13px;
+  nav.toc h2{
+    margin:0 0 14px;
+    color:var(--brown-dark);
+    font-size:1.2rem;
+    display:flex; align-items:center; gap:8px;
+  }
+  nav.toc ol{
+    margin:0; padding:0; list-style:none;
+    display:grid; grid-template-columns:1fr 1fr; gap:8px 20px;
+  }
+  nav.toc a{
+    display:block;
+    color:var(--green-dark);
+    text-decoration:none;
+    padding:9px 12px;
+    border-radius:8px;
+    background:var(--green-light);
+    font-size:0.95rem;
+    border-inline-start:3px solid var(--green);
+    transition:.2s;
+  }
+  nav.toc a:hover{ background:#dcefe4; transform:translateX(-3px); }
+
+  /* ===== Sections ===== */
+  section.block{
+    background:var(--paper);
+    border:1px solid #ecdfc0;
+    border-radius:16px;
+    box-shadow:var(--shadow);
+    padding:32px 30px;
+    margin-bottom:28px;
+    scroll-margin-top:20px;
+  }
+  section.block h2{
+    display:flex; align-items:center; gap:12px;
+    color:var(--brown-dark);
+    font-size:1.5rem;
+    border-bottom:3px solid var(--gold-light);
+    padding-bottom:14px;
+    margin:0 0 20px;
+  }
+  section.block h2 .icon{
+    font-size:1.5rem;
+    background:var(--gold-bg);
+    width:44px;height:44px;
+    border-radius:12px;
+    display:flex;align-items:center;justify-content:center;
+    flex-shrink:0;
+  }
+  section.block h3{
+    color:var(--green-dark);
+    font-size:1.15rem;
+    margin:26px 0 12px;
+  }
+  section.block p{ margin:0 0 14px; font-size:1.02rem; }
+  section.block ul, section.block ol{ padding-inline-start:22px; }
+  section.block li{ margin-bottom:8px; }
+
+  /* ===== Special blocks ===== */
+  .quran-verse{
+    background: linear-gradient(135deg, var(--green-light), #f3faf5);
+    border-inline-start:5px solid var(--green);
+    border-radius:10px;
+    padding:20px 24px;
+    margin:18px 0;
+    position:relative;
+  }
+  .quran-verse .tag{
+    font-size:.8rem; color:var(--green-dark); font-weight:700; margin-bottom:8px; display:block;
+  }
+  .quran-verse .verse-text{
+    font-family:'Amiri', serif;
+    font-size:1.35rem;
+    color:var(--green-dark);
+    line-height:2.1;
+    margin:0 0 8px;
+  }
+  .quran-verse .ref{ font-size:.85rem; color:var(--muted); }
+
+  .hadith{
+    background: var(--gold-bg);
+    border-inline-start:5px solid var(--gold);
+    border-radius:10px;
+    padding:20px 24px;
+    margin:18px 0;
+  }
+  .hadith .tag{ font-size:.8rem; color:var(--brown); font-weight:700; margin-bottom:8px; display:block; }
+  .hadith .hadith-text{
+    font-family:'Amiri', serif;
+    font-size:1.25rem;
+    color:var(--brown-dark);
+    line-height:2;
+    margin:0 0 8px;
+  }
+  .hadith .ref{ font-size:.85rem; color:var(--muted); }
+
+  .definition-box{
+    background:#fff;
+    border:2px dashed var(--brown-light);
+    border-radius:12px;
+    padding:18px 22px;
+    margin:18px 0;
+  }
+  .definition-box .tag{
+    display:inline-block;
+    background:var(--brown);
+    color:#fff8e7;
+    font-size:.78rem;
+    padding:3px 12px;
+    border-radius:20px;
+    margin-bottom:10px;
+    font-weight:700;
+  }
+  .definition-box .term{ font-weight:800; color:var(--brown-dark); font-size:1.05rem; }
+
+  .key-point{
+    background:#eef7f0;
+    border-inline-start:5px solid var(--green);
+    border-radius:10px;
+    padding:16px 20px;
+    margin:16px 0;
+    display:flex; gap:12px; align-items:flex-start;
+  }
+  .key-point::before{ content:"✦"; color:var(--green); font-size:1.2rem; flex-shrink:0; }
+
+  .warning-box{
+    background:#fbeeee;
+    border-inline-start:5px solid var(--danger);
+    border-radius:10px;
+    padding:16px 20px;
+    margin:16px 0;
+    display:flex; gap:12px; align-items:flex-start;
+  }
+  .warning-box::before{ content:"⚠"; color:var(--danger); font-size:1.2rem; flex-shrink:0; }
+  .warning-box strong{ color:var(--danger); }
+
+  .flow-card-container{
+    display:flex; flex-direction:column; gap:0; margin:20px 0;
+  }
+  .flow-card{
+    background:#fff;
+    border:1px solid #e7dcc3;
+    border-radius:10px;
+    padding:16px 20px;
+    display:flex; gap:16px; align-items:center;
+    position:relative;
+  }
+  .flow-card:not(:last-child){ margin-bottom:22px; }
+  .flow-card:not(:last-child)::after{
+    content:"↓";
+    position:absolute; bottom:-26px; right:50%; transform:translateX(50%);
+    color:var(--gold); font-size:1.3rem; font-weight:900;
+  }
+  .flow-card .num{
+    background:var(--green);
+    color:#fff;
+    width:36px;height:36px;
+    border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    font-weight:800; flex-shrink:0;
+  }
+  .flow-card .txt strong{ color:var(--brown-dark); display:block; margin-bottom:2px; }
+
+  .ruling-card{
+    display:inline-block;
+    padding:5px 14px;
+    border-radius:8px;
+    font-size:.85rem;
+    font-weight:700;
+    margin-inline-end:6px;
+  }
+  .ruling-wajib{ background:#e3f2e6; color:var(--green-dark); }
+  .ruling-haram{ background:#fbe4e4; color:var(--danger); }
+  .ruling-mustahab{ background:#eaf1fb; color:#2b5c8a; }
+  .ruling-makruh{ background:#f7ecd6; color:#8a6415; }
+
+  table.comparison-table{
+    width:100%;
+    border-collapse:collapse;
+    margin:18px 0;
+    font-size:.95rem;
+  }
+  table.comparison-table th{
+    background:var(--brown);
+    color:#fff8e7;
+    padding:12px 14px;
+    text-align:right;
+  }
+  table.comparison-table td{
+    padding:12px 14px;
+    border-bottom:1px solid #eee1c8;
+  }
+  table.comparison-table tr:nth-child(even) td{ background:#fbf6e9; }
+
+  .analogy-box{
+    background:linear-gradient(135deg,#fdf6ea,#fff);
+    border:1px solid var(--gold-light);
+    border-radius:12px;
+    padding:18px 22px;
+    margin:18px 0;
+  }
+  .analogy-box .tag{ color:var(--gold); font-weight:800; font-size:.85rem; margin-bottom:8px; display:block; }
+
+  /* ===== Quiz ===== */
+  #quiz-section .quiz-intro{
+    text-align:center; margin-bottom:22px; color:var(--muted);
+  }
+  .quiz-controls{ text-align:center; margin-bottom:20px; }
+  .quiz-controls select, .quiz-controls button{
+    font-family:'Cairo',sans-serif;
+    padding:10px 18px;
+    border-radius:8px;
+    border:1px solid #ccc;
+    font-size:.95rem;
+    margin:4px;
+    cursor:pointer;
+  }
+  .quiz-controls button{
+    background:var(--green);
+    color:#fff;
+    border:none;
+    font-weight:700;
+  }
+  .quiz-controls button:hover{ background:var(--green-dark); }
+
+  .question-card{
+    background:#fff;
+    border:1px solid #e7dcc3;
+    border-radius:12px;
+    padding:22px 24px;
+    margin-bottom:18px;
+  }
+  .question-card .q-meta{
+    display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;
+  }
+  .q-difficulty{
+    font-size:.75rem; padding:3px 10px; border-radius:20px; font-weight:700;
+  }
+  .diff-medium{ background:#eaf1fb; color:#2b5c8a; }
+  .diff-hard{ background:#f7ecd6; color:#8a6415; }
+  .diff-very-hard{ background:#fbe4e4; color:var(--danger); }
+
+  .q-text{ font-weight:700; color:var(--brown-dark); margin-bottom:14px; font-size:1.05rem; }
+  .options{ display:flex; flex-direction:column; gap:8px; }
+  .option-label{
+    display:block;
+    padding:10px 16px;
+    border:1px solid #ddd;
+    border-radius:8px;
+    cursor:pointer;
+    transition:.15s;
+  }
+  .option-label:hover{ background:#f6f0de; }
+  .option-label input{ margin-inline-end:8px; }
+  .option-label.correct-answer{ background:#e3f2e6 !important; border-color:var(--green); }
+  .option-label.wrong-answer{ background:#fbe4e4 !important; border-color:var(--danger); }
+
+  .tf-options{ display:flex; gap:12px; }
+  .tf-options .option-label{ flex:1; text-align:center; }
+
+  .explanation{
+    margin-top:14px;
+    background:var(--green-light);
+    border-inline-start:4px solid var(--green);
+    padding:12px 16px;
+    border-radius:8px;
+    font-size:.92rem;
+    display:none;
+  }
+  .explanation.show{ display:block; }
+  .explanation.wrong{ background:#fbeeee; border-inline-start-color:var(--danger); }
+
+  textarea.essay-input{
+    width:100%;
+    min-height:110px;
+    font-family:'Cairo',sans-serif;
+    padding:12px;
+    border-radius:8px;
+    border:1px solid #ccc;
+    font-size:.95rem;
+    resize:vertical;
+  }
+  .model-answer{
+    margin-top:12px;
+    background:var(--gold-bg);
+    border:1px dashed var(--gold);
+    border-radius:8px;
+    padding:14px 16px;
+    display:none;
+    font-size:.92rem;
+  }
+  .model-answer.show{ display:block; }
+  .show-answer-btn{
+    margin-top:10px;
+    background:var(--brown);
+    color:#fff;
+    border:none;
+    padding:7px 16px;
+    border-radius:6px;
+    cursor:pointer;
+    font-family:'Cairo',sans-serif;
+    font-size:.85rem;
+  }
+
+  #score-card{
+    display:none;
+    text-align:center;
+    background:linear-gradient(135deg,var(--green-dark),var(--green));
+    color:#fff;
+    border-radius:16px;
+    padding:34px 24px;
+    margin-top:20px;
+  }
+  #score-card h3{ font-size:1.6rem; margin:0 0 10px; }
+  #score-card .score-num{ font-size:2.6rem; font-weight:900; color:var(--gold-light); }
+  #score-card p{ opacity:.9; }
+
+  .submit-quiz-btn{
+    display:block;
+    margin:24px auto 0;
+    background:var(--gold);
+    color:#3e2c1c;
+    border:none;
+    padding:14px 36px;
+    border-radius:30px;
+    font-size:1.05rem;
+    font-weight:800;
+    cursor:pointer;
+    font-family:'Cairo',sans-serif;
+  }
+  .submit-quiz-btn:hover{ background:var(--gold-light); }
+
+  /* ===== Footer ===== */
+  footer{
+    text-align:center;
+    padding:44px 20px 50px;
+    color:var(--brown-light);
+  }
+  footer .dua{
+    font-family:'Amiri', serif;
+    font-size:1.3rem;
+    color:var(--brown-dark);
+    max-width:600px;
+    margin:0 auto 14px;
+    line-height:2;
+  }
+
+  @media (max-width:640px){
+    nav.toc ol{ grid-template-columns:1fr; }
+    header.hero h1{ font-size:1.6rem; }
+    section.block{ padding:22px 18px; }
   }
 </style>
 </head>
 <body>
 
-<header class="header">
-  <div class="breadcrumb"><a href="../index.html">الأكاديمية الشرعية</a> ← <a href="index.html">الأعمال والتوازن بينها</a> ← المحاضرة 1</div>
-  <h1>المحاضرة 1</h1>
+<header class="hero">
+  <div class="bismillah amiri">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
+  <h1>أصول الأعمال والتوازن فيما بينها</h1>
+  <p class="subtitle">المحاضرة الأولى: ضبط البوصلة — الوظيفة الأساسية للإنسان، وتقديم العلم على سائر الأصول</p>
+  <div class="meta-badges">
+    <span class="badge">المرحلة التأسيسية</span>
+    <span class="badge">الدرس الأول</span>
+    <span class="badge">سورة العصر</span>
+  </div>
+  <div style="margin-top:22px;">
+    <button onclick="downloadAnkiDeck()" style="background:var(--gold);color:var(--brown-dark);border:none;padding:12px 26px;border-radius:30px;font-size:1rem;font-weight:800;cursor:pointer;font-family:'Cairo',sans-serif;box-shadow:0 4px 14px rgba(0,0,0,0.15);">🗂️ حمّل بطاقات أنكي</button>
+  </div>
 </header>
 
-<main>
-  <div class="empty-card">
-    <div class="empty-icon">📝</div>
-    <h2>هذه المحاضرة لم تُملأ بعد</h2>
-    <p>سيتم إضافة الشرح المفصّل وبطاقات المراجعة لهذه المحاضرة قريبًا بإذن الله.</p>
-    <a class="back-link" href="index.html">← الرجوع لقائمة المحاضرات</a>
-  </div>
-</main>
+<div class="wrap">
 
-<footer>الأكاديمية الشرعية — طلب العلم عبادة</footer>
+  <nav class="toc">
+    <h2>📖 محتويات المحاضرة</h2>
+    <ol>
+      <li><a href="#sec1">١. لماذا هذه المادة؟ (تشبيه الطيار والبوصلة)</a></li>
+      <li><a href="#sec2">٢. الوظيفة الأساسية للإنسان: العبادة</a></li>
+      <li><a href="#sec3">٣. قواعد الشريعة الضابطة للحياة</a></li>
+      <li><a href="#sec4">٤. سورة العصر: منهج حياة متكامل</a></li>
+      <li><a href="#sec5">٥. العلم يسبق الأصول الأربعة</a></li>
+      <li><a href="#sec6">٦. العلم الشرعي مقابل العلم الدنيوي</a></li>
+      <li><a href="#sec7">٧. خريطة المادة القادمة</a></li>
+      <li><a href="#quiz-section">٨. اختبر فهمك</a></li>
+    </ol>
+  </nav>
+
+  <!-- SECTION 1 -->
+  <section class="block" id="sec1">
+    <h2><span class="icon">🧭</span> لماذا هذه المادة؟</h2>
+    <p>
+      تفتتح المحاضرة بتوضيح أهمية مادة "أصول الأعمال والتوازن فيما بينها"، باعتبارها من المواد التي يندر أن يُسلَّط عليها الضوء رغم أهميتها الكبرى: إصلاح المسار ومعرفة الإنسان لوجهته وأولوياته في طريقه إلى الله عز وجل.
+    </p>
+
+    <div class="analogy-box">
+      <span class="tag">🛫 تشبيه توضيحي</span>
+      <p style="margin:0;">
+        تخيل نفسك فجأة داخل غرفة تحكم طائرة، وأنت مسؤول عن قيادتها دون أن تكون قد تعلمت الطيران من قبل، ولا تعرف الوجهة، ولا طريقة السير، ولا حتى الهدف من الرحلة أصلًا! هذه هي حال كثير من الناس في بداية طريقهم إلى الله: يسيرون، ويجتهدون، لكن بلا وضوح في الأولويات، فتجدهم "يتخبطون" — يبدأون بما لا ينبغي البدء به، ويؤخرون ما ينبغي تقديمه.
+      </p>
+    </div>
+
+    <div class="key-point">
+      <div>
+        <strong>الفكرة المركزية:</strong> كثير ممن يسيرون في طريق الهداية يقطعون وقتًا طويلًا دون أن يصلوا لما كانوا يرجونه، والسبب ليس نقص الاجتهاد، بل خللٌ في "ضبط البوصلة" — أي عدم وضوح الوجهة والهدف والأولويات.
+      </div>
+    </div>
+
+    <p>
+      لذلك فإن الهدف من هذه المحاضرات القليلة هو وضع الرؤوس العريضة والعناوين الأساسية التي يحتاج طالب العلم أن يشتغل عليها في مسيرته، وهذا نوع من ضبط السلوك وضبط الوجهة قبل الخوض في التفاصيل.
+    </p>
+  </section>
+
+  <!-- SECTION 2 -->
+  <section class="block" id="sec2">
+    <h2><span class="icon">🕌</span> الوظيفة الأساسية للإنسان: العبادة</h2>
+    <p>
+      الانطلاقة الأولى في هذا التأصيل هي التأمل في الوظيفة التي خلق الله عز وجل الإنسان لأجلها، وهي العبادة، كما دلت عليها نصوص صريحة:
+    </p>
+
+    <div class="quran-verse">
+      <span class="tag">📖 آية قرآنية</span>
+      <p class="verse-text amiri">وَمَا خَلَقْتُ الْجِنَّ وَالْإِنسَ إِلَّا لِيَعْبُدُونِ</p>
+      <span class="ref">سورة الذاريات، آية ٥٦</span>
+    </div>
+
+    <div class="quran-verse">
+      <span class="tag">📖 آية قرآنية</span>
+      <p class="verse-text amiri">قُلْ إِنَّ صَلَاتِي وَنُسُكِي وَمَحْيَايَ وَمَمَاتِي لِلَّهِ رَبِّ الْعَالَمِينَ</p>
+      <span class="ref">سورة الأنعام، آية ١٦٢</span>
+    </div>
+
+    <div class="definition-box">
+      <span class="tag">تعريف</span>
+      <p style="margin:0;"><span class="term">العبادة اصطلاحًا:</span> "اسمٌ جامعٌ لكل ما يحبه الله ويرضاه من الأقوال والأفعال، الظاهرة والباطنة".</p>
+    </div>
+
+    <p>
+      وهذا التعريف يفتح مظلة واسعة جدًا؛ فحين يُذكر لفظ "العبادة" يتبادر إلى الذهن مباشرة الشعائر الظاهرة كالصلاة والصوم والزكاة والحج، لكن التعريف الصحيح أوسع من ذلك بكثير: فكل قول أو فعل يحبه الله ويرضاه — سواء كان شعيرة تعبدية أو معاملة يومية بنية صالحة — يدخل في مسمى العبادة.
+    </p>
+
+    <div class="key-point">
+      <div>
+        الله عز وجل لم يترك الإنسان في هذه الدنيا "سدى" بلا توجيه، بل جعل له صفات، وجعل لهذه الدنيا قوانين وأسبابًا، وأرشده إلى كيفية التعامل معها لتلبية احتياجاته من أكل وشرب ومسكن وملبس وقضاء حوائج، حتى يستطيع أن يعيش ويقيم العبودية على الوجه الصحيح.
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 3 -->
+  <section class="block" id="sec3">
+    <h2><span class="icon">⚖️</span> قواعد الشريعة الضابطة للحياة</h2>
+    <p>
+      وضع الله عز وجل للناس قواعد محكمة ينظمون بها حياتهم، تصنّف إلى أنواع بحسب الحكم الشرعي:
+    </p>
+
+    <div style="margin:16px 0;">
+      <span class="ruling-card ruling-wajib">واجب</span>
+      <span class="ruling-card ruling-haram">محرَّم</span>
+      <span class="ruling-card ruling-mustahab">مستحب</span>
+      <span class="ruling-card ruling-makruh">مكروه</span>
+    </div>
+
+    <table class="comparison-table">
+      <thead>
+        <tr><th>التصنيف</th><th>المعنى</th><th>أمثلة من المحاضرة</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><span class="ruling-card ruling-wajib">واجب</span></td><td>ما أوجبه الله عز وجل لخطورة الأمر أو أهميته</td><td>بعض الفرائض، والحلال من الأكل والشرب والملبس والمسكن</td></tr>
+        <tr><td><span class="ruling-card ruling-haram">محرَّم</span></td><td>ما نهى الله عنه من الأمور التي فيها ضرر أو مفسدة</td><td>شرب الخمر، القتل بغير حق، الزنا</td></tr>
+        <tr><td><span class="ruling-card ruling-mustahab">مستحب</span></td><td>أمر مطلوب لكنه غير واجب، يُثاب فاعله ولا يُعاقب تاركه</td><td>نوافل العبادات والأخلاق الفاضلة</td></tr>
+        <tr><td><span class="ruling-card ruling-makruh">مكروه</span></td><td>ما يُستحسن تركه دون أن يبلغ درجة التحريم</td><td>بحسب موضعه من المسائل الفقهية</td></tr>
+      </tbody>
+    </table>
+
+    <p>الهدف من كل هذه القواعد واحد: أن يصلح بها حال الإنسان في الدنيا، وأن يكون عبدًا لله على الوجه الحق. ومن أمثلة ضبط الشريعة لشهوات الإنسان — كشهوة الأكل والشرب — هذا الحديث الجامع:</p>
+
+    <div class="hadith">
+      <span class="tag">🕌 حديث نبوي</span>
+      <p class="hadith-text amiri">مَا مَلَأَ آدَمِيٌّ وِعَاءً شَرًّا مِنْ بَطْنٍ، بِحَسْبِ ابْنِ آدَمَ لُقَيْمَاتٌ يُقِمْنَ صُلْبَهُ</p>
+      <span class="ref">من حديث المقدام بن معدي كرب رضي الله عنه</span>
+    </div>
+
+    <div class="key-point">
+      <div>
+        القاعدة المستفادة: الاعتدال في الأكل والشرب — بما يقيم الجسد فحسب — هو الأصل، وليس الإسراف والانغماس في ملء البطن.
+      </div>
+    </div>
+
+    <p>
+      وعلى نفس المنوال، شرع الله للإنسان تعلّم العلوم الدنيوية بالقدر الذي يقيم به حياته: كتعلّم الزراعة لتحصيل القوت، ورعاية الأنعام، وغيرها من الحرف والمهن التي تستقيم بها موارد الحياة.
+    </p>
+
+    <div class="key-point">
+      <div>
+        <strong>الخلاصة:</strong> الإنسان في كل أحواله متعبِّد لله عز وجل، وكل عمل يقوم به المفروض أن يصبّ في معنى العبودية لله. ومن أهم ما شُرع لضبط هذه العبودية: الفروض العينية، وأولها الاعتقاد، ثم الفرائض العملية كالصلاة والصيام والزكاة والحج.
+      </div>
+    </div>
+
+    <p>
+      وقد جعل الله هذه الدنيا "دار اختبار وابتلاء"، وليست دار قرار؛ فمن نجح في هذا الاختبار نجّاه الله في الآخرة وأدخله الجنة، ومن قصّر فيه كان مآله إلى النار والعياذ بالله. ولذلك يجب أن يعرف الإنسان بدقة ما هو مكلَّف به حتى يسير على بصيرة.
+    </p>
+  </section>
+
+  <!-- SECTION 4 -->
+  <section class="block" id="sec4">
+    <h2><span class="icon">🌅</span> سورة العصر: منهج حياة متكامل</h2>
+    <p>
+      وصل هذا الدين إلينا عبر سلسلة الرواة من النبي صلى الله عليه وسلم إلى الصحابة، ثم التابعين، ثم العلماء الذين هم — كما وصفهم النبي صلى الله عليه وسلم — ورثة الأنبياء. ولما تأمل العلماء في تقسيم هذا الدين، وجدوا في سورة صغيرة الحجم عظيمة المعنى منهج حياة متكامل، وهي سورة العصر.
+    </p>
+
+    <div class="quran-verse">
+      <span class="tag">📖 آيات قرآنية</span>
+      <p class="verse-text amiri">وَالْعَصْرِ ۝ إِنَّ الْإِنسَانَ لَفِي خُسْرٍ ۝ إِلَّا الَّذِينَ آمَنُوا وَعَمِلُوا الصَّالِحَاتِ وَتَوَاصَوْا بِالْحَقِّ وَتَوَاصَوْا بِالصَّبْرِ</p>
+      <span class="ref">سورة العصر، آيات ١-٣</span>
+    </div>
+
+    <div class="key-point">
+      <div>
+        نُقل عن الإمام الشافعي رحمه الله قوله: <span style="font-style:italic;">"لو لم ينزل الله عز وجل إلا سورة العصر لكفت الناس"</span> — لِما فيها من شمول لمنهج الحياة كله في آيات معدودة.
+      </div>
+    </div>
+
+    <p>يقسم الله عز وجل بالعصر (الزمن)، والله لا يقسم إلا بعظيم، ثم يخبر أن كل بني آدم في خسران إلا من استثناهم بأربعة أصول متتالية:</p>
+
+    <div class="flow-card-container">
+      <div class="flow-card">
+        <span class="num">١</span>
+        <div class="txt"><strong>الإيمان</strong>التلبس بالإيمان بالله عز وجل، وهو ما يُدرَس في مادة العقيدة، وهو الأصل الذي يُبنى عليه كل ما بعده.</div>
+      </div>
+      <div class="flow-card">
+        <span class="num">٢</span>
+        <div class="txt"><strong>العمل الصالح</strong>هو "العمود" الذي تقوم عليه أسباب النجاة، أي ترجمة الإيمان إلى سلوك عملي متوافق مع هدي النبي صلى الله عليه وسلم.</div>
+      </div>
+      <div class="flow-card">
+        <span class="num">٣</span>
+        <div class="txt"><strong>التواصي بالحق</strong>وصورته: الدعوة إلى الله، والأمر بالمعروف والنهي عن المنكر، بحيث لا يكون كل واحد في شأن نفسه فقط.</div>
+      </div>
+      <div class="flow-card">
+        <span class="num">٤</span>
+        <div class="txt"><strong>التواصي بالصبر</strong>ويشمل ثلاثة أنواع: الصبر على الطاعة، والصبر على البلاء، والصبر عن المعصية.</div>
+      </div>
+    </div>
+
+    <h3>أنواع الصبر الثلاثة</h3>
+    <table class="comparison-table">
+      <thead><tr><th>النوع</th><th>معناه</th></tr></thead>
+      <tbody>
+        <tr><td>الصبر على الطاعة</td><td>مجاهدة النفس على الالتزام بأوامر الله عز وجل واستمرار العمل الصالح</td></tr>
+        <tr><td>الصبر على البلاء</td><td>احتمال أقدار الله المؤلمة دون تسخط أو جزع</td></tr>
+        <tr><td>الصبر عن المعصية</td><td>مجاهدة النفس في اجتناب نواهي الله عز وجل</td></tr>
+      </tbody>
+    </table>
+
+    <div class="warning-box">
+      <div>
+        <strong>تنبيه مهم:</strong> الصبر بأنواعه، والتواصي بالحق، والعمل الصالح، كلها تحتاج إلى "تربية" — أي تدرّب ومران على هذه المعاني، وهذه التربية نفسها لا تقوم إلا على أساس من العلم.
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 5 -->
+  <section class="block" id="sec5">
+    <h2><span class="icon">🎓</span> العلم يسبق الأصول الأربعة</h2>
+    <p>
+      النقطة المحورية في هذه المحاضرة أن العلماء أجمعوا على أن العلم يسبق هذه الأصول الأربعة جميعًا (الإيمان، العمل الصالح، التواصي بالحق، التواصي بالصبر). وإليك الأدلة العقلية والنقلية على ذلك:
+    </p>
+
+    <h3>١. لا يستقيم الإيمان إلا بعلم</h3>
+    <p>
+      لا يمكن أن يتحقق الإيمان الصحيح دون معرفة بما يجب اعتقاده أولًا؛ فالإيمان على جهل قد يكون إيمانًا ناقصًا أو فيه خلل في التصور، وقد يقود صاحبه دون أن يشعر إلى الانحراف.
+    </p>
+
+    <div class="warning-box">
+      <div>
+        <strong>مثال تحذيري من المحاضرة:</strong> استشهد الشيخ بمن يبتدع عبادة من عنده (كصلاة "المراجيح" الوهمية) ظانًا أنها تقربه إلى الله، وهذا نوعٌ من الابتداع، بل شبّهه الشيخ بفعل المشركين الذين قالوا عن أصنامهم:
+      </div>
+    </div>
+
+    <div class="quran-verse">
+      <span class="tag">📖 آية قرآنية</span>
+      <p class="verse-text amiri">وَالَّذِينَ اتَّخَذُوا مِن دُونِهِ أَوْلِيَاءَ مَا نَعْبُدُهُمْ إِلَّا لِيُقَرِّبُونَا إِلَى اللَّهِ زُلْفَىٰ</p>
+      <span class="ref">سورة الزمر، آية ٣</span>
+    </div>
+
+    <p>
+      فالمشركون كانوا مؤمنين بأن الله هو الخالق الرازق المدبر، لكن جهلهم بكيفية التقرب الصحيح أوقعهم في الشرك. وهذا يوضح أن العلم هو الذي يضبط "كيف" نؤمن ونتعبد بالشكل الصحيح.
+    </p>
+
+    <h3>٢. لا يستقيم العمل الصالح إلا بعلم</h3>
+    <div class="hadith">
+      <span class="tag">🕌 حديث نبوي</span>
+      <p class="hadith-text amiri">مَنْ عَمِلَ عَمَلًا لَيْسَ عَلَيْهِ أَمْرُنَا فَهُوَ رَدٌّ</p>
+      <span class="ref">من حديث السيدة عائشة رضي الله عنها</span>
+    </div>
+    <p>
+      فمن يجتهد في التقرب إلى الله بأعمال لم يتعلم أحكامها ولم توافق هدي النبي صلى الله عليه وسلم، يكون عمله مردودًا عليه رغم حسن نيته. إذًا لا بد من العلم أولًا بالعمل الصحيح المشروع قبل الإقدام عليه.
+    </p>
+
+    <h3>٣. لا تستقيم الدعوة إلا بعلم</h3>
+    <p>
+      لا يصح أن يدعو الإنسان الناس إلى الله وهو لا يعرف إلى ماذا يدعوهم، ولا كيف يدعوهم، ولا بأي أسلوب. فقد يدعو الناس إلى ضلالة وهو لا يشعر. العلم هنا يضبط مضمون الدعوة وأسلوبها.
+    </p>
+
+    <h3>٤. لا تستقيم التربية والصبر إلا بعلم</h3>
+    <p>
+      التربية إما أن تكون "بالتجربة" العشوائية أو "بالصدمة" غير المنضبطة، وكلاهما غير مأمون العواقب. أما التربية الصحيحة فتحتاج معرفة بـ"دواخل النفس" ومشاكلها، وكيفية غرس الصفات الحسنة واستبدال السيئة منها، وهذا لا يتحقق إلا بالعلم.
+    </p>
+
+    <div class="analogy-box">
+      <span class="tag">💼 تشبيه توضيحي</span>
+      <p style="margin:0;">
+        تخيل خريج تربية رياضية يتقدم لوظيفة طبيب أسنان! هذا وضع غير منطقي بداهةً. وبالمثل، فإن وظيفتك الأساسية في الحياة هي "العبودية لله"، فهل يُعقل أن تتعلم علومًا لا صلة لها بهذه الوظيفة بحجة أنها "تقيمك" فيها، بينما الوظيفة الأساسية تطلب منك أولًا العلم الشرعي الذي تعرف به كيف تعبد ربك؟ (مع التنبيه أن تعلّم أي علم دنيوي بنية استخدامه في الدعوة أو الإعانة على العبادة أمرٌ محمود ومأجور عليه، لكنه ليس هو المقصود الأول من الوظيفة).
+      </div>
+    </div>
+
+    <div class="key-point">
+      <div>
+        <strong>القاعدة الذهبية للمحاضرة:</strong> العلم يسبق الإيمان والعمل الصالح والتواصي بالحق والتواصي بالصبر — فهو "البوصلة" التي تضبط كل الأصول الأخرى، وبدونه يتخبط السالك ولو كان مجتهدًا صادق النية.
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 6 -->
+  <section class="block" id="sec6">
+    <h2><span class="icon">📚</span> العلم الشرعي مقابل العلم الدنيوي</h2>
+    <p>
+      حين يُذكر لفظ "العلم" في النصوص الشرعية والمجالس الشرعية، فإن المقصود به هو <strong>العلم الشرعي (علوم الدين)</strong>، وليس العلم الدنيوي. وهذا لا يعني تقليلًا من شأن العلوم الدنيوية، بل توضيحًا لدلالة اللفظ في سياقه الشرعي.
+    </p>
+
+    <div class="definition-box">
+      <span class="tag">تعريف</span>
+      <p style="margin:0;"><span class="term">العلم الشرعي:</span> العلم المتعلق بأمور الدين، وهو خطاب الله عز وجل الموحى، المنقول إلينا بلا تحريف ولا تبديل عبر سلسلة العلماء جيلًا بعد جيل.</p>
+    </div>
+
+    <h3>الأدلة على أن المقصود بالعلم في النصوص الشرعية هو العلم الشرعي</h3>
+
+    <table class="comparison-table">
+      <thead><tr><th>#</th><th>وجه الاستدلال</th></tr></thead>
+      <tbody>
+        <tr><td>١</td><td>الوظيفة الأساسية للإنسان هي العبادة، ولتحقيقها يحتاج معرفة ما يريده الله منه وما يحبه ويبغضه — وهذا لا يُنال إلا بالعلم الشرعي، لا بالعلوم الدنيوية.</td></tr>
+        <tr><td>٢</td><td>العلم الشرعي هو خطاب الله عز وجل المؤكَّد الموحى، بينما العلوم الدنيوية "نظريات" يكتشفها الإنسان بالتجربة، فبعضها مؤكد وبعضها غير مؤكد، وتصيب وتخطئ.</td></tr>
+      </tbody>
+    </table>
+
+    <div class="key-point">
+      <div>
+        نتيجة المقارنة العقلية: <strong>العلم الشرعي أكثر يقينًا من العلوم الدنيوية الظنية</strong>، لأنه خطاب إلهي مؤكد منقول بلا تحريف، بخلاف النظريات الدنيوية المتغيرة القابلة للخطأ والصواب.
+      </div>
+    </div>
+
+    <div class="warning-box">
+      <div>
+        <strong>تنبيه على شبهة شائعة:</strong> قد يتساءل البعض: أليس في هذا انتقاص من علوم الدنيا (كالطب والزراعة والفلك)؟ والجواب: لا؛ فهذه العلوم مطلوبة ومهمة بالقدر الذي يُقيم به الإنسان حياته الدنيا، ويستعين بها على عبادة الله، لكنها ليست هي المقصودة أساسًا عند إطلاق لفظ "العلم" في سياق النصوص الشرعية.
+      </div>
+    </div>
+
+    <h3>ضابط النية في تعلّم العلوم الدنيوية</h3>
+    <p>
+      يضبط هذا الأمر كله عنصر "النية"؛ فمن يتعلم علمًا دنيويًا (كلغة أجنبية مثلًا) بنية الاستعانة به على الدعوة إلى الله أو تحصيل الكسب الحلال والتعفف عن سؤال الناس، فإنه يُؤجر على تعلّمه، لأن النية الصالحة تحوّل الوسيلة الدنيوية إلى طاعة.
+    </p>
+
+    <div class="key-point">
+      <div>
+        مثال من المحاضرة: من يتعلم اللغة الإنجليزية بنية الدعوة بها إلى الله، فهذا محمود ومأجور عليه — بخلاف من يظن أن تعلّم علوم دنيوية بحتة هو بذاته تحقيق لوظيفة العبودية الأساسية.
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 7 -->
+  <section class="block" id="sec7">
+    <h2><span class="icon">🗺️</span> خريطة المادة القادمة</h2>
+    <p>ختامًا، لخّص الشيخ هيكل المادة الذي سيُبنى على الأصول الأربعة في سورة العصر، مع تقديم العلم عليها جميعًا:</p>
+
+    <div class="flow-card-container">
+      <div class="flow-card">
+        <span class="num">١</span>
+        <div class="txt"><strong>المحور الأول: العلم</strong>وما يتعلق به من الإيمان والعمل الصالح — أهمية العلم وكيفية الارتقاء في طلبه.</div>
+      </div>
+      <div class="flow-card">
+        <span class="num">٢</span>
+        <div class="txt"><strong>المحور الثاني: الدعوة إلى الله</strong>(التواصي بالحق) — من المطلوب منه الدعوة، وحكمها، وكيفية القيام بها.</div>
+      </div>
+      <div class="flow-card">
+        <span class="num">٣</span>
+        <div class="txt"><strong>المحور الثالث: التربية</strong>(التواصي بالصبر) — أنواعها: تعبدية، خلقية، عقدية، وغيرها.</div>
+      </div>
+      <div class="flow-card">
+        <span class="num">٤</span>
+        <div class="txt"><strong>المحور الرابع: التوازن</strong>ضوابط عامة لتحقيق التوازن بين الأصول الشرعية الأربعة، وكذلك بينها وبين الجانب الحياتي الدنيوي (الكسب، الدراسة، حقوق الأهل).</div>
+      </div>
+    </div>
+
+    <div class="warning-box">
+      <div>
+        <strong>لماذا التوازن مهم؟</strong> إذا اختل التوازن — كأن ينشغل الشخص بجانب واحد (كالدعوة مثلًا) على حساب بقية الأصول (كطلب العلم أو العبادة)، أو ينشغل بجانب شرعي عن جانب دنيوي ضروري كحقوق الأسرة — فإن ذلك يؤثر بالسلب على أصل الأعمال نفسه، وقد يظهر أثره في مشكلات أسرية أو اضطراب فكري.
+      </div>
+    </div>
+
+    <div class="key-point">
+      <div>
+        <strong>الهدف النهائي للمادة:</strong> إخراج شخصية متوازنة متزنة في جميع الجوانب، بأثر إيجابي أولًا على الفرد نفسه، ثم على الأمة بإذن الله تعالى.
+      </div>
+    </div>
+  </section>
+
+  <!-- QUIZ SECTION -->
+  <section class="block" id="quiz-section">
+    <h2><span class="icon">📝</span> اختبر فهمك</h2>
+    <p class="quiz-intro">أجب عن الأسئلة التالية لتثبيت ما تعلمته من هذه المحاضرة.</p>
+
+    <div class="quiz-controls">
+      <label for="difficulty-filter">تصفية حسب الصعوبة: </label>
+      <select id="difficulty-filter" onchange="filterQuestions()">
+        <option value="all">الكل</option>
+        <option value="medium">متوسط</option>
+        <option value="hard">صعب</option>
+        <option value="very-hard">صعب جدًا</option>
+      </select>
+    </div>
+
+    <div id="quiz-container"></div>
+
+    <div style="text-align:center;">
+      <button class="submit-quiz-btn" onclick="submitQuiz()" style="display:inline-block;">تصحيح الإجابات وعرض النتيجة</button>
+      <button onclick="downloadAnkiDeck()" style="display:inline-block;margin:24px 0 0 10px;background:var(--brown);color:#fff8e7;border:none;padding:14px 30px;border-radius:30px;font-size:1.05rem;font-weight:800;cursor:pointer;font-family:'Cairo',sans-serif;">🗂️ حمّل بطاقات أنكي</button>
+    </div>
+
+    <div id="score-card">
+      <h3>نتيجتك في الاختبار</h3>
+      <div class="score-num" id="score-num">0 / 0</div>
+      <p id="score-message"></p>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <p class="dua amiri">
+    اللهم اجعلنا ممن آمنوا وعملوا الصالحات وتواصوا بالحق وتواصوا بالصبر،<br>
+    وارزقنا علمًا نافعًا وعملًا خالصًا متقبلًا يا رب العالمين
+  </p>
+  <p style="font-size:.85rem;">سبحانك اللهم وبحمدك، أشهد أن لا إله إلا أنت، أستغفرك وأتوب إليك</p>
+</footer>
+
+<script>
+const quizData = [
+  {
+    type:"mcq",
+    difficulty:"medium",
+    question:"ما هو تعريف العباده كما ذكره العلماء؟",
+    options:[
+      "أداء الصلاة والصيام والزكاة والحج فقط",
+      "اسم جامع لكل ما يحبه الله ويرضاه من الأقوال والأفعال",
+      "الالتزام بالعبادات الظاهرة دون الباطنة",
+      "كل عمل يقوم به الإنسان في حياته اليومية"
+    ],
+    correct:1,
+    explanation:"العبادة كما عرّفها العلماء اسم جامع وواسع يشمل كل قول أو فعل يحبه الله ويرضاه، ظاهرًا كان أو باطنًا، وليست مقتصرة على الشعائر الظاهرة فقط."
+  },
+  {
+    type:"mcq",
+    difficulty:"medium",
+    question:"ما هي الأصول الأربعة التي ذكرتها سورة العصر؟",
+    options:[
+      "الصلاة، الصيام، الزكاة، الحج",
+      "الإيمان، العمل الصالح، التواصي بالحق، التواصي بالصبر",
+      "العلم، الدعوة، التربية، الجهاد",
+      "الإيمان، الإسلام، الإحسان، التقوى"
+    ],
+    correct:1,
+    explanation:"سورة العصر استثنت من الخسران أربع فئات مجتمعة: الذين آمنوا، وعملوا الصالحات، وتواصوا بالحق، وتواصوا بالصبر."
+  },
+  {
+    type:"mcq",
+    difficulty:"hard",
+    question:"لماذا قال العلماء إن العلم يسبق أصول سورة العصر الأربعة؟",
+    options:[
+      "لأن العلم أهم من الإيمان والعمل",
+      "لأن الإيمان والعمل الصالح والدعوة والصبر لا تستقيم على الوجه الصحيح إلا بمعرفة كيفيتها الشرعية أولًا",
+      "لأن العلم وحده كافٍ لدخول الجنة",
+      "لأن سورة العصر ذكرت العلم كأصل خامس"
+    ],
+    correct:1,
+    explanation:"العلم ليس أصلًا خامسًا مستقلًا في السورة، لكنه شرط سابق لصحة الأصول الأربعة؛ فبدونه قد يقع الإنسان في إيمان ناقص أو عمل مردود أو دعوة إلى ضلالة أو تربية غير منضبطة."
+  },
+  {
+    type:"mcq",
+    difficulty:"hard",
+    question:"ما المقصود بلفظ 'العلم' إذا ورد في النصوص والمجالس الشرعية؟",
+    options:[
+      "العلم الدنيوي كالطب والهندسة",
+      "العلم الشرعي (علوم الدين) دون العلم الدنيوي",
+      "أي نوع من أنواع المعرفة الإنسانية",
+      "العلم التجريبي القائم على الملاحظة"
+    ],
+    correct:1,
+    explanation:"وضّحت المحاضرة أن المقصود بالعلم عند إطلاقه في السياق الشرعي هو العلم الشرعي تحديدًا، لأنه خطاب الله الموحى المؤكد، بخلاف العلوم الدنيوية التي هي نظريات ظنية قابلة للخطأ."
+  },
+  {
+    type:"mcq",
+    difficulty:"medium",
+    question:"ما حكم تعلّم لغة أجنبية بنية استخدامها للدعوة إلى الله؟",
+    options:[
+      "مكروه لأنه ينشغل عن العلم الشرعي",
+      "محرّم لأنه يشغل عن العبادة",
+      "محمود ومأجور عليه لصلاح النية",
+      "لا حكم له لأنه علم دنيوي بحت"
+    ],
+    correct:2,
+    explanation:"ضرب الشيخ مثالًا بمن يتعلم لغة أجنبية بنية الدعوة بها، وبيّن أن هذا محمود ومأجور عليه لأن النية الصالحة تحوّل الوسيلة الدنيوية إلى طاعة."
+  },
+  {
+    type:"mcq",
+    difficulty:"very-hard",
+    question:"ما وجه الشبه الذي ذكره الشيخ بين من يبتدع عبادة من عنده وبين المشركين في قوله تعالى 'ما نعبدهم إلا ليقربونا إلى الله زلفى'؟",
+    options:[
+      "كلاهما لا يؤمن بوجود الله أصلًا",
+      "كلاهما وقع في خلل رغم حسن النية، لأن الفعل غير المبني على علم شرعي صحيح يُبعد عن المقصود بدل أن يقرّب منه",
+      "كلاهما يرفض العبادات الظاهرة",
+      "لا علاقة بين الأمرين، والمقارنة غير صحيحة"
+    ],
+    correct:1,
+    explanation:"المشركون كانوا يؤمنون بالله كخالق ورازق، لكن جهلهم بطريقة التقرب الصحيحة أوقعهم في الشرك رغم نيتهم الظاهرة بالتقرب. وبالمثل، من يبتدع عبادة دون علم بمشروعيتها يقع في خلل رغم حسن قصده، مما يؤكد أن النية وحدها لا تكفي دون علم صحيح."
+  },
+  {
+    type:"tf",
+    difficulty:"medium",
+    question:"العبادة تقتصر على الصلاة والصيام والزكاة والحج فقط.",
+    correct:false,
+    explanation:"خطأ، فالعبادة كما عرّفها العلماء اسم جامع وواسع يشمل كل قول أو فعل يحبه الله ويرضاه، وليست مقصورة على الشعائر الظاهرة."
+  },
+  {
+    type:"tf",
+    difficulty:"medium",
+    question:"العلوم الدنيوية كالطب والزراعة غير مطلوبة شرعًا بأي حال من الأحوال.",
+    correct:false,
+    explanation:"خطأ، فالمحاضرة أكدت أن العلوم الدنيوية مطلوبة ومهمة بالقدر الذي يُقيم به الإنسان حياته ويستعين به على العبادة، وليس هناك تقليل من شأنها، بل هي مطلوبة بقدر الحاجة."
+  },
+  {
+    type:"tf",
+    difficulty:"hard",
+    question:"الصبر في سورة العصر نوع واحد فقط وهو الصبر على الطاعة، والعلوم الدنيوية أقوى يقينًا من العلم الشرعي لأنها مبنية على التجربة العملية.",
+    correct:false,
+    explanation:"خطأ في الشطرين معًا: الصبر ثلاثة أنواع (على الطاعة، وعلى البلاء، وعن المعصية) وليس نوعًا واحدًا. كذلك العلم الشرعي أكثر يقينًا من العلوم الدنيوية الظنية لأنه خطاب إلهي مؤكد، بخلاف النظريات الدنيوية المتغيرة."
+  },
+  {
+    type:"tf",
+    difficulty:"medium",
+    question:"دار الدنيا هي دار قرار يركن إليها الإنسان ولا يُطلب منه فيها اختبار.",
+    correct:false,
+    explanation:"خطأ، فالمحاضرة نصت على أن الدنيا دار اختبار وابتلاء وليست دار قرار، ومن نجح في هذا الاختبار نجّاه الله في الآخرة."
+  },
+  {
+    type:"tf",
+    difficulty:"hard",
+    question:"من يعمل عملًا تعبديًا لم يرد عليه أمر الشرع فإن عمله هذا مقبول لحسن نيته، لأن النية وحدها كافية لقبول العمل.",
+    correct:false,
+    explanation:"خطأ، فحديث 'من عمل عملًا ليس عليه أمرنا فهو رد' يدل على أن العمل غير الموافق لهدي النبي صلى الله عليه وسلم مردود على صاحبه، وإن كانت نيته حسنة؛ فالنية شرط لكن لا تكفي وحدها دون موافقة الشرع."
+  },
+  {
+    type:"tf",
+    difficulty:"very-hard",
+    question:"التربية الصحيحة تكون بالتجربة العشوائية أو بأسلوب الصدمة، وهذا الأسلوب هو الأصل الذي دعت إليه المحاضرة لتحقيق التواصي بالصبر.",
+    correct:false,
+    explanation:"خطأ في الشطرين: المحاضرة استنكرت أسلوبي 'التجربة' العشوائية و'الصدمة' في التربية، وبيّنت أن التربية الصحيحة المنضبطة تقوم على العلم بدواخل النفس ومشاكلها، وهي التي دعت إليها المحاضرة لا أسلوب الصدمة."
+  },
+  {
+    type:"tf",
+    difficulty:"medium",
+    question:"وردت آية 'والعصر إن الإنسان لفي خسر' لتخبر أن كل الناس في خسران دون استثناء.",
+    correct:false,
+    explanation:"خطأ، فالآيات استثنت فئة من الخسران، وهم الذين آمنوا وعملوا الصالحات وتواصوا بالحق وتواصوا بالصبر."
+  },
+  {
+    type:"essay",
+    difficulty:"hard",
+    question:"وضّح بأسلوبك ولماذا قال العلماء إن العلم يسبق كل أصول سورة العصر، مستدلًا بمثال واحد على الأقل من المحاضرة.",
+    modelAnswer:"العلم يُعتبر شرطًا سابقًا لصحة تحقق الأصول الأربعة في سورة العصر (الإيمان، العمل الصالح، التواصي بالحق، التواصي بالصبر)، لأن كل واحد من هذه الأصول لا يستقيم على وجهه الصحيح دون معرفة شرعية مسبقة. فمثلًا، الإيمان لا يكفي أن يكون مجرد تصديق قلبي عام، بل لا بد أن يُبنى على عقيدة صحيحة متعلَّمة، وإلا وقع صاحبه في انحراف كما وقع المشركون الذين آمنوا بالله كخالق لكنهم أشركوا معه أولياء ظنًا منهم أن ذلك يقربهم إليه (سورة الزمر: ما نعبدهم إلا ليقربونا إلى الله زلفى). وكذلك العمل الصالح، فمن يعمل عملًا تعبديًا دون علم بمشروعيته يكون عمله مردودًا حسب حديث 'من عمل عملًا ليس عليه أمرنا فهو رد'، حتى لو كانت نيته حسنة. وبالمثل الدعوة لا تصح دون علم بمضمونها الصحيح، والصبر والتربية لا يستقيمان دون معرفة بكيفية مجاهدة النفس. فالعلم إذًا هو 'البوصلة' التي تضبط اتجاه كل الأصول الأخرى وتمنع الانحراف فيها رغم حسن النية."
+  },
+  {
+    type:"essay",
+    difficulty:"very-hard",
+    question:"اشرح الفرق بين 'العلم الشرعي' و'العلوم الدنيوية' من حيث درجة اليقين، ثم بيّن متى تُصبح العلوم الدنيوية مأجورًا عليها شرعًا.",
+    modelAnswer:"يكمن الفرق الجوهري بين العلم الشرعي والعلوم الدنيوية في مصدر كل منهما ودرجة يقينه: العلم الشرعي هو خطاب الله عز وجل الموحى المؤكد، المنقول إلينا عبر سلسلة متصلة من العلماء (وهم ورثة الأنبياء) دون تحريف ولا تبديل، ولذلك فهو علم يقيني قطعي المصدر. أما العلوم الدنيوية (كالطب والفلك والزراعة) فهي في الأصل نظريات وتجارب بشرية، بعضها مؤكد وبعضها غير مؤكد، تصيب أحيانًا وتخطئ أحيانًا أخرى، لأنها قائمة على الاجتهاد والملاحظة والتجربة البشرية المحدودة، لا على وحي معصوم. ومع ذلك، لا تُذم العلوم الدنيوية ولا يُنتقص من شأنها، بل هي مطلوبة بالقدر الذي يُقيم به الإنسان حياته الدنيا (كتعلّم الزراعة لتحصيل القوت مثلًا). وتصبح هذه العلوم الدنيوية مأجورًا عليها شرعًا إذا صلحت نية صاحبها فيها، كأن يتعلمها ليستعين بها على طاعة الله، مثل تعلّم لغة أجنبية بنية الدعوة إلى الله بها، أو طلب الرزق الحلال والتعفف عن سؤال الناس؛ فبصلاح النية تتحول هذه العلوم الدنيوية من مجرد وسيلة معيشية إلى عبادة يُثاب عليها صاحبها."
+  }
+];
+
+let userAnswers = {};
+
+function renderQuiz(filter="all"){
+  const container = document.getElementById("quiz-container");
+  container.innerHTML = "";
+  quizData.forEach((q, idx) => {
+    if(filter !== "all" && q.difficulty !== filter) return;
+
+    const card = document.createElement("div");
+    card.className = "question-card";
+    card.dataset.index = idx;
+
+    const diffLabel = {medium:"متوسط", hard:"صعب", "very-hard":"صعب جدًا"}[q.difficulty];
+    const diffClass = {medium:"diff-medium", hard:"diff-hard", "very-hard":"diff-very-hard"}[q.difficulty];
+
+    let inner = `<div class="q-meta">
+        <span class="q-difficulty ${diffClass}">${diffLabel}</span>
+        <span style="font-size:.8rem;color:#999;">سؤال ${idx+1}</span>
+      </div>
+      <div class="q-text">${q.question}</div>`;
+
+    if(q.type === "mcq"){
+      inner += `<div class="options">`;
+      q.options.forEach((opt, oi) => {
+        inner += `<label class="option-label">
+          <input type="radio" name="q${idx}" value="${oi}" onchange="userAnswers[${idx}]=${oi}">
+          ${opt}
+        </label>`;
+      });
+      inner += `</div><div class="explanation" id="exp${idx}"></div>`;
+    } else if(q.type === "tf"){
+      inner += `<div class="options tf-options">
+          <label class="option-label">
+            <input type="radio" name="q${idx}" value="true" onchange="userAnswers[${idx}]=true">
+            صح
+          </label>
+          <label class="option-label">
+            <input type="radio" name="q${idx}" value="false" onchange="userAnswers[${idx}]=false">
+            خطأ
+          </label>
+        </div><div class="explanation" id="exp${idx}"></div>`;
+    } else if(q.type === "essay"){
+      inner += `<textarea class="essay-input" id="essay${idx}" placeholder="اكتب إجابتك هنا..."></textarea>
+        <button class="show-answer-btn" onclick="toggleModelAnswer(${idx})">إظهار الإجابة النموذجية</button>
+        <div class="model-answer" id="model${idx}">${q.modelAnswer}</div>`;
+    }
+
+    card.innerHTML = inner;
+    container.appendChild(card);
+  });
+}
+
+function toggleModelAnswer(idx){
+  const el = document.getElementById("model"+idx);
+  el.classList.toggle("show");
+}
+
+function filterQuestions(){
+  const val = document.getElementById("difficulty-filter").value;
+  renderQuiz(val);
+}
+
+function submitQuiz(){
+  let correctCount = 0;
+  let totalGraded = 0;
+
+  quizData.forEach((q, idx) => {
+    if(q.type === "essay") return;
+    const card = document.querySelector(`.question-card[data-index="${idx}"]`);
+    if(!card) return;
+    totalGraded++;
+
+    const expDiv = document.getElementById("exp"+idx);
+    const userAns = userAnswers[idx];
+    const labels = card.querySelectorAll(".option-label");
+
+    let isCorrect = false;
+    if(q.type === "mcq"){
+      isCorrect = userAns === q.correct;
+      labels.forEach((lab, oi) => {
+        if(oi === q.correct) lab.classList.add("correct-answer");
+        else if(oi === userAns && !isCorrect) lab.classList.add("wrong-answer");
+      });
+    } else if(q.type === "tf"){
+      isCorrect = userAns === q.correct;
+      labels.forEach((lab) => {
+        const val = lab.querySelector("input").value === "true";
+        if(val === q.correct) lab.classList.add("correct-answer");
+        else if(val === userAns && !isCorrect) lab.classList.add("wrong-answer");
+      });
+    }
+
+    if(isCorrect) correctCount++;
+
+    expDiv.textContent = q.explanation;
+    expDiv.classList.add("show");
+    if(!isCorrect) expDiv.classList.add("wrong");
+  });
+
+  const scoreCard = document.getElementById("score-card");
+  scoreCard.style.display = "block";
+  document.getElementById("score-num").textContent = `${correctCount} / ${totalGraded}`;
+
+  const percentage = (correctCount/totalGraded)*100;
+  let msg = "";
+  if(percentage >= 90) msg = "ممتاز! فهمك للمحاضرة عالٍ جدًا، بارك الله فيك.";
+  else if(percentage >= 70) msg = "جيد جدًا! راجع النقاط التي أخطأت فيها لتثبيت الفهم.";
+  else if(percentage >= 50) msg = "لا بأس، لكن يُنصح بمراجعة المحاضرة مرة أخرى للتأكد من استيعاب الأصول الأربعة.";
+  else msg = "يُنصح بإعادة قراءة المحاضرة كاملة قبل الانتقال للمحاضرة التالية.";
+  document.getElementById("score-message").textContent = msg;
+
+  scoreCard.scrollIntoView({behavior:"smooth", block:"center"});
+}
+
+renderQuiz();
+
+// ==================== بطاقات أنكي ====================
+const ankiCards = [
+  // ---- تعريفات ----
+  ["ما تعريف العبادة اصطلاحًا؟", "اسمٌ جامعٌ لكل ما يحبه الله ويرضاه من الأقوال والأفعال، الظاهرة والباطنة."],
+  ["ما تعريف العلم الشرعي؟", "العلم المتعلق بأمور الدين، وهو خطاب الله عز وجل الموحى، المنقول إلينا بلا تحريف ولا تبديل عبر سلسلة العلماء جيلًا بعد جيل."],
+  ["ما الفرق الجوهري بين العلم الشرعي والعلوم الدنيوية من حيث اليقين؟", "العلم الشرعي خطاب إلهي موحى مؤكد قطعي المصدر، أما العلوم الدنيوية فنظريات وتجارب بشرية ظنية تصيب وتخطئ."],
+  ["ما معنى الحكم الشرعي 'واجب'؟", "ما أوجبه الله عز وجل لخطورة الأمر أو أهميته."],
+  ["ما معنى الحكم الشرعي 'محرَّم'؟", "ما نهى الله عنه من الأمور التي فيها ضرر أو مفسدة."],
+  ["ما معنى الحكم الشرعي 'مستحب'؟", "أمر مطلوب لكنه غير واجب، يُثاب فاعله ولا يُعاقب تاركه."],
+  ["ما معنى الحكم الشرعي 'مكروه'؟", "ما يُستحسن تركه دون أن يبلغ درجة التحريم."],
+  ["ما هي أنواع الصبر الثلاثة المذكورة في المحاضرة؟", "الصبر على الطاعة، والصبر على البلاء، والصبر عن المعصية."],
+
+  // ---- أدلة: آيات ----
+  ["أكمل الآية: 'وَمَا خَلَقْتُ الْجِنَّ وَالْإِنسَ...'", "إِلَّا لِيَعْبُدُونِ (سورة الذاريات، آية ٥٦)"],
+  ["ما الدليل من القرآن على أن العبادة هي وظيفة الإنسان الأساسية؟", "قوله تعالى: 'وَمَا خَلَقْتُ الْجِنَّ وَالْإِنسَ إِلَّا لِيَعْبُدُونِ' (سورة الذاريات، آية ٥٦)."],
+  ["أكمل الآية: 'قُلْ إِنَّ صَلَاتِي وَنُسُكِي...'", "وَمَحْيَايَ وَمَمَاتِي لِلَّهِ رَبِّ الْعَالَمِينَ (سورة الأنعام، آية ١٦٢)"],
+  ["ما الآيات التي تشكل منهج حياة متكامل حسب المحاضرة (سورة العصر)؟", "وَالْعَصْرِ ۝ إِنَّ الْإِنسَانَ لَفِي خُسْرٍ ۝ إِلَّا الَّذِينَ آمَنُوا وَعَمِلُوا الصَّالِحَاتِ وَتَوَاصَوْا بِالْحَقِّ وَتَوَاصَوْا بِالصَّبْرِ (سورة العصر، آيات ١-٣)"],
+  ["بمن أقسم الله في سورة العصر، وماذا يدل هذا القسم؟", "أقسم بالعصر (الزمن)، ويدل القسم على عِظَم المُقسَم به، لأن الله لا يقسم إلا بعظيم."],
+  ["ما الآية التي استشهد بها الشيخ لبيان شبه من يبتدع عبادة بلا علم بفعل المشركين؟", "'وَالَّذِينَ اتَّخَذُوا مِن دُونِهِ أَوْلِيَاءَ مَا نَعْبُدُهُمْ إِلَّا لِيُقَرِّبُونَا إِلَى اللَّهِ زُلْفَىٰ' (سورة الزمر، آية ٣)"],
+
+  // ---- أدلة: أحاديث ----
+  ["أكمل الحديث: 'مَا مَلَأَ آدَمِيٌّ وِعَاءً شَرًّا مِنْ بَطْنٍ...'", "بِحَسْبِ ابْنِ آدَمَ لُقَيْمَاتٌ يُقِمْنَ صُلْبَهُ (من حديث المقدام بن معدي كرب رضي الله عنه)"],
+  ["ما الدليل على وجوب الاعتدال في الأكل والشرب؟", "حديث: 'مَا مَلَأَ آدَمِيٌّ وِعَاءً شَرًّا مِنْ بَطْنٍ، بِحَسْبِ ابْنِ آدَمَ لُقَيْمَاتٌ يُقِمْنَ صُلْبَهُ' (من حديث المقدام بن معدي كرب رضي الله عنه)."],
+  ["ما الدليل على أن العمل غير الموافق للشرع مردود على صاحبه ولو حسنت نيته؟", "حديث: 'مَنْ عَمِلَ عَمَلًا لَيْسَ عَلَيْهِ أَمْرُنَا فَهُوَ رَدٌّ' (من حديث السيدة عائشة رضي الله عنها)."],
+  ["أكمل الحديث: 'مَنْ عَمِلَ عَمَلًا لَيْسَ عَلَيْهِ...'", "أَمْرُنَا فَهُوَ رَدٌّ (من حديث السيدة عائشة رضي الله عنها)"],
+
+  // ---- فوائد ونقاط مهمة ----
+  ["ما السبب الحقيقي وراء تخبط كثير من السالكين إلى الله رغم اجتهادهم؟", "ليس نقص الاجتهاد، بل خلل في 'ضبط البوصلة' — أي عدم وضوح الوجهة والهدف والأولويات."],
+  ["ما وظيفة الإنسان الأساسية التي خُلق من أجلها؟", "العبادة."],
+  ["هل تقتصر العبادة على الشعائر الظاهرة كالصلاة والصوم؟", "لا، فتعريف العبادة أوسع من ذلك؛ فكل قول أو فعل يحبه الله ويرضاه يدخل في مسمى العبادة، سواء كان شعيرة أو معاملة يومية بنية صالحة."],
+  ["ما القاعدة المستفادة من حديث 'ما ملأ آدمي وعاءً شرًّا من بطن' بخصوص الأكل والشرب؟", "الاعتدال في الأكل والشرب بما يقيم الجسد فحسب هو الأصل، وليس الإسراف والانغماس في ملء البطن."],
+  ["كيف وصف الشيخ حال الدنيا بالنسبة للإنسان؟", "دار اختبار وابتلاء، وليست دار قرار؛ فمن نجح فيها نجّاه الله في الآخرة، ومن قصّر كان مآله إلى النار والعياذ بالله."],
+  ["ماذا قال الإمام الشافعي رحمه الله عن سورة العصر؟", "'لو لم ينزل الله عز وجل إلا سورة العصر لكفت الناس'."],
+  ["ما هي الأصول الأربعة التي استثنى الله بها الإنسان من الخسران في سورة العصر؟", "الإيمان، والعمل الصالح، والتواصي بالحق، والتواصي بالصبر."],
+  ["ماذا يُقصد بـ'التواصي بالحق' في سورة العصر؟", "الدعوة إلى الله، والأمر بالمعروف والنهي عن المنكر، بحيث لا يكون كل واحد في شأن نفسه فقط."],
+  ["ما وجه الشبه بين من يبتدع عبادة من عنده وبين المشركين في قوله تعالى 'ما نعبدهم إلا ليقربونا إلى الله زلفى'؟", "كلاهما وقع في خلل رغم حسن النية، لأن الفعل غير المبني على علم شرعي صحيح يُبعد عن المقصود بدل أن يقرّب منه."],
+  ["على ماذا أجمع العلماء بخصوص ترتيب العلم مع أصول سورة العصر الأربعة؟", "أجمعوا على أن العلم يسبق هذه الأصول الأربعة جميعًا: الإيمان، والعمل الصالح، والتواصي بالحق، والتواصي بالصبر."],
+  ["لماذا لا يستقيم الإيمان الصحيح دون علم؟", "لأن الإيمان على جهل قد يكون ناقصًا أو فيه خلل في التصور، وقد يقود صاحبه دون أن يشعر إلى الانحراف."],
+  ["ما هما الأسلوبان اللذان استنكرتهما المحاضرة في التربية، وما البديل الصحيح؟", "استنكرت أسلوب 'التجربة' العشوائية وأسلوب 'الصدمة' غير المنضبطة، والبديل الصحيح هو التربية المبنية على العلم بدواخل النفس ومشاكلها."],
+  ["متى تصبح العلوم الدنيوية (كتعلّم لغة أجنبية) مأجورًا عليها شرعًا؟", "إذا صلحت نية صاحبها فيها، كأن يتعلمها ليستعين بها على طاعة الله كالدعوة إلى الله أو طلب الرزق الحلال."],
+  ["ما حكم تعلّم لغة أجنبية بنية استخدامها للدعوة إلى الله؟", "محمود ومأجور عليه لصلاح النية، لأن النية الصالحة تحوّل الوسيلة الدنيوية إلى طاعة."],
+  ["هل العلوم الدنيوية كالطب والزراعة مذمومة أو منتقصة شرعًا؟", "لا، فهي مطلوبة ومهمة بالقدر الذي يُقيم به الإنسان حياته الدنيا ويستعين بها على العبادة."],
+  ["ما هي المحاور الأربعة التي ستُبنى عليها مادة أصول الأعمال والتوازن؟", "المحور الأول: العلم، الثاني: الدعوة إلى الله (التواصي بالحق)، الثالث: التربية (التواصي بالصبر)، الرابع: التوازن بين كل هذه الأصول والجانب الحياتي الدنيوي."],
+  ["ما الذي يترتب على اختلال التوازن بين الأصول الشرعية والجوانب الحياتية الأخرى؟", "يؤثر بالسلب على أصل الأعمال نفسه، وقد يظهر أثره في مشكلات أسرية أو اضطراب فكري."],
+  ["ما الهدف النهائي لمادة أصول الأعمال والتوازن؟", "إخراج شخصية متوازنة متزنة في جميع الجوانب، بأثر إيجابي أولًا على الفرد نفسه، ثم على الأمة."]
+];
+
+function downloadAnkiDeck() {
+  const deckName = "الاكاديمية::التزكية والسلوك::١ - أصول الأعمال والتوازن فيما بينها";
+  let content = ankiCards.map(([q, a]) => {
+    const clean = s => s.replace(/\t/g, ' ').replace(/\r?\n/g, '<br>');
+    return `${clean(q)}\t${clean(a)}\t${deckName}`;
+  }).join('\n');
+  const BOM = '\uFEFF';
+  const blob = new Blob([BOM + content], { type: 'text/plain;charset=utf-8' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'بطاقات_أنكي_أصول_الأعمال_والتوازن.txt';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+</script>
 
 </body>
 </html>
