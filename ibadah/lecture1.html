@@ -3,125 +3,595 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>المحاضرة 1 | العبادة</title>
-<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
-<!--
-  LECTURE_STATUS: EMPTY
-  هذا الملف محاضرة فارغة بانتظار التعبئة.
-  عند إضافة محتوى حقيقي، غيّر التعليق أعلاه إلى LECTURE_STATUS: FILLED
-  حتى تتعرف عليه صفحة الفئة (index.html) كمحاضرة مكتملة ويزيد العداد تلقائيًا.
--->
-<meta name="lecture-status" content="empty">
+<title>أدلة وجود الله | مقرر العقيدة - رسالة العبادة</title>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --gold: #C5A55A;
-    --gold-light: #E8D5A3;
-    --ivory: #FAF7F0;
-    --brown-deep: #3A2A1A;
-    --brown-mid: #5C4033;
-    --brown-warm: #7A5C40;
-    --green-islamic: #1B6B4A;
-    --green-light: #E8F5EE;
-    --green-accent: #2D8B6A;
-    --cream: #FFF8EC;
-    --border-soft: #E5D5BF;
-    --text-main: #2C1E10;
-    --text-secondary: #6B5744;
-    --shadow-soft: 0 2px 20px rgba(58, 42, 26, 0.08);
-    --shadow-card: 0 4px 24px rgba(58, 42, 26, 0.1);
+  :root{
+    --brown-dark:#3b2a1a; --brown:#6b4a2f; --gold:#c9973a; --gold-light:#e8c777;
+    --green-dark:#1f4d3d; --green:#2f6b52; --cream:#faf6ee; --cream-2:#f2ead8;
+    --ink:#2b241a; --danger:#8c3b2e;
   }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body {
-    font-family: 'Cairo', sans-serif;
-    background: var(--ivory);
-    color: var(--text-main);
-    line-height: 1.9;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
+  *{box-sizing:border-box;}
+  body{margin:0;font-family:'Cairo',sans-serif;background:var(--cream);color:var(--ink);line-height:1.9;}
+  h1,h2,h3,.arabic-emph{font-family:'Amiri',serif;}
+
+  header{background:linear-gradient(135deg,var(--green-dark),var(--brown-dark));color:var(--cream);padding:50px 20px 70px;text-align:center;position:relative;overflow:hidden;}
+  header::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 15% 20%, rgba(201,151,58,0.15) 0%, transparent 40%),radial-gradient(circle at 85% 80%, rgba(201,151,58,0.15) 0%, transparent 40%);}
+  header .ornament{font-size:2rem;color:var(--gold);margin-bottom:10px;position:relative;}
+  header h1{font-size:2.5rem;margin:10px 0;position:relative;text-shadow:0 2px 10px rgba(0,0,0,0.3);}
+  header p.subtitle{font-size:1.1rem;color:var(--gold-light);max-width:700px;margin:15px auto 0;position:relative;}
+  .lecture-badge{display:inline-block;background:rgba(255,255,255,0.12);border:1px solid var(--gold);padding:6px 20px;border-radius:30px;font-size:0.9rem;margin-top:20px;position:relative;}
+  .top-anki-btn{margin-top:25px;position:relative;}
+
+  .anki-btn{background:linear-gradient(135deg,var(--gold),#a9772a);color:#2b1c0e;border:none;padding:14px 32px;border-radius:12px;font-family:'Cairo',sans-serif;font-weight:700;font-size:1rem;cursor:pointer;box-shadow:0 6px 18px rgba(0,0,0,0.25);transition:transform .2s, box-shadow .2s;}
+  .anki-btn:hover{transform:translateY(-3px);box-shadow:0 10px 22px rgba(0,0,0,0.3);}
+
+  .toc-wrap{max-width:900px;margin:-40px auto 40px;position:relative;z-index:2;padding:0 20px;}
+  .toc{background:#fff;border-radius:16px;padding:30px;box-shadow:0 10px 30px rgba(59,42,26,0.15);border-top:5px solid var(--gold);}
+  .toc h2{margin-top:0;color:var(--green-dark);font-size:1.4rem;border-bottom:2px dashed var(--gold);padding-bottom:12px;}
+  .toc ol{columns:2;column-gap:30px;padding-inline-start:20px;}
+  .toc li{margin-bottom:10px;}
+  .toc a{color:var(--brown);text-decoration:none;font-weight:600;}
+  .toc a:hover{color:var(--green);text-decoration:underline;}
+
+  main{max-width:900px;margin:0 auto;padding:0 20px 60px;}
+  section{margin-bottom:50px;scroll-margin-top:20px;}
+  section > h2{color:var(--green-dark);font-size:1.6rem;display:flex;align-items:center;gap:12px;border-right:5px solid var(--gold);padding-right:15px;margin-bottom:25px;}
+  h3.sub-heading{color:var(--brown);font-size:1.2rem;margin-top:30px;margin-bottom:12px;}
+  p{margin:0 0 16px;}
+
+  .definition-box{background:var(--cream-2);border-right:4px solid var(--green);border-radius:10px;padding:18px 22px;margin:20px 0;}
+  .definition-box .label{font-weight:800;color:var(--green-dark);display:block;margin-bottom:8px;font-size:0.95rem;}
+
+  .evidence-block{background:#fff;border:1px solid var(--gold-light);border-right:5px solid var(--gold);border-radius:10px;padding:18px 22px;margin:20px 0;}
+  .evidence-block .label{font-weight:800;color:var(--brown);display:block;margin-bottom:8px;font-size:0.9rem;}
+  .evidence-block .arabic-emph{font-size:1.15rem;color:var(--green-dark);display:block;margin-bottom:6px;}
+  .evidence-block .source{font-size:0.85rem;color:#8a7a5c;margin-top:8px;}
+
+  .key-point{background:linear-gradient(135deg,#fff,#fdf9ef);border:2px solid var(--gold-light);border-radius:10px;padding:16px 20px;margin:16px 0;display:flex;gap:12px;align-items:flex-start;}
+  .key-point .star{color:var(--gold);font-size:1.3rem;flex-shrink:0;}
+
+  .warning-box{background:#fdf1ee;border:2px solid #e0a996;border-right:5px solid var(--danger);border-radius:10px;padding:16px 22px;margin:20px 0;}
+  .warning-box .label{font-weight:800;color:var(--danger);display:block;margin-bottom:8px;}
+
+  table.comparison-table{width:100%;border-collapse:collapse;margin:20px 0;background:#fff;box-shadow:0 4px 12px rgba(0,0,0,0.06);border-radius:10px;overflow:hidden;}
+  table.comparison-table th{background:var(--green-dark);color:#fff;padding:12px;text-align:right;}
+  table.comparison-table td{padding:12px;border-bottom:1px solid #eee;}
+  table.comparison-table tr:nth-child(even) td{background:var(--cream-2);}
+
+  .flow-list{display:flex;flex-direction:column;gap:14px;margin:20px 0;}
+  .flow-card{display:flex;gap:16px;align-items:flex-start;background:#fff;border-radius:10px;padding:16px 20px;box-shadow:0 3px 10px rgba(0,0,0,0.06);border-right:4px solid var(--green);}
+  .flow-card .num{background:var(--green-dark);color:#fff;width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;flex-shrink:0;}
+
+  .action-card{background:linear-gradient(135deg,#eef7f0,#fff);border:2px solid var(--green);border-radius:10px;padding:16px 22px;margin:16px 0;}
+  .action-card .label{font-weight:800;color:var(--green-dark);display:block;margin-bottom:6px;}
+
+  ul.styled-list{padding-inline-start:22px;}
+  ul.styled-list li{margin-bottom:8px;}
+
+  .map-block{
+    background:#fff;border:2px solid var(--gold-light);border-radius:12px;padding:18px;margin:22px 0;text-align:center;
   }
-  .header {
-    background: linear-gradient(160deg, var(--brown-deep) 0%, var(--brown-mid) 60%, var(--brown-warm) 100%);
-    color: var(--ivory);
-    padding: 40px 24px;
-    text-align: center;
-  }
-  .breadcrumb {
-    font-size: 13px;
-    color: var(--gold-light);
-    margin-bottom: 14px;
-    opacity: 0.85;
-  }
-  .breadcrumb a { color: var(--gold-light); text-decoration: none; }
-  .breadcrumb a:hover { text-decoration: underline; }
-  .header h1 {
-    font-family: 'Amiri', serif;
-    font-size: clamp(24px, 5vw, 34px);
-  }
-  main {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 60px 24px;
-  }
-  .empty-card {
-    max-width: 520px;
-    text-align: center;
-    background: white;
-    border: 1px dashed var(--border-soft);
-    border-radius: 20px;
-    padding: 50px 36px;
-    box-shadow: var(--shadow-soft);
-  }
-  .empty-icon { font-size: 48px; margin-bottom: 18px; opacity: 0.6; }
-  .empty-card h2 {
-    font-family: 'Amiri', serif;
-    color: var(--brown-deep);
-    font-size: 22px;
-    margin-bottom: 12px;
-  }
-  .empty-card p {
-    color: var(--text-secondary);
-    font-size: 15px;
-    line-height: 1.9;
-  }
-  .back-link {
-    display: inline-block;
-    margin-top: 24px;
-    padding: 10px 26px;
-    background: var(--green-light);
-    color: var(--green-islamic);
-    text-decoration: none;
-    border-radius: 20px;
-    font-weight: 700;
-    font-size: 14px;
-  }
-  footer {
-    text-align: center;
-    padding: 24px;
-    color: var(--text-secondary);
-    font-size: 13px;
-  }
+  .map-block img{max-width:100%;border-radius:8px;}
+  .map-block .cap{font-size:0.9rem;color:var(--brown);margin-top:10px;font-weight:600;}
+
+  .divider{text-align:center;color:var(--gold);font-size:1.4rem;margin:35px 0;letter-spacing:15px;}
+
+  .bottom-anki{text-align:center;background:linear-gradient(135deg,var(--green-dark),var(--brown-dark));border-radius:16px;padding:35px 20px;color:#fff;margin:40px 0;}
+  .bottom-anki h3{color:var(--gold-light);margin-top:0;}
+  .bottom-anki p{color:#e8e0cf;font-size:0.95rem;}
+
+  footer{background:var(--brown-dark);color:var(--cream);text-align:center;padding:40px 20px;}
+  footer .dua{font-family:'Amiri',serif;font-size:1.3rem;color:var(--gold-light);max-width:600px;margin:0 auto 10px;}
+  footer .small{color:#c9b998;font-size:0.85rem;}
+
+  @media (max-width:600px){.toc ol{columns:1;}header h1{font-size:1.8rem;}}
 </style>
 </head>
 <body>
 
-<header class="header">
-  <div class="breadcrumb"><a href="../index.html">الأكاديمية الشرعية</a> ← <a href="index.html">العبادة</a> ← المحاضرة 1</div>
-  <h1>المحاضرة 1</h1>
+<header>
+  <div class="ornament">۞ ۩ ۞</div>
+  <h1>أدلة وجود الله سبحانه وتعالى</h1>
+  <p class="subtitle">المحاضرة الأولى من مقرر العقيدة — رسالة العبادة: ست طرق عقلية وفطرية وشرعية لإثبات وجود الخالق</p>
+  <div class="lecture-badge">مقرر العقيدة — رسالة العبادة</div>
+  <div class="top-anki-btn">
+    <button class="anki-btn" onclick="downloadAnkiDeck()">🗂️ حمّل بطاقات أنكي</button>
+  </div>
 </header>
 
-<main>
-  <div class="empty-card">
-    <div class="empty-icon">📝</div>
-    <h2>هذه المحاضرة لم تُملأ بعد</h2>
-    <p>سيتم إضافة الشرح المفصّل وبطاقات المراجعة لهذه المحاضرة قريبًا بإذن الله.</p>
-    <a class="back-link" href="index.html">← الرجوع لقائمة المحاضرات</a>
+<div class="toc-wrap">
+  <div class="toc">
+    <h2>📖 محتويات المحاضرة</h2>
+    <ol>
+      <li><a href="#sec1">مقدمة: ما هي العقيدة؟</a></li>
+      <li><a href="#sec2">لماذا نبدأ برسالة العبادة؟</a></li>
+      <li><a href="#sec3">لماذا نقسّم العلوم الشرعية؟</a></li>
+      <li><a href="#sec4">مراتب الإيمان بالله</a></li>
+      <li><a href="#sec5">لماذا ينكر البعض وجود الله؟</a></li>
+      <li><a href="#sec6">الدليل الأول: دليل الشرع</a></li>
+      <li><a href="#sec7">الدليل الثاني: دليل الفطرة</a></li>
+      <li><a href="#sec8">الدليل الثالث: الاستدلال بالله على الله</a></li>
+      <li><a href="#sec9">الدليل الرابع: معجزات الرسل</a></li>
+      <li><a href="#sec10">الدليل الخامس: إجماع الأمم</a></li>
+      <li><a href="#sec11">الدليل السادس: القياس العقلي</a></li>
+      <li><a href="#sec12">الرد على شبهة "نظرية الصدفة"</a></li>
+      <li><a href="#sec13">خلاصة الأدلة الستة</a></li>
+    </ol>
   </div>
+</div>
+
+<main>
+
+<section id="sec1">
+  <h2><span class="icon">🕋</span> مقدمة: ما هي العقيدة؟</h2>
+
+  <div class="definition-box">
+    <span class="label">📌 تعريف العقيدة</span>
+    من "العُقدة"، وهي الأمور التي تُصدّق بها النفوس وتطمئن إليها القلوب، وتكون يقينًا عند صاحبها لا يخالطه شك.
+  </div>
+
+  <p>هذه المحاضرة هي بداية مقرر العقيدة، مبنية على رسالة "العبادة" للشيخ الدكتور أسامة حامد حفظه الله، وهي الأساس الأول في مرحلة تأسيسية تبني المفاهيم الأساسية التي يحتاجها كل مسلم.</p>
+
+  <div class="key-point">
+    <span class="star">💡</span>
+    <div>العقيدة تجيب على أهم ثلاثة أسئلة تؤرق البشرية: <strong>من أين أتينا؟ ولماذا نحن هنا؟ وإلى أين المصير؟</strong> هذه الأسئلة تبدو بديهية للمسلم، لكنها تسبب أزمات نفسية عميقة لمن لا يجد لها جوابًا واضحًا.</div>
+  </div>
+
+  <table class="comparison-table">
+    <tr><th>أهمية العقيدة</th><th>البيان</th></tr>
+    <tr><td>تحقيق الطمأنينة النفسية</td><td>تجيب على أسئلة الوجود الكبرى بما يتوافق مع الفطرة والعقل.</td></tr>
+    <tr><td>أساس لجميع الأعمال</td><td>كل عبادة نؤديها أساسها إيماننا بوجود الله وأنه أمرنا بها.</td></tr>
+    <tr><td>سبيل دخول الجنة</td><td>العقيدة الصحيحة هي أساس قبول الأعمال والنجاة يوم القيامة.</td></tr>
+  </table>
+</section>
+
+<section id="sec2">
+  <h2><span class="icon">📜</span> لماذا نبدأ برسالة العبادة؟</h2>
+
+  <p>رسالة العبادة تجيب على سؤالين جوهريين: <strong>من هو المعبود؟</strong> و<strong>ما هي العبادة؟</strong> وقدّم لها المؤلف بمقدمة عن إثبات وجود الله تعالى، وهي محور هذه المحاضرة.</p>
+</section>
+
+<section id="sec3">
+  <h2><span class="icon">🗂️</span> لماذا نقسّم العلوم الشرعية؟</h2>
+
+  <div class="key-point">
+    <span class="star">💡</span>
+    <div>الشرع نزل كله متكاملًا مترابطًا، لكن العلماء قسّموه لتسهيل الدراسة: ما له صلة بالاعتقاد سُمّي "العقيدة"، وما له صلة بالعمل سُمّي "الفقه"، وما يساعد على الاستنباط سُمّي "أصول الفقه"، وهكذا.</div>
+  </div>
+
+  <div class="warning-box">
+    <span class="label">⚠️ تنبيه منهجي</span>
+    لا يصح أن يبدأ طالب العلم بدراسة القرآن مباشرة دون المرور بمراحل تأسيسية مرتبة، تمامًا كطفل يريد أن يدرس مناهج الدكتوراه وهو في الصف الأول الابتدائي — سيصاب بتشوش فكري ولن يصل إلى فهم صحيح.
+  </div>
+</section>
+
+<section id="sec4">
+  <h2><span class="icon">🔗</span> مراتب الإيمان بالله</h2>
+
+  <div class="flow-list">
+    <div class="flow-card"><div class="num">1</div><div><strong>الإيمان بوجود الله</strong> — الأساس الذي لا قيمة لأي شيء بدونه.</div></div>
+    <div class="flow-card"><div class="num">2</div><div><strong>الإيمان بربوبية الله</strong> — أنه الرب المالك المدبّر الذي خلق كل شيء.</div></div>
+    <div class="flow-card"><div class="num">3</div><div><strong>الإيمان بوحدانية الله في الربوبية</strong> — لا شريك له في الخلق والتدبير.</div></div>
+    <div class="flow-card"><div class="num">4</div><div><strong>الإيمان بألوهية الله</strong> — أنه وحده المستحق للعبادة.</div></div>
+    <div class="flow-card"><div class="num">5</div><div><strong>الإيمان بوحدانيته في الألوهية</strong> — لا يُعبد سواه.</div></div>
+    <div class="flow-card"><div class="num">6</div><div><strong>الإيمان بأسماء الله وصفاته</strong> — تُدرس بالتفصيل في مراحل متقدمة.</div></div>
+  </div>
+
+  <div class="key-point">
+    <span class="star">💡</span>
+    <div>هذه المحاضرة تركز فقط على المرتبة الأولى: <strong>الإيمان بوجود الله</strong>، لأن الوسواس حول هذه النقطة يأتي لكل الناس، حتى الصحابة سألوا عنه، فقال لهم النبي صلى الله عليه وسلم: "هذا صريح الإيمان".</div>
+  </div>
+</section>
+
+<section id="sec5">
+  <h2><span class="icon">❓</span> لماذا ينكر البعض وجود الله؟</h2>
+
+  <table class="comparison-table">
+    <tr><th>السبب</th><th>البيان</th></tr>
+    <tr>
+      <td><strong>الشبهة (أفكار فاسدة)</strong></td>
+      <td>ينشأ الشخص على عقيدة فاسدة أو تفكير فلسفي معين يوصله إلى إنكار وجود خالق، رغم أن كل شيء في الكون يشهد بعكس ذلك.</td>
+    </tr>
+    <tr>
+      <td><strong>الشهوة (الرغبة في التحرر من القيود)</strong></td>
+      <td>الرغبة في العبث دون رقيب، فيقنع نفسه بعدم وجود حساب حتى يفعل ما يريد دون تأنيب ضمير.</td>
+    </tr>
+  </table>
+
+  <div class="key-point">
+    <span class="star">💡</span>
+    <div>الشهوة تعمل كـ"الصابون المزلق" الذي يجعل الشبهة تمر بسهولة، حتى لو لم تكن منطقية أصلًا؛ فصاحب الشهوة يتقبل أي شبهة تبرر له ما يريد فعله.</div>
+  </div>
+</section>
+
+<div class="divider">۞</div>
+
+<section id="sec6">
+  <h2><span class="icon">1️⃣</span> الدليل الأول: دليل الشرع</h2>
+
+  <div class="definition-box">
+    <span class="label">📌 المقصود بدليل الشرع</span>
+    ليس المقصود إثبات وجود الله لأن القرآن قال ذلك (فهذا دور لمن لا يؤمن بالقرآن أصلًا)، بل المقصود: <strong>الطريقة</strong> التي سلكها الشرع والأنبياء في دعوة الناس، وهي: ذكر آيات الله (مخلوقاته) وبيان أنه خالقها، ومن ثم دعوة الناس لعبادته.
+  </div>
+
+  <div class="evidence-block">
+    <span class="label">📜 الدليل - أول نداء في سورة البقرة</span>
+    <span class="arabic-emph">"يَا أَيُّهَا النَّاسُ اعْبُدُوا رَبَّكُمُ الَّذِي خَلَقَكُمْ وَالَّذِينَ مِنْ قَبْلِكُمْ لَعَلَّكُمْ تَتَّقُونَ الَّذِي جَعَلَ لَكُمُ الْأَرْضَ فِرَاشًا وَالسَّمَاءَ بِنَاءً وَأَنْزَلَ مِنَ السَّمَاءِ مَاءً فَأَخْرَجَ بِهِ مِنَ الثَّمَرَاتِ رِزْقًا لَكُمْ"</span>
+    <div class="source">سورة البقرة، آيات 21-22</div>
+  </div>
+
+  <div class="key-point">
+    <span class="star">💡</span>
+    <div>لاحظ الترتيب: أولًا دعا الله الناس للعبادة، ثم ذكر آياته (الأرض فراشًا، والسماء بناءً، والماء والثمرات)؛ وهذا خطاب يجمع بين العقل والوجدان معًا.</div>
+  </div>
+
+  <div class="evidence-block">
+    <span class="label">📜 دليل آخر - سورة إبراهيم</span>
+    <span class="arabic-emph">"أَفِي اللَّهِ شَكٌّ فَاطِرِ السَّمَاوَاتِ وَالْأَرْضِ"</span>
+    <div class="source">سورة إبراهيم، آية 10</div>
+    <p style="margin-top:10px;">"الفاطر" أي الذي خلق من غير مثال سابق، فمن خلق كل هذا كيف يُشك في وجوده؟</p>
+  </div>
+
+  <div class="evidence-block">
+    <span class="label">📜 دليل - الرد على عقيدة النصارى</span>
+    <span class="arabic-emph">"مَا الْمَسِيحُ ابْنُ مَرْيَمَ إِلَّا رَسُولٌ قَدْ خَلَتْ مِنْ قَبْلِهِ الرُّسُلُ وَأُمُّهُ صِدِّيقَةٌ كَانَا يَأْكُلَانِ الطَّعَامَ"</span>
+    <div class="source">سورة المائدة، آية 75</div>
+    <p style="margin-top:10px;">الشاهد: من يأكل الطعام يحتاج إلى شيء آخر ليقوم به، والإله لا يمكن أن يكون فقيرًا أو محتاجًا؛ فالإله الحقيقي غني بذاته تمام الغنى.</p>
+  </div>
+
+  <div class="action-card">
+    <span class="label">✅ خلاصة الدليل الأول</span>
+    الطريقة الشرعية أثبتت أن هناك ربًا موصوفًا بأنه خالق كل شيء، غني تمام الغنى، تام القدرة؛ بخلاف الإنسان الذي الفقر لازم له (يحتاج للنوم، الأكل، الراحة باستمرار).
+  </div>
+</section>
+
+<section id="sec7">
+  <h2><span class="icon">2️⃣</span> الدليل الثاني: دليل الفطرة</h2>
+
+  <div class="definition-box">
+    <span class="label">📌 تعريف الفطرة</span>
+    الخِلقة الأولى التي فطر الله الناس عليها، لا تبديل لها. هي بمثابة "السوفت وير" الذي يُخلق الإنسان به، ومنه: معرفة أن له ربًا خلقه.
+  </div>
+
+  <div class="evidence-block">
+    <span class="label">📜 الدليل</span>
+    <span class="arabic-emph">"وَإِذْ أَخَذَ رَبُّكَ مِنْ بَنِي آدَمَ مِنْ ظُهُورِهِمْ ذُرِّيَّتَهُمْ وَأَشْهَدَهُمْ عَلَىٰ أَنْفُسِهِمْ أَلَسْتُ بِرَبِّكُمْ قَالُوا بَلَىٰ"</span>
+    <div class="source">سورة الأعراف، آية 172</div>
+  </div>
+
+  <div class="evidence-block">
+    <span class="label">📜 حديث قدسي</span>
+    <span class="arabic-emph">"إني خلقت عبادي حنفاء كلهم، وإنهم أتتهم الشياطين فاجتالتهم عن دينهم"</span>
+    <div class="source">رواه مسلم</div>
+    <p style="margin-top:10px;">"حنفاء" أي مائلين إلى الله فطرة، لكن الشياطين تبعدهم عن هذا الميل الفطري.</p>
+  </div>
+
+  <table class="comparison-table">
+    <tr><th>فائدة الفطرة</th><th>البيان</th></tr>
+    <tr>
+      <td>1. الاستجابة لدعوة الرسل</td>
+      <td>الفطرة تجعل الناس يستجيبون حين يخاطبهم الرسل بآيات الله، لئلا يكون للناس على الله حجة بعد الرسل.</td>
+    </tr>
+    <tr>
+      <td>2. الظهور وقت الشدائد</td>
+      <td>عند انقطاع الأسباب (كالمصائب أو الخوف الشديد)، تظهر الفطرة وتدفع الإنسان للالتجاء إلى الله ولو كان غافلًا من قبل.</td>
+    </tr>
+  </table>
+
+  <div class="evidence-block">
+    <span class="label">📜 مثال قرآني - أهل السفينة</span>
+    <span class="arabic-emph">"حَتَّىٰ إِذَا كُنْتُمْ فِي الْفُلْكِ وَجَرَيْنَ بِهِمْ بِرِيحٍ طَيِّبَةٍ وَفَرِحُوا بِهَا جَاءَتْهَا رِيحٌ عَاصِفٌ... دَعَوُا اللَّهَ مُخْلِصِينَ لَهُ الدِّينَ لَئِنْ أَنْجَيْتَنَا مِنْ هَٰذِهِ لَنَكُونَنَّ مِنَ الشَّاكِرِينَ"</span>
+    <div class="source">سورة يونس، آية 22</div>
+  </div>
+
+  <div class="key-point">
+    <span class="star">💡</span>
+    <div><strong>مثال معاصر:</strong> راكب طائرة يمر بمطبات هوائية شديدة، تجده يلتجئ إلى الله فورًا وينسى كل غفلته السابقة — هذا دليل حي على أن الفطرة موجودة في كل إنسان، وتظهر وقت الشدة حتى عند من كان غافلًا عنها.</div>
+  </div>
+
+  <div class="warning-box">
+    <span class="label">⚠️ تنبيه</span>
+    الإنسان ليس محاسبًا على الفطرة بذاتها (فلا أحد يتذكر ميثاق الذر)، لكنها موجودة لتظهر وقت اللزوم وتساعده على الاستجابة للحق.
+  </div>
+</section>
+
+<section id="sec8">
+  <h2><span class="icon">3️⃣</span> الدليل الثالث: الاستدلال بالله على الله</h2>
+
+  <div class="definition-box">
+    <span class="label">📌 المقصود</span>
+    أن نشهد بأنفسنا أمورًا كثيرة تدل على وجود الله واستجابته، مثل استجابة الدعاء والهداية، وهذا دليل مباشر ملموس على وجوده سبحانه.
+  </div>
+
+  <div class="evidence-block">
+    <span class="label">📜 الدليل</span>
+    <span class="arabic-emph">"وَكَفَىٰ بِرَبِّكَ هَادِيًا وَنَصِيرًا"</span>
+    <div class="source">سورة الفرقان، آية 31</div>
+  </div>
+
+  <div class="key-point">
+    <span class="star">💡</span>
+    <div><strong>مثال تطبيقي:</strong> كثير من غير المسلمين أسلموا بعد أن دعوا الله بصدق: "يا رب اهدني"، فهداهم الله للإسلام رغم عدم التزامهم من قبل — هذا التكرار للظاهرة عبر الأزمنة والأماكن المختلفة دليل قوي على استجابة رب حقيقي موجود.</div>
+  </div>
+</section>
+
+<section id="sec9">
+  <h2><span class="icon">4️⃣</span> الدليل الرابع: معجزات الرسل</h2>
+
+  <div class="definition-box">
+    <span class="label">📌 المقصود بمعجزات الرسل</span>
+    أمور خارقة للطبيعة أعطاها الله لأنبيائه لتثبت صدقهم في أنهم مرسلون من عنده، بحيث تخرق القوانين الكونية المعتادة ثم تعود لطبيعتها.
+  </div>
+
+  <table class="comparison-table">
+    <tr><th>شرط المعجزة</th><th>البيان</th></tr>
+    <tr>
+      <td>صاحبها معروف بالصدق والأمانة طوال حياته</td>
+      <td>فلا يُتصور أن يكذب فجأة بعد عمر كامل من الصدق.</td>
+    </tr>
+    <tr>
+      <td>تأتي في مجال يبرع فيه قومه خصيصًا</td>
+      <td>ليتيقنوا أنها ليست خدعة أو حيلة، بل أمر خارق حقيقي.</td>
+    </tr>
+  </table>
+
+  <h3 class="sub-heading">مثال: سيدنا موسى عليه السلام وفرعون في مصر</h3>
+
+  <p>قوم سيدنا موسى (المصريون القدماء في عصر الفراعنة) كانوا بارعين جدًا في السحر، فأتاهم بمعجزة العصا التي تحوّلت إلى ثعبان حقيقي يبتلع حبالهم وعصيّهم، فكانت أعظم من كل سحرهم، فأيقن سحرة فرعون أنها ليست سحرًا وسجدوا فورًا.</p>
+
+  <div class="map-block">
+    <svg viewBox="0 0 500 420" xmlns="http://www.w3.org/2000/svg" style="max-width:380px;width:100%;height:auto;">
+      <rect width="500" height="420" fill="#f4ecd8"/>
+      <rect x="0" y="0" width="500" height="55" fill="#a9cfd8"/>
+      <text x="250" y="32" text-anchor="middle" font-size="15" fill="#1f4d3d" font-family="Cairo, sans-serif" font-weight="700">البحر الأبيض المتوسط</text>
+      <path d="M230,55 L200,110 L300,110 Z" fill="#7fbf9e" opacity="0.6"/>
+      <text x="250" y="100" text-anchor="middle" font-size="12" fill="#1f4d3d" font-family="Cairo, sans-serif">الدلتا</text>
+      <path d="M250,110 C 245,160 260,200 250,250 C 240,300 258,330 250,380" stroke="#2f6b52" stroke-width="10" fill="none"/>
+      <text x="290" y="220" font-size="14" fill="#1f4d3d" font-family="Amiri, serif" font-weight="700">نهر النيل</text>
+      <polygon points="180,140 200,110 220,140" fill="#c9973a"/>
+      <polygon points="160,145 180,118 200,145" fill="#e8c777"/>
+      <text x="140" y="165" font-size="12" fill="#6b4a2f" font-family="Cairo, sans-serif" font-weight="700">أهرامات الجيزة</text>
+      <circle cx="250" cy="150" r="5" fill="#8c3b2e"/>
+      <text x="265" y="153" font-size="12" fill="#3b2a1a" font-family="Cairo, sans-serif">منف</text>
+      <circle cx="250" cy="330" r="5" fill="#8c3b2e"/>
+      <text x="265" y="333" font-size="12" fill="#3b2a1a" font-family="Cairo, sans-serif">طيبة (الأقصر)</text>
+      <text x="80" y="250" font-size="12" fill="#a9772a" font-family="Cairo, sans-serif">الصحراء الغربية</text>
+      <text x="380" y="250" font-size="12" fill="#a9772a" font-family="Cairo, sans-serif">الصحراء الشرقية</text>
+      <path d="M430,200 C 440,250 435,300 425,350" stroke="#c96a5a" stroke-width="8" fill="none" opacity="0.5"/>
+      <text x="440" y="270" font-size="11" fill="#8c3b2e" font-family="Cairo, sans-serif" transform="rotate(90 440 270)">البحر الأحمر</text>
+      <text x="460" y="30" font-size="16" fill="#3b2a1a">⬆</text>
+      <text x="455" y="45" font-size="10" fill="#3b2a1a" font-family="Cairo, sans-serif">شمال</text>
+    </svg>
+    <div class="cap">🗺️ خريطة توضيحية مبسّطة لمصر الفرعونية القديمة على ضفاف نهر النيل، حيث دارت أحداث قصة سيدنا موسى وفرعون</div>
+  </div>
+
+  <div class="evidence-block">
+    <span class="label">📜 الدليل</span>
+    <span class="arabic-emph">"فَأُلْقِيَ السَّحَرَةُ سَاجِدِينَ"</span>
+    <div class="source">سورة الأعراف، آية 120</div>
+  </div>
+
+  <div class="key-point">
+    <span class="star">💡</span>
+    <div>حتى عندما هددهم فرعون بالقتل والصلب، قالوا: <strong>"لَنْ نُؤْثِرَكَ عَلَىٰ مَا جَاءَنَا مِنَ الْبَيِّنَاتِ وَالَّذِي فَطَرَنَا"</strong> — لأنهم أهل خبرة بالسحر، فعرفوا يقينًا أن ما رأوه ليس سحرًا.</div>
+  </div>
+
+  <p>وكذلك معجزة النبي محمد صلى الله عليه وسلم الكبرى: <strong>القرآن الكريم</strong>، الذي تحدى به العرب في وقت بلغوا فيه ذروة الفصاحة والبلاغة، فعجزوا عن الإتيان بمثله.</p>
+</section>
+
+<section id="sec10">
+  <h2><span class="icon">5️⃣</span> الدليل الخامس: إجماع الأمم</h2>
+
+  <div class="definition-box">
+    <span class="label">📌 المقصود بإجماع الأمم</span>
+    أن كل الأمم عبر التاريخ، على اختلاف أماكنها وأزمانها، أجمعت على وجود خالق للكون، حتى وإن انحرفت لاحقًا في تفاصيل هذا الاعتقاد (كعبادة الأصنام أو تعدد الآلهة).
+  </div>
+
+  <div class="evidence-block">
+    <span class="label">📜 الدليل - إقرار المشركين بالخالق</span>
+    <span class="arabic-emph">"وَلَئِنْ سَأَلْتَهُمْ مَنْ خَلَقَ السَّمَاوَاتِ وَالْأَرْضَ لَيَقُولُنَّ اللَّهُ"</span>
+    <div class="source">سورة لقمان، آية 25</div>
+  </div>
+
+  <div class="key-point">
+    <span class="star">💡</span>
+    <div>حتى العرب المشركون قبل الإسلام كانوا يقرّون بأن الله هو خالقهم وخالق الكون، لكنهم عبدوا معه شركاء يزعمون أنهم يقرّبونهم إلى الله زلفى — وهذا اعتراف عجيب يدل على رسوخ فكرة وجود الخالق حتى في أشد الأمم انحرافًا.</div>
+  </div>
+
+  <table class="comparison-table">
+    <tr><th>الحضارة</th><th>مظهر الإيمان بوجود إله/خالق</th></tr>
+    <tr><td>الهندوس</td><td>لديهم قصص عن الأنبياء تشابه القصص القرآنية (كمزج قصة نوح ويونس)</td></tr>
+    <tr><td>مصر الفرعونية القديمة</td><td>فكرة الصراط، والميزان، والحساب بعد الموت، والحياة الأخرى</td></tr>
+    <tr><td>الأعراب المشركون</td><td>كانوا يقرّون بأن الله هو خالقهم رغم شركهم في العبادة</td></tr>
+  </table>
+
+  <div class="warning-box">
+    <span class="label">⚠️ تفسير الانحراف عبر التاريخ</span>
+    قوم نوح عبدوا الله في البداية، ثم صنعوا تماثيل لتخليد ذكرى الصالحين، وبعد أجيال أوهمهم الشيطان أن هذه التماثيل هي من "خلقتهم"، فتحوّل التذكّر إلى عبادة للأصنام نفسها. هذا يفسر وجود بقايا التوحيد الفطري في كل الحضارات رغم انحرافها لاحقًا.
+  </div>
+
+  <div class="key-point">
+    <span class="star">💡</span>
+    <div>حتى في العصر الحديث، رغم انتشار الإلحاد لفترة باسم "العلم"، بدأت الأديان تنتشر من جديد بقوة، لأن فكرة الإلحاد لا تلبي فطرة الإنسان ولا يستطيع العيش بها فعليًا.</div>
+  </div>
+</section>
+
+<section id="sec11">
+  <h2><span class="icon">6️⃣</span> الدليل السادس: القياس العقلي</h2>
+
+  <div class="definition-box">
+    <span class="label">📌 المقصود بالقياس العقلي</span>
+    أن كل شيء موجود له صانع بالضرورة، وطالما نحن موجودون فلا بد أن يكون لنا خالق، إذ يستحيل عقلًا أن يكون الإنسان قد خُلق من غير شيء أو أنه خلق نفسه بنفسه.
+  </div>
+
+  <div class="evidence-block">
+    <span class="label">📜 الدليل</span>
+    <span class="arabic-emph">"أَمْ خُلِقُوا مِنْ غَيْرِ شَيْءٍ أَمْ هُمُ الْخَالِقُونَ أَمْ خَلَقُوا السَّمَاوَاتِ وَالْأَرْضَ بَلْ لَا يُوقِنُونَ"</span>
+    <div class="source">سورة الطور، آيات 35-36</div>
+  </div>
+
+  <div class="key-point">
+    <span class="star">💡</span>
+    <div>الآية نفت عن المخلوق وصفين بطريق الاستفهام الإنكاري: أنهم خُلقوا من غير خالق (مستحيل عقلًا)، وأنهم خلقوا أنفسهم (أشنع استحالة)؛ فلا يبقى إلا أن لهم خالقًا حقًا.</div>
+  </div>
+
+  <div class="evidence-block">
+    <span class="label">📜 دليل آخر - التأمل في خلق الإنسان</span>
+    <span class="arabic-emph">"وَفِي أَنْفُسِكُمْ أَفَلَا تُبْصِرُونَ"</span>
+    <div class="source">سورة الذاريات، آية 21</div>
+  </div>
+
+  <h3 class="sub-heading">أمثلة من دقة خلق الإنسان</h3>
+  <ul class="styled-list">
+    <li>العينان في مقدمة الرأس، تتحركان معًا لتمكين الرؤية الموحدة.</li>
+    <li>الحواجب فوق العينين لمنع تسرب العرق داخلها.</li>
+    <li>فتحتا الأنف موجّهتان لأسفل حتى لا يعيق الهواء المواجه حركة الإنسان.</li>
+    <li>الأسنان الأمامية للقطع والخلفية للطحن، بترتيب وظيفي دقيق.</li>
+    <li>أصابع القدمين قصيرة (بعكس أصابع اليد) لتوفير ثبات المشي دون كسر.</li>
+  </ul>
+
+  <div class="evidence-block">
+    <span class="label">📜 دليل آخر - استحالة تعدد الآلهة</span>
+    <span class="arabic-emph">"لَوْ كَانَ فِيهِمَا آلِهَةٌ إِلَّا اللَّهُ لَفَسَدَتَا"</span>
+    <div class="source">سورة الأنبياء، آية 22</div>
+  </div>
+
+  <table class="comparison-table">
+    <tr><th>الاحتمال</th><th>لماذا مستحيل</th></tr>
+    <tr><td>تعدد الآلهة مع الاتفاق التام</td><td>طبيعة الألوهية تقتضي الاستقلال والسيطرة الكاملة، فلا يقبل إله وجود شريك في القرار.</td></tr>
+    <tr><td>تعدد الآلهة مع الاختلاف</td><td>يؤدي لتناقض في نظام الكون (كل إله يفعل ما يريد في نفس الشيء)، وهذا غير مشاهد في الواقع.</td></tr>
+    <tr><td>أحدهما أقوى من الآخر</td><td>فالأقوى وحده هو المستحق للألوهية، والأضعف لا يستحقها؛ فيبقى إله واحد فقط.</td></tr>
+  </table>
+</section>
+
+<section id="sec12">
+  <h2><span class="icon">🧮</span> الرد على شبهة "نظرية الصدفة"</h2>
+
+  <div class="warning-box">
+    <span class="label">⚠️ الشبهة</span>
+    بعض من ينكرون وجود الله يقولون إن الكون نشأ من انفجار عشوائي (انفجار كبير)، ثم تطورت المخلوقات عبر الانتخاب الطبيعي حتى وصلت لأفضل صورة، دون الحاجة لخالق.
+  </div>
+
+  <div class="flow-list">
+    <div class="flow-card">
+      <div class="num">1</div>
+      <div><strong>من الذي أوجد الانفجار الأولي أصلًا؟</strong> — كل شيء لا بد له من موجد، وهذا السؤال يعيدنا حتمًا لضرورة وجود خالق أول.</div>
+    </div>
+    <div class="flow-card">
+      <div class="num">2</div>
+      <div><strong>غياب العشوائية في تناسق الكون:</strong> كل مخلوق مزوّد بالضبط بما يحتاجه للعيش (كالطائر بجناحيه المناسبين للطيران)، وهذا التوافق الدقيق بين الكائن وبيئته لا يمكن أن يكون محض صدفة.</div>
+    </div>
+    <div class="flow-card">
+      <div class="num">3</div>
+      <div><strong>غياب الأدلة على "التطور الكامل" بين الأنواع:</strong> لم يُشاهد كائن يتحول من نوع إلى نوع مختلف تمامًا (كتحول حيوان إلى إنسان)، وما يُستخدم كدليل غالبًا هو تنوع داخل النوع الواحد فقط.</div>
+    </div>
+    <div class="flow-card">
+      <div class="num">4</div>
+      <div><strong>الحساب الاحتمالي:</strong> علم الإحصاء يقول إن قسمة احتمال معين على عدد لا نهائي من الاحتمالات يعطي نتيجة تقارب الصفر؛ فاحتمال نشوء هذا التناسق الكوني الدقيق بالصدفة البحتة ضعيف للغاية رياضيًا.</div>
+    </div>
+  </div>
+
+  <div class="evidence-block">
+    <span class="label">📜 قصة الإمام أبي حنيفة مع طائفة السمنية</span>
+    <span class="arabic-emph">لما طلبوا مناظرته وتأخر عليهم، قال: "رأيت أمرًا عجبًا؛ رأيت الشجر يتقطع لوحده ويصنع مركبًا يعبر به الناس من ضفة النهر إلى الأخرى ثم يرجع"، فاستنكروا هذا الكلام قائلين إنه مستحيل عقلًا. فقال لهم: "فكيف تقبلون أن الكون كله بكل تعقيده نشأ صدفة؟"</span>
+    <div class="source">من مأثورات أبي حنيفة رحمه الله</div>
+  </div>
+
+  <div class="key-point">
+    <span class="star">💡</span>
+    <div><strong>مثال توضيحي:</strong> لو تركت طفلًا صغيرًا يكتب عشوائيًا على برنامج "وورد" لمدة عام كامل، فلن يخرج منه مقالة مترابطة الأفكار وبليغة اللغة. فكيف يُقبل أن كتابًا متكامل التنسيق (كالكون) نشأ من فوضى عشوائية دون كاتب؟</div>
+  </div>
+</section>
+
+<section id="sec13">
+  <h2><span class="icon">🎯</span> خلاصة الأدلة الستة</h2>
+
+  <table class="comparison-table">
+    <tr><th>الدليل</th><th>خلاصته</th></tr>
+    <tr><td>1. دليل الشرع</td><td>الطريقة التي اتبعها الأنبياء: ذكر آيات الله ثم دعوة الناس لعبادته.</td></tr>
+    <tr><td>2. دليل الفطرة</td><td>الله فطر الناس على معرفته، وتظهر هذه الفطرة وقت الشدائد.</td></tr>
+    <tr><td>3. الاستدلال بالله على الله</td><td>استجابة الدعاء والهداية دليل ملموس ومتكرر على وجوده.</td></tr>
+    <tr><td>4. معجزات الرسل</td><td>أمور خارقة تخاطب أهل الاختصاص لتثبت صدق الرسل.</td></tr>
+    <tr><td>5. إجماع الأمم</td><td>كل الأمم عبر التاريخ أجمعت على وجود خالق رغم اختلاف تفاصيل عقائدها.</td></tr>
+    <tr><td>6. القياس العقلي</td><td>كل موجود له صانع، واستحالة تعدد الآلهة عقلًا، واستحالة نشوء هذا التناسق بالصدفة.</td></tr>
+  </table>
+
+  <div class="action-card">
+    <span class="label">✅ توصية عملية</span>
+    لا يلزم حفظ الأدلة الستة نصًا وحرفًا، لكن يلزم معرفة وجودها وفهم منطقها العام، حتى إذا واجهتك شبهة يومًا يكون عندك جهاز مناعة فكري جاهز، بدلًا من أن تُفاجأ وتفقد يقينك التام لمجرد ادّعاء شخص لا تعرف خلفيته.
+  </div>
+</section>
+
+<div class="bottom-anki">
+  <h3>🗂️ راجع المحاضرة بطريقة تفاعلية</h3>
+  <p>حمّل بطاقات الأنكي المستخرجة من هذه المحاضرة وراجعها في أي وقت</p>
+  <button class="anki-btn" onclick="downloadAnkiDeck()">🗂️ حمّل بطاقات أنكي</button>
+</div>
+
 </main>
 
-<footer>الأكاديمية الشرعية — طلب العلم عبادة</footer>
+<footer>
+  <p class="dua">اللهم ثبّت قلوبنا على الإيمان بك، وارزقنا اليقين التام في وجودك ووحدانيتك</p>
+  <p class="small">مقرر العقيدة — رسالة العبادة — تلخيص تعليمي</p>
+</footer>
+
+<script>
+const ankiCards = [
+["ما تعريف العقيدة؟","الأمور التي تصدق بها النفوس وتطمئن إليها القلوب وتكون يقينًا عند صاحبها لا يخالطه شك."],
+["ما الأسئلة الثلاثة الكبرى التي تجيب عليها العقيدة؟","من أين أتينا؟ لماذا نحن هنا؟ إلى أين المصير؟"],
+["على أي رسالة تُبنى محاضرات العقيدة هذه؟","رسالة العبادة للشيخ الدكتور أسامة حامد حفظه الله."],
+["ما السؤالان الجوهريان اللذان تجيب عليهما رسالة العبادة؟","من هو المعبود؟ وما هي العبادة؟"],
+["لماذا قسّم العلماء العلوم الشرعية إلى أبواب منفصلة؟","لتسهيل الدراسة، رغم أن الشرع نزل متكاملًا مترابطًا في الأصل."],
+["ما هي المرتبة الأولى من مراتب الإيمان بالله؟","الإيمان بوجود الله."],
+["ما هي مراتب الإيمان بالله الستة؟","وجود الله، ربوبيته، وحدانيته في الربوبية، ألوهيته، وحدانيته في الألوهية، أسماؤه وصفاته."],
+["ماذا قال النبي صلى الله عليه وسلم عن وسواس الشك في وجود الله؟","هذا صريح الإيمان."],
+["ما السببان الرئيسيان لإنكار بعض الناس وجود الله؟","الشبهة (أفكار فاسدة) والشهوة (الرغبة في التحرر من القيود والحساب)."],
+["ما المقصود بـ'دليل الشرع' في إثبات وجود الله؟","الطريقة التي اتبعها الأنبياء: ذكر آيات الله في الكون ثم دعوة الناس لعبادته."],
+["أكمل الآية: يا أيها الناس اعبدوا ربكم...","الذي خلقكم والذين من قبلكم لعلكم تتقون (البقرة: 21)"],
+["ما الدليل على أن سيدنا عيسى ووالدته ليسا إلهين؟","كانا يأكلان الطعام، والإله لا يمكن أن يكون محتاجًا أو فقيرًا."],
+["ما تعريف الفطرة؟","الخلقة الأولى التي فطر الله الناس عليها، لا تبديل لها."],
+["أكمل الحديث القدسي: إني خلقت عبادي حنفاء كلهم...","وإنهم أتتهم الشياطين فاجتالتهم عن دينهم (رواه مسلم)"],
+["ما فائدتا الفطرة الأساسيتان؟","الاستجابة لدعوة الرسل، والظهور وقت الشدائد والمصائب."],
+["هل الإنسان محاسب على الفطرة بذاتها؟","لا، لكنها موجودة لتساعده على الاستجابة للحق وقت اللزوم."],
+["ما مثال ظهور الفطرة وقت الشدة من سورة يونس؟","أهل السفينة الذين دعوا الله مخلصين حين جاءتهم ريح عاصفة."],
+["ما المقصود بدليل 'الاستدلال بالله على الله'؟","مشاهدة استجابة الدعاء والهداية بشكل متكرر وملموس، كدليل مباشر على وجود الله."],
+["ما تعريف معجزات الرسل؟","أمور خارقة للطبيعة أعطاها الله لأنبيائه لتثبت صدقهم في أنهم مرسلون من عنده."],
+["ما شرطا معجزة الرسول الصحيحة؟","أن يكون صاحبها معروفًا بالصدق طوال حياته، وأن تأتي في مجال يبرع فيه قومه خصيصًا."],
+["في أي مجال برع قوم سيدنا موسى وفرعون حتى جاءتهم المعجزة به؟","السحر."],
+["ماذا فعل سحرة فرعون عند رؤية معجزة سيدنا موسى؟","سجدوا فورًا لأنهم أهل خبرة بالسحر وأيقنوا أنه ليس سحرًا."],
+["ما أعظم معجزات النبي محمد صلى الله عليه وسلم؟","القرآن الكريم."],
+["ما المقصود بدليل 'إجماع الأمم'؟","أن كل الأمم عبر التاريخ أجمعت على وجود خالق للكون رغم انحرافها لاحقًا في التفاصيل."],
+["أكمل الآية: ولئن سألتهم من خلق السماوات والأرض...","ليقولن الله (لقمان: 25)"],
+["كيف انحرف قوم نوح من عبادة الله إلى عبادة الأصنام؟","صنعوا تماثيل لتذكر الصالحين، ثم أوهمهم الشيطان بعد أجيال أنها هي التي خلقتهم."],
+["ما المقصود بدليل 'القياس العقلي'؟","كل شيء موجود له صانع، فيستحيل أن يكون الإنسان خُلق من غير شيء أو خلق نفسه بنفسه."],
+["أكمل الآية: أم خلقوا من غير شيء أم هم الخالقون...","أم خلقوا السماوات والأرض بل لا يوقنون (الطور: 35-36)"],
+["أكمل الآية: وفي أنفسكم...","أفلا تبصرون (الذاريات: 21)"],
+["اذكر مثالًا على دقة خلق الإنسان التي تنفي الصدفة.","العينان في مقدمة الرأس تتحركان معًا، أو الحواجب لمنع تسرب العرق للعين."],
+["لماذا يستحيل تعدد الآلهة مع الاتفاق التام بينها؟","لأن طبيعة الألوهية تقتضي الاستقلال والسيطرة الكاملة دون شريك في القرار."],
+["لماذا يستحيل تعدد الآلهة مع اختلاف إرادتها؟","يؤدي لتناقض في نظام الكون، وهذا غير مشاهد في الواقع."],
+["ما أول سؤال يجب طرحه على من يؤمن بنظرية الانفجار العشوائي كتفسير لنشأة الكون؟","من الذي أوجد هذا الانفجار الأولي نفسه؟"],
+["ماذا قال أبو حنيفة لطائفة السمنية الذين أنكروا وجود الله؟","قصة الشجر الذي يصنع مركبًا لوحده، مبينًا استحالة قبولهم لذلك بينما يقبلون نشأة الكون صدفة."],
+["ما الأدلة الستة على وجود الله كما ذُكرت في المحاضرة؟","دليل الشرع، الفطرة، الاستدلال بالله على الله، معجزات الرسل، إجماع الأمم، القياس العقلي."]
+];
+
+function downloadAnkiDeck() {
+  let content = ankiCards.map(([q, a]) => {
+    const clean = s => s.replace(/\t/g, ' ').replace(/\r?\n/g, '<br>');
+    return `${clean(q)}\t${clean(a)}`;
+  }).join('\n');
+  const BOM = '\uFEFF';
+  const blob = new Blob([BOM + content], { type: 'text/plain;charset=utf-8' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'بطاقات_أنكي_أدلة_وجود_الله.txt';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+</script>
 
 </body>
 </html>
